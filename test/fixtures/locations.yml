@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  address: MyString
+  phone: MyString
+  charge_free_phone: MyString
+  website: MyString
+  gps_coord: MyString
+  ranking: 9.99
+  ranking_amount: 1
+  services: MyString
+  intoduction: MyString
+  interesting_stats: MyString
+  other_info: MyString
+  prizes: MyString
+  other_distinctions: MyString
+
+two:
+  name: MyString
+  address: MyString
+  phone: MyString
+  charge_free_phone: MyString
+  website: MyString
+  gps_coord: MyString
+  ranking: 9.99
+  ranking_amount: 1
+  services: MyString
+  intoduction: MyString
+  interesting_stats: MyString
+  other_info: MyString
+  prizes: MyString
+  other_distinctions: MyString

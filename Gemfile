@@ -43,3 +43,15 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
+
+# Adds Active Admin for rails 4
+gem 'devise',              github: 'plataformatec/devise'
+gem 'responders',          github: 'plataformatec/responders'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
+gem 'ransack',             github: 'ernie/ransack', branch: 'rails-4'
+gem 'activeadmin',         github: 'MaxCloutier/active_admin', branch: 'aventura'
+gem 'formtastic',          github: 'justinfrench/formtastic'
+
+# Adds the file upload in the forms
+gem 'mini_magick'
+gem 'carrierwave'

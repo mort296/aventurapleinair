@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  date_start: 2013-07-19
+  date_end: 2013-07-19
+  website: MyString
+  federation: MyString
+  federation_website: MyString
+  interesting_stats: MyString
+  history: MyString
+  description: MyString
+  other_info: MyString
+
+two:
+  date_start: 2013-07-19
+  date_end: 2013-07-19
+  website: MyString
+  federation: MyString
+  federation_website: MyString
+  interesting_stats: MyString
+  history: MyString
+  description: MyString
+  other_info: MyString

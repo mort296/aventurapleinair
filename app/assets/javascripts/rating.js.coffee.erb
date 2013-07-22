@@ -1,0 +1,15 @@
+$('ul.rating.hover li button').on 'click', ->
+  #if readCookie($(this).data("menu-id")).length != 1 
+    $.get "/menu/" + $(this).data("menu-id") + "/" + $(this).data("rating") + "/update"
+  #return
+
+readCookie = (name) ->
+  nameEQ = name + "="
+  ca = document.cookie.split(";")
+  i = 0
+  while i < ca.length
+    c = ca[i]
+    c = c.substring(1, c.length)  while c.charAt(0) is " "
+    return c.substring(nameEQ.length, c.length).replace(/"/g, '')  if c.indexOf(nameEQ) is 0
+    i++
+  ca

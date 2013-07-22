@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  header_image: MyString
+  background_image: MyString
+  about_us: MyString
+
+two:
+  header_image: MyString
+  background_image: MyString
+  about_us: MyString
