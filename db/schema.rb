@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130719201036) do
+ActiveRecord::Schema.define(version: 20130725031114) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -41,12 +41,24 @@ ActiveRecord::Schema.define(version: 20130719201036) do
     t.string   "equipment"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "season_id"
+    t.integer  "activity_categories_id"
   end
 
   create_table "activity_categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "activity_event", force: true do |t|
+    t.integer "activity_id"
+    t.integer "event_id"
+  end
+
+  create_table "activity_location", force: true do |t|
+    t.integer "activity_id"
+    t.integer "location_id"
   end
 
   create_table "admin_users", force: true do |t|
@@ -85,6 +97,7 @@ ActiveRecord::Schema.define(version: 20130719201036) do
     t.string   "other_info"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "season_id"
   end
 
   create_table "homes", force: true do |t|
@@ -96,10 +109,11 @@ ActiveRecord::Schema.define(version: 20130719201036) do
   end
 
   create_table "links", force: true do |t|
-    t.string   "type"
     t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "linkable_id"
+    t.string   "linkable_type"
   end
 
   create_table "locations", force: true do |t|
@@ -119,6 +133,7 @@ ActiveRecord::Schema.define(version: 20130719201036) do
     t.string   "other_distinctions"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "administrative_regions_id"
   end
 
   create_table "seasons", force: true do |t|
