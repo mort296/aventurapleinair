@@ -3,7 +3,7 @@
 //= require jquery_ujs
 
 //= require active_admin/application
-//= require tiny_mce/tiny_mce
+/* require tiny_mce/tiny_mce
 
 $(document).ready(function() {
   tinyMCE.init({
@@ -16,4 +16,4 @@ $(document).ready(function() {
     plugins : 'inlinepopups',
 	selector: '.tinymce',
    });
-});
+});*/
