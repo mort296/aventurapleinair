@@ -8,9 +8,10 @@ class AddRelations < ActiveRecord::Migration
       t.belongs_to :activity
       t.belongs_to :event
     end
-    change_table :links do |t|
-      t.references :linkable, :polymorphic => true
-    end
+
+    add_column :links, :linkable_id, :integer
+    add_column :links, :linkable_type, :string
+
     remove_column :links, :type
     add_column :activities, :season_id, :integer
     add_column :events, :season_id, :integer
