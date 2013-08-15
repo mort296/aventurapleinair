@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130725031114) do
+ActiveRecord::Schema.define(version: 20130814111435) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -42,23 +42,25 @@ ActiveRecord::Schema.define(version: 20130725031114) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "season_id"
-    t.integer  "activity_categories_id"
+    t.integer  "activity_category_id"
+    t.string   "video_link"
+    t.boolean  "online"
+  end
+
+  create_table "activities_events", force: true do |t|
+    t.integer "activity_id"
+    t.integer "event_id"
+  end
+
+  create_table "activities_locations", force: true do |t|
+    t.integer "activity_id"
+    t.integer "location_id"
   end
 
   create_table "activity_categories", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "activity_event", force: true do |t|
-    t.integer "activity_id"
-    t.integer "event_id"
-  end
-
-  create_table "activity_location", force: true do |t|
-    t.integer "activity_id"
-    t.integer "location_id"
   end
 
   create_table "admin_users", force: true do |t|
@@ -98,6 +100,9 @@ ActiveRecord::Schema.define(version: 20130725031114) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "season_id"
+    t.string   "name"
+    t.boolean  "online"
+    t.integer  "location_id"
   end
 
   create_table "homes", force: true do |t|
@@ -110,10 +115,10 @@ ActiveRecord::Schema.define(version: 20130725031114) do
 
   create_table "links", force: true do |t|
     t.string   "url"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "linkable_id"
     t.string   "linkable_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "locations", force: true do |t|
@@ -133,13 +138,21 @@ ActiveRecord::Schema.define(version: 20130725031114) do
     t.string   "other_distinctions"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "administrative_regions_id"
+    t.integer  "administrative_region_id"
+    t.boolean  "online"
   end
 
   create_table "seasons", force: true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "top_10", force: true do |t|
+    t.integer "toptable_id"
+    t.string  "toptable_type"
+    t.string  "name"
+    t.decimal "rating"
   end
 
 end
