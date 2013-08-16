@@ -50,3 +50,5 @@ gem 'activeadmin',         github: 'MaxCloutier/active_admin', branch: 'aventura
 # Adds the file upload in the forms
 gem 'mini_magick'
 gem 'carrierwave'
+
+gem 'tinymce-rails'
