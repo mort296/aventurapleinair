@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130814111435) do
+ActiveRecord::Schema.define(version: 20130823014218) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -24,9 +27,9 @@ ActiveRecord::Schema.define(version: 20130814111435) do
     t.string   "namespace"
   end
 
-  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace"
-  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+  add_index "active_admin_comments", ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+  add_index "active_admin_comments", ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+  add_index "active_admin_comments", ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
 
   create_table "activities", force: true do |t|
     t.string   "name"
@@ -45,6 +48,7 @@ ActiveRecord::Schema.define(version: 20130814111435) do
     t.integer  "activity_category_id"
     t.string   "video_link"
     t.boolean  "online"
+    t.integer  "pub_id"
   end
 
   create_table "activities_events", force: true do |t|
@@ -78,8 +82,8 @@ ActiveRecord::Schema.define(version: 20130814111435) do
     t.datetime "updated_at"
   end
 
-  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
-  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+  add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+  add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "administrative_regions", force: true do |t|
     t.string   "name"
@@ -140,6 +144,14 @@ ActiveRecord::Schema.define(version: 20130814111435) do
     t.datetime "updated_at"
     t.integer  "administrative_region_id"
     t.boolean  "online"
+    t.integer  "pub_id"
+  end
+
+  create_table "ratings", force: true do |t|
+    t.integer "ratable_id"
+    t.string  "ratable_type"
+    t.decimal "rate",         default: 0.0
+    t.integer "rater_amount", default: 0
   end
 
   create_table "seasons", force: true do |t|
@@ -149,10 +161,16 @@ ActiveRecord::Schema.define(version: 20130814111435) do
   end
 
   create_table "top_10", force: true do |t|
-    t.integer "toptable_id"
-    t.string  "toptable_type"
-    t.string  "name"
-    t.decimal "rating"
+    t.string "text_top"
+    t.string "text_bottom"
+  end
+
+  create_table "useful_links", force: true do |t|
+    t.integer  "location_id"
+    t.string   "name"
+    t.string   "icon"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end
