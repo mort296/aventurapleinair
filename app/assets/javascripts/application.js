@@ -10,6 +10,7 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require modernizr-2.6.2-respond-1.1.0.min
 //= require jquery
 //= require turbolinks
 //= require jquery_ujs
