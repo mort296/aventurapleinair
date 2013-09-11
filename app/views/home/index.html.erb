@@ -1,14 +1,12 @@
 <% title 'Accueil' %>
 <header>
-	<nav class="social-nav">		
-		<ul>
-			<li><%= link_to image_tag('fb-icon.png', :alt => 'Facebook page'), 'http://facebook.com', :target => '_blank' %></li>
-			<li><%= link_to image_tag('gp-icon.png', :alt => 'Google + page'), 'http://plus.google.com', :target => '_blank' %></li>
-			<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page'), 'http://twitter.com', :target => '_blank' %></li>
-			<li><%= link_to	'Hiver', 'winter_url' %></li>
-			<li><%= link_to	'English', 'english_url' %></li>
-		</ul>
-	</nav>
+	<ul class="social-nav">
+		<li><%= link_to image_tag('fb-icon.png', :alt => 'Facebook page'), 'http://facebook.com', :target => '_blank' %></li>
+		<li><%= link_to image_tag('gp-icon.png', :alt => 'Google + page'), 'http://plus.google.com', :target => '_blank' %></li>
+		<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page'), 'http://twitter.com', :target => '_blank' %></li>
+		<li><%= link_to	'Hiver', 'winter_url' %></li>
+		<li><%= link_to	'English', 'english_url' %></li>
+	</ul>
 	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air'), root_url %>
 	<form>
 		<input type="text" name="search" placeholder="Recherche..." />
@@ -60,15 +58,15 @@
 </div>
 <footer>
 	<div class="footer-top">
-		<section class="social-medias">
+		<div class="social-medias">
 			<ul>
 				<li><h1>Communautaire</h1></li>
 				<li><%= link_to image_tag('fb-icon.png', :alt => 'Facebook page') + ' Facebook', 'http://facebook.com', :target => '_blank' %></li>
 				<li><%= link_to image_tag('gp-icon.png', :alt => 'Google + page') + ' Google+', 'http://plus.google.com', :target => '_blank' %></li>
 				<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page') + ' Twitter', 'http://twitter.com', :target => '_blank' %></li>
 			</ul>
-		</section>
-		<section class="newsletter">
+		</div>
+		<div class="newsletter">
 			<form action="http://aventurapleinair.us7.list-manage.com/subscribe/post?u=76f07b350800281685ec9af96&amp;id=dada7784fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate clearfix" target="_blank" novalidate>
 				<h1>Infolettre</h1>
 				<p>Retrouvez toute l'actualité de vos activités favorites</p>
@@ -76,7 +74,7 @@
 				<button type="submit" class="submit">Ok</button>
 				</ul>
 			</form>
-		</section>
+		</div>
 		
 		<section class="description-max">
 			<%= image_tag 'max-image.png' %>
