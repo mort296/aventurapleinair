@@ -1,0 +1,32 @@
+<header class="header">
+	<nav class="options-nav">
+		<ul>
+			<li class="season" ><%= link_to	'Hiver', 'winter_url' %></li>
+			<li class="language" ><%= link_to	'English', 'english_url' %></li>
+		</ul>
+	</nav>
+	<ul class="social-nav">
+		<li><%= link_to image_tag('facebook-icon.png', :alt => 'Facebook page'), 'http://facebook.com', :target => '_blank' %></li>
+		<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page'), 'http://plus.google.com', :target => '_blank' %></li>
+		<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page'), 'http://twitter.com', :target => '_blank' %></li>
+	</ul>
+	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air'), root_url %>
+	<div class="right-side">
+		<form>
+			<input type="email" name="search" placeholder="Recherche..." />
+			<button type="submit">Ok</button>
+		</form>
+		<nav class="main-nav">
+			<h1>Navigation principale</h1>
+			<ul>
+				<li><%= link_to 'Activités', activity_index_url %>
+				<li><%= link_to 'Lieux', 'locations_url' %>
+				<li><%= link_to 'Evènements', 'events_url' %>
+				<li><%= link_to 'Top 10', 'topten_url' %>
+				<li><%= link_to 'Mathieu Dupuis', 'http://mathieudupuis.com', :target => '_blank' %>
+				<li><%= link_to 'À propos', 'about_url' %>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main class="content">

@@ -1,0 +1,33 @@
+.section-home
+  h1.home-title
+    +font-size(25)
+
+    background: #bababa
+    color: #ffffff
+    font-weight: normal
+    padding: 5px 0
+    text-align: center
+
+  section h1, aside h1
+    +font-size(20)
+
+    color: #bababa
+    text-transform: uppercase
+
+    &:before
+      background: #A61922
+      border-radius: 10px
+      content: ""
+      display: inline-block
+      height: 20px
+      margin-right: 45px
+      width: 20px
+
+  section.about-us
+    
+    ul
+      display: inline-block
+      list-style: none
+
+    img
+      display: inline-block

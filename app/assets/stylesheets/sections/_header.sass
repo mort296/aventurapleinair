@@ -1,0 +1,86 @@
+.header
+  @extend .clearfix
+  
+  margin: -40px auto
+  width: 960px
+
+  ul
+    float: right
+
+    li 
+      display: inline-block
+      margin-left: 2px     
+
+    &.social-nav
+      margin: 0
+
+      a
+        margin-top: 15px
+
+  h1 span
+    @extend .visuallyhidden
+
+  a
+    color: #fff
+    float: left
+    text-decoration: none
+
+    &:hover
+      text-decoration: none
+
+    img
+      margin-top: -10px
+
+  .right-side
+    float: right
+    margin-top: 10px
+
+    form
+      float: right
+      margin-bottom: 63px
+
+      input
+        float: left
+
+      button
+        +font-size(12)
+        background: #fff
+        border: 1px solid #ccc
+        border-left-color: #a51722
+        color: #a51722
+        float: left
+        height: 24px
+        margin-left: -2px
+        width: 40px
+
+  nav.options-nav ul
+    margin: 10px 15px
+
+    li
+      a
+        border-radius: 10px
+        display: block
+        padding: 1px 20px
+
+      &.season a
+        background: #A61922
+
+  .main-nav 
+    h1
+      @extend .visuallyhidden
+    
+    ul
+      margin-right: 50px
+      padding-left: 0
+
+      li a
+        +font-size(18)
+        background: #333333
+        display: block
+        padding: 5px 25px 5px
+        
+        &:hover
+          background: #A41923
+
+        span
+          +font-size(15)

@@ -1,0 +1,59 @@
+.visuallyhidden 
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+.ir 
+  background-color: transparent
+  border: 0
+  overflow: hidden
+  *text-indent: -9999px
+
+.ir:before 
+  content: ""
+  display: block
+  width: 0
+  height: 150%
+
+.clearfix:before,
+.clearfix:after 
+  content: " "
+  display: table
+
+.clearfix:after
+  clear: both
+
+.clearfix
+  *zoom: 1
+
+.visuallyhidden
+  border: 0
+  clip: rect(0 0 0 0)
+  height: 1px
+  margin: -1px
+  overflow: hidden
+  padding: 0
+  position: absolute
+  width: 1px
+
+html
+  font-size: 62.5%
+
+body
+  +font-size(16)
+  +font($pompiere)
+  background: image-url("background.png") no-repeat
+  border-top: 40px solid #333333
+
+  main
+    background: #333333
+    border-top-left-radius: 15px
+    border-top-right-radius: 15px
+    margin: 0 auto
+    width: 950px
+    padding: 5px

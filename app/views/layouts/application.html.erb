@@ -9,9 +9,10 @@
 	
 	<%= csrf_meta_tags %>
 </head>
-<body>
-
-<%= yield %>
-<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<body class="section<%= '-' + params[:controller] %>">
+	<%= render :partial => 'includes/header' %>
+	<%= yield %>
+	<%= render :partial => 'includes/footer' %>
+	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
 </body>
 </html>
