@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007231540) do
+ActiveRecord::Schema.define(version: 20131008012448) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20131007231540) do
     t.string   "video_link"
     t.boolean  "online"
     t.integer  "pub_id"
+    t.string   "image"
   end
 
   create_table "activities_events", force: true do |t|
@@ -107,10 +108,10 @@ ActiveRecord::Schema.define(version: 20131007231540) do
     t.boolean  "online"
     t.integer  "location_id"
     t.text     "other_infos"
+    t.string   "image"
   end
 
   create_table "homes", force: true do |t|
-    t.string   "header_image"
     t.string   "background_image"
     t.string   "about_us"
     t.datetime "created_at"
@@ -165,6 +166,12 @@ ActiveRecord::Schema.define(version: 20131007231540) do
     t.integer  "pub_id"
     t.text     "introduction"
     t.text     "other_infos"
+    t.string   "image"
+  end
+
+  create_table "pub", force: true do |t|
+    t.string "image"
+    t.string "type"
   end
 
   create_table "ratings", force: true do |t|
