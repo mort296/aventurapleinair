@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130823014218) do
+ActiveRecord::Schema.define(version: 20131007231540) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,13 +35,13 @@ ActiveRecord::Schema.define(version: 20130823014218) do
     t.string   "name"
     t.string   "federation"
     t.string   "website"
-    t.string   "interesting_stats"
-    t.string   "history"
-    t.string   "particularity"
-    t.string   "description"
-    t.string   "other_infos"
-    t.string   "learn"
-    t.string   "equipment"
+    t.text     "interesting_stats"
+    t.text     "history"
+    t.text     "particularity"
+    t.text     "description"
+    t.text     "other_infos"
+    t.text     "learn"
+    t.text     "equipment"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "season_id"
@@ -97,16 +97,16 @@ ActiveRecord::Schema.define(version: 20130823014218) do
     t.string   "website"
     t.string   "federation"
     t.string   "federation_website"
-    t.string   "interesting_stats"
-    t.string   "history"
-    t.string   "description"
-    t.string   "other_info"
+    t.text     "interesting_stats"
+    t.text     "history"
+    t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "season_id"
     t.string   "name"
     t.boolean  "online"
     t.integer  "location_id"
+    t.text     "other_infos"
   end
 
   create_table "homes", force: true do |t|
@@ -115,6 +115,26 @@ ActiveRecord::Schema.define(version: 20130823014218) do
     t.string   "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
+    t.string   "who_one_title"
+    t.text     "who_one_text"
+    t.string   "who_two_title"
+    t.text     "who_two_text"
+    t.string   "who_video_link"
+    t.string   "featured_image"
+    t.string   "featured_caption_place"
+    t.string   "featured_caption_activity"
+    t.string   "promotion_text"
+    t.string   "pub_one_id"
+    t.string   "pub_two_id"
+    t.string   "max_title"
+    t.string   "max_subtitle"
+    t.text     "max_text"
+    t.string   "max_image"
+    t.string   "photograph_title"
+    t.string   "photograph_subtitle"
+    t.text     "photograph_text"
+    t.string   "photograph_image"
   end
 
   create_table "links", force: true do |t|
@@ -134,17 +154,17 @@ ActiveRecord::Schema.define(version: 20130823014218) do
     t.string   "gps_coord"
     t.decimal  "ranking"
     t.integer  "ranking_amount"
-    t.string   "services"
-    t.string   "intoduction"
-    t.string   "interesting_stats"
-    t.string   "other_info"
-    t.string   "prizes"
-    t.string   "other_distinctions"
+    t.text     "services"
+    t.text     "interesting_stats"
+    t.text     "prizes"
+    t.text     "other_distinctions"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "administrative_region_id"
     t.boolean  "online"
     t.integer  "pub_id"
+    t.text     "introduction"
+    t.text     "other_infos"
   end
 
   create_table "ratings", force: true do |t|
@@ -161,8 +181,8 @@ ActiveRecord::Schema.define(version: 20130823014218) do
   end
 
   create_table "top_10", force: true do |t|
-    t.string "text_top"
-    t.string "text_bottom"
+    t.text "text_top"
+    t.text "text_bottom"
   end
 
   create_table "useful_links", force: true do |t|

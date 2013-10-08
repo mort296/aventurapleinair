@@ -9,8 +9,8 @@ ActiveAdmin.register Event do
 			f.input :federation_website
 		    f.input :interesting_stats
 		    f.input :history
-		    f.input :description, :input_html => { :class => "tinymce" }
-		    f.input :other_info
+		    f.input :description
+		    f.input :other_infos
 		    f.input :season
 		    f.input :online
 		    f.input :location

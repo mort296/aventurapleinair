@@ -1,0 +1,80 @@
+.footer
+  background: #333333
+  display: inline-block
+  width: 100%
+
+  & > div
+    @extend .clearfix
+
+    margin: 0 auto
+    width: 960px
+
+    &.footer-bottom
+      border-top: 1px solid $darkred
+
+    div
+      float: left
+      margin: 0 20px
+
+      &.social-medias
+        text-align: left
+        
+        li
+          color: $lightgrey
+          list-style: none
+
+        a
+          +font-size(18)
+          color: $lightgrey
+          text-decoration: none 
+
+    .description-max
+      color: $lightgrey
+      float: right
+      margin-left: 20px
+      text-align: left
+      width: 400px
+
+      h1
+
+        &:before
+          display: none
+
+    .footer-nav
+      float: left
+
+      & > ul
+        float: left
+        list-style: none
+
+        ul
+          padding-left: 0
+        
+        li
+          +font-size(20)
+
+          text-transform: uppercase
+
+          ul li
+            +font-size(18)
+
+            text-transform: none
+
+        a
+          color: $lightgrey
+          text-decoration: none
+
+      h1
+        @extend .visuallyhidden
+
+    .photograph
+      background: $lightgrey
+      float: right
+      text-align: left
+      width: 350px
+
+      h1 
+        color: #000
+
+        &:before
+          display: none
