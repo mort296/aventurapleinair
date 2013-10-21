@@ -5,4 +5,6 @@ class Event < ActiveRecord::Base
 	has_and_belongs_to_many :activities
 	has_many :links, as: :linkable
 	accepts_nested_attributes_for :links
+
+	scope :recent, -> {order("created_at desc").limit(5)}
 end

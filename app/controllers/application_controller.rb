@@ -4,7 +4,15 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :check_access if Rails.env == "production"
+
+  before_filter :get_footer_header
   
+  def get_footer_header
+    @menu_activity = ActivityCategory.all()
+    @menu_event = Event.recent
+    @footer_content = FooterText.first(:order=>'created_at desc')
+  end
+
   private
   def check_access
     authenticate_or_request_with_http_basic do |user_name, password|

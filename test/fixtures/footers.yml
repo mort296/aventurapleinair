@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  max_title: MyString
+  max_subtitle: MyString
+  max_text: MyText
+  max_image: MyString
+  photograph_title: MyString
+  photograph_subtitle: MyString
+  photograh_text: MyText
+  photograph_image: MyString
+
+two:
+  max_title: MyString
+  max_subtitle: MyString
+  max_text: MyText
+  max_image: MyString
+  photograph_title: MyString
+  photograph_subtitle: MyString
+  photograh_text: MyText
+  photograph_image: MyString

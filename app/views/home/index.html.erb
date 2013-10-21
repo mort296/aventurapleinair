@@ -2,32 +2,34 @@
 <div class="slider">
 	<%= image_tag 'slider.png' %>
 </div>
-<h1 class="home-title">Aventura Plein air, la référence des activités de plein air au Québec</h1 class="home-title">
+<h1 class="home-title"><%= @home.title %></h1>
 <section class="about-us">
 	<h1>Qui sommes nous?</h1>
 	<ul>
-		<li><h2>Présentation du concept</h2></li>
-		<li>Retrouvez toutes les activités de plein air non motorisées au Québec</li>
-		<li>Des lieux diversifiés pour toutes les passions</li>
+		<li><h2><%= @home.who_one_title %></h2></li>
+		<li><%= @home.who_one_text.html_safe %></li>
 	</ul>
-	<%= image_tag 'video-aventura.png' %>
+	<iframe src="http://player.vimeo.com/video/<%= @video_id %>" width="365" height="250" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 	<ul>
-		<li><h2>Aventura Plein air</h2></li>
-		<li>Transmettre la passion du plein air</li>
-		<li>Fair découvrir l'environnement incroyable du Québec</li>
+		<li><h2><%= @home.who_two_title %></h2></li>
+		<li><%= @home.who_two_text.html_safe %></li>
 	</ul>
 </section>
 <section class="featured">
 	<h1>En vedette</h1>
 	<div class="slider">
-		<%= image_tag 'featured-slider.png' %>
+		<%= image_tag @home.featured_image %>
+		<caption>
+			<p><%= @home.featured_caption_place %></p>
+			<h2><%= @home.featured_caption_activity %></h2>
+		</caption>
 	</div>
 </section>
 <aside class="sidebar-pub">
 	<h1>Promotions</h1>
-	<p>Texte description publicitaire Texte description publicitaire Texte description publicitaire Texte description publicitaire</p>
-	<%= image_tag 'pub-sidebar.png' %>
+	<p><%= @home.promotion_text %></p>
+	<%= image_tag @home.pub1.image_url if @home.pub1 %>
 </aside>
 <aside class="bottom-pub">
-	<%= image_tag 'pub-bottom.png' %>
+	<%= image_tag @home.pub2.image_url(:bottom_pub) if @home.pub2 %>
 </aside>

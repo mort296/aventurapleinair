@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131008012448) do
+ActiveRecord::Schema.define(version: 20131021190551) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -111,9 +111,21 @@ ActiveRecord::Schema.define(version: 20131008012448) do
     t.string   "image"
   end
 
+  create_table "footer_texts", force: true do |t|
+    t.string   "max_title"
+    t.string   "max_subtitle"
+    t.text     "max_text"
+    t.string   "max_image"
+    t.string   "photograph_title"
+    t.string   "photograph_subtitle"
+    t.text     "photograph_text"
+    t.string   "photograph_image"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "homes", force: true do |t|
     t.string   "background_image"
-    t.string   "about_us"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
@@ -126,16 +138,8 @@ ActiveRecord::Schema.define(version: 20131008012448) do
     t.string   "featured_caption_place"
     t.string   "featured_caption_activity"
     t.string   "promotion_text"
-    t.string   "pub_one_id"
-    t.string   "pub_two_id"
-    t.string   "max_title"
-    t.string   "max_subtitle"
-    t.text     "max_text"
-    t.string   "max_image"
-    t.string   "photograph_title"
-    t.string   "photograph_subtitle"
-    t.text     "photograph_text"
-    t.string   "photograph_image"
+    t.integer  "pub1_id"
+    t.integer  "pub2_id"
   end
 
   create_table "links", force: true do |t|
@@ -169,9 +173,18 @@ ActiveRecord::Schema.define(version: 20131008012448) do
     t.string   "image"
   end
 
-  create_table "pub", force: true do |t|
-    t.string "image"
-    t.string "type"
+  create_table "pub_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pubs", force: true do |t|
+    t.string   "image"
+    t.integer  "pub_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
   end
 
   create_table "ratings", force: true do |t|

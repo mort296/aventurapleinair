@@ -54,15 +54,32 @@
     ul
       margin-right: 50px
       padding-left: 0
+      position: relative
 
-      li a
-        +font-size(18)
-        background: #333333
-        display: block
-        padding: 5px 25px 5px
-        
-        &:hover
-          background: #A41923
+      ul
+        display: none
 
-        span
-          +font-size(15)
+        li
+          margin-left: 0
+
+          a
+            background: #000
+
+      li
+
+        &:hover > ul
+          top: 16px
+          display: block
+          position: absolute
+
+        a
+          +font-size(18)
+          background: #333333
+          display: block
+          padding: 5px 25px 5px
+          
+          &:hover
+            background: #A41923
+
+          span
+            +font-size(15)

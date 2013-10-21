@@ -20,31 +20,32 @@
 		</div>
 		
 		<section class="description-max">
-			<%= image_tag 'max-image.png' %>
-			<h1>Maxime <span>Le sportif passionné</span></h1>
-			<p>Pour certains le cyclisme, pour d’autres le ski, Maxime, lui, est passionné par toutes les activités de plein air.</p>
-			<p>Etudiant dans le domaine de l’administration et du tourisme il est le directeur d’Aventura Plein Air permettant aux passionnés de retrouver toutes leurs activités de plein air favorites et de nombreuses informations sur les événements sportifs ou encore les lieux les plus extraordinaires pour pratiquer leur passion.</p>
+			<%= image_tag @footer_content.max_image if @footer_content.max_image? %>
+			<h1><%= @footer_content.max_title %> <span><%= @footer_content.max_subtitle %></span></h1>
+			<%= @footer_content.max_text.html_safe %>
 		</section>
 	</div>
 	<div class="footer-bottom">
 		<nav class="footer-nav">
 			<h1>Navigation du footer</h1>
-			<ul>
-				<li><%= link_to	'Activités', 'activities_url' %>
-					<ul>
-						<li><%= link_to 'Activités nautiques', 'activities_id_url' %></li>
-						<li><%= link_to 'Observation', 'activities_id_url' %></li>
-						<li><%= link_to 'Escalade', 'activities_id_url' %></li>
-					</ul>
-				</li>
-				<li><%= link_to 'Top 10', 'top10_url' %>
-					<ul>
-						<li><%= link_to 'Destinations', 'top_destinations_url' %></li>
-						<li><%= link_to 'Activités', 'top_activities_url' %></li>
-						<li><%= link_to 'Videos', 'top_videos_url' %></li>
-					</ul>
-				</li>
-			</ul>
+			<% if @menu_activity %>
+				<ul>
+					<li><%= link_to	'Activités', 'activities_url' %>
+						<ul>
+							<% @menu_activity.each do |activity| %>
+								<li><%= link_to activity.name , activity_url(activity.id) %></li>
+							<% end %>
+						</ul>
+					</li>
+					<li><%= link_to 'Top 10', 'top10_url' %>
+						<ul>
+							<li><%= link_to 'Destinations', 'top_destinations_url' %></li>
+							<li><%= link_to 'Activités', 'top_activities_url' %></li>
+							<li><%= link_to 'Videos', 'top_videos_url' %></li>
+						</ul>
+					</li>
+				</ul>
+			<% end %>
 			<ul>
 				<li><%= link_to 'Lieux', 'locations_url' %>
 					<ul>
@@ -57,9 +58,9 @@
 			<ul>
 				<li><%= link_to 'Événements', 'events_url' %>
 					<ul>
-						<li><%= link_to 'Activités nautique', 'event_id_url' %></li>
-						<li><%= link_to 'Randonnées', 'event_id_url' %></li>
-						<li><%= link_to 'Escalade', 'event_id_url' %></li>
+						<% @menu_event.each do |event| %>
+						<li><%= link_to event.name, 'event_url(event.id)' %></li>
+						<% end %>
 					</ul>
 				</li>
 				<li><%= link_to 'À propos', 'about_url' %></li>
@@ -70,12 +71,10 @@
 			</ul>
 		</nav>
 		<section class="photograph">
-			<h1>Mathieu Dupuis <span>Photographe de talent</span></h1>
-			<%= image_tag 'mathieu-dupuis.png' %>
-			<h2>Live what you love...</h2>
-			<p>Établi à Montréal, Mathieu Dupuis allie passion et créativité pour offrir à ses clients une expertise et une expérience de haut niveau en photographie numérique...Il adore sortir de sa zone de confort et mettre sa créativité à l’épreuve. Rapidité et rigueur mathieu véhicule des valeurs qui lui sont chères.</p>
-			<p>Le photographe du dehors est à l’aise sur tous les types de terrains. Il a acquis une solide réputation au fil des années et offre une expertise en art numérique qui apporte énormément à notre site internet Aventura Plein Air.</p>
-			<p>Un grand merci pour sa collaboration!</p>
+			<h1>Mathieu Dupuis <span><%= @footer_content.photograph_title %></span></h1>
+			<%= image_tag @footer_content.photograph_image if @footer_content.photograph_image? %>
+			<h2> <%= @footer_content.photograph_subtitle %></h2>
+			<%= @footer_content.photograph_text.html_safe %>
 			<p class="red">L’équipe Aventura.</p>
 		</section>
 	</div>
