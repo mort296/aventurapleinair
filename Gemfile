@@ -54,3 +54,6 @@ gem 'mini_magick'
 gem 'carrierwave'
 
 gem 'tinymce-rails'
+
+# Adds traduction to the models
+gem 'globalize', '~> 4.0.0.alpha.2'

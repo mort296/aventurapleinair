@@ -6,14 +6,22 @@ class ApplicationController < ActionController::Base
   before_filter :check_access if Rails.env == "production"
 
   before_filter :get_footer_header
+
+  before_filter :set_locale
   
   def get_footer_header
-    @menu_activity = ActivityCategory.all()
+    @menu_activity_category = ActivityCategory.all()
+    @menu_location = Location.all()
     @menu_event = Event.recent
     @footer_content = FooterText.first(:order=>'created_at desc')
   end
 
   private
+  def set_locale
+    I18n.locale = session[:locale] || I18n.default_locale
+    session[:locale] = I18n.locale
+  end
+
   def check_access
     authenticate_or_request_with_http_basic do |user_name, password|
 	    # Change these to username and password required

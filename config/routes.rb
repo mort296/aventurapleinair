@@ -1,13 +1,18 @@
 Aventurapleinair::Application.routes.draw do
+  get "set_language/french"
+  get "set_language/english"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
+  root 'home#index'
   resources :activity
+  resources :activity_category
+  resources :location
+  resources :event
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

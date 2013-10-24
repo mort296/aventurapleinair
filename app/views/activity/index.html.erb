@@ -1,38 +1,12 @@
-<% title 'Activity' %>
-<h1>Le Raid</h1>
-<p>L’activité x est une activité créee en xx xxxxx xxxx , paragraphe qui raconte l’histoire du canot, Le canot est une activité créee en xx xxxxx xxxx , paragraphe qui raconte l’histoire du canot, Le canot est une activité créee en xx xxxxx xxxx , paragraphe qui raconte l’histoire du canot, Le canot est une activité créee en xx xxxxx xxxx , paragraphe qui raconte l’histoire du canot, Le canot est une activité créee en xx xxxxx xxxx.</p>
-<table>
-	<tr>
-		<td>Saison:</td>
-		<td>Hiver</td>
-	</tr>
-	<tr>
-		<td>Fédération:</td>
-		<td>patate</td>
-	</tr>
-	<tr>
-		<td>Site web</td>
-		<td>patate.com</td>
-	</tr>
-</table>
-<h2>Particularité de l'activité</h2>
-<p>Text expliquera la particularité de l'activité. Text expliquera la particularité de l'activité. Text expliquera la particularité de l'activité.</p>
-<div class="slider">
-	<%= image_tag 'slider_activity.png' %>
-	<caption>
-		Promenade en Canot
-		Parc national de la Jacques Cartier
-	</caption>
-</div>
-<section class="location">
-	<h1>Lieux</h1>
-</section>
-<section class="event">
-	<h1>Événements</h1>
-</section>
-<section class="learn">
-	<h1>Apprendre</h1>
-</section>
-<section class="equipements">
-	<h1>Équipements</h1>
-</section>
+<% title 'Activités' %>
+<ul>
+	<% @categories.each do |category| %>
+		<li><%= link_to category.name, activity_category_url(category.id) %>
+			<ul>
+				<% category.activity.each do |activity| %>
+					<li><%= link_to activity.name, activity_url(activity.id) %></li>
+				<% end %>
+			</ul>
+		</li>	
+	<% end %>
+</ul>

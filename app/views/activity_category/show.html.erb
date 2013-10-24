@@ -1,0 +1,7 @@
+<% title @category.name %>
+<h1><%= @category.name %></h1>
+<ul>
+	<% @category.activity.each do |activity| %>
+		<li><%= link_to activity.name, activity_url(activity.id) %></li>
+	<% end %>
+</ul>

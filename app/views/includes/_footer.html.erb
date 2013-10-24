@@ -28,40 +28,44 @@
 	<div class="footer-bottom">
 		<nav class="footer-nav">
 			<h1>Navigation du footer</h1>
-			<% if @menu_activity %>
-				<ul>
-					<li><%= link_to	'Activités', 'activities_url' %>
+			<ul>
+				<li><%= link_to	'Activités', 'activities_url' %>
+					<% if @menu_activity_category %>
 						<ul>
-							<% @menu_activity.each do |activity| %>
-								<li><%= link_to activity.name , activity_url(activity.id) %></li>
+							<% @menu_activity_category.each do |activity_category| %>
+								<li><%= link_to activity_category.name , activity_category_url(activity_category.id) %></li>
 							<% end %>
 						</ul>
-					</li>
-					<li><%= link_to 'Top 10', 'top10_url' %>
-						<ul>
-							<li><%= link_to 'Destinations', 'top_destinations_url' %></li>
-							<li><%= link_to 'Activités', 'top_activities_url' %></li>
-							<li><%= link_to 'Videos', 'top_videos_url' %></li>
-						</ul>
-					</li>
-				</ul>
-			<% end %>
-			<ul>
-				<li><%= link_to 'Lieux', 'locations_url' %>
+					<% end %>
+				</li>
+				<li><%= link_to 'Top 10', 'top10_url' %>
 					<ul>
-						<li><%= link_to 'Bas Saint-Laurent', 'location_id_url' %></li>
-						<li><%= link_to 'Estrie', 'location_id_url' %></li>
-						<li><%= link_to 'Mauricie', 'location_id_url' %></li>
+						<li><%= link_to 'Destinations', 'top_destinations_url' %></li>
+						<li><%= link_to 'Activités', 'top_activities_url' %></li>
+						<li><%= link_to 'Videos', 'top_videos_url' %></li>
 					</ul>
 				</li>
 			</ul>
 			<ul>
+				<li><%= link_to 'Lieux', 'locations_url' %>
+					<% if @menu_location %>
+						<ul>
+							<% @menu_location.each do |location| %>
+								<li><%= link_to location.name , location_url(location.id) %></li>
+							<% end %>
+						</ul>
+					<% end %>
+				</li>
+			</ul>
+			<ul>
 				<li><%= link_to 'Événements', 'events_url' %>
+					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>
 						<li><%= link_to event.name, 'event_url(event.id)' %></li>
 						<% end %>
 					</ul>
+					<% end %>
 				</li>
 				<li><%= link_to 'À propos', 'about_url' %></li>
 				<li><%= link_to 'Reviews', 'reviews_url' %></li>
