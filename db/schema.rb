@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131024160009) do
+ActiveRecord::Schema.define(version: 20131031172906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20131024160009) do
     t.boolean  "online"
     t.integer  "pub_id"
     t.string   "image"
+    t.string   "link"
   end
 
   create_table "activities_events", force: true do |t|
@@ -62,11 +63,8 @@ ActiveRecord::Schema.define(version: 20131024160009) do
     t.integer "location_id"
   end
 
-  create_table "activities_translations", force: true do |t|
-  end
-
   create_table "activity_categories", force: true do |t|
-    t.string   "name"
+    t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -117,6 +115,25 @@ ActiveRecord::Schema.define(version: 20131024160009) do
     t.datetime "updated_at"
   end
 
+  create_table "event_translations", force: true do |t|
+    t.integer  "event_id",           null: false
+    t.string   "locale",             null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "website"
+    t.string   "federation"
+    t.string   "federation_website"
+    t.text     "interesting_stats"
+    t.text     "history"
+    t.text     "description"
+    t.string   "name"
+    t.text     "other_infos"
+    t.string   "image"
+  end
+
+  add_index "event_translations", ["event_id"], name: "index_event_translations_on_event_id", using: :btree
+  add_index "event_translations", ["locale"], name: "index_event_translations_on_locale", using: :btree
+
   create_table "events", force: true do |t|
     t.date     "date_start"
     t.date     "date_end"
@@ -134,6 +151,7 @@ ActiveRecord::Schema.define(version: 20131024160009) do
     t.integer  "location_id"
     t.text     "other_infos"
     t.string   "image"
+    t.string   "link"
   end
 
   create_table "footer_texts", force: true do |t|
@@ -167,13 +185,25 @@ ActiveRecord::Schema.define(version: 20131024160009) do
     t.integer  "pub2_id"
   end
 
-  create_table "links", force: true do |t|
-    t.string   "url"
-    t.integer  "linkable_id"
-    t.string   "linkable_type"
+  create_table "location_translations", force: true do |t|
+    t.integer  "location_id",        null: false
+    t.string   "locale",             null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "name"
+    t.string   "address"
+    t.string   "website"
+    t.text     "services"
+    t.text     "interesting_stats"
+    t.text     "prizes"
+    t.text     "other_distinctions"
+    t.text     "introduction"
+    t.text     "other_infos"
+    t.string   "image"
   end
+
+  add_index "location_translations", ["locale"], name: "index_location_translations_on_locale", using: :btree
+  add_index "location_translations", ["location_id"], name: "index_location_translations_on_location_id", using: :btree
 
   create_table "locations", force: true do |t|
     t.string   "name"
@@ -196,6 +226,8 @@ ActiveRecord::Schema.define(version: 20131024160009) do
     t.text     "introduction"
     t.text     "other_infos"
     t.string   "image"
+    t.string   "link"
+    t.integer  "useful_informations_id"
   end
 
   create_table "pub_types", force: true do |t|
@@ -230,8 +262,7 @@ ActiveRecord::Schema.define(version: 20131024160009) do
     t.text "text_bottom"
   end
 
-  create_table "useful_links", force: true do |t|
-    t.integer  "location_id"
+  create_table "useful_informations", force: true do |t|
     t.string   "name"
     t.string   "icon"
     t.datetime "created_at"

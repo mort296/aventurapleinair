@@ -1,12 +1,12 @@
-<!-- app/views/admin/activities/_form.html.haml
+<!-- app/views/admin/locations/_form.html.haml
 -->
-<%= semantic_form_for [:admin, @activity] do |f| %>
+<%= semantic_form_for [:admin, @location] do |f| %>
   <div class="language-tabs">
     <ul class="language-selection">
       <li>
         <%= link_to 'French', "#lang-fr" %>
       </li>
-      <% @activity.translations.each do |lang| %>
+      <% @location.translations.each do |lang| %>
         <% unless lang.locale == :fr %>
           <li>
             <%= link_to ADDITIONAL_LOCALES[lang.locale.to_sym], "#lang-#{lang.locale}" %>
@@ -17,16 +17,15 @@
     <div id="lang-fr">
       <%= f.inputs 'French Text' do %>
         <%= f.input :name %>
-        <%= f.input :federation %>
+        <%= f.input :address %>
         <%= f.input :website %>
-        <%= f.input :description %>
-        <%= f.input :particularity %>
+        <%= f.input :services %>
         <%= f.input :interesting_stats %>
-        <%= f.input :history %>
+        <%= f.input :prizes %>
+        <%= f.input :other_distinctions %>
+        <%= f.input :introduction %>
         <%= f.input :other_infos %>
-        <%= f.input :learn %>
-        <%= f.input :equipment %>
-        <%= f.input :video_link %>
+        <%= f.input :image %>
       <% end %>
     </div>
     <% index = 0 %>
@@ -34,29 +33,32 @@
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
           <%= lf.input :name %>
-          <%= lf.input :federation %>
+          <%= lf.input :address %>
           <%= lf.input :website %>
-          <%= lf.input :description %>
-          <%= lf.input :particularity %>
+          <%= lf.input :services %>
           <%= lf.input :interesting_stats %>
-          <%= lf.input :history %>
+          <%= lf.input :prizes %>
+          <%= lf.input :other_distinctions %>
+          <%= lf.input :introduction %>
           <%= lf.input :other_infos %>
-          <%= lf.input :learn %>
-          <%= lf.input :equipment %>
-          <%= lf.input :video_link %>
+          <%= lf.input :image %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
       <% index += 1 %>
     <% end %>
   </div>
-  <%= f.inputs do %>
-    <%= f.input :image %>
-    <%= f.input :season %>
-    <%= f.input :activity_category %>
-    <%= f.input :locations %>
-    <%= f.input :events %>
-    <%= f.input :link %>  
+  <%= f.inputs do %> 
+    <%= f.input :link %>
+    <%= f.input :phone %>
+    <%= f.input :charge_free_phone %>
+    <%= f.input :gps_coord %>
+    <%= f.input :ranking %>
+    <%= f.input :ranking_amount %>
+    <%= f.input :administrative_region %>
+    <%= f.input :online %>
+    <%= f.input :pub %>
+    <%= f.input :useful_informations %>
   <% end %>
   <%= f.actions %>
 <% end %>

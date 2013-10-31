@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-class PubUploader < CarrierWave::Uploader::Base
+class IconUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
   include CarrierWave::MiniMagick
@@ -32,20 +32,8 @@ class PubUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :thumb_admin do
-    process :resize_to_limit => [100, 100]
-  end
-
-  version :thumb_menu do
-    process :resize_to_limit => [150, 150]
-  end
-
-  version :bottom_pub do
-    process :resize_to_limit => [950, nil]
-  end
-  
-  version :sidebar_pub do
-    process :resize_to_limit => [300, 250]
+  version :icon_size do
+    process :resize_to_limit => [30, 30]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.

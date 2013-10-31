@@ -30,6 +30,28 @@ body.active_admin div.mce-tinymce
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
+.language-tabs.ui-tabs .language-selection 
+  margin-left: 5px
+
+  li
+    background: #ccc
+    border-radius: 10px 10px 0 0
+    display: inline-block
+    padding: 5px 15px
+
+    a
+      color: #000
+      text-decoration: none
+
+    &.ui-state-active
+      background: #000
+
+      a
+        color: #fff
+
+.language-tabs.ui-tabs .ui-tabs-panel
+  padding-top: 0px
+
 li.hidden
   display: none
  
