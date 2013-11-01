@@ -10,7 +10,7 @@
 		<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page'), 'http://plus.google.com', :target => '_blank' %></li>
 		<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page'), 'http://twitter.com', :target => '_blank' %></li>
 	</ul>
-	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air', :width => 260, :height => 211), root_url %>
+	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air', :class => 'logo', :width => 260, :height => 211), root_url %>
 	<div class="right-side">
 		<form class="ok-form">
 			<input type="email" name="search" placeholder="Recherche..." />
@@ -29,7 +29,7 @@
 						</ul>
 					<% end %>
 				</li>
-				<li><%= link_to 'Lieux', 'locations_url' %>
+				<li><%= link_to 'Lieux', location_index_url %>
 					<% if @menu_location %>
 						<ul>
 							<% @menu_location.each do |location| %>
@@ -38,7 +38,7 @@
 						</ul>
 					<% end %>
 				</li>
-				<li><%= link_to 'Evènements', 'events_url' %>
+				<li><%= link_to 'Evènements', event_index_url %>
 					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>

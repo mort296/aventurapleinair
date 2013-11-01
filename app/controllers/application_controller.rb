@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   
   def get_footer_header
     @menu_activity_category = ActivityCategory.all()
-    @menu_location = Location.all()
+    @menu_location = Location.all().where("name IS NOT NULL")
     @menu_event = Event.recent
     @footer_content = FooterText.first(:order=>'created_at desc')
   end

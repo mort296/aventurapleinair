@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131031172906) do
+ActiveRecord::Schema.define(version: 20131101175512) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 20131031172906) do
   end
 
   create_table "activity_categories", force: true do |t|
-    t.string   "title"
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -211,7 +211,6 @@ ActiveRecord::Schema.define(version: 20131031172906) do
     t.string   "phone"
     t.string   "charge_free_phone"
     t.string   "website"
-    t.string   "gps_coord"
     t.decimal  "ranking"
     t.integer  "ranking_amount"
     t.text     "services"
@@ -227,7 +226,13 @@ ActiveRecord::Schema.define(version: 20131031172906) do
     t.text     "other_infos"
     t.string   "image"
     t.string   "link"
-    t.integer  "useful_informations_id"
+    t.decimal  "gps_longitude"
+    t.decimal  "gps_latitude"
+  end
+
+  create_table "locations_useful_infos", force: true do |t|
+    t.integer "location_id"
+    t.integer "useful_info_id"
   end
 
   create_table "pub_types", force: true do |t|
@@ -262,7 +267,7 @@ ActiveRecord::Schema.define(version: 20131031172906) do
     t.text "text_bottom"
   end
 
-  create_table "useful_informations", force: true do |t|
+  create_table "useful_infos", force: true do |t|
     t.string   "name"
     t.string   "icon"
     t.datetime "created_at"

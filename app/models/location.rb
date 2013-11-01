@@ -1,18 +1,15 @@
 class Location < ActiveRecord::Base
 	translates :name, :address, :website, :services, :interesting_stats, :prizes, :other_distinctions, :introduction, :other_infos, :image, :fallbacks_for_empty_translations => true
 	accepts_nested_attributes_for :translations
-	
+
 	require 'net/http'
-	mount_uploader :image, ImageUploader
+	mount_uploader :image, PubUploader
 	belongs_to :administrative_region
-	belongs_to :useful_informations
+	has_and_belongs_to_many :useful_infos
 	belongs_to :pub
 	has_and_belongs_to_many :activities
+	
 	after_save :create_missing_translations
-
-	lon = 1
-	lat = 1
-	@weather = Net::HTTP.get(URI.parse("http://openweathermap.org/data/2.1/find/city?lat=#{lat}&lon=#{lon}&cnt=1"))
 
 	protected
  

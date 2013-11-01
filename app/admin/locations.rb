@@ -1,6 +1,6 @@
 ActiveAdmin.register Location do
 	form :partial => "form"
-
+	
 	controller do
 		def new
 			@location = Location.new

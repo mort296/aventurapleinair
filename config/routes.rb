@@ -1,4 +1,6 @@
 Aventurapleinair::Application.routes.draw do
+  get "event/index"
+  get "event/show"
   get "set_language/french"
   get "set_language/english"
   devise_for :admin_users, ActiveAdmin::Devise.config

@@ -25,7 +25,6 @@
         <%= f.input :other_distinctions %>
         <%= f.input :introduction %>
         <%= f.input :other_infos %>
-        <%= f.input :image %>
       <% end %>
     </div>
     <% index = 0 %>
@@ -41,7 +40,6 @@
           <%= lf.input :other_distinctions %>
           <%= lf.input :introduction %>
           <%= lf.input :other_infos %>
-          <%= lf.input :image %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
@@ -49,16 +47,18 @@
     <% end %>
   </div>
   <%= f.inputs do %> 
+    <%= f.input :image %>
     <%= f.input :link %>
     <%= f.input :phone %>
     <%= f.input :charge_free_phone %>
-    <%= f.input :gps_coord %>
+    <%= f.input :gps_longitude %>
+    <%= f.input :gps_latitude %>
     <%= f.input :ranking %>
     <%= f.input :ranking_amount %>
     <%= f.input :administrative_region %>
     <%= f.input :online %>
     <%= f.input :pub %>
-    <%= f.input :useful_informations %>
+    <%= f.input :useful_infos %>
   <% end %>
   <%= f.actions %>
 <% end %>

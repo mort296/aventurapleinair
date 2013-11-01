@@ -1,0 +1,8 @@
+<% title 'Événements' %>
+<ul>
+	<% @events.each do |event| %>
+		<li>
+			<%= link_to event.name, event_url(event.id) %>
+		</li>	
+	<% end %>
+</ul>
