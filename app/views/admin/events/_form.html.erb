@@ -4,7 +4,7 @@
   <div class="language-tabs">
     <ul class="language-selection">
       <li>
-        <%= link_to 'French', "#lang-fr" %>
+        <%= link_to 'Français', "#lang-fr" %>
       </li>
       <% @event.translations.each do |lang| %>
         <% unless lang.locale == :fr %>
@@ -17,9 +17,7 @@
     <div id="lang-fr">
       <%= f.inputs 'French Text' do %>
         <%= f.input :name %>
-        <%= f.input :website %>
         <%= f.input :federation %>
-        <%= f.input :federation_website %>
         <%= f.input :interesting_stats %>
         <%= f.input :history %>
         <%= f.input :description %>
@@ -31,9 +29,7 @@
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
           <%= lf.input :name %>
-          <%= lf.input :website %>
           <%= lf.input :federation %>
-          <%= lf.input :federation_website %>
           <%= lf.input :interesting_stats %>
           <%= lf.input :history %>
           <%= lf.input :description %>
@@ -44,7 +40,10 @@
       <% index += 1 %>
     <% end %>
   </div>
-  <%= f.inputs do %>
+  <%= f.inputs 'Champs non traduits' do %>
+    <%= f.input :image %>
+    <%= f.input :website %>
+    <%= f.input :federation_website %>
     <%= f.input :date_start %>
     <%= f.input :date_end %>
     <%= f.input :season %>

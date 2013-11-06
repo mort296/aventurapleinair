@@ -1,5 +1,5 @@
 class Event < ActiveRecord::Base
-	translates :website, :federation, :federation_website, :interesting_stats, :history, :description, :name, :other_infos, :image , :fallbacks_for_empty_translations => true
+	translates :federation, :interesting_stats, :history, :description, :name, :other_infos, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
 	mount_uploader :image, ImageUploader

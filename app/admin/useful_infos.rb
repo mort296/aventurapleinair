@@ -1,4 +1,5 @@
 ActiveAdmin.register UsefulInfo do
+	menu :label => "Informations utiles"
 	index do
 		column :name
 		column "Icon" do |image|

@@ -1,4 +1,5 @@
 ActiveAdmin.register Event do
+	menu :label => "Événements", :priority => 4
 	form :partial => "form"
 
 	controller do

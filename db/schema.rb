@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131101175512) do
+ActiveRecord::Schema.define(version: 20131104201207) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(version: 20131101175512) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "activity_category_translations", force: true do |t|
+    t.integer  "activity_category_id", null: false
+    t.string   "locale",               null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "activity_category_translations", ["activity_category_id"], name: "index_activity_category_translations_on_activity_category_id", using: :btree
+  add_index "activity_category_translations", ["locale"], name: "index_activity_category_translations_on_locale", using: :btree
 
   create_table "activity_translations", force: true do |t|
     t.integer  "activity_id",       null: false
@@ -154,6 +165,22 @@ ActiveRecord::Schema.define(version: 20131101175512) do
     t.string   "link"
   end
 
+  create_table "footer_text_translations", force: true do |t|
+    t.integer  "footer_text_id",      null: false
+    t.string   "locale",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "max_title"
+    t.string   "max_subtitle"
+    t.text     "max_text"
+    t.string   "photograph_title"
+    t.string   "photograph_subtitle"
+    t.text     "photograph_text"
+  end
+
+  add_index "footer_text_translations", ["footer_text_id"], name: "index_footer_text_translations_on_footer_text_id", using: :btree
+  add_index "footer_text_translations", ["locale"], name: "index_footer_text_translations_on_locale", using: :btree
+
   create_table "footer_texts", force: true do |t|
     t.string   "max_title"
     t.string   "max_subtitle"
@@ -166,6 +193,25 @@ ActiveRecord::Schema.define(version: 20131101175512) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "home_translations", force: true do |t|
+    t.integer  "home_id",                   null: false
+    t.string   "locale",                    null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.string   "who_one_title"
+    t.text     "who_one_text"
+    t.string   "who_two_title"
+    t.text     "who_two_text"
+    t.string   "who_video_link"
+    t.string   "featured_caption_place"
+    t.string   "featured_caption_activity"
+    t.string   "promotion_text"
+  end
+
+  add_index "home_translations", ["home_id"], name: "index_home_translations_on_home_id", using: :btree
+  add_index "home_translations", ["locale"], name: "index_home_translations_on_locale", using: :btree
 
   create_table "homes", force: true do |t|
     t.string   "background_image"
@@ -255,6 +301,17 @@ ActiveRecord::Schema.define(version: 20131101175512) do
     t.decimal "rate",         default: 0.0
     t.integer "rater_amount", default: 0
   end
+
+  create_table "season_translations", force: true do |t|
+    t.integer  "season_id",  null: false
+    t.string   "locale",     null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "season_translations", ["locale"], name: "index_season_translations_on_locale", using: :btree
+  add_index "season_translations", ["season_id"], name: "index_season_translations_on_season_id", using: :btree
 
   create_table "seasons", force: true do |t|
     t.string   "name"

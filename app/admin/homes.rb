@@ -1,4 +1,6 @@
 ActiveAdmin.register Home do
+	menu :label => "Accueil", :priority => 1
+	form :partial => "form"
 	actions  :index, :edit, :update
 
 	index do
@@ -26,23 +28,4 @@ ActiveAdmin.register Home do
 		default_actions
 	end
 
-	form do |f|
-		f.inputs do
-			f.inputs :background_image
-			f.inputs :title
-			f.inputs :who_one_title
-			f.inputs :who_one_text
-			f.inputs :who_two_title
-			f.inputs :who_two_text
-			f.inputs :who_video_link
-			f.inputs :featured_image
-			f.inputs :featured_caption_place
-			f.inputs :featured_caption_activity
-			f.inputs :promotion_text
-			f.inputs :pub1
-			f.inputs :pub2
-		end
-		
-		f.actions
-	end
 end

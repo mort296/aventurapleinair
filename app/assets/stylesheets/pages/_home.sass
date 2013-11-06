@@ -9,7 +9,7 @@
     text-align: center
 
   section h1, aside h1
-    +font-size(20)
+    +font-size(18)
 
     color: $lightgrey
     text-transform: uppercase
@@ -20,23 +20,100 @@
       content: ""
       display: inline-block
       height: 20px
-      margin-right: 45px
+      margin-right: 40px
       width: 20px
 
-  section.about-us
-    @extend .clearfix
-    
-    ul
-      border-bottom: 2px solid #A3A3A3
-      border-top: 2px solid #A3A3A3
-      float: left
-      height: 250px
-      list-style: none
-      margin-top: 0
-      width: 200px
+  section
 
-    iframe
+    &.about-us
+      margin: 0 30px
+
+      @extend .clearfix
+      
+      ul
+        border-bottom: 2px solid #A3A3A3
+        border-top: 2px solid #A3A3A3
+        color: #fff
+        float: left
+        height: 250px
+        list-style: none
+        margin-top: 0
+        padding: 0
+        text-align: center
+        width: 200px
+
+        h2
+          +font-size(17)
+
+          margin: 10px 40px
+          text-transform: uppercase
+
+        ul
+          border: none
+          height: auto
+          width: auto
+
+          li
+            +font-size(18)
+
+            margin-top: 30px
+
+      iframe
+        float: left
+        margin: 0 30px
+
+      img
+        display: inline-block
+
+    &.featured
       float: left
 
-    img
-      display: inline-block
+      h1
+        margin-left: 30px
+
+      .slider
+        font-size: 0
+        position: relative
+
+        .caption
+          +font-size(15)
+
+          background: #000
+          background: rgba(0, 0, 0, 0.8)
+          bottom: 0
+          color: #fff
+          position: absolute
+          width: 100%
+
+          p
+            +font-size(19)
+
+            margin: 15px 10px 0
+
+          h2
+            +font-size(25)
+            
+            margin: 5px 10px 10px
+
+  aside
+
+    &.sidebar-pub
+      float: right
+      width: 300px
+
+      h1
+        margin-left: 30px
+        
+      p
+        +font-size(18)
+
+        background: $lightgrey
+        color: #fff
+        margin: 0
+        padding: 15px
+
+    &.bottom-pub
+      font-size: 0
+      ù
+      img
+        margin-top: 10px

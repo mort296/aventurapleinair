@@ -20,4 +20,36 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  about: "About"
+  season: "Season"
+  federation: "Federation"
+  federation_website: "Federation Website"
+  website: "Website"
+  locations: "Locations"
+  events: "Events"
+  address: "Address"
+  phone: "Phone number"
+  toll_free: "Toll free number"
+  include:
+    winter: "Winter"
+    search: "Search"
+    main_nav: "Main navigation"
+    activities: "Activities"
+    community: "Community"
+    newsletter: "Newsletter"
+    newsletter_description: "Read all the news of your favorite activities"
+    newsletter_placeholder: "Your email address"
+    footer_nav: "Footer navigation"
+    aventura_team: "Aventura's team"
+  activity:
+    particularity_title: "Particularity of the activity"
+    learn: "Learn"
+    equipments: "Equipments"
+  location:
+    location_activities: "Activities in this location"
+    useful_infos: "Useful informations"
+  event:
+    location: "Location"
+    other_infos: "Other informations"
+    history: "Event history"
+    interesting_stats: "Interesting stats"

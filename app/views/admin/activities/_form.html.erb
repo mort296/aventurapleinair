@@ -4,7 +4,7 @@
   <div class="language-tabs">
     <ul class="language-selection">
       <li>
-        <%= link_to 'French', "#lang-fr" %>
+        <%= link_to 'Français', "#lang-fr" %>
       </li>
       <% @activity.translations.each do |lang| %>
         <% unless lang.locale == :fr %>
@@ -18,7 +18,6 @@
       <%= f.inputs 'French Text' do %>
         <%= f.input :name %>
         <%= f.input :federation %>
-        <%= f.input :website %>
         <%= f.input :description %>
         <%= f.input :particularity %>
         <%= f.input :interesting_stats %>
@@ -35,7 +34,6 @@
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
           <%= lf.input :name %>
           <%= lf.input :federation %>
-          <%= lf.input :website %>
           <%= lf.input :description %>
           <%= lf.input :particularity %>
           <%= lf.input :interesting_stats %>
@@ -50,7 +48,8 @@
       <% index += 1 %>
     <% end %>
   </div>
-  <%= f.inputs do %>
+  <%= f.inputs 'Champs non traduits' do %>
+    <%= f.input :website %>
     <%= f.input :image %>
     <%= f.input :season %>
     <%= f.input :activity_category %>

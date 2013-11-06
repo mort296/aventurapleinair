@@ -1,4 +1,7 @@
 ActiveAdmin.register FooterText do
+	menu :label => "Textes du pied de page"
+	form :partial => "form"
+	
 	actions  :index, :edit, :update
 
 	index do

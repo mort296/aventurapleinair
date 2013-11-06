@@ -1,4 +1,5 @@
 ActiveAdmin.register Location do
+	menu :label => "Lieux", :priority => 5
 	form :partial => "form"
 	
 	controller do

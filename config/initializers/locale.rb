@@ -1,3 +1,3 @@
 ADDITIONAL_LOCALES = {
-  :en => 'English'
+  :en => 'Anglais'
 }

@@ -1,0 +1,62 @@
+<!-- app/views/admin/homes/_form.html.haml
+-->
+<%= semantic_form_for [:admin, @home] do |f| %>
+  <div class="language-tabs">
+    <ul class="language-selection">
+      <li>
+        <%= link_to 'Français', "#lang-fr" %>
+      </li>
+      <% @home.translations.each do |lang| %>
+        <% unless lang.locale == :fr %>
+          <li>
+            <%= link_to ADDITIONAL_LOCALES[lang.locale.to_sym], "#lang-#{lang.locale}" %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    <div id="lang-fr">
+      <%= f.inputs 'Texte Français' do %>        
+        <%= f.input :title %>
+        <%= f.input :who_one_title %>
+        <%= f.input :who_one_text %>
+        <%= f.input :who_two_title %>
+        <%= f.input :who_two_text %>
+        <%= f.input :who_video_link %>
+        <%= f.input :featured_caption_place %>
+        <%= f.input :featured_caption_activity %>
+        <%= f.input :promotion_text %>
+      <% end %>
+    </div>
+    <% index = 0 %>
+    <%= f.semantic_fields_for :translations do |lf| %>
+      <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
+        <%= lf.inputs "Texte #{ADDITIONAL_LOCALES[lf.object.locale.to_sym]}" do %>
+          <%= lf.input :title %>
+          <%= lf.input :who_one_title %>
+          <%= lf.input :who_one_text %>
+          <%= lf.input :who_two_title %>
+          <%= lf.input :who_two_text %>
+          <%= lf.input :who_video_link %>
+          <%= lf.input :featured_caption_place %>
+          <%= lf.input :featured_caption_activity %>
+          <%= lf.input :promotion_text %>
+          <%= lf.input :locale, :as => :hidden %>
+        <% end %>
+      </div>
+      <% index += 1 %>
+    <% end %>
+  </div>
+  <%= f.inputs 'Champs non traduits' do %> 
+    <%= f.input :background_image %>
+    <%= f.input :featured_image %>
+    <%= f.input :pub1 %>
+    <%= f.input :pub2 %>
+  <% end %>
+  <%= f.actions %>
+<% end %>
+
+<script>
+  
+  $('.language-tabs').tabs();
+
+</script>

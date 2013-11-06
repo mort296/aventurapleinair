@@ -1,4 +1,5 @@
 ActiveAdmin.register Activity do
+	menu :label => "Activités", :priority => 3
 	form :partial => "form"
 
 	controller do

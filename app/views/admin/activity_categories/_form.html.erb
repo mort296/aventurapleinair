@@ -1,0 +1,43 @@
+<!-- app/views/admin/activity_categories/_form.html.haml
+-->
+<%= semantic_form_for [:admin, @activity_category] do |f| %>
+  <div class="language-tabs">
+    <ul class="language-selection">
+      <li>
+        <%= link_to 'Français', "#lang-fr" %>
+      </li>
+      <% @activity_category.translations.each do |lang| %>
+        <% unless lang.locale == :fr %>
+          <li>
+            <%= link_to ADDITIONAL_LOCALES[lang.locale.to_sym], "#lang-#{lang.locale}" %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    <div id="lang-fr">
+      <%= f.inputs 'French Text' do %>
+        <%= f.input :name %>
+      <% end %>
+    </div>
+    <% index = 0 %>
+    <%= f.semantic_fields_for :translations do |lf| %>
+      <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
+        <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
+          <%= lf.input :name %>
+          <%= lf.input :locale, :as => :hidden %>
+        <% end %>
+      </div>
+      <% index += 1 %>
+    <% end %>
+  </div>
+  <%= f.inputs do %> 
+    
+  <% end %>
+  <%= f.actions %>
+<% end %>
+
+<script>
+  
+  $('.language-tabs').tabs();
+
+</script>

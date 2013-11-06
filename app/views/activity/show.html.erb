@@ -3,19 +3,19 @@
 <p><%= @activity.description.html_safe %></p>
 <table>
 	<tr>
-		<td>Saison:</td>
+		<td><%= t(:season) %>:</td>
 		<td><%= @activity.season.name %></td>
 	</tr>
 	<tr>
-		<td>Fédération:</td>
+		<td><%= t(:federation) %>:</td>
 		<td><%= @activity.federation %></td>
 	</tr>
 	<tr>
-		<td>Site web</td>
+		<td><%= t(:website) %></td>
 		<td><%= @activity.website %></td>
 	</tr>
 </table>
-<h2>Particularité de l'activité</h2>
+<h2><%= t(:"activity.particularity_title") %></h2>
 <p><%= @activity.particularity.html_safe if @activity.particularity %></p>
 <div class="slider">
 	<%= image_tag @activity.image if @activity.image  %>
@@ -25,7 +25,7 @@
 	</caption>
 </div>
 <section class="location">
-	<h1>Lieux</h1>
+	<h1><%= t(:locations) %></h1>
 	<ul>
 		<% if @activity.locations %>
 			<% @activity.locations.each do |location| %>
@@ -35,7 +35,7 @@
 	</ul>
 </section>
 <section class="event">
-	<h1>Événements</h1>
+	<h1><%= t(:events) %></h1>
 	<ul>
 		<% if @activity.events %>
 			<% @activity.events.each do |event| %>
@@ -45,10 +45,10 @@
 	</ul>
 </section>
 <section class="learn">
-	<h1>Apprendre</h1>
+	<h1><%= t(:"activity.learn") %></h1>
 	<p><%= if @activity.learn? then @activity.learn.html_safe else 'Aucun apprentissage spécifié' end %></p>
 </section>
 <section class="equipements">
-	<h1>Équipements</h1>
+	<h1><%= t(:"activity.equipments") %></h1>
 	<p><%= if @activity.equipment? then @activity.equipment.html_safe else 'Aucun équipement de spécifié' end %></p>
 </section>

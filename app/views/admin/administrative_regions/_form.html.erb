@@ -1,0 +1,18 @@
+<!-- app/views/admin/adminitrative_regions/_form.html.haml
+-->
+<%= semantic_form_for [:admin, @administrative_region] do |f| %>
+  <div class="language-tabs">
+    <div id="lang-fr">
+      <%= f.inputs 'Région administrative' do %>
+        <%= f.input :name %>
+      <% end %>
+    </div>
+  </div>
+  <%= f.actions %>
+<% end %>
+
+<script>
+  
+  $('.language-tabs').tabs();
+
+</script>

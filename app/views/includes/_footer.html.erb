@@ -3,7 +3,7 @@
 	<div class="footer-top">
 		<div class="social-medias">
 			<ul>
-				<li><h2>Communautaire</h2></li>
+				<li><h2><%= t(:"include.community") %></h2></li>
 				<li><%= link_to image_tag('facebook-icon.png', :alt => 'Facebook page') + ' Facebook', 'http://facebook.com', :target => '_blank' %></li>
 				<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page') + ' Google+', 'http://plus.google.com', :target => '_blank' %></li>
 				<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page') + ' Twitter', 'http://twitter.com', :target => '_blank' %></li>
@@ -11,25 +11,25 @@
 		</div>
 		<div class="newsletter">
 			<form action="http://aventurapleinair.us7.list-manage.com/subscribe/post?u=76f07b350800281685ec9af96&amp;id=dada7784fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate clearfix ok-form" target="_blank" novalidate>
-				<h2>Infolettre</h2>
-				<p>Retrouvez toute l'actualité de vos activités favorites</p>
-				<input type="email" value="" name="EMAIL" class="email" id="newsletter-email" placeholder="Votre adresse email" required>
+				<h2><%= t(:"include.newsletter") %></h2>
+				<p><%= t(:"include.newsletter_description") %></p>
+				<input type="email" value="" name="EMAIL" class="email" id="newsletter-email" placeholder="<%= t(:"include.newsletter_placeholder") %>" required>
 				<button type="submit" class="submit">Ok</button>
 				</ul>
 			</form>
 		</div>
 		
 		<section class="description-max">
-			<%= image_tag @footer_content.max_image if @footer_content.max_image? %>
+			<%= image_tag @footer_content.max_image_url(:thumb_admin) if @footer_content.max_image? %>
 			<h1><%= @footer_content.max_title %> <span><%= @footer_content.max_subtitle %></span></h1>
 			<%= @footer_content.max_text.html_safe %>
 		</section>
 	</div>
 	<div class="footer-bottom">
 		<nav class="footer-nav">
-			<h1>Navigation du footer</h1>
+			<h1><%= t(:"include.footer_nav") %></h1>
 			<ul>
-				<li><%= link_to	'Activités', 'activities_url' %>
+				<li><%= link_to t(:"include.activities"), activity_index_url %>
 					<% if @menu_activity_category %>
 						<ul>
 							<% @menu_activity_category.each do |activity_category| %>
@@ -40,14 +40,13 @@
 				</li>
 				<li><%= link_to 'Top 10', 'top10_url' %>
 					<ul>
-						<li><%= link_to 'Destinations', 'top_destinations_url' %></li>
-						<li><%= link_to 'Activités', 'top_activities_url' %></li>
-						<li><%= link_to 'Videos', 'top_videos_url' %></li>
+						<li><%= link_to t(:"locations"), 'top_destinations_url' %>
+						<li><%= link_to t(:"include.activities"), 'top_activities_url' %>
 					</ul>
 				</li>
 			</ul>
 			<ul>
-				<li><%= link_to 'Lieux', 'locations_url' %>
+				<li><%= link_to t(:locations), location_index_url %>
 					<% if @menu_location %>
 						<ul>
 							<% @menu_location.each do |location| %>
@@ -58,7 +57,7 @@
 				</li>
 			</ul>
 			<ul>
-				<li><%= link_to 'Événements', 'events_url' %>
+				<li><%= link_to t(:events), event_index_url %>
 					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>
@@ -67,19 +66,16 @@
 					</ul>
 					<% end %>
 				</li>
-				<li><%= link_to 'À propos', 'about_url' %></li>
-				<li><%= link_to 'Reviews', 'reviews_url' %></li>
-				<li><%= link_to 'Chroniques', 'chroniques_url' %></li>
-				<li><%= link_to 'Témoignages', 'temoignages_url' %></li>
-				<li><%= link_to 'Équipements', 'equipement_url' %></li>
+				<li><%= link_to t(:about), 'about_url' %></li>
+				<li><%= link_to t(:"activity.equipments"), 'equipement_url' %></li>
 			</ul>
 		</nav>
 		<section class="photograph">
 			<h1>Mathieu Dupuis <span><%= @footer_content.photograph_title %></span></h1>
-			<%= image_tag @footer_content.photograph_image if @footer_content.photograph_image? %>
+			<%= image_tag @footer_content.photograph_image_url(:thumb_admin) if @footer_content.photograph_image? %>
 			<h2> <%= @footer_content.photograph_subtitle %></h2>
 			<%= @footer_content.photograph_text.html_safe %>
-			<p class="red">L’équipe Aventura.</p>
+			<p class="red"><%= t(:"include.aventura_team") %>.</p>
 		</section>
 	</div>
 </footer>

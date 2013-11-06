@@ -4,7 +4,7 @@
 <%= image_tag @location.image_url(:bottom_pub) if @location.image  %>
 <div class="left">
 	<section class="activities">
-		<h2>Activités sur ce lieu</h2>
+		<h2><%= t(:"location.location_activities") %></h2>
 		<ul>
 			<% @location.activities.each do |activity| %>
 			<li><%= link_to activity.name, activity_url(activity.id) %></li>
@@ -13,7 +13,7 @@
 	</section>
 
 	<section class="useful-informations">
-		<h2>Informations utiles</h2>
+		<h2><%= t(:"location.useful_infos") %></h2>
 		<ul>
 		<% if @location.useful_infos %>
 			<% @location.useful_infos.each do |useful_info| %>
@@ -24,9 +24,9 @@
 	</section>
 
 	<address>
-		Adresse: <%= @location.address %><br />
-		Téléphone: <%= @location.phone %><br />
-		Sans Frais: <%= @location.charge_free_phone %><br />
+		<%= t(:address) %>: <%= @location.address %><br />
+		<%= t(:phone) %>: <%= @location.phone %><br />
+		<%= t(:"toll_free") %>: <%= @location.charge_free_phone %><br />
 		<%= @location.website %><br />
 	</address>
 </div>

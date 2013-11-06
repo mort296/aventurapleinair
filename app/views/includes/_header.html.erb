@@ -1,7 +1,7 @@
 <header class="header">
 	<nav class="options-nav">
 		<ul>
-			<li class="season" ><%= link_to	'Hiver', 'winter_url' %></li>
+			<li class="season" ><%= link_to	t(:"include.winter"), 'winter_url' %></li>
 			<li class="language" ><%= link_to "English", set_language_english_path unless I18n.locale == :en %><%= link_to "Français", set_language_french_path unless I18n.locale == :fr %></li>
 		</ul>
 	</nav>
@@ -13,14 +13,14 @@
 	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air', :class => 'logo', :width => 260, :height => 211), root_url %>
 	<div class="right-side">
 		<form class="ok-form">
-			<input type="email" name="search" placeholder="Recherche..." />
+			<input type="email" name="search" placeholder="<%= t(:"include.search") %>..." />
 			<button type="submit">Ok</button>
 		</form>
 		<nav class="main-nav">
-			<h1>Navigation principale</h1>
+			<h1><%= t(:"include.main_nav") %></h1>
 			<ul>
 				<li>
-					<%= link_to 'Activités', activity_index_url %>
+					<%= link_to t(:"include.activities"), activity_index_url %>
 					<% if @menu_activity_category %>
 						<ul>
 							<% @menu_activity_category.each do |activity_category| %>
@@ -29,7 +29,7 @@
 						</ul>
 					<% end %>
 				</li>
-				<li><%= link_to 'Lieux', location_index_url %>
+				<li><%= link_to t(:locations), location_index_url %>
 					<% if @menu_location %>
 						<ul>
 							<% @menu_location.each do |location| %>
@@ -38,24 +38,23 @@
 						</ul>
 					<% end %>
 				</li>
-				<li><%= link_to 'Evènements', event_index_url %>
+				<li><%= link_to t(:events), event_index_url %>
 					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>
-							<li><%= link_to event.name, 'event_url(event.id)' %>
+							<li><%= link_to event.name, event_url(event.id) %>
 						<% end %>
 					</ul>
 					<% end %>
 				</li>
 				<li><%= link_to 'Top 10', 'topten_url' %>
 					<ul>
-						<li><%= link_to 'Destinations', 'top_destinations_url' %>
-						<li><%= link_to 'Activités', 'top_activities_url' %>
-						<li><%= link_to 'Videos', 'top_videos_url' %>
+						<li><%= link_to t(:"locations"), 'top_destinations_url' %>
+						<li><%= link_to t(:"include.activities"), 'top_activities_url' %>
 					</ul>
 				</li>
 				<li><%= link_to 'Mathieu Dupuis', 'http://mathieudupuis.com', :target => '_blank' %></li>
-				<li><%= link_to 'À propos', 'about_url' %></li>
+				<li><%= link_to t(:about), 'about_url' %></li>
 			</ul>
 		</nav>
 	</div>

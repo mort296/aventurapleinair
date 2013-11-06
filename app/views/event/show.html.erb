@@ -1,2 +1,39 @@
 <% title @event.name %>
 <h1><%= @event.name %></h1>
+
+<p>Du <%= @event.date_start %> au <%= @event.date_end %></p>
+
+<p><%= @event.description.html_safe if @event.description %></p>
+<table>
+	<tr>
+		<td><%= t(:season) %>:</td>
+		<td><%= @event.season.name %></td>
+	</tr>
+	<tr>
+		<td><%= t(:"event.location") %></td>
+		<td><%= link_to @event.location.name, location_url(@event.location.id) %></td></td>
+	</tr>
+	<tr>
+		<td><%= t(:federation) %>:</td>
+		<td><%= @event.federation %></td>
+	</tr>
+	<tr>
+		<td><%= t(:federation_website) %>:</td>
+		<td><%= @event.federation_website %></td>
+	</tr>
+	<tr>
+		<td><%= t(:website) %></td>
+		<td><%= @event.website %></td>
+	</tr>
+</table>
+
+<%= image_tag @event.image_url(:thumb_admin) if @event.image %>
+
+<h2><%= t(:"event.other_infos") %></h2>
+<p><%= @event.other_infos.html_safe if @event.other_infos %></p>
+
+<h2><%= t(:"event.history") %></h2>
+<p><%= @event.history.html_safe if @event.history %></p>
+
+<h2><%= t(:"event.interesting_stats") %></h2>
+<p><%= @event.interesting_stats.html_safe if @event.interesting_stats %></p>

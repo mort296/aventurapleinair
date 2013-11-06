@@ -1,0 +1,54 @@
+<!-- app/views/admin/footer_texts/_form.html.haml
+-->
+<%= semantic_form_for [:admin, @footer_text] do |f| %>
+  <div class="language-tabs">
+    <ul class="language-selection">
+      <li>
+        <%= link_to 'Français', "#lang-fr" %>
+      </li>
+      <% @footer_text.translations.each do |lang| %>
+        <% unless lang.locale == :fr %>
+          <li>
+            <%= link_to ADDITIONAL_LOCALES[lang.locale.to_sym], "#lang-#{lang.locale}" %>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+    <div id="lang-fr">
+      <%= f.inputs 'Texte Français' do %>     
+        <%= f.input :max_title %>
+        <%= f.input :max_subtitle %>
+        <%= f.input :max_text %>
+        <%= f.input :photograph_title %>
+        <%= f.input :photograph_subtitle %>
+        <%= f.input :photograph_text %>
+      <% end %>
+    </div>
+    <% index = 0 %>
+    <%= f.semantic_fields_for :translations do |lf| %>
+      <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
+        <%= lf.inputs "Texte #{ADDITIONAL_LOCALES[lf.object.locale.to_sym]}" do %>
+          <%= lf.input :max_title %>
+          <%= lf.input :max_subtitle %>
+          <%= lf.input :max_text %>
+          <%= lf.input :photograph_title %>
+          <%= lf.input :photograph_subtitle %>
+          <%= lf.input :photograph_text %>
+          <%= lf.input :locale, :as => :hidden %>
+        <% end %>
+      </div>
+      <% index += 1 %>
+    <% end %>
+  </div>
+  <%= f.inputs 'Champs non traduits' do %> 
+    <%= f.input :max_image %>
+    <%= f.input :photograph_image %>
+  <% end %>
+  <%= f.actions %>
+<% end %>
+
+<script>
+  
+  $('.language-tabs').tabs();
+
+</script>
