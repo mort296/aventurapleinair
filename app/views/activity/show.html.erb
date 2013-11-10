@@ -1,54 +1,101 @@
 <% title @activity.name %>
 <h1><%= @activity.name %></h1>
-<p><%= @activity.description.html_safe %></p>
-<table>
-	<tr>
-		<td><%= t(:season) %>:</td>
-		<td><%= @activity.season.name %></td>
-	</tr>
-	<tr>
-		<td><%= t(:federation) %>:</td>
-		<td><%= @activity.federation %></td>
-	</tr>
-	<tr>
-		<td><%= t(:website) %></td>
-		<td><%= @activity.website %></td>
-	</tr>
-</table>
-<h2><%= t(:"activity.particularity_title") %></h2>
-<p><%= @activity.particularity.html_safe if @activity.particularity %></p>
-<div class="slider">
-	<%= image_tag @activity.image if @activity.image  %>
-	<caption>
-		Promenade en Canot
-		Parc national de la Jacques Cartier
-	</caption>
+<div class="description">
+	<p><%= @activity.description.html_safe if @activity.description %></p>
+</div>	
+<div class="top">
+	<div class="infos">
+		<table>
+			<% if @activity.season.name %>
+			<tr>
+				<td><%= t(:season) %>:</td>
+				<td><%= @activity.season.name %></td>
+			</tr>
+			<% end %>
+			<% if @activity.federation %>
+			<tr>
+				<td><%= t(:federation) %>:</td>
+				<td><%= @activity.federation %></td>
+			</tr>
+			<% end %>
+			<% if @activity.website %>
+			<tr>
+				<td><%= t(:website) %></td>
+				<td><%= @activity.website %></td>
+			</tr>
+			<% end %>
+		</table>
+
+		<h2><%= t(:"activity.particularity_title") %></h2>
+		<p><%= @activity.particularity.html_safe if @activity.particularity %></p>
+	</div>
+	<div class="slider">
+		<%= image_tag @activity.image_url(:thumb_slider) if @activity.image  %>
+		<div class="caption">
+			<p>Promenade en Canot</p>
+			<strong>Parc national de la Jacques Cartier</strong>
+		</div>
+	</div>
 </div>
-<section class="location">
-	<h1><%= t(:locations) %></h1>
-	<ul>
-		<% if @activity.locations %>
-			<% @activity.locations.each do |location| %>
-				<li><%= link_to location.name, location_url(location.id) %></li>
+
+<div class="bottom">
+	<section class="location">
+		<h1><%= t(:locations) %></h1>
+		<ul>
+			<% if @activity.locations %>
+				<% @activity.locations.each do |location| %>
+					<li><%= link_to location.name, location_url(location.id) %></li>
+				<% 	end %>
+			<% else %>
+				<li>Aucun lieux spécifié</li>
 			<% 	end %>
-		<% 	end %>
-	</ul>
-</section>
-<section class="event">
-	<h1><%= t(:events) %></h1>
-	<ul>
-		<% if @activity.events %>
-			<% @activity.events.each do |event| %>
-				<li><%= link_to event.name, event_url(event.id) %></li>
+		</ul>
+	</section>
+	<section class="event">
+		<h1><%= t(:events) %></h1>
+		<ul>
+			<% if @activity.events %>
+				<% @activity.events.each do |event| %>
+					<li><%= link_to event.name, event_url(event.id) %></li>
+				<% 	end %>
+			<% else %>
+				<li>Aucun événements spécifié</li>
 			<% 	end %>
-		<% 	end %>
-	</ul>
+		</ul>
+	</section>
+	<section class="learn">
+		<h1><%= t(:"activity.learn") %></h1>
+		<p><%= if @activity.learn? then @activity.learn.html_safe else 'Aucun apprentissage spécifié'.html_safe end %></p>
+	</section>
+	<section class="equipments">
+		<h1><%= t(:"activity.equipments") %></h1>
+		<p><%= if @activity.equipment? then @activity.equipment.html_safe else 'Aucun équipement de spécifié'.html_safe end %></p>
+	</section>
+</div>
+
+<% if @activity.useful_links %>
+	<section class="useful-links">
+		<h2><%= t(:"activity.useful_links") %></h2>
+		<p><%= @activity.useful_links.html_safe %></p>
+	</section>
+<% end %>
+
+<% if @activity.other_infos %>
+	<section class="other-infos">
+		<h2><%= t(:"activity.other_infos") %></h2>
+		<p><%= @activity.other_infos.html_safe %></p>
+	</section>
+<% end %>
+
+<section class="comments">
+	<h2>VOUS ET <%= @activity.name %>, UN COMMENTAIRE ?</h2>
+	<div>
+		<p><strong>JEAN</strong> : J’ai pratiqué le canot cette fin de semaine au lieu X, j’ai adoré, les guides sont des professionnels, cela m’a beaucoup plu! ! je recommande ce lieu</p>
+		<p><strong>MARTIN</strong> : J’ai pratiqué le canot cette fin de semaine au lieu X, j’ai adoré, les guides sont des professionnels, cela m’a beaucoup plu! ! je recommande ce lieu</p>
+		<a href="#">Voir les autres commentaires ...</a>
+	</div>
 </section>
-<section class="learn">
-	<h1><%= t(:"activity.learn") %></h1>
-	<p><%= if @activity.learn? then @activity.learn.html_safe else 'Aucun apprentissage spécifié' end %></p>
-</section>
-<section class="equipements">
-	<h1><%= t(:"activity.equipments") %></h1>
-	<p><%= if @activity.equipment? then @activity.equipment.html_safe else 'Aucun équipement de spécifié' end %></p>
-</section>
+
+<aside class="pub">
+	<%= image_tag @activity.pub.image_url(:bottom_pub) if @activity.pub %>
+</aside>

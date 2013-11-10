@@ -1,4 +1,6 @@
 class Season < ActiveRecord::Base
+  validates_presence_of :name
+  
 	translates :name, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations	
 

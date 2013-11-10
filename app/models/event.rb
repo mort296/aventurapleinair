@@ -1,5 +1,9 @@
 class Event < ActiveRecord::Base
-	translates :federation, :interesting_stats, :history, :description, :name, :other_infos, :fallbacks_for_empty_translations => true
+  validates_presence_of :name, :date_start, :season, :location
+
+  validate :validate_end_date_before_start_date
+  
+	translates :federation, :interesting_stats, :description, :name, :other_infos, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
 	mount_uploader :image, ImageUploader
@@ -10,6 +14,12 @@ class Event < ActiveRecord::Base
 	
   scope :recent, -> {order("created_at desc").limit(5)}
   
+  def validate_end_date_before_start_date
+    if date_end && date_start
+      errors.add(:date_end, "La date de fin ne peut être inférieur à la date de début") if date_end < date_start
+    end
+  end
+
 	protected
  
   def create_missing_translations

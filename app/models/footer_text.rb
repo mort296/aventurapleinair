@@ -1,4 +1,5 @@
 class FooterText < ActiveRecord::Base
+  validates_presence_of :max_title, :max_subtitle, :max_text, :photograph_title, :photograph_subtitle, :photograph_text, :max_image, :photograph_image
 	mount_uploader :max_image, ImageUploader
 	mount_uploader :photograph_image, ImageUploader
 

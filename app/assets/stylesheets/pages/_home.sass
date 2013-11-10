@@ -9,19 +9,7 @@
     text-align: center
 
   section h1, aside h1
-    +font-size(18)
-
-    color: $lightgrey
-    text-transform: uppercase
-
-    &:before
-      background: $darkred
-      border-radius: 10px
-      content: ""
-      display: inline-block
-      height: 20px
-      margin-right: 40px
-      width: 20px
+    @extend .red-dot-title
 
   section
 
@@ -76,24 +64,7 @@
         position: relative
 
         .caption
-          +font-size(15)
-
-          background: #000
-          background: rgba(0, 0, 0, 0.8)
-          bottom: 0
-          color: #fff
-          position: absolute
-          width: 100%
-
-          p
-            +font-size(19)
-
-            margin: 15px 10px 0
-
-          h2
-            +font-size(25)
-            
-            margin: 5px 10px 10px
+          @extend .common-caption
 
   aside
 

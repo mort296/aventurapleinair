@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131104201207) do
+ActiveRecord::Schema.define(version: 20131110020550) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -35,8 +35,6 @@ ActiveRecord::Schema.define(version: 20131104201207) do
     t.string   "name"
     t.string   "federation"
     t.string   "website"
-    t.text     "interesting_stats"
-    t.text     "history"
     t.text     "particularity"
     t.text     "description"
     t.text     "other_infos"
@@ -50,7 +48,7 @@ ActiveRecord::Schema.define(version: 20131104201207) do
     t.boolean  "online"
     t.integer  "pub_id"
     t.string   "image"
-    t.string   "link"
+    t.text     "useful_links"
   end
 
   create_table "activities_events", force: true do |t|
@@ -81,22 +79,19 @@ ActiveRecord::Schema.define(version: 20131104201207) do
   add_index "activity_category_translations", ["locale"], name: "index_activity_category_translations_on_locale", using: :btree
 
   create_table "activity_translations", force: true do |t|
-    t.integer  "activity_id",       null: false
-    t.string   "locale",            null: false
+    t.integer  "activity_id",   null: false
+    t.string   "locale",        null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "federation"
-    t.string   "website"
-    t.text     "interesting_stats"
-    t.text     "history"
     t.text     "particularity"
     t.text     "description"
     t.text     "other_infos"
     t.text     "learn"
     t.text     "equipment"
+    t.text     "useful_links"
     t.string   "video_link"
-    t.string   "image"
   end
 
   add_index "activity_translations", ["activity_id"], name: "index_activity_translations_on_activity_id", using: :btree
@@ -127,19 +122,16 @@ ActiveRecord::Schema.define(version: 20131104201207) do
   end
 
   create_table "event_translations", force: true do |t|
-    t.integer  "event_id",           null: false
-    t.string   "locale",             null: false
+    t.integer  "event_id",          null: false
+    t.string   "locale",            null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "website"
     t.string   "federation"
-    t.string   "federation_website"
     t.text     "interesting_stats"
-    t.text     "history"
     t.text     "description"
     t.string   "name"
     t.text     "other_infos"
-    t.string   "image"
   end
 
   add_index "event_translations", ["event_id"], name: "index_event_translations_on_event_id", using: :btree
@@ -152,7 +144,6 @@ ActiveRecord::Schema.define(version: 20131104201207) do
     t.string   "federation"
     t.string   "federation_website"
     t.text     "interesting_stats"
-    t.text     "history"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -245,7 +236,6 @@ ActiveRecord::Schema.define(version: 20131104201207) do
     t.text     "other_distinctions"
     t.text     "introduction"
     t.text     "other_infos"
-    t.string   "image"
   end
 
   add_index "location_translations", ["locale"], name: "index_location_translations_on_locale", using: :btree

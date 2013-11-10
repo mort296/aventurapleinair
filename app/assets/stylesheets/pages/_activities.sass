@@ -1,0 +1,131 @@
+.section-activity
+	.content
+		h2
+			@extend .red-dot-title
+		& > h1
+			background: $lightgrey
+			color: #333333
+			margin-top: 40px
+			text-align: center
+			text-transform: uppercase
+
+		.description
+			+font-size(20)
+
+			color: #fff
+			padding: 0 20px
+
+		div.top
+			@extend .clearfix
+
+		.infos
+			+font-size(20)
+
+			color: #fff
+			float: left
+			margin-left: 20px
+			width: 315px
+
+		table
+			+font-size(22)
+
+			color: #fff
+
+			td:first-child
+				width: 100px
+
+		.slider
+			float: left
+			font-size: 0
+			width: 585px
+			position: relative
+
+			.caption
+				@extend .common-caption
+				
+				h2
+					+font-size(20)
+
+		div.bottom
+			@extend .clearfix
+
+		.location, .event, .learn, .equipments
+			color: #fff
+			float: left
+			height: 175px
+			margin-bottom: 5px
+			position: relative
+			width: 472px
+
+			h1
+				background: #000
+				background: rgba(0, 0, 0, 0.7)
+				display: block
+				left: 50%
+				line-height: 76px
+				margin: -38px 0 0 -125px
+				position: absolute
+				text-align: center
+				top: 50%
+				width: 250px
+
+			ul, p
+				display: none
+
+		.location
+			background: rgb(15,15,25)
+			margin-right: 5px
+
+		.event
+			background: rgb(100,0,0)
+
+		.learn
+			background: rgb(0,100,0)
+			margin-right: 5px
+
+		.equipments
+			background: rgb(0,0,100)
+
+		.useful-links
+			float: left
+			margin: 0 5px 0 20px
+			width: 452px
+
+			div
+				+font-size(20)
+
+				color: #fff
+				line-height: 10px
+				margin-left: 45px
+
+		.other-infos
+			float: left
+			margin: 0 5px 0 20px
+			width: 452px
+
+			p
+				+font-size(20)
+
+				color: #fff
+				margin-left: 45px
+
+		.useful-links + .other-infos
+			margin: 0
+
+		.comments
+			margin: 0 20px
+			padding-bottom: 25px
+			clear: both
+
+			div
+				+font-size(20)
+
+				color: #fff
+				margin-left: 45px
+
+				p
+					margin: 0
+
+				strong
+					color: $lightgrey
+					text-transform: uppercase

@@ -1,5 +1,7 @@
 class Location < ActiveRecord::Base
-	translates :name, :address, :website, :services, :interesting_stats, :prizes, :other_distinctions, :introduction, :other_infos, :image, :fallbacks_for_empty_translations => true
+	validates_presence_of :name, :administrative_region, :gps_longitude, :gps_latitude
+	
+	translates :name, :address, :website, :services, :interesting_stats, :prizes, :other_distinctions, :introduction, :other_infos, :fallbacks_for_empty_translations => true
 	accepts_nested_attributes_for :translations
 
 	require 'net/http'

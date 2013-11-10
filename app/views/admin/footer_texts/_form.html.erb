@@ -18,10 +18,10 @@
       <%= f.inputs 'Texte Français' do %>     
         <%= f.input :max_title %>
         <%= f.input :max_subtitle %>
-        <%= f.input :max_text %>
+        <%= f.input :max_text, :as => :html_editor %>
         <%= f.input :photograph_title %>
         <%= f.input :photograph_subtitle %>
-        <%= f.input :photograph_text %>
+        <%= f.input :photograph_text, :as => :html_editor %>
       <% end %>
     </div>
     <% index = 0 %>
@@ -30,21 +30,23 @@
         <%= lf.inputs "Texte #{ADDITIONAL_LOCALES[lf.object.locale.to_sym]}" do %>
           <%= lf.input :max_title %>
           <%= lf.input :max_subtitle %>
-          <%= lf.input :max_text %>
+          <%= lf.input :max_text, :as => :html_editor %>
           <%= lf.input :photograph_title %>
           <%= lf.input :photograph_subtitle %>
-          <%= lf.input :photograph_text %>
+          <%= lf.input :photograph_text, :as => :html_editor %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
       <% index += 1 %>
     <% end %>
   </div>
+  <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
     <%= f.input :max_image %>
     <%= f.input :photograph_image %>
   <% end %>
   <%= f.actions %>
+  </div>
 <% end %>
 
 <script>

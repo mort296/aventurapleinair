@@ -20,6 +20,85 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  activerecord:
+    errors:
+      models:
+        activity:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+            season:
+              blank: "Ce champ ne peut être vide."
+            activity_category:
+              blank: "Ce champ ne peut être vide."
+            locations:
+              blank: "Il doit y avoir au moins un lieu sélectionné."
+            events:
+              blank: "Il doit y avoir au moins un événement sélectionné."
+        event:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+            season:
+              blank: "Ce champ ne peut être vide."
+            date_start:
+              blank: "Ce champ ne peut être vide."
+            location:
+              blank: "Ce champ ne peut être vide."
+        location:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+            administrative_region:
+              blank: "Ce champ ne peut être vide."
+            gps_longitude:
+              blank: "Ce champ ne peut être vide."
+            gps_latitude:
+              blank: "Ce champ ne peut être vide."
+        season:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+        pub:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+            image:
+              blank: "Vous devez choisir une image."
+            pub_type:
+              blank: "Ce champ ne peut être vide."
+        useful_info:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+            icon:
+              blank: "Vous devez choisir une image."
+        administrative_region:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+        activity_category:
+          attributes:
+            name:
+              blank: "Ce champ ne peut être vide."
+        footer_text:
+          attributes:
+            max_title:
+              blank: "Ce champ ne peut être vide."
+            max_subtitle:
+              blank: "Ce champ ne peut être vide."
+            max_text:
+              blank: "Ce champ ne peut être vide."
+            photograph_title:
+              blank: "Ce champ ne peut être vide."
+            photograph_subtitle:
+              blank: "Ce champ ne peut être vide."
+            photograph_text:
+              blank: "Ce champ ne peut être vide."
+            max_image:
+              blank: "Vous devez choisir une image."
+            photograph_image:
+              blank: "Vous devez choisir une image."
   about: "À propos"
   season: "Saison"
   federation: "Fédération"
@@ -45,6 +124,8 @@ fr:
     particularity_title: "Particularité de l'activité"
     learn: "Apprendre"
     equipments: "Équipements"
+    useful_links: "Liens utiles"
+    other_infos: "Autres infos"
   location:
     location_activities: "Activités sur ce lieu"
     useful_infos: "Informations utiles"

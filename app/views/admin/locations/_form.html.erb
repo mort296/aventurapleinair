@@ -18,12 +18,12 @@
       <%= f.inputs 'French Text' do %>
         <%= f.input :name %>
         <%= f.input :address %>
-        <%= f.input :services %>
-        <%= f.input :interesting_stats %>
-        <%= f.input :prizes %>
-        <%= f.input :other_distinctions %>
-        <%= f.input :introduction %>
-        <%= f.input :other_infos %>
+        <%= f.input :services, as: :html_editor %>
+        <%= f.input :interesting_stats, as: :html_editor %>
+        <%= f.input :prizes, as: :html_editor %>
+        <%= f.input :other_distinctions, as: :html_editor %>
+        <%= f.input :introduction, as: :html_editor %>
+        <%= f.input :other_infos, as: :html_editor %>
       <% end %>
     </div>
     <% index = 0 %>
@@ -32,18 +32,19 @@
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
           <%= lf.input :name %>
           <%= lf.input :address %>
-          <%= lf.input :services %>
-          <%= lf.input :interesting_stats %>
-          <%= lf.input :prizes %>
-          <%= lf.input :other_distinctions %>
-          <%= lf.input :introduction %>
-          <%= lf.input :other_infos %>
+          <%= lf.input :services, as: :html_editor %>
+          <%= lf.input :interesting_stats, as: :html_editor %>
+          <%= lf.input :prizes, as: :html_editor %>
+          <%= lf.input :other_distinctions, as: :html_editor %>
+          <%= lf.input :introduction, as: :html_editor %>
+          <%= lf.input :other_infos, as: :html_editor %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
       <% index += 1 %>
     <% end %>
   </div>
+  <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
     <%= f.input :website %>
     <%= f.input :image %>
@@ -55,11 +56,12 @@
     <%= f.input :ranking %>
     <%= f.input :ranking_amount %>
     <%= f.input :administrative_region %>
-    <%= f.input :online %>
-    <%= f.input :pub %>
     <%= f.input :useful_infos %>
+    <%= f.input :pub %>
+    <%= f.input :online %>
   <% end %>
   <%= f.actions %>
+  </div>
 <% end %>
 
 <script>

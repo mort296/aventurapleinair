@@ -1,10 +1,13 @@
 class Activity < ActiveRecord::Base
-	translates :name, :federation, :website, :interesting_stats, :history, :particularity, :description, :other_infos, :learn, :equipment, :video_link, :fallbacks_for_empty_translations => true
+  validates_presence_of :name, :season, :activity_category, :locations, :events
+  
+	translates :name, :federation, :particularity, :description, :other_infos, :learn, :equipment, :useful_links, :video_link, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
-	mount_uploader :image, ImageUploader
+	mount_uploader :image, ActivityUploader
 	belongs_to :season
 	belongs_to :activity_category
+  belongs_to :pub
 	has_and_belongs_to_many :events
 	has_and_belongs_to_many :locations
 

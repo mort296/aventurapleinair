@@ -1,6 +1,41 @@
 $lightgrey: #bababa
 $darkred: #a61922
 
+.caption
+  +font-size(15)
+
+  background: #000
+  background: rgba(0, 0, 0, 0.8)
+  bottom: 0
+  color: #fff
+  position: absolute
+  width: 100%
+
+  p
+    +font-size(19)
+
+    margin: 15px 10px 0
+
+  strong
+    +font-size(25)
+    
+    margin: 5px 10px 10px
+
+.red-dot-title
+  +font-size(18)
+
+  color: $lightgrey
+  margin-bottom: 35px
+  text-transform: uppercase
+
+  &:before
+    background: $darkred
+    border-radius: 10px
+    content: ""
+    display: inline-block
+    height: 20px
+    margin-right: 40px
+    width: 20px
 
 .visuallyhidden 
   border: 0
@@ -69,7 +104,7 @@ html
 body
   +font-size(16)
   +font($pompiere)
-  background: image-url("background.png") no-repeat #333333
+  background: image-url("background.png") no-repeat
   border-top: 40px solid #333333
 
   main

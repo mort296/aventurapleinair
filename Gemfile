@@ -53,7 +53,8 @@ gem 'activeadmin',         github: 'MaxCloutier/active_admin', branch: 'aventura
 gem 'mini_magick'
 gem 'carrierwave'
 
-gem 'tinymce-rails'
-
 # Adds traduction to the models
 gem 'globalize', '~> 4.0.0.alpha.2'
+
+# Wysiwyg
+gem 'active_admin_editor'
