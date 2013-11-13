@@ -1,6 +1,6 @@
 class Event < ActiveRecord::Base
-  validates_presence_of :name, :date_start, :season, :location
-  validates_presence_of :interesting_stats, :description, :image, :if => :online?
+  validates_presence_of :name
+  validates_presence_of :interesting_stats, :description, :date_start, :season, :location, :image, :if => :online?
 
   validate :validate_end_date_before_start_date
   

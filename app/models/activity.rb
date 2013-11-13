@@ -1,6 +1,6 @@
 class Activity < ActiveRecord::Base
-  validates_presence_of :name, :season, :activity_category, :locations
-  validates_presence_of :description, :particularity, :learn, :equipment, :image, :if => :online?
+  validates_presence_of :name
+  validates_presence_of :description, :particularity, :learn, :equipment, :season, :activity_category, :locations, :image, :if => :online?
   
 	translates :name, :federation, :particularity, :description, :other_infos, :learn, :equipment, :useful_links, :video_link, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
