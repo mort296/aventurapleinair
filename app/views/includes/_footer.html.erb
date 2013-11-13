@@ -21,8 +21,8 @@
 		
 		<section class="description-max">
 			<%= image_tag @footer_content.max_image_url(:thumb_admin) if @footer_content.max_image? %>
-			<h1><%= @footer_content.max_title %> <span><%= @footer_content.max_subtitle %></span></h1>
-			<%= @footer_content.max_text.html_safe %>
+			<h1><%= @footer_content.max_title if @footer_content.max_title %> <span><%= @footer_content.max_subtitle if @footer_content.max_subtitle %></span></h1>
+			<%= @footer_content.max_text.html_safe if @footer_content.max_text %>
 		</section>
 	</div>
 	<div class="footer-bottom">
@@ -81,10 +81,10 @@
 			</ul>
 		</nav>
 		<section class="photograph">
-			<h1>Mathieu Dupuis <span><%= @footer_content.photograph_title %></span></h1>
+			<h1>Mathieu Dupuis <span><%= @footer_content.photograph_title if @footer_content.photograph_title %></span></h1>
 			<%= image_tag @footer_content.photograph_image_url(:thumb_admin) if @footer_content.photograph_image? %>
-			<h2> <%= @footer_content.photograph_subtitle %></h2>
-			<%= @footer_content.photograph_text.html_safe %>
+			<h2> <%= @footer_content.photograph_subtitle if @footer_content.photograph_subtitle %></h2>
+			<%= @footer_content.photograph_text.html_safe if @footer_content.photograph_text %>
 			<p class="red"><%= t(:"include.aventura_team") %>.</p>
 		</section>
 	</div>

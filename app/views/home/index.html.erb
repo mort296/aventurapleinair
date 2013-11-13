@@ -2,17 +2,17 @@
 <div class="slider">
 	<%= image_tag 'slider.png' %>
 </div>
-<h1 class="home-title"><%= @home.title %></h1>
+<h1 class="home-title"><%= @home.title if @home.title %></h1>
 <section class="about-us">
 	<h1>Qui sommes nous?</h1>
 	<ul>
-		<li><h2><%= @home.who_one_title %></h2></li>
-		<li><%= @home.who_one_text.html_safe %></li>
+		<li><h2><%= @home.who_one_title if @home.who_one_title %></h2></li>
+		<li><%= @home.who_one_text.html_safe if @home.who_one_text %></li>
 	</ul>
 	<iframe src="http://player.vimeo.com/video/<%= @video_id %>" width="425" height="250" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
 	<ul>
-		<li><h2><%= @home.who_two_title %></h2></li>
-		<li><%= @home.who_two_text.html_safe %></li>
+		<li><h2><%= @home.who_two_title if @home.who_two_title %></h2></li>
+		<li><%= @home.who_two_text.html_safe if @home.who_two_text %></li>
 	</ul>
 </section>
 <section class="featured">
@@ -20,14 +20,14 @@
 	<div class="slider">
 		<%= image_tag @home.featured_image_url(:thumb_featured) if @home.featured_image %>
 		<div class="caption">
-			<p><%= @home.featured_caption_place %></p>
-			<strong><%= @home.featured_caption_activity %></strong>
+			<p><%= @home.featured_caption_place if @home.featured_caption_place %></p>
+			<strong><%= @home.featured_caption_activity if @home.featured_caption_activity %></strong>
 		</dib>
 	</div>
 </section>
 <aside class="sidebar-pub">
 	<h1>Promotions</h1>
-	<p><%= @home.promotion_text %></p>
+	<p><%= @home.promotion_text if @home.promotion_text %></p>
 	<%= image_tag @home.pub1.image_url(:sidebar_pub) if @home.pub1 %>
 </aside>
 <aside class="bottom-pub">

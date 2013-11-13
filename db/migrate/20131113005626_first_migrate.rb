@@ -1,6 +1,6 @@
-class GlobalMigration < ActiveRecord::Migration
+class FirstMigrate < ActiveRecord::Migration
   def change
-	  create_table "active_admin_comments", force: true do |t|
+  	create_table "active_admin_comments", force: true do |t|
 	    t.string   "resource_id",   null: false
 	    t.string   "resource_type", null: false
 	    t.integer  "author_id"
