@@ -33,8 +33,16 @@ fr:
               blank: "Ce champ ne peut être vide."
             locations:
               blank: "Il doit y avoir au moins un lieu sélectionné."
-            events:
-              blank: "Il doit y avoir au moins un événement sélectionné."
+            description:
+              blank: "Ce champ ne peut être vide."
+            particularity:
+              blank: "Ce champ ne peut être vide."
+            learn:
+              blank: "Ce champ ne peut être vide."
+            equipment:
+              blank: "Ce champ ne peut être vide."
+            image:
+              blank: "Vous devez choisir une image."
         event:
           attributes:
             name:
@@ -45,6 +53,12 @@ fr:
               blank: "Ce champ ne peut être vide."
             location:
               blank: "Ce champ ne peut être vide."
+            description:
+              blank: "Ce champ ne peut être vide."
+            interesting_stats:
+              blank: "Ce champ ne peut être vide."
+            image:
+              blank: "Vous devez choisir une image."
         location:
           attributes:
             name:
@@ -55,6 +69,20 @@ fr:
               blank: "Ce champ ne peut être vide."
             gps_latitude:
               blank: "Ce champ ne peut être vide."
+            address:
+              blank: "Ce champ ne peut être vide."
+            services:
+              blank: "Ce champ ne peut être vide."
+            interesting_stats:
+              blank: "Ce champ ne peut être vide."
+            introduction:
+              blank: "Ce champ ne peut être vide."
+            image:
+              blank: "Vous devez choisir une image."
+            phone:
+              blank: "Ce champ ne peut être vide."
+            useful_infos:
+              blank: "Il doit y avoir au moins un information utilse."
         season:
           attributes:
             name:
@@ -81,24 +109,6 @@ fr:
           attributes:
             name:
               blank: "Ce champ ne peut être vide."
-        footer_text:
-          attributes:
-            max_title:
-              blank: "Ce champ ne peut être vide."
-            max_subtitle:
-              blank: "Ce champ ne peut être vide."
-            max_text:
-              blank: "Ce champ ne peut être vide."
-            photograph_title:
-              blank: "Ce champ ne peut être vide."
-            photograph_subtitle:
-              blank: "Ce champ ne peut être vide."
-            photograph_text:
-              blank: "Ce champ ne peut être vide."
-            max_image:
-              blank: "Vous devez choisir une image."
-            photograph_image:
-              blank: "Vous devez choisir une image."
   about: "À propos"
   season: "Saison"
   federation: "Fédération"

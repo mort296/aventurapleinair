@@ -29,16 +29,26 @@
 		<nav class="footer-nav">
 			<h1><%= t(:"include.footer_nav") %></h1>
 			<ul>
-				<li><%= link_to t(:"include.activities"), activity_index_url %>
+				<li><%= t(:"include.activities") %>
 					<% if @menu_activity_category %>
 						<ul>
 							<% @menu_activity_category.each do |activity_category| %>
-								<li><%= link_to activity_category.name , activity_category_url(activity_category.id) %></li>
+								<li><%= activity_category.name %>
+									<% if activity_category.activity %>
+										<ul>
+											<% activity_category.activity.each do |activity| %>
+												<li><%= link_to activity.name , activity_url(activity.id) %>
+													
+												</li>
+											<% end %>
+										</ul>
+									<% end %>
+								</li>
 							<% end %>
 						</ul>
 					<% end %>
 				</li>
-				<li><%= link_to 'Top 10', 'top10_url' %>
+				<li><%= 'Top 10' %>
 					<ul>
 						<li><%= link_to t(:"locations"), 'top_destinations_url' %>
 						<li><%= link_to t(:"include.activities"), 'top_activities_url' %>
@@ -46,7 +56,7 @@
 				</li>
 			</ul>
 			<ul>
-				<li><%= link_to t(:locations), location_index_url %>
+				<li><%= t(:locations) %>
 					<% if @menu_location %>
 						<ul>
 							<% @menu_location.each do |location| %>
@@ -57,7 +67,7 @@
 				</li>
 			</ul>
 			<ul>
-				<li><%= link_to t(:events), event_index_url %>
+				<li><%= t(:events) %>
 					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>

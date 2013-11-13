@@ -1,5 +1,6 @@
 class Event < ActiveRecord::Base
   validates_presence_of :name, :date_start, :season, :location
+  validates_presence_of :interesting_stats, :description, :image, :if => :online?
 
   validate :validate_end_date_before_start_date
   
@@ -13,10 +14,14 @@ class Event < ActiveRecord::Base
   after_save :create_missing_translations
 	
   scope :recent, -> {order("created_at desc").limit(5)}
+
+  def online?
+    online == true
+  end
   
   def validate_end_date_before_start_date
     if date_end && date_start
-      errors.add(:date_end, "La date de fin ne peut être inférieur à la date de début") if date_end < date_start
+      errors.add(:date_end, "La date de fin ne peut être inférieur à la date de début.") if date_end < date_start
     end
   end
 

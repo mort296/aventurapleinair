@@ -1,8 +1,0 @@
-<% title 'Lieux' %>
-<ul>
-	<% @locations.each do |location| %>
-		<li>
-			<%= link_to location.name, location_url(location.id) %>
-		</li>	
-	<% end %>
-</ul>

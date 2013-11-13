@@ -19,17 +19,24 @@
 		<nav class="main-nav">
 			<h1><%= t(:"include.main_nav") %></h1>
 			<ul>
-				<li>
-					<%= link_to t(:"include.activities"), activity_index_url %>
+				<li><span><%= t(:"include.activities") %></span>
 					<% if @menu_activity_category %>
 						<ul>
 							<% @menu_activity_category.each do |activity_category| %>
-								<li><%= link_to activity_category.name , activity_category_url(activity_category.id) %>
+								<li><span><%= activity_category.name %></span>
+									<% if activity_category.activity %>
+										<ul>
+											<% activity_category.activity.each do |activity| %>
+												<li><%= link_to activity.name , activity_url(activity.id) %>
+											<% end %>
+										</ul>
+									<% end %>
+								
 							<% end %>
 						</ul>
 					<% end %>
 				</li>
-				<li><%= link_to t(:locations), location_index_url %>
+				<li><span><%= t(:locations) %></span>
 					<% if @menu_location %>
 						<ul>
 							<% @menu_location.each do |location| %>
@@ -38,7 +45,7 @@
 						</ul>
 					<% end %>
 				</li>
-				<li><%= link_to t(:events), event_index_url %>
+				<li><span><%= t(:events) %></span>
 					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>
@@ -47,7 +54,7 @@
 					</ul>
 					<% end %>
 				</li>
-				<li><%= link_to 'Top 10', 'topten_url' %>
+				<li><span><%= 'Top 10' %></span>
 					<ul>
 						<li><%= link_to t(:"locations"), 'top_destinations_url' %>
 						<li><%= link_to t(:"include.activities"), 'top_activities_url' %>

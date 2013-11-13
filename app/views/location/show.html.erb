@@ -26,8 +26,12 @@
 	<address>
 		<%= t(:address) %>: <%= @location.address %><br />
 		<%= t(:phone) %>: <%= @location.phone %><br />
-		<%= t(:"toll_free") %>: <%= @location.charge_free_phone %><br />
-		<%= @location.website %><br />
+		<% if @location.charge_free_phone %>
+			<%= t(:"toll_free") %>: <%= @location.charge_free_phone %><br />
+		<% end %>
+		<% if @location.website %>
+			<%= @location.website %><br />
+		<% end %>
 	</address>
 </div>
 <div class="right">

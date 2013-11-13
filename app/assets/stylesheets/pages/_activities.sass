@@ -52,7 +52,7 @@
 		.location, .event, .learn, .equipments
 			color: #fff
 			float: left
-			height: 175px
+			height: 225px
 			margin-bottom: 5px
 			position: relative
 			width: 472px
@@ -62,15 +62,42 @@
 				background: rgba(0, 0, 0, 0.7)
 				display: block
 				left: 50%
-				line-height: 76px
-				margin: -38px 0 0 -125px
+				line-height: 120px
+				margin: -60px 0 0 -150px
 				position: absolute
 				text-align: center
 				top: 50%
-				width: 250px
+				width: 300px
+
+				&:hover + ul, &:hover + p, & + ul:hover, & + p:hover
+					display: block
 
 			ul, p
+				+font-size(22)
+
 				display: none
+				background: #000
+				background: rgba(0, 0, 0, 0.9)
+				margin: 53px auto
+				left: 50%
+				margin-left: -150px
+				padding: 0
+				position: absolute
+				width: 300px
+
+			ul
+				text-align: center
+
+				li
+					list-style: none
+					margin: 10px 0
+
+					a
+						color: #fff
+
+			p
+				padding: 20px 30px
+				width: 240px
 
 		.location
 			background: rgb(15,15,25)
