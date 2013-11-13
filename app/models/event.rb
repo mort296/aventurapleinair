@@ -7,7 +7,7 @@ class Event < ActiveRecord::Base
 	translates :federation, :interesting_stats, :description, :name, :other_infos, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
-	mount_uploader :image, ImageUploader
+	#mount_uploader :image, ImageUploader
 	belongs_to :season
 	belongs_to :location
 	has_and_belongs_to_many :activities

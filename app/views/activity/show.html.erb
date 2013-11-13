@@ -6,7 +6,7 @@
 <div class="top">
 	<div class="infos">
 		<table>
-			<% if @activity.season.name %>
+			<% if @activity.season %>
 			<tr>
 				<td><%= t(:season) %>:</td>
 				<td><%= @activity.season.name %></td>
@@ -30,7 +30,7 @@
 		<p><%= @activity.particularity.html_safe if @activity.particularity %></p>
 	</div>
 	<div class="slider">
-		<%= image_tag @activity.image_url(:thumb_slider) if @activity.image  %>
+		<%= image_tag @activity.image.url(:thumb_slider) if @activity.image  %>
 		<div class="caption">
 			<p>Promenade en Canot</p>
 			<strong>Parc national de la Jacques Cartier</strong>

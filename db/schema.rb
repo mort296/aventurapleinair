@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113005626) do
+ActiveRecord::Schema.define(version: 20131113233429) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 20131113005626) do
     t.integer  "pub_id"
     t.string   "image"
     t.text     "useful_links"
+    t.string   "image_file_name"
   end
 
   create_table "activities_events", force: true do |t|

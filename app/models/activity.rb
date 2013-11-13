@@ -5,7 +5,11 @@ class Activity < ActiveRecord::Base
 	translates :name, :federation, :particularity, :description, :other_infos, :learn, :equipment, :useful_links, :video_link, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
-	mount_uploader :image, ActivityUploader
+  has_attached_file :image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100>",
+    :thumb_slider => "585xnil>"
+  }
 	belongs_to :season
 	belongs_to :activity_category
   belongs_to :pub

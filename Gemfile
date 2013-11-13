@@ -50,8 +50,7 @@ gem "rack", "~> 1.5.2"
 gem 'activeadmin',         github: 'MaxCloutier/active_admin', branch: 'aventura'
 
 # Adds the file upload in the forms
-gem 'mini_magick'
-gem 'carrierwave'
+gem "paperclip", "~> 3.5.0"
 
 # Adds traduction to the models
 gem 'globalize', '~> 4.0.0.alpha.2'

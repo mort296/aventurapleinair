@@ -6,7 +6,7 @@ class Location < ActiveRecord::Base
 	accepts_nested_attributes_for :translations
 
 	require 'net/http'
-	mount_uploader :image, PubUploader
+	#mount_uploader :image, PubUploader
 	belongs_to :administrative_region
 	has_and_belongs_to_many :useful_infos
 	belongs_to :pub
