@@ -6,7 +6,13 @@ class Location < ActiveRecord::Base
 	accepts_nested_attributes_for :translations
 
 	require 'net/http'
-	#mount_uploader :image, PubUploader
+
+	has_attached_file :image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100>",
+    :full_width => "950x>"
+  }
+
 	belongs_to :administrative_region
 	has_and_belongs_to_many :useful_infos
 	belongs_to :pub

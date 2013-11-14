@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131113233429) do
+ActiveRecord::Schema.define(version: 20131114003358) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -155,6 +155,7 @@ ActiveRecord::Schema.define(version: 20131113233429) do
     t.text     "other_infos"
     t.string   "image"
     t.string   "link"
+    t.string   "image_file_name"
   end
 
   create_table "footer_text_translations", force: true do |t|
@@ -184,6 +185,8 @@ ActiveRecord::Schema.define(version: 20131113233429) do
     t.string   "photograph_image"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "max_image_file_name"
+    t.string   "photograph_image_file_name"
   end
 
   create_table "home_translations", force: true do |t|
@@ -221,6 +224,8 @@ ActiveRecord::Schema.define(version: 20131113233429) do
     t.string   "promotion_text"
     t.integer  "pub1_id"
     t.integer  "pub2_id"
+    t.string   "background_image_file_name"
+    t.string   "featured_image_file_name"
   end
 
   create_table "location_translations", force: true do |t|
@@ -265,6 +270,7 @@ ActiveRecord::Schema.define(version: 20131113233429) do
     t.string   "link"
     t.decimal  "gps_longitude"
     t.decimal  "gps_latitude"
+    t.string   "image_file_name"
   end
 
   create_table "locations_useful_infos", force: true do |t|
@@ -284,6 +290,7 @@ ActiveRecord::Schema.define(version: 20131113233429) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
+    t.string   "image_file_name"
   end
 
   create_table "ratings", force: true do |t|
@@ -320,6 +327,7 @@ ActiveRecord::Schema.define(version: 20131113233429) do
     t.string   "icon"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "icon_file_name"
   end
 
 end

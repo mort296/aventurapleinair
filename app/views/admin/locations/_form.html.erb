@@ -1,6 +1,6 @@
 <!-- app/views/admin/locations/_form.html.haml
 -->
-<%= semantic_form_for [:admin, @location] do |f| %>
+<%= semantic_form_for [:admin, @location], :html => { multipart: true }  do |f| %>
   <div class="language-tabs">
     <ul class="language-selection">
       <li>
@@ -47,7 +47,7 @@
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
     <%= f.input :website %>
-    <%= f.input :image %>
+    <%= f.input :image, :as => :file %>
     <%= f.input :link %>
     <%= f.input :phone %>
     <%= f.input :charge_free_phone %>

@@ -1,6 +1,6 @@
 <!-- app/views/admin/footer_texts/_form.html.haml
 -->
-<%= semantic_form_for [:admin, @footer_text] do |f| %>
+<%= semantic_form_for [:admin, @footer_text], :html => { multipart: true } do |f| %>
   <div class="language-tabs">
     <ul class="language-selection">
       <li>
@@ -42,8 +42,8 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
-    <%= f.input :max_image %>
-    <%= f.input :photograph_image %>
+    <%= f.input :max_image, :as => :file %>
+    <%= f.input :photograph_image, :as => :file %>
   <% end %>
   <%= f.actions %>
   </div>

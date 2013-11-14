@@ -7,7 +7,13 @@ class Event < ActiveRecord::Base
 	translates :federation, :interesting_stats, :description, :name, :other_infos, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
-	#mount_uploader :image, ImageUploader
+
+  has_attached_file :image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100>",
+    :thumb => "200x200>"
+  }
+
 	belongs_to :season
 	belongs_to :location
 	has_and_belongs_to_many :activities

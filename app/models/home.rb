@@ -1,7 +1,13 @@
 class Home < ActiveRecord::Base
 
-	#mount_uploader :background_image, ImageUploader
-	#mount_uploader :featured_image, HomeUploader
+  has_attached_file :background_image
+
+  has_attached_file :featured_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100>",
+    :thumb_featured => "640x>"
+  }
+
 	belongs_to :pub1, :class_name => "Pub"
 	belongs_to :pub2, :class_name => "Pub"
 

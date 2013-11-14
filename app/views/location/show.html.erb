@@ -1,7 +1,7 @@
 <% title @location.name %>
 <h1><%= @location.name %></h1>
 
-<%= image_tag @location.image_url(:bottom_pub) if @location.image  %>
+<%= image_tag @location.image.url(:full_width) if @location.image  %>
 <div class="left">
 	<section class="activities">
 		<h2><%= t(:"location.location_activities") %></h2>
@@ -17,7 +17,7 @@
 		<ul>
 		<% if @location.useful_infos %>
 			<% @location.useful_infos.each do |useful_info| %>
-				<li><%= image_tag useful_info.icon_url(:icon_size) %><%= useful_info.name %></li>
+				<li><%= image_tag useful_info.icon.url(:icon) %><%= useful_info.name %></li>
 			<% 	end %>
 		<% 	end %>
 		</ul>
@@ -48,5 +48,5 @@
 	</section>
 </div>
 <aside class="bottom-pub">
-	<%= image_tag @location.pub.image_url(:bottom_pub) if @location.pub %>
+	<%= image_tag @location.pub.image.url(:bottom_pub) if @location.pub %>
 </aside>

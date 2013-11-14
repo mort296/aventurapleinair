@@ -27,7 +27,7 @@
 	</tr>
 </table>
 
-<%= image_tag @event.image_url(:thumb_admin) if @event.image %>
+<%= image_tag @event.image.url(:thumb_admin) if @event.image %>
 
 <h2><%= t(:"event.other_infos") %></h2>
 <p><%= @event.other_infos.html_safe if @event.other_infos %></p>

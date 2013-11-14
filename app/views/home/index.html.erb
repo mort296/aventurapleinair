@@ -18,7 +18,7 @@
 <section class="featured">
 	<h1>En vedette</h1>
 	<div class="slider">
-		<%= image_tag @home.featured_image_url(:thumb_featured) if @home.featured_image %>
+		<%= image_tag @home.featured_image.url(:thumb_featured) if @home.featured_image %>
 		<div class="caption">
 			<p><%= @home.featured_caption_place if @home.featured_caption_place %></p>
 			<strong><%= @home.featured_caption_activity if @home.featured_caption_activity %></strong>
@@ -28,8 +28,8 @@
 <aside class="sidebar-pub">
 	<h1>Promotions</h1>
 	<p><%= @home.promotion_text if @home.promotion_text %></p>
-	<%= image_tag @home.pub1.image_url(:sidebar_pub) if @home.pub1 %>
+	<%= image_tag @home.pub1.image.url(:sidebar_pub) if @home.pub1 %>
 </aside>
 <aside class="bottom-pub">
-	<%= image_tag @home.pub2.image_url(:bottom_pub) if @home.pub2 %>
+	<%= image_tag @home.pub2.image.url(:bottom_pub) if @home.pub2 %>
 </aside>

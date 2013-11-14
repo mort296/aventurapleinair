@@ -8,8 +8,9 @@ class Activity < ActiveRecord::Base
   has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
     :thumb_admin => "100x100>",
-    :thumb_slider => "585xnil>"
+    :thumb_slider => "585x>"
   }
+
 	belongs_to :season
 	belongs_to :activity_category
   belongs_to :pub

@@ -1,6 +1,16 @@
 class FooterText < ActiveRecord::Base
-	#mount_uploader :max_image, ImageUploader
-	#mount_uploader :photograph_image, ImageUploader
+
+  has_attached_file :max_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100>",
+    :thumb => "200x200>"
+  }
+
+  has_attached_file :photograph_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100>",
+    :thumb => "200x200>"
+  }
 
 	translates :max_title, :max_subtitle, :max_text, :photograph_title, :photograph_subtitle, :photograph_text, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations	
