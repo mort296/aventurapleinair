@@ -17,10 +17,11 @@
 		<ul>
 		<% if @location.useful_infos %>
 			<% @location.useful_infos.each do |useful_info| %>
-				<li><%= image_tag useful_info.icon.url(:icon) %><%= useful_info.name %></li>
+				<li><div><%= image_tag useful_info.icon.url(:icon) %></div><%= useful_info.name %></li>
 			<% 	end %>
 		<% 	end %>
 		</ul>
+		<%= link_to 'Consulter', @location.link %>
 	</section>
 
 	<address>
@@ -30,7 +31,7 @@
 			<%= t(:"toll_free") %>: <%= @location.charge_free_phone %><br />
 		<% end %>
 		<% if @location.website %>
-			<%= @location.website %><br />
+			<br /><%= link_to @location.website, @location.website %><br />
 		<% end %>
 	</address>
 </div>
@@ -45,6 +46,7 @@
 	</section>
 
 	<section class="events">
+		<%= link_to 'Événements', event_index_url %>
 	</section>
 </div>
 <aside class="bottom-pub">
