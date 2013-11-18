@@ -16,11 +16,16 @@ class Activity < ActiveRecord::Base
   belongs_to :pub
 	has_and_belongs_to_many :events
 	has_and_belongs_to_many :locations
+  has_one :activity_rating
 
   after_save :create_missing_translations
   
   def online?
     online == true
+  end
+
+  def getCurrentRate rating
+    return ActivityRating.new().currentRate(rating)
   end
 
 	protected

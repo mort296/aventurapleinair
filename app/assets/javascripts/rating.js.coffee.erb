@@ -1,7 +1,11 @@
-$('ul.rating.hover li button').on 'click', ->
-  #if readCookie($(this).data("menu-id")).length != 1 
-    $.get "/menu/" + $(this).data("menu-id") + "/" + $(this).data("rating") + "/update"
-  #return
+$('.section-activity ul.rating.hover li button').on 'click', ->
+  $.get "/activity/" + $(this).data("activity-id") + "/" + $(this).data("rating") + "/update"
+
+$('.section-event ul.rating.hover li button').on 'click', ->
+  $.get "/event/" + $(this).data("event-id") + "/" + $(this).data("rating") + "/update"
+
+$('.section-location ul.rating.hover li button').on 'click', ->
+  $.get "/location/" + $(this).data("location-id") + "/" + $(this).data("rating") + "/update"
 
 readCookie = (name) ->
   nameEQ = name + "="

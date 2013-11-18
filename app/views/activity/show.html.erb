@@ -1,5 +1,8 @@
 <% title @activity.name %>
 <h1><%= @activity.name %></h1>
+<div class="left star" data-activity-id="<%= @activity.id %>" >
+  <%= render '/activity_rating/rating', :@item => @activity %>
+</div>
 <div class="description">
 	<p><%= @activity.description.html_safe if @activity.description %></p>
 </div>	

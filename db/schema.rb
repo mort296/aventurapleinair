@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131114003358) do
+ActiveRecord::Schema.define(version: 20131116174801) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -79,6 +79,12 @@ ActiveRecord::Schema.define(version: 20131114003358) do
   add_index "activity_category_translations", ["activity_category_id"], name: "index_activity_category_translations_on_activity_category_id", using: :btree
   add_index "activity_category_translations", ["locale"], name: "index_activity_category_translations_on_locale", using: :btree
 
+  create_table "activity_ratings", force: true do |t|
+    t.decimal "rate",         default: 0.0
+    t.integer "rater_amount", default: 0
+    t.integer "activity_id"
+  end
+
   create_table "activity_translations", force: true do |t|
     t.integer  "activity_id",   null: false
     t.string   "locale",        null: false
@@ -120,6 +126,12 @@ ActiveRecord::Schema.define(version: 20131114003358) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "event_ratings", force: true do |t|
+    t.decimal "rate",         default: 0.0
+    t.integer "rater_amount", default: 0
+    t.integer "event_id"
   end
 
   create_table "event_translations", force: true do |t|
@@ -228,6 +240,12 @@ ActiveRecord::Schema.define(version: 20131114003358) do
     t.string   "featured_image_file_name"
   end
 
+  create_table "location_ratings", force: true do |t|
+    t.decimal "rate",         default: 0.0
+    t.integer "rater_amount", default: 0
+    t.integer "location_id"
+  end
+
   create_table "location_translations", force: true do |t|
     t.integer  "location_id",        null: false
     t.string   "locale",             null: false
@@ -253,8 +271,6 @@ ActiveRecord::Schema.define(version: 20131114003358) do
     t.string   "phone"
     t.string   "charge_free_phone"
     t.string   "website"
-    t.decimal  "ranking"
-    t.integer  "ranking_amount"
     t.text     "services"
     t.text     "interesting_stats"
     t.text     "prizes"
@@ -291,13 +307,6 @@ ActiveRecord::Schema.define(version: 20131114003358) do
     t.datetime "updated_at"
     t.string   "name"
     t.string   "image_file_name"
-  end
-
-  create_table "ratings", force: true do |t|
-    t.integer "ratable_id"
-    t.string  "ratable_type"
-    t.decimal "rate",         default: 0.0
-    t.integer "rater_amount", default: 0
   end
 
   create_table "season_translations", force: true do |t|

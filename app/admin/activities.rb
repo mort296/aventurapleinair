@@ -2,6 +2,11 @@ ActiveAdmin.register Activity do
 	menu :label => "Activités", :priority => 3
 	form :partial => "form"
 
+	after_filter :only => :create do
+    activity = Activity.last
+    ActivityRating.create(:activity => activity)
+  end
+
 	controller do
 		def new
 			@activity = Activity.new

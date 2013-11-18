@@ -11,6 +11,10 @@ Aventurapleinair::Application.routes.draw do
   resources :activity_category
   resources :location
   resources :event
+
+  match 'activity/:id/:activity_rating/update' => 'activity_rating#rate', :via => :get, :as => :update_activity_rating
+  match 'event/:id/:event_rating/update' => 'event_rating#rate', :via => :get, :as => :update_event_rating
+  match 'location/:id/:location_rating/update' => 'location_rating#rate', :via => :get, :as => :update_location_rating
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
