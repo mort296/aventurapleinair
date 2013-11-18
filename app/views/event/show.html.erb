@@ -1,36 +1,43 @@
 <% title @event.name %>
 <h1><%= @event.name %></h1>
 
-<p>Du <%= @event.date_start %> au <%= @event.date_end %></p>
+<section class="event-header">
+	<%= image_tag @event.image.url() %>
+	<h2>Du <span><%= l @event.date_start, format: :long %></span> au <span><%= l @event.date_end, format: :long %></span></h2>
+</section>
 
-<p><%= @event.description.html_safe if @event.description %></p>
-<table>
-	<tr>
-		<td><%= t(:season) %>:</td>
-		<td><%= @event.season.name %></td>
-	</tr>
-	<tr>
-		<td><%= t(:"event.location") %></td>
-		<td><%= link_to @event.location.name, location_url(@event.location.id) %></td></td>
-	</tr>
-	<tr>
-		<td><%= t(:federation) %>:</td>
-		<td><%= @event.federation %></td>
-	</tr>
-	<tr>
-		<td><%= t(:federation_website) %>:</td>
-		<td><%= @event.federation_website %></td>
-	</tr>
-	<tr>
-		<td><%= t(:website) %></td>
-		<td><%= @event.website %></td>
-	</tr>
-</table>
+<section class="event-info">
+	<p><%= @event.description.html_safe if @event.description %></p>
+	<table>
+		<tr class="first-row">
+			<td class="title"><%= t(:season) %></td>
+			<td><%= @event.season.name %></td>
+		</tr>
+		<tr>
+			<td class="title"><%= t(:"event.location") %></td>
+			<td><%= link_to @event.location.name, location_url(@event.location.id) %></td></td>
+		</tr>
+		<tr>
+			<td class="title"><%= t(:federation) %></td>
+			<td><%= @event.federation %></td>
+		</tr>
+		<tr>
+			<td class="title"><%= t(:federation_website) %></td>
+			<td><%= @event.federation_website %></td>
+		</tr>
+		<tr>
+			<td class="title"><%= t(:website) %></td>
+			<td><%= @event.website %></td>
+		</tr>
+	</table>
+</section>
 
-<%= image_tag @event.image.url(:thumb_admin) if @event.image %>
+<section class="event-other-info">
+	<h2><%= t(:"event.other_infos") %></h2>
+	<p><%= @event.other_infos.html_safe if @event.other_infos %></p>
+</section>
 
-<h2><%= t(:"event.other_infos") %></h2>
-<p><%= @event.other_infos.html_safe if @event.other_infos %></p>
-
-<h2><%= t(:"event.interesting_stats") %></h2>
-<p><%= @event.interesting_stats.html_safe if @event.interesting_stats %></p>
+<section class="event-stats">
+	<h2><%= t(:"event.interesting_stats") %></h2>
+	<p><%= @event.interesting_stats.html_safe if @event.interesting_stats %></p>
+</section>

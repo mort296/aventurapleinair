@@ -1,8 +1,44 @@
 <% title 'Événements' %>
-<ul>
-	<% @events.each do |event| %>
-		<li>
-			<%= link_to event.name, event_url(event.id) %>
-		</li>	
-	<% end %>
-</ul>
+<h1>Les evenements</h1>
+
+<section class="event-info">
+	<p>Lorem ipsum blbalbaldkbfs jkdfgdhsjkfgh ksjh.</p>
+</section>
+
+<section class="event-slider">
+	<div id="slider" class="flexslider">
+	  <ul class="slides">
+			<% @events.each do |event| %>
+				<li>
+					<%= image_tag event.image.url() %>
+					<%= link_to event.name, event_url(event.id) %>
+				</li>	
+			<% end %>
+		</ul>
+	</div>
+	<div id="carousel" class="flexslider">
+	  <ul class="slides">
+	    <% @events.each do |event| %>
+				<li>
+					<%= image_tag event.image.url(:thumb_admin) %>
+				</li>	
+			<% end %>
+	  </ul>
+	</div>
+</section>
+
+<section class="event-list">
+	<ul>
+		<% @events.each do |event| %>
+			<li>
+				<div class="left">
+					<h2><%= event.name %></h2>
+					<p><%= raw event.description %></p>
+				</div>
+				<div class="right">
+					<%= link_to image_tag(event.image.url()), event_url(event.id) %>
+				</div>
+			</li>
+		<% end %>	
+	</ul>
+</section>

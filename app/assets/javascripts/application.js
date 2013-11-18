@@ -15,3 +15,5 @@
 //= require turbolinks
 //= require jquery_ujs
 //= require rating
+//= require sliders
+//= require jquery.flexslider-min.js
