@@ -1,4 +1,5 @@
 class Activity < ActiveRecord::Base
+  acts_as_commentable
   validates_presence_of :name
   validates_presence_of :description, :particularity, :learn, :equipment, :season, :activity_category, :locations, :image, :if => :online?
   

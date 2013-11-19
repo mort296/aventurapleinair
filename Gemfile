@@ -57,3 +57,6 @@ gem 'globalize', '~> 4.0.0.alpha.2'
 
 # Wysiwyg
 gem 'active_admin_editor'
+
+# Comments
+gem 'acts_as_commentable'
