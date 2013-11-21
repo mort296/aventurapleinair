@@ -1,0 +1,76 @@
+.rating
+	width: 80px
+	height: 16px
+	margin: 0 0 20px 0
+	padding: 0
+	list-style: none
+	clear: both
+	position: relative
+	background: url(/assets/star-matrix.gif) no-repeat 0 0
+
+/* add these classes to the ul to effect the change to the correct number of stars */
+.nostar 
+	background-position: 0 0
+.onestar 
+	background-position: 0 -16px
+.twostar 
+	background-position: 0 -32px
+.threestar 
+	background-position: 0 -48px
+.fourstar 
+	background-position: 0 -64px
+.fivestar 
+	background-position: 0 -80px
+
+ul.rating 
+	li 
+		float: left
+		text-indent: -999em
+
+		&.one button 
+			left: 0
+		&.two button 
+			left: 16px
+		&.three button 
+			left: 32px
+		&.four button 
+			left: 48px
+		&.five button 
+			left: 64px
+
+		button 
+			background: none
+			border: none
+			position: absolute
+			left: 0
+			top: 0
+			width: 16px
+			height: 16px
+			text-decoration: none
+			z-index: 200
+	  
+
+
+	&.hover li 
+		cursor: pointer
+
+		button:hover 
+			z-index: 2
+			width: 80px
+			height: 16px
+			overflow: hidden
+			left: 0 
+			background: url(/assets/star-matrix.gif) no-repeat 0 0
+
+
+		&.one button:hover 
+			background-position: 0 -96px
+		&.two button:hover 
+			background-position: 0 -112px
+		&.three button:hover 
+			background-position: 0 -128px
+		&.four button:hover 
+			background-position: 0 -144px
+		&.five button:hover 
+			background-position: 0 -160px
+

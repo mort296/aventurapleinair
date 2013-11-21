@@ -1,0 +1,5 @@
+<ul class="rating <%= 'hover' if not cookies['activity' + @item.id.to_s] %> <%= @item.getCurrentRate(@item.activity_rating.rate.to_i) %>">
+  <% (1..5).each do |i| %>
+    <li class="<%= rating_class(i) %>"><button title="<%= i %> star" type="button" name="rating-<%= rating_class(i) %>" data-activity-id="<%= @item.id %>" data-rating="<%= i %>" ></button></li>
+  <% end %>
+</ul>

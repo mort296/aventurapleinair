@@ -1,6 +1,11 @@
 ActiveAdmin.register Location do
 	menu :label => "Lieux", :priority => 5
 	form :partial => "form"
+
+	after_filter :only => :create do
+    location = Location.last
+    LocationRating.create(:location => location)
+  end
 	
 	controller do
 		def new

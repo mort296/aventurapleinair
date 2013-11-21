@@ -17,12 +17,18 @@ class Event < ActiveRecord::Base
 	belongs_to :season
 	belongs_to :location
 	has_and_belongs_to_many :activities
+  has_one :event_rating
+
   after_save :create_missing_translations
 	
   scope :recent, -> {order("created_at desc").limit(5)}
 
   def online?
     online == true
+  end
+
+  def getCurrentRate rating
+    return EventRating.new().currentRate(rating)
   end
   
   def validate_end_date_before_start_date

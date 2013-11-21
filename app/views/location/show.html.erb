@@ -1,5 +1,8 @@
 <% title @location.name %>
 <h1><%= @location.name %></h1>
+<div class="left star" data-location-id="<%= @location.id %>" >
+  <%= render '/location_rating/rating', :@item => @location %>
+</div>
 
 <%= image_tag @location.image.url(:full_width) if @location.image  %>
 <div class="left">
@@ -35,6 +38,7 @@
 		<% end %>
 	</address>
 </div>
+<%= @json %>
 <div class="right">
 	<section class="weather">
 		<% @weather['weather'].each do |weather| %>

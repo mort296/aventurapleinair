@@ -17,11 +17,16 @@ class Location < ActiveRecord::Base
 	has_and_belongs_to_many :useful_infos
 	belongs_to :pub
 	has_and_belongs_to_many :activities
+  has_one :location_rating
 	
 	after_save :create_missing_translations
   
   def online?
     online == true
+  end
+
+  def getCurrentRate rating
+    return LocationRating.new().currentRate(rating)
   end
 
 	protected

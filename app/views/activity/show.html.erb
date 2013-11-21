@@ -1,5 +1,8 @@
 <% title @activity.name %>
 <h1><%= @activity.name %></h1>
+<div class="left star" data-activity-id="<%= @activity.id %>" >
+  <%= render '/activity_rating/rating', :@item => @activity %>
+</div>
 <div class="description">
 	<p><%= @activity.description.html_safe if @activity.description %></p>
 </div>	
@@ -90,10 +93,24 @@
 <section class="comments">
 	<h2>VOUS ET <%= @activity.name %>, UN COMMENTAIRE ?</h2>
 	<div>
-		<p><strong>JEAN</strong> : J’ai pratiqué le canot cette fin de semaine au lieu X, j’ai adoré, les guides sont des professionnels, cela m’a beaucoup plu! ! je recommande ce lieu</p>
-		<p><strong>MARTIN</strong> : J’ai pratiqué le canot cette fin de semaine au lieu X, j’ai adoré, les guides sont des professionnels, cela m’a beaucoup plu! ! je recommande ce lieu</p>
+		<% i = 0 %>
+		<% @activity.comments.each do |comment| %>
+			<% if i < 5 %>
+				<p><strong><%= comment.user_name %></strong> : <%= comment.comment %></p>
+				<% i += 1 %>
+			<% end %>
+		<% end %>
 		<a href="#">Voir les autres commentaires ...</a>
 	</div>
+	<%= form_tag(controller: "activity", action: "new_comment", method: "post") do %>
+		<%= label_tag(:user_name, "Nom:") %>
+	  <%= text_field_tag(:user_name) %>
+	  <%= label_tag(:user_email, "Adresse email:") %>
+	  <%= email_field_tag(:user_email) %>
+	  <%= label_tag(:comment, "Comment:") %>
+	  <textarea id="comment" class="not-shown" name="comment" placeholder="Laissez un commentaire sur votre expérience en canot ..."></textarea>
+	  <%= submit_tag("Envoyer") %>
+	<% end %>
 </section>
 
 <aside class="pub">
