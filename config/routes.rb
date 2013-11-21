@@ -1,6 +1,4 @@
 Aventurapleinair::Application.routes.draw do
-  get "event/index"
-  get "event/show"
   get "set_language/french"
   get "set_language/english"
   devise_for :admin_users, ActiveAdmin::Devise.config
@@ -11,6 +9,9 @@ Aventurapleinair::Application.routes.draw do
   resources :activity_category
   resources :location
   resources :event
+  resources :top_location
+  resources :top_event
+  resources :top_activity
 
   match 'activity/:id/:activity_rating/update' => 'activity_rating#rate', :via => :get, :as => :update_activity_rating
   match 'event/:id/:event_rating/update' => 'event_rating#rate', :via => :get, :as => :update_event_rating
