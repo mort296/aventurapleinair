@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131118224054) do
+ActiveRecord::Schema.define(version: 20131121032201) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -346,6 +346,90 @@ ActiveRecord::Schema.define(version: 20131118224054) do
   create_table "top_10", force: true do |t|
     t.text "text_top"
     t.text "text_bottom"
+  end
+
+  create_table "top_activities", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "top_activity", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "top_activity_translations", force: true do |t|
+    t.integer  "top_activity_id", null: false
+    t.string   "locale",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "text_top"
+    t.text     "text_bottom"
+  end
+
+  add_index "top_activity_translations", ["locale"], name: "index_top_activity_translations_on_locale", using: :btree
+  add_index "top_activity_translations", ["top_activity_id"], name: "index_top_activity_translations_on_top_activity_id", using: :btree
+
+  create_table "top_event", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "top_event_translations", force: true do |t|
+    t.integer  "top_event_id", null: false
+    t.string   "locale",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "text_top"
+    t.text     "text_bottom"
+  end
+
+  add_index "top_event_translations", ["locale"], name: "index_top_event_translations_on_locale", using: :btree
+  add_index "top_event_translations", ["top_event_id"], name: "index_top_event_translations_on_top_event_id", using: :btree
+
+  create_table "top_events", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "top_location", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "top_location_translations", force: true do |t|
+    t.integer  "top_location_id", null: false
+    t.string   "locale",          null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "text_top"
+    t.text     "text_bottom"
+  end
+
+  add_index "top_location_translations", ["locale"], name: "index_top_location_translations_on_locale", using: :btree
+  add_index "top_location_translations", ["top_location_id"], name: "index_top_location_translations_on_top_location_id", using: :btree
+
+  create_table "top_locations", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "useful_infos", force: true do |t|
