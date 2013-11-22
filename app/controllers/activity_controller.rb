@@ -9,7 +9,9 @@ class ActivityController < ApplicationController
 
   def new_comment
   	activity = Activity.find(params[:id])
-  	activity.comments.create(:comment => params[:comment], :user_name => params[:user_name], :user_email => params[:user_email])
-  	redirect_to(:back)
+  	@comment = activity.comments.create(:comment => params[:comment], :user_name => params[:user_name], :user_email => params[:user_email])
+  	respond_to do |format|
+      format.js
+    end
   end
 end

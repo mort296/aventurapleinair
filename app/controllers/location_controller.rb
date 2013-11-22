@@ -1,7 +1,6 @@
 class LocationController < ApplicationController
 	def show
 		require 'json'
-		require 'yaml'
 
 		@location = Location.find(params[:id])
 		@newWeather = 0

@@ -92,22 +92,18 @@
 
 <section class="comments">
 	<h2>VOUS ET <%= @activity.name %>, UN COMMENTAIRE ?</h2>
-	<div>
-		<% i = 0 %>
-		<% @activity.comments.each do |comment| %>
-			<% if i < 5 %>
-				<p><strong><%= comment.user_name %></strong> : <%= comment.comment %></p>
-				<% i += 1 %>
-			<% end %>
-		<% end %>
-		<a href="#">Voir les autres commentaires ...</a>
+	<div class="comments-list">
+		<%= render @activity.comments.limit(5) %>
 	</div>
-	<%= form_tag(controller: "activity", action: "new_comment", method: "post") do %>
-		<%= label_tag(:user_name, "Nom:") %>
-	  <%= text_field_tag(:user_name) %>
-	  <%= label_tag(:user_email, "Adresse email:") %>
-	  <%= email_field_tag(:user_email) %>
-	  <%= label_tag(:comment, "Comment:") %>
+<a href="#">Voir les autres commentaires ...</a>
+
+	<%= form_for(@activity, :url => :new_comment, :html => { :method => :get }, remote: true) do |f| %>
+		<p class="error">Veuillez remplir tout les champs correctement</p>
+		<%= f.label :user_name, "Nom:" %>
+	  <input type="text" id="user_name" name="user_name" />
+	  <%= f.label :user_email, "Adresse email:" %>
+	  <input type="email" id="user_email" name="user_email" />
+	  <%= f.label :comment, "Comment:" %>
 	  <textarea id="comment" class="not-shown" name="comment" placeholder="Laissez un commentaire sur votre expérience en canot ..."></textarea>
 	  <%= submit_tag("Envoyer") %>
 	<% end %>

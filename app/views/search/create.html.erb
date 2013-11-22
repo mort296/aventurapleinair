@@ -1,0 +1,20 @@
+<% title 'Recherche' %>
+<h1>Recherche</h1>
+<h2>Activités relié à votre recherche</h2>
+<ul>
+<% @activity.each do |activity| %>
+	<li><%= link_to activity.name , activity_url(activity.id) %>
+<% end %>
+</ul>
+<h2>Lieux relié à votre recherche</h2>
+<ul>
+<% @location.each do |location| %>
+	<li><%= link_to location.name , location_url(location.id) %>
+<% end %>
+</ul>
+<h2>Événements relié à votre recherche</h2>
+<ul>
+<% @event.each do |event| %>
+	<li><%= link_to event.name , event_url(event.id) %>
+<% end %>
+</ul>
