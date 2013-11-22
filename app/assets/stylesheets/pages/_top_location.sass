@@ -1,0 +1,31 @@
+.content
+	@extend .clearfix
+
+	.top-thumbs
+		width: 800px
+		margin: auto
+
+		.thumb
+			+font-size(20)
+
+			color: #fff
+			width: 30%
+			height: 150px
+			overflow: hidden
+			margin: 1%
+			float: left
+			position: relative
+
+			&.first
+				width: 94%
+				height: 250px
+
+			img
+				width: 100%
+
+			div
+				position: absolute
+				width: 96%
+				padding: 2%
+				bottom: 0px
+				background: rgba(0,0,0,0.8)
