@@ -1,0 +1,8 @@
+<% if @comment.new_record? %>
+  $('section.comments form .error').show()
+<% else %>
+	$('section.comments form .error').hide()
+	$('div.comments-list').prepend("<%= escape_javascript(render @comment) %>");
+	$('section.comments form input[type="text"], section.comments form input[type="email"], section.comments form textarea').val('');
+	$('section.comments form #comment').addClass('not-shown');
+<% end %>

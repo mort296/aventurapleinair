@@ -1,8 +1,29 @@
 <% title 'Accueil' %>
-<div class="slider">
-	<%= image_tag 'slider.png' %>
-</div>
+
+<section class="event-slider" style="clear:both;">
+	<div id="slider" class="flexslider">
+	  <ul class="slides">
+			<% @menu_event.each do |event| %>
+				<li>
+					<%= image_tag event.image.url() %>
+					<%= link_to event.name, event_url(event.id) %>
+				</li>	
+			<% end %>
+		</ul>
+	</div>
+	<div id="carousel" class="flexslider">
+	  <ul class="slides">
+	    <% @menu_event.each do |event| %>
+				<li>
+					<%= image_tag event.image.url(:thumb_admin) %>
+				</li>	
+			<% end %>
+	  </ul>
+	</div>
+</section>
+
 <h1 class="home-title"><%= @home.title if @home.title %></h1>
+
 <section class="about-us">
 	<h1>Qui sommes nous?</h1>
 	<ul>
@@ -15,6 +36,7 @@
 		<li><%= @home.who_two_text.html_safe if @home.who_two_text %></li>
 	</ul>
 </section>
+
 <section class="featured">
 	<h1>En vedette</h1>
 	<div class="slider">

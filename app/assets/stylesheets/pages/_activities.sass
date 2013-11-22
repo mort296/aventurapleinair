@@ -2,12 +2,6 @@
 	.content
 		h2
 			@extend .red-dot-title
-		& > h1
-			background: $lightgrey
-			color: #333333
-			margin-top: 40px
-			text-align: center
-			text-transform: uppercase
 
 		.description
 			+font-size(20)
@@ -160,23 +154,27 @@
 				color: #fff
 				margin-top: 10px
 
+				.error
+					color: #f00
+					display: none
+
 				input
 					+font-size(18)
 					+font($pompiere)
 
 				label
 
-					&[for="user_email"]
+					&[for="activity_user_email"]
 						margin-left: 161px	
 
-					&[for="user_name"], &[for="user_email"]
+					&[for="activity_user_name"], &[for="activity_user_email"]
 						display: inline-block
 						width: 10%
 
 						& + input
 							width: 30%
 
-					&[for="comment"]
+					&[for="activity_comment"]
 						display: block
 						margin: 5px 0 0
 

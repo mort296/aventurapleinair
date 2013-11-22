@@ -12,10 +12,10 @@
 	</ul>
 	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air', :class => 'logo', :width => 260, :height => 211), root_url %>
 	<div class="right-side">
-		<form class="ok-form">
-			<input type="email" name="search" placeholder="<%= t(:"include.search") %>..." />
+		<%= form_tag({controller: "search", action: "index", method: "get"}, {:class => 'ok-form'}) do %>
+			<input type="text" name="search" placeholder="<%= t(:"include.search") %>..." />
 			<button type="submit">Ok</button>
-		</form>
+		<% end %>
 		<nav class="main-nav">
 			<h1><%= t(:"include.main_nav") %></h1>
 			<ul>
@@ -45,7 +45,7 @@
 						</ul>
 					<% end %>
 				</li>
-				<li><span><%= t(:events) %></span>
+				<li><%= link_to t(:events) , event_index_url %>
 					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>
