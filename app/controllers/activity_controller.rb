@@ -10,7 +10,9 @@ class ActivityController < ApplicationController
   def new_comment
   	activity = Activity.find(params[:id])
   	@comment = activity.comments.create(:comment => params[:comment], :user_name => params[:user_name], :user_email => params[:user_email], :activity_title => activity.name)
-  	respond_to do |format|
+  	url = edit_admin_comment_url(@comment.id)
+    CommentMailer.new_comment_notification(activity, url).deliver
+    respond_to do |format|
       format.js
     end
   end
