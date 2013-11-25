@@ -2,72 +2,21 @@
 <h1>Top 10 des lieux</h1>
 
 <section class="top-info">
-	<p>Lorem Ipsum</p>
+	<p><%= @text.text_top.html_safe %></p>
 </section>
 
 <section class="top-thumbs">
-	<a href="" class="thumb first">
-		<img src="assets/tmp-to-remove.jpg" alt="">
+	<% @topLocations.each_with_index do |top,index| %>
+	<a href="<%= location_url(top.location.id) %>" class="thumb <%= "first" if index == 0 %>">
+		<%= image_tag (if index == 0 then top.location.image.url(:top_ten_big) else top.location.image.url(:top_ten_small) end) if top.location.image  %>
 		<div class="caption">
-			Lorem ipsume vraiment très long
+			<%= top.location.name %>
 		</div>
 	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
-	<a href="" class="thumb">
-		<img src="assets/tmp-to-remove.jpg" alt="">
-		<div class="caption">
-			Lorem ipsume vraiment très long
-		</div>
-	</a>
+	<% end %>
+	
 </section>
 
 <section class="top-desc">
-
+	<p><%= @text.text_bottom.html_safe %></p>
 </section>

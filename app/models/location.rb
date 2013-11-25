@@ -10,7 +10,9 @@ class Location < ActiveRecord::Base
 	has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
     :thumb_admin => "100x100>",
-    :full_width => "950x>"
+    :full_width => "950x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
   }
 
 	belongs_to :administrative_region

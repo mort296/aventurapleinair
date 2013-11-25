@@ -9,7 +9,9 @@ class Activity < ActiveRecord::Base
   has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
     :thumb_admin => "100x100>",
-    :thumb_slider => "585x>"
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
   }
 
 	belongs_to :season

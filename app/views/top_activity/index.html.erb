@@ -1,2 +1,22 @@
 <% title 'Top 10 des activités' %>
 <h1>Top 10 des activités</h1>
+
+<section class="top-info">
+	<p><%= @text.text_top.html_safe %></p>
+</section>
+
+<section class="top-thumbs">
+	<% @topActivities.each_with_index do |top,index| %>
+	<a href="<%= activity_url(top.activity.id) %>" class="thumb <%= "first" if index == 0 %>">
+		<%= image_tag (if index == 0 then top.activity.image.url(:top_ten_big) else top.activity.image.url(:top_ten_small) end) if top.activity.image  %>
+		<div class="caption">
+			<%= top.activity.name %>
+		</div>
+	</a>
+	<% end %>
+	
+</section>
+
+<section class="top-desc">
+	<p><%= @text.text_bottom.html_safe %></p>
+</section>

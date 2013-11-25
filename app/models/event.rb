@@ -11,7 +11,9 @@ class Event < ActiveRecord::Base
   has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
     :thumb_admin => "100x100>",
-    :thumb => "200x200>"
+    :thumb => "200x200>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
   }
 
 	belongs_to :season
