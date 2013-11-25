@@ -1,8 +1,16 @@
 <% if @comment.new_record? %>
-  $('section.comments form .error').show()
+  $('section.comments form .error').show();
+  if (!$('#user_name').val()) {
+  	$('#user_name').addClass('error');
+  }
+  if (!$('#comment').val()) {
+  	$('#comment').addClass('error');
+  }
 <% else %>
-	$('section.comments form .error').hide()
-	$('div.comments-list').prepend("<%= escape_javascript(render @comment) %>");
+	$('section.comments form p.error').hide();
+	$('#user_name').removeClass('error');
+	$('#comment').removeClass('error');
+	$('section.comments form p.sent').show();
 	$('section.comments form input[type="text"], section.comments form input[type="email"], section.comments form textarea').val('');
 	$('section.comments form #comment').addClass('not-shown');
 <% end %>

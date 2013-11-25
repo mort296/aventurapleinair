@@ -93,12 +93,13 @@
 <section class="comments">
 	<h2>VOUS ET <%= @activity.name %>, UN COMMENTAIRE ?</h2>
 	<div class="comments-list">
-		<%= render @activity.comments.limit(5) %>
+		<%= render @activity.comments.approved.limit(5) %>
 	</div>
 <a href="#">Voir les autres commentaires ...</a>
 
 	<%= form_for(@activity, :url => :new_comment, :html => { :method => :get }, remote: true) do |f| %>
 		<p class="error">Veuillez remplir tout les champs correctement</p>
+		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
 		<%= f.label :user_name, "Nom:" %>
 	  <input type="text" id="user_name" name="user_name" />
 	  <%= f.label :user_email, "Adresse email:" %>

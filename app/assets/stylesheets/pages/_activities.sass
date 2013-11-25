@@ -154,13 +154,23 @@
 				color: #fff
 				margin-top: 10px
 
-				.error
+				p.error
+					+font-size(18)
+					
 					color: #f00
+					display: none
+
+				p.sent
+					+font-size(18)
+
+					color: #0f0
 					display: none
 
 				input
 					+font-size(18)
 					+font($pompiere)
+					&.error
+						border: 2px solid #f00
 
 				label
 
@@ -188,6 +198,9 @@
 					width: 900px
 					transition: margin 1s
 					-webkit-transition: margin 1s
+
+					&.error
+						border: 2px solid #f00
 
 					& + input
 						background: #a61922
