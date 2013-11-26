@@ -5,11 +5,13 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	<title>Aventura plein air <%= '- ' + yield(:title) || "Québec" %></title>
+	<% if @footer_content.background_image %>
 	<style>
 		body {
 			background: url("<%= @footer_content.background_image %>") no-repeat;
 		}
 	</style>
+	<% end %>
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	
 	<%= csrf_meta_tags %>
