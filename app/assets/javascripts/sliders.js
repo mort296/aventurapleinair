@@ -11,10 +11,12 @@ $(window).load(function() {
   });
    
   $('#slider').flexslider({
-    animation: "slide",
+    animation: "fade",
     controlNav: false,
-    animationLoop: false,
-    slideshow: false,
+    animationLoop: true,
+    slideshow: true,
+    slideshowSpeed: 4000,
+    pauseOnAction: false,
     sync: "#carousel"
   });
 });

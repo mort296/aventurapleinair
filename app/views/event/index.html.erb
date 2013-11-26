@@ -10,8 +10,9 @@
 	  <ul class="slides">
 			<% @events.each do |event| %>
 				<li>
-					<%= image_tag event.image.url() %>
-					<%= link_to event.name, event_url(event.id) %>
+					<%= link_to image_tag(event.image.url()), event_url(event.id) %>
+					<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= event.date_start %> à <%= event.date_end %></span><span class="location"><%= event.location.name %></span>
+					</p>
 				</li>	
 			<% end %>
 		</ul>
@@ -20,7 +21,7 @@
 	  <ul class="slides">
 	    <% @events.each do |event| %>
 				<li>
-					<%= image_tag event.image.url(:thumb_admin) %>
+					<%= image_tag event.image.url(:top_ten_small) %>
 				</li>	
 			<% end %>
 	  </ul>

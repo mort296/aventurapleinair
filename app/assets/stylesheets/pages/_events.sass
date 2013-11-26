@@ -72,9 +72,35 @@
 						li
 							width: 100%
 
+						.flex-caption
+							background: #000
+							background: rgba(0, 0, 0, 0.8)
+							padding: 15px
+							border-radius: 10px
+							top: 85px
+							margin-left: 680px
+							position: absolute
+
+							span
+								display: block
+								color: #fff
+								text-align: center
+
+								&.title
+									+font-size(30)
+
+								&.location
+									+font-size(20)
+
 				#carousel
 					height: 130px
 					overflow: hidden
+
+					.flex-direction-nav
+						display: none
+
+					ul.slides li
+						cursor: pointer
 
 			&.event-list
 
