@@ -1,6 +1,8 @@
 .footer
   background: #333333
+  color: $lightgrey
   display: inline-block
+  padding: 50px 0 70px
   width: 100%
 
   & > div
@@ -9,8 +11,16 @@
     margin: 0 auto
     width: 960px
 
+    input[type="email"]
+      font-family: $pompiere
+      width: 200px
+      height: 18px
+
     &.footer-bottom
       border-top: 1px solid $darkred
+      border-bottom: 1px solid $darkred
+      margin: 10px auto 0
+      padding: 25px 0 15px
 
     div
       float: left
@@ -20,32 +30,67 @@
         text-align: left
         
         li
-          color: $lightgrey
           list-style: none
+          text-align: right
 
         a
           +font-size(18)
+
           color: $lightgrey
-          text-decoration: none 
+          text-decoration: none
+
+          &:hover
+            color: $darkred
+
+      &.newsletter
+        margin: 0 50px 0 70px
+
+        h2
+          text-align: center
+
+        p
+          width: 145px
+          font-size: 18px
+          margin: 0 auto 10px
 
     .description-max
-      color: $lightgrey
       float: right
       margin-left: 20px
       text-align: left
-      width: 400px
+      width: 360px
+
+      img
+        border-radius: 40px
+        border: 1px solid $lightgrey
+        float: left
+        margin-left: 35px
 
       h1
+        float: left
+        margin: 35px 0 25px 15px
+
+        span
+          display: block
+          margin-left: 10px
+          color: #fff
+          text-transform: initial
 
         &:before
           display: none
 
+      p
+        border-left: 1px solid $darkred
+        clear: both
+        padding-left: 15px
+
     .footer-nav
       float: left
+      width: 610px
 
       & > ul
         float: left
         list-style: none
+        width: 25%
 
         ul
           padding-left: 0
@@ -55,14 +100,20 @@
 
           text-transform: uppercase
 
-          ul li
-            +font-size(18)
+          ul 
+            margin-top: 0
 
-            text-transform: none
+            li
+              +font-size(18)
+
+              text-transform: none
 
         a
           color: $lightgrey
           text-decoration: none
+
+          &:hover
+            color: $darkred
 
       h1
         @extend .visuallyhidden
@@ -75,6 +126,50 @@
 
       h1 
         color: #000
+        float: left
+        margin: 30px 25px 0
+
+        span
+          display: block
+          margin-left: 10px
+          color: #fff
+          text-transform: initial
+          font-size: 18px
 
         &:before
           display: none
+
+      img
+        border-radius: 40px
+        border: 1px solid $darkred
+        float: right
+        margin: 5px 2px 0 0
+
+      h2
+        +font-size(20)
+        
+        color: $darkred
+        float: left
+        margin: 10px 0 10px 60px
+
+      p
+        color: #000
+        clear: both
+        margin: 15px 20px
+
+        &.red
+          color: $darkred
+          text-align: right
+          margin-right: 75px
+
+
+
+
+
+
+
+
+
+
+
+

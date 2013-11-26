@@ -10,9 +10,6 @@ ActiveAdmin.register Home do
 		column :who_two_title
 		column :who_two_text
 		column :who_video_link
-		column "Background image" do |image|
-			image_tag image.background_image.url(:thumb_admin)
-		end
 		column "Featured image" do |image|
 			image_tag image.featured_image.url(:thumb_admin)
 		end

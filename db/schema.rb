@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131125030421) do
+ActiveRecord::Schema.define(version: 20131126062638) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -232,6 +232,8 @@ ActiveRecord::Schema.define(version: 20131125030421) do
     t.datetime "updated_at"
     t.string   "max_image_file_name"
     t.string   "photograph_image_file_name"
+    t.string   "background_image"
+    t.string   "background_image_file_name"
   end
 
   create_table "home_translations", force: true do |t|
@@ -254,7 +256,6 @@ ActiveRecord::Schema.define(version: 20131125030421) do
   add_index "home_translations", ["locale"], name: "index_home_translations_on_locale", using: :btree
 
   create_table "homes", force: true do |t|
-    t.string   "background_image"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "title"
@@ -269,7 +270,6 @@ ActiveRecord::Schema.define(version: 20131125030421) do
     t.string   "promotion_text"
     t.integer  "pub1_id"
     t.integer  "pub2_id"
-    t.string   "background_image_file_name"
     t.string   "featured_image_file_name"
   end
 

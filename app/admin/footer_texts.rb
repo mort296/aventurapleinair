@@ -5,6 +5,9 @@ ActiveAdmin.register FooterText do
 	actions  :index, :edit, :update
 
 	index do
+		column "Background image" do |image|
+			image_tag image.background_image.url(:thumb_admin)
+		end
 		column :max_title
 		column :max_subtitle
 		column :max_text

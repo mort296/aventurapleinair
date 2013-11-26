@@ -1,5 +1,9 @@
 class FooterText < ActiveRecord::Base
 
+  has_attached_file :background_image, :styles => {  
+    :thumb_admin => "100x100>"
+  }
+
   has_attached_file :max_image, :styles => { 
     :thumb_menu => "150x150>", 
     :thumb_admin => "100x100>",

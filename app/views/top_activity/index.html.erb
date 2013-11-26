@@ -20,3 +20,8 @@
 <section class="top-desc">
 	<p><%= @text.text_bottom.html_safe %></p>
 </section>
+
+
+<aside class="pub">
+	<%= image_tag @text.pub.image.url(:bottom_pub) if @text.pub %>
+</aside>

@@ -22,7 +22,7 @@
 		<section class="description-max">
 			<%= image_tag @footer_content.max_image.url(:thumb_admin) if @footer_content.max_image? %>
 			<h1><%= @footer_content.max_title if @footer_content.max_title %> <span><%= @footer_content.max_subtitle if @footer_content.max_subtitle %></span></h1>
-			<%= @footer_content.max_text.html_safe if @footer_content.max_text %>
+			<p><%= @footer_content.max_text.html_safe if @footer_content.max_text %></p>
 		</section>
 	</div>
 	<div class="footer-bottom">
@@ -33,7 +33,6 @@
 					<% if @menu_activity_category %>
 						<ul>
 							<% @menu_activity_category.each do |activity_category| %>
-								<li><%= activity_category.name %>
 									<% if activity_category.activity %>
 										<ul>
 											<% activity_category.activity.each do |activity| %>
@@ -68,7 +67,7 @@
 				</li>
 			</ul>
 			<ul>
-				<li><%= t(:events) %>
+				<li><%= link_to t(:events) , event_index_url %>
 					<% if @menu_event %>
 					<ul>
 						<% @menu_event.each do |event| %>
@@ -85,7 +84,7 @@
 			<h1>Mathieu Dupuis <span><%= @footer_content.photograph_title if @footer_content.photograph_title %></span></h1>
 			<%= image_tag @footer_content.photograph_image.url(:thumb_admin) if @footer_content.photograph_image? %>
 			<h2> <%= @footer_content.photograph_subtitle if @footer_content.photograph_subtitle %></h2>
-			<%= @footer_content.photograph_text.html_safe if @footer_content.photograph_text %>
+			<p><%= @footer_content.photograph_text.html_safe if @footer_content.photograph_text %></p>
 			<p class="red"><%= t(:"include.aventura_team") %>.</p>
 		</section>
 	</div>
