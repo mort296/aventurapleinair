@@ -7,20 +7,11 @@ development:
   password:
   host: localhost
 
-test:
-  adapter: postgresql
-  encoding: unicode
-  database: aventura_test
-  pool: 5
-  username: max
-  password:
-  host: localhost
-
 production:
   adapter: postgresql
   encoding: unicode
   database: aventura_production
   pool: 5
-  username: max
-  password: 
+  username: aventura
+  password: PleinAir!
   timeout: 5000
