@@ -1,4 +1,4 @@
-$(window).load(function() {
+$(document).ready(function() {
   // The slider being synced must be initialized first
   $('#carousel').flexslider({
     animation: "slide",

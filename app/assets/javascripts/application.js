@@ -12,9 +12,8 @@
 //
 //= require modernizr-2.6.2-respond-1.1.0.min
 //= require jquery
-//= require turbolinks
 //= require jquery_ujs
 //= require rating
 //= require global
-//= require sliders
 //= require jquery.flexslider-min.js
+//= require sliders
