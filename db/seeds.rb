@@ -16,3 +16,4 @@ TopLocation.create(text_top: "Beaucoup de texte blablabla", text_bottom: "Beauco
 TopEvent.create(text_top: "Beaucoup de texte blablabla", text_bottom: "Beaucoup de texte blablabla")
 TopActivity.create(text_top: "Beaucoup de texte blablabla", text_bottom: "Beaucoup de texte blablabla")
 AdminUser.create(:email => "cloutier_16@hotmail.com", :password => 'password', :password_confirmation => 'password')
+EventIndices.create()
