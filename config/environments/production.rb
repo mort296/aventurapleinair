@@ -66,6 +66,14 @@ Aventurapleinair::Application.configure do
   # config.action_mailer.raise_delivery_errors = false
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :address   => "smtp.gmail.com",
+    :port      => 587,
+    :enable_starttls_auto => true,
+    :user_name => "maxi.cloutier",
+    :password  => "cloutier", # SMTP password is any valid API key
+    :authentication => 'login'
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation can not be found).
