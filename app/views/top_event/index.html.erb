@@ -7,10 +7,10 @@
 
 <section class="top-thumbs">
 	<% @topEvents.each_with_index do |top,index| %>
-	<a href="<%= event_url(top.id) %>" class="thumb <%= "first" if index == 0 %>">
-		<%= image_tag (if index == 0 then top.image.url(:top_ten_big) else top.image.url(:top_ten_small) end) if top.image  %>
+	<a href="<%= event_url(top.event.id) %>" class="thumb <%= "first" if index == 0 %>">
+		<%= image_tag (if index == 0 then top.event.image.url(:top_ten_big) else top.event.image.url(:top_ten_small) end) if top.event.image  %>
 		<div class="caption">
-			<%= top.name %>
+			<%= top.event.name %>
 		</div>
 	</a>
 	<% end %>
