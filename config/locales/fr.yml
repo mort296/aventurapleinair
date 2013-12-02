@@ -1,6 +1,6 @@
 # Files in the config/locales directory are used for internationalization
 # and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
+# than English add the necessary files in this directory.
 #
 # To use the locales, use `I18n.t`:
 #
@@ -139,6 +139,68 @@ fr:
   location:
     location_activities: "Activités sur ce lieu"
     useful_infos: "Informations utiles"
+    meteo: 
+      '200': 'orage et pluie fine'
+      '201': 'orage et pluie'
+      '202': 'orage et fortes pluies'
+      '210': 'orages légers'
+      '211': 'orages'
+      '212': 'gros orages'
+      '221': 'orages éparses'
+      '230': 'orage et bruime légère'
+      '231': 'orages éparses'
+      '232': 'gros orage'
+      '300': 'bruime légère'
+      '301': 'bruime'
+      '302': 'bruimes intenses'
+      '310': 'un peu de pluie fine'
+      '311': 'pluie fine'
+      '312': 'beaucoup de pluie fine'
+      '321': 'bruime par averses'
+      '500': 'légères pluies'
+      '501': 'pluies modérées'
+      '502': 'beaucoup de pluie'
+      '503': 'très fortes précipitations'
+      '504': 'grosses pluies'
+      '511': 'pluie verglaçante'
+      '520': 'petites averses'
+      '521': 'averses de pluie'
+      '522': 'averses intenses'
+      '600': 'légères neiges'
+      '601': 'neige'
+      '602': 'fortes chutes de neige'
+      '611': 'neige fondue'
+      '621': 'averses de neige'
+      '701': 'brume'
+      '711': 'fumée'
+      '721': 'brume'
+      '731': 'tempêtes de sable / poussière'
+      '741': 'brouillard'
+      '800': 'ciel dégagé'
+      '801': 'quelques nuages'
+      '802': 'nuages éparses'
+      '803': 'nuages éparses'
+      '804': 'nuageux'
+      '900': 'tornade'
+      '901': 'tempête tropicale'
+      '902': 'ouragan'
+      '903': 'froid'
+      '904': 'chaud'
+      '905': 'vent'
+      '906': 'grêle'
+      '950': 'Setting'
+      '951': 'Calm' 
+      '952': 'Light breeze'
+      '953': 'Gentle Breeze' 
+      '954': 'Moderate breeze'
+      '955': 'Fresh Breeze'
+      '956': 'Strong breeze'
+      '957': 'High wind near gale'
+      '958': 'Gale' 
+      '959': 'Severe Gale'
+      '960': 'Storm' 
+      '961': 'Violent Storm'
+      '962': 'Hurricane'
   event:
     location: "Lieu"
     other_infos: "Autre informations"

@@ -42,11 +42,18 @@
 <div class="right">
 	<section class="weather">
 		<% @weather['weather'].each do |weather| %>
-			<%= weather['main'] %>
+			<%= image_tag "weather/#{weather['icon']}.png" %>
+			<p>
+				<strong class="tmp"><%= @weather['main']['temp'].round %>°</strong>
+				<br/>
+				<strong class="desc"><%= t "location.meteo.#{weather['id']}" %></strong>
+			</p>
 		<% end %>
+		
 	</section>
 
 	<section class="map">
+		<div id="map-canvas" style="width: 285px; height: 285px"></div>
 	</section>
 
 	<section class="events">
@@ -56,3 +63,18 @@
 <aside class="bottom-pub">
 	<%= image_tag @location.pub.image.url(:bottom_pub) if @location.pub %>
 </aside>
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?sensor=true">
+    </script>
+    <script type="text/javascript">
+      function initialize() {
+        var mapOptions = {
+          center: new google.maps.LatLng(<%= @location.gps_latitude %>, <%= @location.gps_longitude %>),
+          zoom: 8
+        };
+        
+        var map = new google.maps.Map(document.getElementById("map-canvas"),
+            mapOptions);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>

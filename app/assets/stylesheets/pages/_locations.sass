@@ -7,6 +7,38 @@
 		.right
 			width: 30%
 			float: right
+
+			section
+				margin: 10px 0
+
+			.weather
+				@extend .clearfix
+
+				text-align: center
+				border-left: 10px solid $darkred
+				background: rgba(0,0,0,0.3)
+
+				img
+					float: left
+					margin-left: 20px
+
+				p
+					+font-size(18)
+
+					color: $lightgrey
+					padding: 15px
+					width: 90px
+					float: right
+
+				strong
+					text-transform: capitalize
+					
+					&.tmp
+						+font-size(22)
+
+						color: #ccc
+						font-family: Helvetica, Arial, sans-serif
+						font-weight: 100
 			
 			.events
 				width: 100%
