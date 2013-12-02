@@ -13,7 +13,7 @@
 	</div>
 	<div id="carousel" class="flexslider">
 	  <ul class="slides">
-	    <% @menu_event.each do |event| %>
+	    <% @menu_event.limit(5).each do |event| %>
 				<li>
 					<%= image_tag event.image.url(:top_ten_small) %>
 				</li>	
