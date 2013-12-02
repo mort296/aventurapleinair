@@ -7,6 +7,11 @@ ActiveAdmin.register Event do
     EventRating.create(:event => event)
   end
 
+  before_filter :only => :destroy do
+  	eventRating = EventRating.where(:event_id => params[:id])
+  	eventRating.delete(eventRating)
+  end
+
 	controller do
 		def new
 			@event = Event.new

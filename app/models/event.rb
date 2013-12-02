@@ -22,8 +22,6 @@ class Event < ActiveRecord::Base
   has_one :event_rating
 
   after_save :create_missing_translations
-	
-  scope :recent, -> {order("created_at desc").limit(5)}
 
   def online?
     online == true

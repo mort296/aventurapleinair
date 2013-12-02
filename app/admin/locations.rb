@@ -6,6 +6,11 @@ ActiveAdmin.register Location do
     location = Location.last
     LocationRating.create(:location => location)
   end
+
+  before_filter :only => :destroy do
+  	locationRating = LocationRating.where(:location_id => params[:id])
+  	locationRating.delete(locationRating)
+  end
 	
 	controller do
 		def new

@@ -7,6 +7,11 @@ ActiveAdmin.register Activity do
     ActivityRating.create(:activity => activity)
   end
 
+  before_filter :only => :destroy do
+  	activityRating = ActivityRating.where(:activity_id => params[:id])
+  	activityRating.delete(activityRating)
+  end
+
 	controller do
 		def new
 			@activity = Activity.new
