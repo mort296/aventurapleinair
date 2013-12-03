@@ -11,7 +11,10 @@
 			<% @events.each do |event| %>
 				<li>
 					<%= link_to image_tag(event.image.url()), event_url(event.id) %>
-					<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= event.date_start %> à <%= event.date_end %></span><span class="location"><%= event.location.name %></span>
+					<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= event.date_start %> à <%= event.date_end %></span>
+						<% if event.location %>
+							<span class="location"><%= event.location.name %></span>
+						<% end %>
 					</p>
 				</li>	
 			<% end %>

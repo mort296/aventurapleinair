@@ -2,10 +2,10 @@ ActiveAdmin.register Activity do
 	menu :label => "Activités", :priority => 3
 	form :partial => "form"
 
-	after_filter :only => :create do
-    activity = Activity.last
-    ActivityRating.create(:activity => activity)
-  end
+	#after_filter :only => :create do
+   # activity = Activity.last
+    #ActivityRating.create(:activity => activity)
+  #end
 
   before_filter :only => :destroy do
   	activityRating = ActivityRating.where(:activity_id => params[:id])

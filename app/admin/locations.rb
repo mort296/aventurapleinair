@@ -2,11 +2,6 @@ ActiveAdmin.register Location do
 	menu :label => "Lieux", :priority => 5
 	form :partial => "form"
 
-	after_filter :only => :create do
-    location = Location.last
-    LocationRating.create(:location => location)
-  end
-
   before_filter :only => :destroy do
   	locationRating = LocationRating.where(:location_id => params[:id])
   	locationRating.delete(locationRating)
