@@ -1,7 +1,9 @@
 <% title @event.name %>
-<h1><%= @event.name %></h1>
-<div class="left star" data-event-id="<%= @event.id %>" >
-  <%= render '/event_rating/rating', :@item => @event %>
+<div class="title-rating">
+	<h1><%= @event.name %></h1>
+	<div class="left star" data-event-id="<%= @event.id %>" >
+	  <%= render '/event_rating/rating', :@item => @event %>
+	</div>
 </div>
 
 <section class="event-header">
