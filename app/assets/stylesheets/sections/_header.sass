@@ -60,14 +60,23 @@
       padding-left: 0
       position: relative
 
-      ul
+      li
+        position: relative
+
+      ul.sub-menu
         display: none
+        position: absolute
+        width: 400px
+        border: 1px solid $lightgrey
+        background: black
+        top: 17px
+        padding: 15px 0
 
         li
           margin-left: 0
 
-          span, a
-            background: #000
+          span
+            color: $darkred
 
       li
 
