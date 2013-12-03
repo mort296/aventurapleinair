@@ -15,7 +15,6 @@
 				<p><%= t(:"include.newsletter_description") %></p>
 				<input type="email" value="" name="EMAIL" class="email" id="newsletter-email" placeholder="<%= t(:"include.newsletter_placeholder") %>" required>
 				<button type="submit" class="submit">Ok</button>
-				</ul>
 			</form>
 		</div>
 		
@@ -34,15 +33,12 @@
 						<ul>
 							<% @menu_activity_category.each do |activity_category| %>
 									<% if activity_category.activity %>
-										<ul>
 											<% activity_category.activity.each do |activity| %>
-												<li><%= link_to activity.name , activity_url(activity.id) %>
-													
+												<li>
+													<%= link_to activity.name , activity_url(activity.id) %>
 												</li>
 											<% end %>
-										</ul>
 									<% end %>
-								</li>
 							<% end %>
 						</ul>
 					<% end %>

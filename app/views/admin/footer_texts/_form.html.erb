@@ -16,24 +16,24 @@
     </ul>
     <div id="lang-fr">
       <%= f.inputs 'Texte Français' do %>     
-        <%= f.input :max_title %>
-        <%= f.input :max_subtitle %>
-        <%= f.input :max_text, :as => :html_editor %>
-        <%= f.input :photograph_title %>
-        <%= f.input :photograph_subtitle %>
-        <%= f.input :photograph_text, :as => :html_editor %>
+        <%= f.input :max_title, :label => 'Titre pour le texte de Maxime' %>
+        <%= f.input :max_subtitle, :label => 'Sous titre pour le texte de Maxime' %>
+        <%= f.input :max_text, :as => :html_editor, :label => 'Texte de Maxime' %>
+        <%= f.input :photograph_title, :label => 'Titre pour le texte du photographe' %>
+        <%= f.input :photograph_subtitle, :label => 'Sous titre pour le texte du photographe' %>
+        <%= f.input :photograph_text, :as => :html_editor, :label => 'Texte du photographe' %>
       <% end %>
     </div>
     <% index = 0 %>
     <%= f.semantic_fields_for :translations do |lf| %>
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "Texte #{ADDITIONAL_LOCALES[lf.object.locale.to_sym]}" do %>
-          <%= lf.input :max_title %>
-          <%= lf.input :max_subtitle %>
-          <%= lf.input :max_text, :as => :html_editor %>
-          <%= lf.input :photograph_title %>
-          <%= lf.input :photograph_subtitle %>
-          <%= lf.input :photograph_text, :as => :html_editor %>
+          <%= lf.input :max_title, :label => 'Titre pour le texte de Maxime' %>
+          <%= lf.input :max_subtitle, :label => 'Sous titre pour le texte de Maxime' %>
+          <%= lf.input :max_text, :as => :html_editor, :label => 'Texte de Maxime' %>
+          <%= lf.input :photograph_title, :label => 'Titre pour le texte du photographe' %>
+          <%= lf.input :photograph_subtitle, :label => 'Sous titre pour le texte du photographe' %>
+          <%= lf.input :photograph_text, :as => :html_editor, :label => 'Texte du photographe' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
@@ -42,9 +42,9 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
-    <%= f.input :background_image, :as => :file %>
-    <%= f.input :max_image, :as => :file %>
-    <%= f.input :photograph_image, :as => :file %>
+    <%= f.input :background_image, :as => :file, :label => 'Image d\'arrière plan du site' %>
+    <%= f.input :max_image, :as => :file, :label => 'Image pour le texte de Maxime' %>
+    <%= f.input :photograph_image, :as => :file, :label => 'Image pour le texte du photographe' %>
   <% end %>
   <%= f.actions %>
   </div>

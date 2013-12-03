@@ -16,16 +16,16 @@
     </ul>
     <div id="lang-fr">
       <%= f.inputs 'Texte Français' do %>     
-        <%= f.input :text_top, :as => :html_editor %>
-        <%= f.input :text_bottom, :as => :html_editor %>
+        <%= f.input :text_top, :as => :html_editor, :label => 'Texte du haut de page' %>
+        <%= f.input :text_bottom, :as => :html_editor, :label => 'Texte du bas de page' %>
       <% end %>
     </div>
     <% index = 0 %>
     <%= f.semantic_fields_for :translations do |lf| %>
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "Texte #{ADDITIONAL_LOCALES[lf.object.locale.to_sym]}" do %>
-          <%= lf.input :text_top, :as => :html_editor %>
-          <%= lf.input :text_bottom, :as => :html_editor %>
+          <%= lf.input :text_top, :as => :html_editor, :label => 'Texte du haut de page' %>
+          <%= lf.input :text_bottom, :as => :html_editor, :label => 'Texte du bas de page' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
@@ -34,7 +34,7 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
-    <%= f.input :pub %>
+    <%= f.input :pub, :label => 'Publicité du bas de la page' %>
   <% end %>
   <%= f.actions %>
   </div>

@@ -16,14 +16,14 @@
     </ul>
     <div id="lang-fr">
       <%= f.inputs 'Texte Français' do %>     
-        <%= f.input :text_top, :as => :html_editor %>
+        <%= f.input :text_top, :as => :html_editor, :label => 'Text du haut de page' %>
       <% end %>
     </div>
     <% index = 0 %>
     <%= f.semantic_fields_for :translations do |lf| %>
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "Texte #{ADDITIONAL_LOCALES[lf.object.locale.to_sym]}" do %>
-          <%= lf.input :text_top, :as => :html_editor %>
+          <%= lf.input :text_top, :as => :html_editor, :label => 'Text du haut de page' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>

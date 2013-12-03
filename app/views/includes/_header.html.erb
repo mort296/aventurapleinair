@@ -40,7 +40,7 @@
 					<% if @menu_location %>
 						<ul class="sub-menu">
 							<% @menu_location.each do |location| %>
-								<li><%= link_to location.name , location_url(location.id) %>
+								<li><%= link_to location.name, location_url(location.id) %>
 							<% end %>
 						</ul>
 					<% end %>

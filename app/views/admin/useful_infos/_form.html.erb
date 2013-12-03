@@ -4,8 +4,8 @@
   <div class="language-tabs">
     <div id="lang-fr">
       <%= f.inputs 'Informations utile' do %>
-        <%= f.input :name %>
-        <%= f.input :icon, :as => :file %>
+        <%= f.input :name, :label => 'Nom' %>
+        <%= f.input :icon, :as => :file, :label => 'Icône' %>
       <% end %>
     </div>
   </div>

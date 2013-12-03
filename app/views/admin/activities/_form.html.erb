@@ -16,30 +16,30 @@
     </ul>
     <div id="lang-fr">
       <%= f.inputs 'French Text' do %>
-        <%= f.input :name %>
-        <%= f.input :federation %>
-        <%= f.input :description, as: :html_editor %>
-        <%= f.input :particularity, as: :html_editor %>
-        <%= f.input :other_infos, as: :html_editor %>
-        <%= f.input :learn, as: :html_editor %>
-        <%= f.input :equipment, as: :html_editor %>
-        <%= f.input :useful_links, as: :html_editor %>
-        <%= f.input :video_link %>
+        <%= f.input :name, :label => 'Nom' %>
+        <%= f.input :federation, :label => 'Nom de la fédération' %>
+        <%= f.input :description, as: :html_editor, :label => 'Description' %>
+        <%= f.input :particularity, as: :html_editor, :label => 'Particularité' %>
+        <%= f.input :other_infos, as: :html_editor, :label => 'Autres informations' %>
+        <%= f.input :learn, as: :html_editor, :label => 'Informations pour apprendre' %>
+        <%= f.input :equipment, as: :html_editor, :label => 'Équipements nécessaires' %>
+        <%= f.input :useful_links, as: :html_editor, :label => 'Liens utiles' %>
+        <%= f.input :video_link, :label => 'Lien du vidéo' %>
       <% end %>
     </div>
     <% index = 0 %>
     <%= f.semantic_fields_for :translations do |lf| %>
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
-          <%= lf.input :name %>
-          <%= lf.input :federation %>
-          <%= lf.input :description, as: :html_editor %>
-          <%= lf.input :particularity, as: :html_editor %>
-          <%= lf.input :other_infos, as: :html_editor %>
-          <%= lf.input :learn, as: :html_editor %>
-          <%= lf.input :equipment, as: :html_editor %>
-          <%= lf.input :useful_links, as: :html_editor %>
-          <%= lf.input :video_link %>
+          <%= lf.input :name, :label => 'Nom' %>
+          <%= lf.input :federation, :label => 'Nom de la fédération' %>
+          <%= lf.input :description, as: :html_editor, :label => 'Description' %>
+          <%= lf.input :particularity, as: :html_editor, :label => 'Particularité' %>
+          <%= lf.input :other_infos, as: :html_editor, :label => 'Autres informations' %>
+          <%= lf.input :learn, as: :html_editor, :label => 'Informations pour apprendre' %>
+          <%= lf.input :equipment, as: :html_editor, :label => 'Équipements nécessaires' %>
+          <%= lf.input :useful_links, as: :html_editor, :label => 'Liens utiles' %>
+          <%= lf.input :video_link, :label => 'Lien du vidéo' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
@@ -48,14 +48,14 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %>
-    <%= f.input :website %>
-    <%= f.input :image, :as => :file %>
-    <%= f.input :season %>
-    <%= f.input :activity_category %>
-    <%= f.input :locations %>
-    <%= f.input :events %>
-    <%= f.input :pub %>
-    <%= f.input :online %>
+    <%= f.input :website, :label => 'Site web de l\'activité' %>
+    <%= f.input :image, :as => :file, :label => 'Image de l\'activité' %>
+    <%= f.input :season, :label => 'Saison' %>
+    <%= f.input :activity_category, :label => 'Catégorie de l\'activité' %>
+    <%= f.input :locations, :label => 'Lieux de l\'activité' %>
+    <%= f.input :events, :label => 'Énévements en lien avec l\'activité' %>
+    <%= f.input :pub, :label => 'Publicité au bas' %>
+    <%= f.input :online, :label => 'En ligne' %>
   <% end %>
   <%= f.actions %>
   </div>

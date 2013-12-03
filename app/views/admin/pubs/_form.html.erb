@@ -4,9 +4,9 @@
   <div class="language-tabs">
     <div id="lang-fr">
       <%= f.inputs 'Informations utile' do %>
-        <%= f.input :pub_type %>
-        <%= f.input :name %>
-        <%= f.input :image, :as => :file %>
+        <%= f.input :pub_type, :label => 'Type de publicité (côté ou bas de page)' %>
+        <%= f.input :name, :label => 'Nom' %>
+        <%= f.input :image, :as => :file, :label => 'Image de la publicité' %>
       <% end %>
     </div>
   </div>
