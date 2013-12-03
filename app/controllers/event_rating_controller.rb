@@ -2,6 +2,12 @@ class EventRatingController < ApplicationController
 
   def rate 
     @item = Event.find(params[:id])
+
+    if not @item.event_rating
+      EventRating.create(:event => @item)
+      @item = Event.find(params[:id])
+    end
+
     @rater_amount = @item.event_rating.rater_amount.to_f
     @current_rate = @item.event_rating.rate.to_f
 

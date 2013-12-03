@@ -1,4 +1,4 @@
-<ul class="rating <%= 'hover' if not cookies['event' + @item.id.to_s] %> <%= @item.getCurrentRate(@item.event_rating.rate.to_i) %>">
+<ul class="rating <%= 'hover' if not cookies['event' + @item.id.to_s] %> <%= if @item.event_rating then @item.getCurrentRate(@item.event_rating.rate.to_i) else 'nostar' end %>">
   <% (1..5).each do |i| %>
     <li class="<%= rating_class(i) %>"><button title="<%= i %> star" type="button" name="rating-<%= rating_class(i) %>" data-event-id="<%= @item.id %>" data-rating="<%= i %>" ></button></li>
   <% end %>

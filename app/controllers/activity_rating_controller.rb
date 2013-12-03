@@ -2,6 +2,12 @@ class ActivityRatingController < ApplicationController
 
   def rate 
     @item = Activity.find(params[:id])
+
+    if not @item.activity_rating
+      ActivityRating.create(:activity => @item)
+      @item = Activity.find(params[:id])
+    end
+
     @rater_amount = @item.activity_rating.rater_amount.to_f
     @current_rate = @item.activity_rating.rate.to_f
 

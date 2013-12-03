@@ -2,6 +2,12 @@ class LocationRatingController < ApplicationController
 
   def rate 
     @item = Location.find(params[:id])
+
+    if not @item.location_rating
+      LocationRating.create(:location => @item)
+      @item = Location.find(params[:id])
+    end
+
     @rater_amount = @item.location_rating.rater_amount.to_f
     @current_rate = @item.location_rating.rate.to_f
 
