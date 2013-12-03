@@ -6,7 +6,7 @@
 
 <section class="event-header">
 	<%= image_tag @event.image.url() %>
-	<h2>Du <span><%= l @event.date_start, format: :long %></span> au <span><%= l @event.date_end, format: :long %></span></h2>
+	<h2><span><%= l @event.date_start, format: :long %></span> au <span><%= l @event.date_end, format: :long %></span></h2>
 </section>
 
 <section class="event-info">
