@@ -60,30 +60,62 @@
       padding-left: 0
       position: relative
 
-      li
-        position: relative
+      li:hover>.sub-menu
+        display: block
 
       ul.sub-menu
+        @extend .clearfix
+
+        border: 1px solid $lightgrey
         display: none
         position: absolute
-        width: 400px
-        border: 1px solid $lightgrey
-        background: black
-        top: 17px
+        background: #333
+        top: 16px
+        left: 1px
         padding: 15px 0
+        column-count: 3
+        width: 600px
+
+        &.activity
+          li
+            margin-bottom: 25px
+            
+            ul>li
+              margin-bottom: 0
 
         li
+          float: left
+          width: 30%
           margin-left: 0
+          margin-bottom: 0
+          display: block
 
-          span
+          ul
+            width: 100%
+            margin: 0
+            padding: 0
+            float: left
+            
+            li
+              width: 100%
+              clear: both
+
+        span, a
+          background: none
+
+          &:hover
+            background: none
+
+        span
+          color: $darkred
+
+        a
+          color: white
+
+          &:hover
             color: $darkred
 
       li
-
-        &:hover > ul
-          top: 16px
-          display: block
-          position: absolute
 
         a, span
           +font-size(18)
