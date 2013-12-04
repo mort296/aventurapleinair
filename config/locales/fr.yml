@@ -224,3 +224,8 @@ fr:
     activity_title: "Top 10 des activités"
     location_title: "Top 10 des lieux"
     event_title: "Top 10 des événements"
+  search:
+    title: "Recherche"
+    activity: "Activités relié à votre recherche"
+    location: "Lieux relié à votre recherche"
+    event: "Événements relié à votre recherche"

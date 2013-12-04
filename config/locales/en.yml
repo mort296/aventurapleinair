@@ -134,3 +134,8 @@ en:
     activity_title: "Activities top 10"
     location_title: "Locations top 10"
     event_title: "Events top 10"
+  search:
+    title: "Search"
+    activity: "Activities related to your search"
+    location: "Locations related to your search"
+    event: "Events related to your search"
