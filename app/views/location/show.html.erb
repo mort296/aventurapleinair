@@ -26,7 +26,7 @@
 			<% 	end %>
 		<% 	end %>
 		</ul>
-		<%= link_to 'Consulter', @location.link %>
+		<%= link_to t(:"location.schedule"), @location.link %>
 	</section>
 
 	<address>
@@ -40,7 +40,6 @@
 		<% end %>
 	</address>
 </div>
-<%= @json %>
 <div class="right-half">
 	<section class="weather">
 		<% @weather['weather'].each do |weather| %>
@@ -59,7 +58,7 @@
 	</section>
 
 	<section class="events">
-		<%= link_to 'Événements', event_index_url %>
+		<%= link_to t(:events), event_index_url %>
 	</section>
 </div>
 <aside class="bottom-pub">

@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  to: "au"
   activerecord:
     errors:
       models:
@@ -136,9 +137,21 @@ fr:
     equipments: "Équipements"
     useful_links: "Liens utiles"
     other_infos: "Autres infos"
+    comments: 
+      first_part: "Vous et "
+      second_part: ", un commentaire?"
+      more: "Voir les autres commentaires ..."
+      fields:
+        name: "Nom"
+        email: "Adresse email"
+        comment: "Commentaire"
+        comment_placeholder: "Laissez un commentaire sur votre expérience avec cette activitée."
+        send: "Envoyer"
+
   location:
     location_activities: "Activités sur ce lieu"
     useful_infos: "Informations utiles"
+    schedule: "Consultez les tarifs et les horaires"
     meteo: 
       '200': 'orage et pluie fine'
       '201': 'orage et pluie'
@@ -202,7 +215,12 @@ fr:
       '961': 'Violent Storm'
       '962': 'Hurricane'
   event:
+    title: "Les événements"
     location: "Lieu"
     other_infos: "Autre informations"
     history: "Histoire de l'événement"
     interesting_stats: "Statistiques intéressent"
+  top:
+    activity_title: "Top 10 des activités"
+    location_title: "Top 10 des lieux"
+    event_title: "Top 10 des événements"

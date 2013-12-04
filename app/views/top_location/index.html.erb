@@ -1,18 +1,22 @@
-<% title 'Top 10 des lieux' %>
-<h1>Top 10 des lieux</h1>
+<% title t(:"top.location_title") %>
+<h1 class="stand-alone" ><%= t(:"top.location_title") %></h1>
 
 <section class="top-info">
 	<p><%= @text.text_top.html_safe %></p>
 </section>
 
 <section class="top-thumbs">
-	<% @topLocations.each_with_index do |top,index| %>
-	<a href="<%= location_url(top.location.id) %>" class="thumb <%= "first" if index == 0 %>">
-		<%= image_tag (if index == 0 then top.location.image.url(:top_ten_big) else top.location.image.url(:top_ten_small) end) if top.location.image  %>
-		<div class="caption">
-			<%= top.location.name %>
-		</div>
-	</a>
+	<% if @topLocations %>
+		<% @topLocations.each_with_index do |top,index| %>
+		<a href="<%= location_url(top.location.id) %>" class="thumb <%= "first" if index == 0 %>">
+			<%= image_tag (if index == 0 then top.location.image.url(:top_ten_big) else top.location.image.url(:top_ten_small) end) if top.location.image  %>
+			<div class="caption">
+				<%= top.location.name %>
+			</div>
+		</a>
+		<% end %>
+	<% else %>
+		<h2>Aucun lieux n'a été évalué</h2>
 	<% end %>
 	
 </section>

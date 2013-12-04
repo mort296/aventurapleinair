@@ -1,27 +1,28 @@
-<% title 'Accueil' %>
-
 <section class="event-slider" style="clear:both;">
 	<div id="slider" class="flexslider">
 	  <ul class="slides">
 			<% @menu_event.limit(5).each do |event| %>
-				<li>
-					<%= link_to image_tag(event.image.url()), event_url(event.id) %>
-					<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= event.date_start %> à <%= event.date_end %></span>
-						<% if event.location %>
-							<span class="location"><%= event.location.name %></span>
-						<% end %>
-					</p>
-
-				</li>	
+				<% if event.image %>
+					<li>
+						<%= link_to image_tag(event.image.url()), event_url(event.id) %>
+						<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= event.date_start %> <%= t(:to) %> <%= event.date_end %></span>
+							<% if event.location %>
+								<span class="location"><%= event.location.name %></span>
+							<% end %>
+						</p>
+					</li>	
+				<% end %>
 			<% end %>
 		</ul>
 	</div>
 	<div id="carousel" class="flexslider">
 	  <ul class="slides">
 	    <% @menu_event.limit(5).each do |event| %>
-				<li>
-					<%= image_tag event.image.url(:top_ten_small) %>
-				</li>	
+	    	<% if event.image %>
+					<li>
+						<%= image_tag event.image.url(:top_ten_small) %>
+					</li>
+				<% end %>	
 			<% end %>
 	  </ul>
 	</div>

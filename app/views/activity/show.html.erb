@@ -93,22 +93,22 @@
 <% end %>
 
 <section class="comments">
-	<h2>VOUS ET <%= @activity.name %>, UN COMMENTAIRE ?</h2>
+	<h2><%= t(:"activity.comments.first_part") %><%= @activity.name %><%= t(:"activity.comments.second_part") %></h2>
 	<div class="comments-list">
 		<%= render @activity.comments.approved.limit(5) %>
 	</div>
-<a href="#">Voir les autres commentaires ...</a>
+<a href="#"><%= t(:"activity.comments.more") %></a>
 
 	<%= form_for(@activity, :url => :new_comment, :html => { :method => :get }, remote: true) do |f| %>
 		<p class="error">Veuillez remplir tout les champs correctement</p>
 		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
-		<%= f.label :user_name, "Nom:" %>
+		<%= f.label :user_name, "#{t(:"activity.comments.fields.name")}:" %>
 	  <input type="text" id="user_name" name="user_name" />
-	  <%= f.label :user_email, "Adresse email:" %>
+	  <%= f.label :user_email, "#{t(:"activity.comments.fields.email")}:" %>
 	  <input type="email" id="user_email" name="user_email" />
-	  <%= f.label :comment, "Comment:" %>
-	  <textarea id="comment" class="not-shown" name="comment" placeholder="Laissez un commentaire sur votre expérience en canot ..."></textarea>
-	  <%= submit_tag("Envoyer") %>
+	  <%= f.label :comment, "#{t(:"activity.comments.fields.comment")}:" %>
+	  <textarea id="comment" class="not-shown" name="comment" placeholder="<%= t(:"activity.comments.fields.comment_placeholder") %>"></textarea>
+	  <%= submit_tag("#{t(:"activity.comments.fields.send")}") %>
 	<% end %>
 </section>
 
