@@ -18,13 +18,7 @@
       <%= f.inputs 'French Text' do %>
         <%= f.input :name, :label => 'Nom' %>
         <%= f.input :address, :label => 'Adresse du lieu' %>
-        <%= f.input :services, as: :html_editor, :label => 'Services offerts' %>
-        <%= f.input :interesting_stats, as: :html_editor, :label => 'Statistiques intéressants' %>
-        <%= f.input :prizes, as: :html_editor, :label => 'Prix gagné par ce lieu' %>
-        <%= f.input :other_distinctions, as: :html_editor, :label => 'Autres distinctions' %>
-        <%= f.input :introduction, as: :html_editor, :label => 'Introduction' %>
-        <%= f.input :other_infos, as: :html_editor, :label => 'Autres informations' %>
-      <% end %>
+       <% end %>
     </div>
     <% index = 0 %>
     <%= f.semantic_fields_for :translations do |lf| %>
@@ -32,12 +26,6 @@
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
           <%= lf.input :name, :label => 'Nom' %>
           <%= lf.input :address, :label => 'Adresse du lieu' %>
-          <%= lf.input :services, as: :html_editor, :label => 'Services offerts' %>
-          <%= lf.input :interesting_stats, as: :html_editor, :label => 'Statistiques intéressants' %>
-          <%= lf.input :prizes, as: :html_editor, :label => 'Prix gagné par ce lieu' %>
-          <%= lf.input :other_distinctions, as: :html_editor, :label => 'Autres distinctions' %>
-          <%= lf.input :introduction, as: :html_editor, :label => 'Introduction' %>
-          <%= lf.input :other_infos, as: :html_editor, :label => 'Autres informations' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
@@ -48,7 +36,9 @@
   <%= f.inputs 'Champs non traduits' do %> 
     <%= f.input :website, :label => 'Site Web du lieu' %>
     <%= f.input :image, :as => :file, :label => 'Image du lieu' %>
-    <%= f.input :link, :label => 'Lien vers le site du lieu' %>
+    <%= f.input :city, :label => 'Ville' %>
+    <%= f.input :postal_code, :label => 'Code postal' %>
+    <%= f.input :link, :label => 'Lien vers l\'horaire du lieu' %>
     <%= f.input :phone, :label => 'Numéro de téléphone' %>
     <%= f.input :charge_free_phone, :label => 'Numéro de téléphone sans frais' %>
     <%= f.input :gps_latitude, :label => 'Latitude GPS' %>

@@ -37,8 +37,8 @@
 	<div class="slider">
 		<%= image_tag @activity.image.url(:thumb_slider) if @activity.image  %>
 		<div class="caption">
-			<p>Promenade en Canot</p>
-			<strong>Parc national de la Jacques Cartier</strong>
+			<p><%= @activity.image_caption_activity if @activity.image_caption_activity %></p>
+			<strong><%= @activity.image_caption_location if @activity.image_caption_location %></strong>
 		</div>
 	</div>
 </div>

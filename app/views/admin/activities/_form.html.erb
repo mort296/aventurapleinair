@@ -24,6 +24,9 @@
         <%= f.input :learn, as: :html_editor, :label => 'Informations pour apprendre' %>
         <%= f.input :equipment, as: :html_editor, :label => 'Équipements nécessaires' %>
         <%= f.input :useful_links, as: :html_editor, :label => 'Liens utiles' %>
+        <%= f.input :image_caption_activity, :label => 'Sous titre de l\'image désignant l\'activité pratiqué' %>
+        <%= f.input :image_caption_location, :label => 'Sous titre de l\'image désignant le lieux' %>
+        <%= f.input :image_caption_text, :label => 'Bulle de texte dans le coin de l\'image' %>
         <%= f.input :video_link, :label => 'Lien du vidéo' %>
       <% end %>
     </div>
@@ -39,6 +42,9 @@
           <%= lf.input :learn, as: :html_editor, :label => 'Informations pour apprendre' %>
           <%= lf.input :equipment, as: :html_editor, :label => 'Équipements nécessaires' %>
           <%= lf.input :useful_links, as: :html_editor, :label => 'Liens utiles' %>
+          <%= lf.input :image_caption_activity, :label => 'Sous titre de l\'image désignant l\'activité pratiqué' %>
+          <%= lf.input :image_caption_location, :label => 'Sous titre de l\'image désignant le lieux' %>
+          <%= lf.input :image_caption_text, :label => 'Bulle de texte dans le coin de l\'image' %>
           <%= lf.input :video_link, :label => 'Lien du vidéo' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>

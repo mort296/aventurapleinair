@@ -11,10 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131126062638) do
+ActiveRecord::Schema.define(version: 20131205233911) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "about", force: true do |t|
+    t.text "content"
+  end
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "resource_id",   null: false
@@ -50,6 +54,9 @@ ActiveRecord::Schema.define(version: 20131126062638) do
     t.string   "image"
     t.text     "useful_links"
     t.string   "image_file_name"
+    t.string   "image_caption_activity"
+    t.string   "image_caption_location"
+    t.string   "image_caption_text"
   end
 
   create_table "activities_events", force: true do |t|
@@ -86,8 +93,8 @@ ActiveRecord::Schema.define(version: 20131126062638) do
   end
 
   create_table "activity_translations", force: true do |t|
-    t.integer  "activity_id",   null: false
-    t.string   "locale",        null: false
+    t.integer  "activity_id",            null: false
+    t.string   "locale",                 null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
@@ -99,6 +106,9 @@ ActiveRecord::Schema.define(version: 20131126062638) do
     t.text     "equipment"
     t.text     "useful_links"
     t.string   "video_link"
+    t.string   "image_caption_activity"
+    t.string   "image_caption_location"
+    t.string   "image_caption_text"
   end
 
   add_index "activity_translations", ["activity_id"], name: "index_activity_translations_on_activity_id", using: :btree
@@ -280,19 +290,13 @@ ActiveRecord::Schema.define(version: 20131126062638) do
   end
 
   create_table "location_translations", force: true do |t|
-    t.integer  "location_id",        null: false
-    t.string   "locale",             null: false
+    t.integer  "location_id", null: false
+    t.string   "locale",      null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "name"
     t.string   "address"
     t.string   "website"
-    t.text     "services"
-    t.text     "interesting_stats"
-    t.text     "prizes"
-    t.text     "other_distinctions"
-    t.text     "introduction"
-    t.text     "other_infos"
   end
 
   add_index "location_translations", ["locale"], name: "index_location_translations_on_locale", using: :btree
@@ -304,22 +308,18 @@ ActiveRecord::Schema.define(version: 20131126062638) do
     t.string   "phone"
     t.string   "charge_free_phone"
     t.string   "website"
-    t.text     "services"
-    t.text     "interesting_stats"
-    t.text     "prizes"
-    t.text     "other_distinctions"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "administrative_region_id"
     t.boolean  "online"
     t.integer  "pub_id"
-    t.text     "introduction"
-    t.text     "other_infos"
     t.string   "image"
     t.string   "link"
     t.decimal  "gps_longitude"
     t.decimal  "gps_latitude"
     t.string   "image_file_name"
+    t.string   "city"
+    t.string   "postal_code"
   end
 
   create_table "locations_useful_infos", force: true do |t|
@@ -372,6 +372,14 @@ ActiveRecord::Schema.define(version: 20131126062638) do
     t.datetime "updated_at"
   end
 
+  create_table "top_activity", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "top_activity_translations", force: true do |t|
     t.integer  "top_activity_id", null: false
     t.string   "locale",          null: false
@@ -383,6 +391,14 @@ ActiveRecord::Schema.define(version: 20131126062638) do
 
   add_index "top_activity_translations", ["locale"], name: "index_top_activity_translations_on_locale", using: :btree
   add_index "top_activity_translations", ["top_activity_id"], name: "index_top_activity_translations_on_top_activity_id", using: :btree
+
+  create_table "top_event", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "top_event_translations", force: true do |t|
     t.integer  "top_event_id", null: false
@@ -397,6 +413,14 @@ ActiveRecord::Schema.define(version: 20131126062638) do
   add_index "top_event_translations", ["top_event_id"], name: "index_top_event_translations_on_top_event_id", using: :btree
 
   create_table "top_events", force: true do |t|
+    t.text     "text_top"
+    t.text     "text_bottom"
+    t.integer  "pub_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "top_location", force: true do |t|
     t.text     "text_top"
     t.text     "text_bottom"
     t.integer  "pub_id"
