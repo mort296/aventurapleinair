@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131206023929) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "about_page_translations", force: true do |t|
     t.integer  "about_page_id", null: false
     t.string   "locale",        null: false
@@ -370,6 +367,11 @@ ActiveRecord::Schema.define(version: 20131206023929) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "top_10", force: true do |t|
+    t.text "text_top"
+    t.text "text_bottom"
   end
 
   create_table "top_activities", force: true do |t|
