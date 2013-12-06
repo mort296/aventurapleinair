@@ -13,6 +13,7 @@ Aventurapleinair::Application.routes.draw do
   resources :top_event
   resources :top_activity
   resources :search
+  resources :about_page
 
   match 'activity/:id/:activity_rating/update' => 'activity_rating#rate', :via => :get, :as => :update_activity_rating
   match 'event/:id/:event_rating/update' => 'event_rating#rate', :via => :get, :as => :update_event_rating

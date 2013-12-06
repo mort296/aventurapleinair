@@ -4,15 +4,18 @@
 	<meta charset="utf-8">
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
+	
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+
 	<title><%= yield(:title) %>Aventura plein air </title>
 	<% if @footer_content.background_image %>
-	<style>
-		body {
-			background: url("<%= @footer_content.background_image %>") no-repeat;
-		}
-	</style>
+		<style>
+			body {
+				background: url("<%= @footer_content.background_image %>") no-repeat;
+				background-attachment: fixed
+			}
+		</style>
 	<% end %>
-	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	
 	<%= csrf_meta_tags %>
 </head>
