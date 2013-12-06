@@ -17,3 +17,4 @@ TopEvent.create(text_top: "Beaucoup de texte blablabla", text_bottom: "Beaucoup 
 TopActivity.create(text_top: "Beaucoup de texte blablabla", text_bottom: "Beaucoup de texte blablabla")
 AdminUser.create(:email => "cloutier_16@hotmail.com", :password => 'password', :password_confirmation => 'password')
 EventIndices.create(:text_top => 'Beaucoup de texte blablabla')
+AboutPage.create(:content => 'Contenu de page')
