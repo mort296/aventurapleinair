@@ -5,7 +5,6 @@ class Comment < ActiveRecord::Base
   belongs_to :commentable, :polymorphic => true
 
   default_scope -> { order('created_at DESC') }
-  scope :approved, where("approved = true").order('created_at DESC')
 
 	validates_presence_of :user_name, :comment
   # NOTE: install the acts_as_votable plugin if you

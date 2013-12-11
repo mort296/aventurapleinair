@@ -95,9 +95,9 @@
 <section class="comments">
 	<h2><%= t(:"activity.comments.first_part") %><%= @activity.name %><%= t(:"activity.comments.second_part") %></h2>
 	<div class="comments-list">
-		<%= render @activity.comments.approved.limit(5) %>
-	</div>
-<a href="#"><%= t(:"activity.comments.more") %></a>
+		<%= render 'comments/comment', :comments => @activity.comments.where("approved = true").limit(5) %>
+	</div> 
+	<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
 
 	<%= form_for(@activity, :url => :new_comment, :html => { :method => :get }, remote: true) do |f| %>
 		<p class="error">Veuillez remplir tout les champs correctement</p>

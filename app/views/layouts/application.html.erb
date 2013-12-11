@@ -24,5 +24,15 @@
 	<%= yield %>
 	<%= render :partial => 'includes/footer' %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+	<% if params[:controller] == 'activity' %>
+		<%= javascript_tag do %>
+			$(document).ready(function() {
+			  $('.show-more').on('click', function () {
+			    $('.comments-list').html("<%= render "comments/comment", :comments => @activity.comments.where("approved = true") %>");
+			    $('.show-more').hide();
+			  })
+			});
+		<% end %>
+	<% end %>
 </body>
 </html>
