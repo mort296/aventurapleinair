@@ -48,8 +48,15 @@
 		<h1><%= t(:locations) %></h1>
 		<ul>
 			<% if @activity.locations %>
+			<%	l = 0 %>
 				<% @activity.locations.each do |location| %>
-					<li><%= link_to location.name, location_url(location.id) %></li>
+					<% if location.online == true %>
+						<li><%= link_to location.name, location_url(location.id) %></li>
+						<% l = l + 1 %>
+					<% end %>
+				<% end %>
+				<% if l == 0 %>
+					<li>Aucun lieux spécifié</li>
 				<% 	end %>
 			<% else %>
 				<li>Aucun lieux spécifié</li>
@@ -59,13 +66,20 @@
 	<section class="event">
 		<h1><%= t(:events) %></h1>
 		<ul>
-			<% if @activity.events %>
+			<% if @activity.events %> 
+			<%	e = 0 %>
 				<% @activity.events.each do |event| %>
-					<li><%= link_to event.name, event_url(event.id) %></li>
+					<% if event.online == true %>
+						<li><%= link_to event.name, event_url(event.id) %></li>
+						<% e = e + 1 %>
+					<% end %>
+				<% 	end %>
+				<% if e == 0 %>
+					<li>Aucun événements spécifié</li>
 				<% 	end %>
 			<% else %>
 				<li>Aucun événements spécifié</li>
-			<% 	end %>
+			<% end %>
 		</ul>
 	</section>
 	<section class="learn">

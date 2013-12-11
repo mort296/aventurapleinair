@@ -12,7 +12,9 @@
 		<h2><%= t(:"location.location_activities") %></h2>
 		<ul>
 			<% @location.activities.each do |activity| %>
-			<li><%= link_to activity.name, activity_url(activity.id) %></li>
+				<% if activity.online == true %>
+					<li><%= link_to activity.name, activity_url(activity.id) %></li>
+				<% end %>
 		<% end %>
 		</ul>
 	</section>
@@ -31,7 +33,7 @@
 
 	<address>
 		<%= t(:address) %>: <%= @location.address %><br />
-		<%= @location.city %>, Qc, <%= @location.postal_code %><br /><br />
+		<%= @location.city + ', Qc,' + @location.postal_code if @location.city? %><br /><br />
 		<%= t(:phone) %>: <%= @location.phone %><br />
 		<% if @location.charge_free_phone %>
 			<%= t(:"toll_free") %>: <%= @location.charge_free_phone %><br />

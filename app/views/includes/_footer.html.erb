@@ -33,7 +33,7 @@
 						<ul>
 							<% @menu_activity_category.each do |activity_category| %>
 									<% if activity_category.activity %>
-											<% activity_category.activity.limit(5).each do |activity| %>
+											<% activity_category.activity.where('online = true').limit(5).each do |activity| %>
 												<li>
 													<%= link_to activity.name , activity_url(activity.id) %>
 												</li>

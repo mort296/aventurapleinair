@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
   before_filter :get_footer_header
 
   before_filter :set_locale
-  
+
   def get_footer_header
     @menu_activity_category = ActivityCategory.all()
-    @menu_location = Location.all().where("name IS NOT NULL")
-    @menu_event = Event.all
+    @menu_location = Location.all().where("name IS NOT NULL AND online = true")
+    @menu_event = Event.all.where('online = true')
     @footer_content = FooterText.first()
   end
 

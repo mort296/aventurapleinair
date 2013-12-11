@@ -14,26 +14,36 @@
 <section class="event-info">
 	<p><%= @event.description.html_safe if @event.description %></p>
 	<table>
+		<% if @event.season %>
 		<tr class="first-row">
 			<td class="title"><%= t(:season) %></td>
 			<td><%= @event.season.name %></td>
 		</tr>
+		<% end %>
+		<% if @event.location and @event.location.online == true %>
 		<tr>
 			<td class="title"><%= t(:"event.location") %></td>
 			<td><%= link_to @event.location.name, location_url(@event.location.id) %></td></td>
 		</tr>
+		<% end %>
+		<% if @event.federation? %>
 		<tr>
 			<td class="title"><%= t(:federation) %></td>
 			<td><%= @event.federation %></td>
 		</tr>
+		<% end %>
+		<% if @event.federation_website? %>
 		<tr>
 			<td class="title"><%= t(:federation_website) %></td>
 			<td><%= @event.federation_website %></td>
 		</tr>
+		<% end %>
+		<% if @event.website? %>
 		<tr>
 			<td class="title"><%= t(:website) %></td>
 			<td><%= @event.website %></td>
 		</tr>
+		<% end %>
 	</table>
 </section>
 
