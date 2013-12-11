@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 fr:
+  no_results: "Aucun résultats"
   to: "au"
   activerecord:
     errors:
@@ -132,6 +133,8 @@ fr:
     footer_nav: "Navigation du footer"
     aventura_team: "L'équipe d'aventura"
   activity:
+    learning: "Aucun apprentissage spécifié"
+    equipment: "Aucun équipement spécifié"
     particularity_title: "Particularité de l'activité"
     learn: "Apprendre"
     equipments: "Équipements"
@@ -147,8 +150,9 @@ fr:
         comment: "Commentaire"
         comment_placeholder: "Laissez un commentaire sur votre expérience avec cette activitée."
         send: "Envoyer"
-
   location:
+    no_location: "Aucun lieux spécifié"
+    no_activity: "Aucun activités spécifié"
     location_activities: "Activités sur ce lieu"
     useful_infos: "Informations utiles"
     schedule: "Consultez les tarifs et les horaires"
@@ -215,6 +219,7 @@ fr:
       '961': 'Violent Storm'
       '962': 'Hurricane'
   event:
+    no_event: "Aucun événements spécifié"
     title: "Les événements"
     location: "Lieu"
     other_infos: "Autre informations"

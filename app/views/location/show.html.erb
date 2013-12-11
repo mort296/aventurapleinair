@@ -11,11 +11,21 @@
 	<section class="activities">
 		<h2><%= t(:"location.location_activities") %></h2>
 		<ul>
-			<% @location.activities.each do |activity| %>
-				<% if activity.online == true %>
-					<li><%= link_to activity.name, activity_url(activity.id) %></li>
+			<% if @location.activities %>
+				<%	a = 0 %>
+				<% @location.activities.each do |activity| %>
+					<% if activity.online == true %>
+						<li><%= link_to activity.name, activity_url(activity.id) %></li>
+						<% a = a + 1 %>
+					<% end %>
 				<% end %>
-		<% end %>
+				<% if a == 0 %>
+					<li><%= t(:"location.no_activity") %></li>
+				<% end %>
+			<% else %>
+				<li><%= t(:"location.no_activity") %></li>
+			<% 	end %>
+			
 		</ul>
 	</section>
 

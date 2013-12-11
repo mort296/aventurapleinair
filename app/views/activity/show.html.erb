@@ -56,10 +56,10 @@
 					<% end %>
 				<% end %>
 				<% if l == 0 %>
-					<li>Aucun lieux spécifié</li>
+					<li><%= t(:"location.no_location") %></li>
 				<% 	end %>
 			<% else %>
-				<li>Aucun lieux spécifié</li>
+				<li><%= t(:"location.no_location") %></li>
 			<% 	end %>
 		</ul>
 	</section>
@@ -75,20 +75,20 @@
 					<% end %>
 				<% 	end %>
 				<% if e == 0 %>
-					<li>Aucun événements spécifié</li>
+					<li><%= t(:"event.no_event") %></li>
 				<% 	end %>
 			<% else %>
-				<li>Aucun événements spécifié</li>
+				<li><%= t(:"event.no_event") %></li>
 			<% end %>
 		</ul>
 	</section>
 	<section class="learn">
 		<h1><%= t(:"activity.learn") %></h1>
-		<p><%= if @activity.learn? then @activity.learn.html_safe else 'Aucun apprentissage spécifié'.html_safe end %></p>
+		<p><%= if @activity.learn? then @activity.learn.html_safe else t(:"activity.learning") end %></p>
 	</section>
 	<section class="equipments">
 		<h1><%= t(:"activity.equipments") %></h1>
-		<p><%= if @activity.equipment? then @activity.equipment.html_safe else 'Aucun équipement de spécifié'.html_safe end %></p>
+		<p><%= if @activity.equipment? then @activity.equipment.html_safe else t(:"activity.equipment") end %></p>
 	</section>
 </div>
 

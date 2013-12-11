@@ -2,19 +2,31 @@
 <h1 class="stand-alone"><%= t(:"search.title") %></h1>
 <h2><%= t(:"search.activity") %></h2>
 <ul>
-<% @activity.each do |activity| %>
-	<li><%= link_to activity.name , activity_url(activity.id) %>
+<% if @activity.length > 0 %>
+	<% @activity.each do |activity| %>
+		<li><%= link_to activity.name , activity_url(activity.id) %>
+	<% end %>
+<% else %>
+	<li><%= t(:no_results) %></li>
 <% end %>
 </ul>
 <h2><%= t(:"search.location") %></h2>
 <ul>
-<% @location.each do |location| %>
-	<li><%= link_to location.name , location_url(location.id) %>
+<% if @location.length > 0 %>
+	<% @location.each do |location| %>
+		<li><%= link_to location.name , location_url(location.id) %>
+	<% end %>
+<% else %>
+	<li><%= t(:no_results) %></li>
 <% end %>
 </ul>
 <h2><%= t(:"search.event") %></h2>
 <ul>
-<% @event.each do |event| %>
-	<li><%= link_to event.name , event_url(event.id) %>
+<% if @event.length > 0 %>
+	<% @event.each do |event| %>
+		<li><%= link_to event.name , event_url(event.id) %>
+	<% end %>
+<% else %>
+	<li><%= t(:no_results) %></li>
 <% end %>
 </ul>
