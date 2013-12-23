@@ -5,13 +5,14 @@
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width">
 	
-	<!--[if IE 8]>
-		<link rel="stylesheet" type="text/css" href="/assets/global.css">
-	<![endif]-->
+	
 	<script src="/assets/html5.js"></script>
 	
 
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	<!--[if IE 8]>
+		<link rel="stylesheet" type="text/css" href="/assets/global.css">
+	<![endif]-->
 
 	<title><%= yield(:title) %>Aventura plein air </title>
 	<% if @footer_content.background_image %>
