@@ -6,12 +6,12 @@
 	</div>
 </div>
 
-<section class="event-header">
+<section class="section event-header">
 	<%= image_tag @event.image.url() %>
 	<h2><span><%= l @event.date_start, format: :long %></span> <%= t(:to) %> <span><%= l @event.date_end, format: :long %></span></h2>
 </section>
 
-<section class="event-info">
+<section class="section event-info">
 	<p><%= @event.description.html_safe if @event.description %></p>
 	<table>
 		<% if @event.season %>
@@ -47,12 +47,12 @@
 	</table>
 </section>
 
-<section class="event-other-info">
+<section class="section event-other-info">
 	<h2><%= t(:"event.other_infos") %></h2>
 	<p><%= @event.other_infos.html_safe if @event.other_infos %></p>
 </section>
 
-<section class="event-stats">
+<section class="section event-stats">
 	<h2><%= t(:"event.interesting_stats") %></h2>
 	<p><%= @event.interesting_stats.html_safe if @event.interesting_stats %></p>
 </section>

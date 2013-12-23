@@ -1,11 +1,11 @@
 <% title t(:"event.title") + " - " %>
 <h1 class="stand-alone" ><%= t(:"event.title") %></h1>
 
-<section class="event-info">
+<section class="section event-info">
 	<p><%= @eventText.text_top.html_safe %></p>
 </section>
 
-<section class="event-slider">
+<section class="section event-slider">
 	<div id="slider" class="flexslider">
 	  <ul class="slides">
 			<% @events.each do |event| %>
@@ -35,7 +35,7 @@
 	</div>
 </section>
 
-<section class="event-list">
+<section class="section event-list">
 	<ul>
 		<% @events.each do |event| %>
 			<li>

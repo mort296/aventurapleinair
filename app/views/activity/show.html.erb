@@ -44,7 +44,7 @@
 </div>
 
 <div class="bottom">
-	<section class="location">
+	<section class="section location">
 		<h1><%= t(:locations) %></h1>
 		<ul>
 			<% if @activity.locations %>
@@ -63,7 +63,7 @@
 			<% 	end %>
 		</ul>
 	</section>
-	<section class="event">
+	<section class="section event">
 		<h1><%= t(:events) %></h1>
 		<ul>
 			<% if @activity.events %> 
@@ -82,31 +82,31 @@
 			<% end %>
 		</ul>
 	</section>
-	<section class="learn">
+	<section class="section learn">
 		<h1><%= t(:"activity.learn") %></h1>
 		<p><%= if @activity.learn? then @activity.learn.html_safe else t(:"activity.learning") end %></p>
 	</section>
-	<section class="equipments">
+	<section class="section equipments">
 		<h1><%= t(:"activity.equipments") %></h1>
 		<p><%= if @activity.equipment? then @activity.equipment.html_safe else t(:"activity.equipment") end %></p>
 	</section>
 </div>
 
 <% if @activity.useful_links %>
-	<section class="useful-links">
+	<section class="section useful-links">
 		<h2><%= t(:"activity.useful_links") %></h2>
 		<p><%= @activity.useful_links.html_safe %></p>
 	</section>
 <% end %>
 
 <% if @activity.other_infos %>
-	<section class="other-infos">
+	<section class="section other-infos">
 		<h2><%= t(:"activity.other_infos") %></h2>
 		<p><%= @activity.other_infos.html_safe %></p>
 	</section>
 <% end %>
 
-<section class="comments">
+<section class="section comments">
 	<h2><%= t(:"activity.comments.first_part") %><%= @activity.name %><%= t(:"activity.comments.second_part") %></h2>
 	<div class="comments-list">
 		<%= render 'comments/comment', :comments => @activity.comments.where("approved = true").limit(5) %>
@@ -128,6 +128,6 @@
 	<% end %>
 </section>
 
-<aside class="pub">
+<aside class="aside pub">
 	<%= image_tag @activity.pub.image.url(:bottom_pub) if @activity.pub %>
 </aside>

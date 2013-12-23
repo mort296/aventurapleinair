@@ -1,11 +1,11 @@
 <% title t(:"top.activity_title") + " - " %>
 <h1 class="stand-alone" ><%= t(:"top.activity_title") %></h1>
 
-<section class="top-info">
+<section class="section top-info">
 	<p><%= @text.text_top.html_safe %></p>
 </section>
 
-<section class="top-thumbs">
+<section class="section top-thumbs">
 	<% if @topActivities %>
 		<% @topActivities.each_with_index do |top,index| %>
 		<a href="<%= activity_url(top.activity.id) %>" class="thumb <%= "first" if index == 0 %>">
@@ -21,11 +21,11 @@
 	
 </section>
 
-<section class="top-desc">
+<section class="section top-desc">
 	<p><%= @text.text_bottom.html_safe %></p>
 </section>
 
 
-<aside class="pub">
+<aside class="aside pub">
 	<%= image_tag @text.pub.image.url(:bottom_pub) if @text.pub %>
 </aside>

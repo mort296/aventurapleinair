@@ -1,4 +1,4 @@
-</main>
+</div>
 <footer class="footer">
 	<div class="footer-top">
 		<div class="social-medias">
@@ -18,7 +18,7 @@
 			</form>
 		</div>
 		
-		<section class="description-max">
+		<section class="section description-max">
 			<%= image_tag @footer_content.max_image.url(:thumb_admin) if @footer_content.max_image? %>
 			<h1><%= @footer_content.max_title if @footer_content.max_title %> <span><%= @footer_content.max_subtitle if @footer_content.max_subtitle %></span></h1>
 			<p><%= @footer_content.max_text.html_safe if @footer_content.max_text %></p>
@@ -75,7 +75,7 @@
 				<li><%= link_to t(:about), about_page_index_url %></li>
 			</ul>
 		</nav>
-		<section class="photograph">
+		<section class="section photograph">
 			<h1>Mathieu Dupuis <span><%= @footer_content.photograph_title if @footer_content.photograph_title %></span></h1>
 			<%= image_tag @footer_content.photograph_image.url(:thumb_admin) if @footer_content.photograph_image? %>
 			<h2> <%= @footer_content.photograph_subtitle if @footer_content.photograph_subtitle %></h2>

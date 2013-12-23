@@ -1,4 +1,4 @@
-<section class="event-slider" style="clear:both;">
+<section class="section event-slider" style="clear:both;">
 	<div id="slider" class="flexslider">
 	  <ul class="slides">
 			<% @menu_event.limit(5).each do |event| %>
@@ -30,7 +30,7 @@
 
 <h1 class="home-title"><%= @home.title if @home.title %></h1>
 
-<section class="about-us">
+<section class="section about-us">
 	<h1>Qui sommes nous?</h1>
 	<ul>
 		<li><h2><%= @home.who_one_title if @home.who_one_title %></h2></li>
@@ -43,7 +43,7 @@
 	</ul>
 </section>
 
-<section class="featured">
+<section class="section featured">
 	<h1>En vedette</h1>
 	<div class="slider">
 		<%= image_tag @home.featured_image.url(:thumb_featured) if @home.featured_image %>
@@ -53,11 +53,11 @@
 		</div>
 	</div>
 </section>
-<aside class="sidebar-pub">
+<aside class="aside sidebar-pub">
 	<h1>Promotions</h1>
 	<p><%= @home.promotion_text if @home.promotion_text %></p>
 	<%= image_tag @home.pub1.image.url(:sidebar_pub) if @home.pub1 %>
 </aside>
-<aside class="bottom-pub">
+<aside class="aside bottom-pub">
 	<%= image_tag @home.pub2.image.url(:bottom_pub) if @home.pub2 %>
 </aside>

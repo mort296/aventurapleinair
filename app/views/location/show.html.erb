@@ -8,7 +8,7 @@
 
 <%= image_tag @location.image.url(:full_width) if @location.image  %>
 <div class="left-half">
-	<section class="activities">
+	<section class="section activities">
 		<h2><%= t(:"location.location_activities") %></h2>
 		<ul>
 			<% if @location.activities %>
@@ -29,7 +29,7 @@
 		</ul>
 	</section>
 
-	<section class="useful-informations">
+	<section class="section useful-informations">
 		<h2><%= t(:"location.useful_infos") %></h2>
 		<ul>
 		<% if @location.useful_infos %>
@@ -54,7 +54,7 @@
 	</address>
 </div>
 <div class="right-half">
-	<section class="weather">
+	<section class="section weather">
 		<% @weather['weather'].each do |weather| %>
 			<%= image_tag "weather/#{weather['icon']}.png" %>
 			<p>
@@ -66,15 +66,15 @@
 		
 	</section>
 
-	<section class="map">
+	<section class="section map">
 		<div id="map-canvas" style="width: 285px; height: 285px"></div>
 	</section>
 
-	<section class="events">
+	<section class="section events">
 		<%= link_to t(:events), event_index_url %>
 	</section>
 </div>
-<aside class="bottom-pub">
+<aside class="aside bottom-pub">
 	<%= image_tag @location.pub.image.url(:bottom_pub) if @location.pub %>
 </aside>
 <script type="text/javascript"
