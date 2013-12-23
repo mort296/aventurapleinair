@@ -5,7 +5,13 @@
   padding: 50px 0 70px
   width: 100%
 
-  & > div
+  &.footer-bottom
+    border-top: 1px solid $darkred
+    border-bottom: 1px solid $darkred
+    margin: 10px auto 0
+    padding: 25px 0 15px
+
+  div.footer-bottom, div.footer-top
     @extend .clearfix
 
     margin: 0 auto
@@ -15,12 +21,6 @@
       font-family: $pompiere
       width: 200px
       height: 18px
-
-    &.footer-bottom
-      border-top: 1px solid $darkred
-      border-bottom: 1px solid $darkred
-      margin: 10px auto 0
-      padding: 25px 0 15px
 
     div
       float: left
