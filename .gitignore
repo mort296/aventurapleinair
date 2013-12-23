@@ -19,3 +19,4 @@
 /public
 
 .DS_Store
+/app/assets/stylesheets/.sass-cache/
