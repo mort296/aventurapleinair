@@ -38,18 +38,20 @@
 			<% 	end %>
 		<% 	end %>
 		</ul>
-		<%= link_to t(:"location.schedule"), @location.link, :target => '_blank' %>
+		<% if @location.link? %>
+			<%= link_to t(:"location.schedule"), @location.link, :target => '_blank' %>
+		<% end %>
 	</section>
 
 	<address>
 		<%= t(:address) %>: <%= @location.address %><br />
 		<%= @location.city + ', Qc,' + @location.postal_code if @location.city? %><br /><br />
 		<%= t(:phone) %>: <%= @location.phone %><br />
-		<% if @location.charge_free_phone %>
+		<% if @location.charge_free_phone? %>
 			<%= t(:"toll_free") %>: <%= @location.charge_free_phone %><br />
 		<% end %>
 		<% if @location.website %>
-			<br /><%= link_to @location.website, @location.website %><br />
+			<br /><%= link_to @location.website, @location.website, :target => '_blank' %><br />
 		<% end %>
 	</address>
 </div>

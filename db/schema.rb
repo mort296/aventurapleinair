@@ -11,7 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131206023929) do
+ActiveRecord::Schema.define(version: 20140112194358) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "about_page_translations", force: true do |t|
     t.integer  "about_page_id", null: false
@@ -369,11 +372,6 @@ ActiveRecord::Schema.define(version: 20131206023929) do
     t.datetime "updated_at"
   end
 
-  create_table "top_10", force: true do |t|
-    t.text "text_top"
-    t.text "text_bottom"
-  end
-
   create_table "top_activities", force: true do |t|
     t.text     "text_top"
     t.text     "text_bottom"
@@ -433,6 +431,17 @@ ActiveRecord::Schema.define(version: 20131206023929) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "useful_info_translations", force: true do |t|
+    t.integer  "useful_info_id", null: false
+    t.string   "locale",         null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "useful_info_translations", ["locale"], name: "index_useful_info_translations_on_locale", using: :btree
+  add_index "useful_info_translations", ["useful_info_id"], name: "index_useful_info_translations_on_useful_info_id", using: :btree
 
   create_table "useful_infos", force: true do |t|
     t.string   "name"
