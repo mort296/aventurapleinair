@@ -7,6 +7,9 @@
 </div>
 
 <%= image_tag @location.image.url(:full_width) if @location.image  %>
+<div class="description">
+	<p><%= @location.description.html_safe if @location.description %></p>
+</div>	
 <div class="left-half">
 	<section class="section activities">
 		<h2><%= t(:"location.location_activities") %></h2>

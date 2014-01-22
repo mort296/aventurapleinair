@@ -26,7 +26,7 @@
         <%= f.input :useful_links, as: :html_editor, :label => 'Liens utiles' %>
         <%= f.input :image_caption_activity, :label => 'Sous titre de l\'image désignant l\'activité pratiqué' %>
         <%= f.input :image_caption_location, :label => 'Sous titre de l\'image désignant le lieux' %>
-        <%= f.input :image_caption_text, :label => 'Bulle de texte dans le coin de l\'image' %>
+        <%# f.input :image_caption_text, :label => 'Bulle de texte dans le coin de l\'image' %>
         <%= f.input :video_link, :label => 'Lien du vidéo' %>
       <% end %>
     </div>
@@ -44,7 +44,7 @@
           <%= lf.input :useful_links, as: :html_editor, :label => 'Liens utiles' %>
           <%= lf.input :image_caption_activity, :label => 'Sous titre de l\'image désignant l\'activité pratiqué' %>
           <%= lf.input :image_caption_location, :label => 'Sous titre de l\'image désignant le lieux' %>
-          <%= lf.input :image_caption_text, :label => 'Bulle de texte dans le coin de l\'image' %>
+          <%# lf.input :image_caption_text, :label => 'Bulle de texte dans le coin de l\'image' %>
           <%= lf.input :video_link, :label => 'Lien du vidéo' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
@@ -58,8 +58,8 @@
     <%= f.input :image, :as => :file, :label => 'Image de l\'activité' %>
     <%= f.input :season, :label => 'Saison' %>
     <%= f.input :activity_category, :label => 'Catégorie de l\'activité' %>
-    <%= f.input :locations, :label => 'Lieux de l\'activité' %>
-    <%= f.input :events, :label => 'Énévements en lien avec l\'activité' %>
+    <%= f.input :locations, :label => 'Lieux de l\'activité', :as => :check_boxes %>
+    <%= f.input :events, :label => 'Énévements en lien avec l\'activité', :as => :check_boxes %>
     <%= f.input :pub, :label => 'Publicité au bas' %>
     <%= f.input :online, :label => 'En ligne' %>
   <% end %>

@@ -17,6 +17,7 @@
     <div id="lang-fr">
       <%= f.inputs 'French Text' do %>
         <%= f.input :name, :label => 'Nom' %>
+        <%= f.input :description, as: :html_editor, :label => 'Description' %>
         <%= f.input :address, :label => 'Adresse du lieu' %>
        <% end %>
     </div>
@@ -25,6 +26,7 @@
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "#{ADDITIONAL_LOCALES[lf.object.locale.to_sym]} Text" do %>
           <%= lf.input :name, :label => 'Nom' %>
+          <%= lf.input :description, as: :html_editor, :label => 'Description' %>
           <%= lf.input :address, :label => 'Adresse du lieu' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
@@ -44,7 +46,7 @@
     <%= f.input :gps_latitude, :label => 'Latitude GPS' %>
     <%= f.input :gps_longitude, :label => 'Longitude GPS' %>
     <%= f.input :administrative_region, :label => 'Région administrative' %>
-    <%= f.input :useful_infos, :label => 'Informations utiles' %>
+    <%= f.input :useful_infos, :label => 'Informations utiles', :as => :check_boxes %>
     <%= f.input :pub, :label => 'Publicité du bas de page' %>
     <%= f.input :online, :label => 'En ligne' %>
   <% end %>

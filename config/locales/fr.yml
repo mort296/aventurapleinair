@@ -126,10 +126,10 @@ fr:
     search: "Recherche"
     main_nav: "Navigation principale"
     activities: "Activités"
-    community: "Communautaire"
+    community: "Réseaux sociaux"
     newsletter: "Infolettre"
     newsletter_description: "Retrouvez toute l'actualité de vos activités favorites"
-    newsletter_placeholder: "Votre adresse email"
+    newsletter_placeholder: "Votre asdresse email"
     footer_nav: "Navigation du footer"
     aventura_team: "L'équipe d'aventura"
   activity:
