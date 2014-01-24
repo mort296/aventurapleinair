@@ -14,7 +14,7 @@ class Activity < ActiveRecord::Base
     :top_ten_big => "950x>"
   }
 
-	belongs_to :season
+	has_and_belongs_to_many :season
 	belongs_to :activity_category
   belongs_to :pub
 	has_and_belongs_to_many :events

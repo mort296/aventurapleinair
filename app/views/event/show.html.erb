@@ -17,7 +17,12 @@
 		<% if @event.season %>
 		<tr class="first-row">
 			<td class="title"><%= t(:season) %></td>
-			<td><%= @event.season.name %></td>
+			<td>
+				<% @event.season.each_with_index do |season, index| %>
+					<%= ' / ' if index == 1 %> 
+					<%= season.name %>
+				<% end %>
+			</td>
 		</tr>
 		<% end %>
 		<% if @event.location and @event.location.online == true %>

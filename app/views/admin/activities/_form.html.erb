@@ -56,7 +56,7 @@
   <%= f.inputs 'Champs non traduits' do %>
     <%= f.input :website, :label => 'Site web de l\'activité' %>
     <%= f.input :image, :as => :file, :label => 'Image de l\'activité' %>
-    <%= f.input :season, :label => 'Saison' %>
+    <%= f.input :season, :label => 'Saison', :as => :check_boxes %>
     <%= f.input :activity_category, :label => 'Catégorie de l\'activité' %>
     <%= f.input :locations, :label => 'Lieux de l\'activité', :as => :check_boxes %>
     <%= f.input :events, :label => 'Énévements en lien avec l\'activité', :as => :check_boxes %>

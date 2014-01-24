@@ -16,7 +16,7 @@ class Event < ActiveRecord::Base
     :top_ten_big => "950x>"
   }
 
-	belongs_to :season
+	has_and_belongs_to_many :season
 	belongs_to :location
 	has_and_belongs_to_many :activities
   has_one :event_rating

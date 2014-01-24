@@ -5,6 +5,9 @@ class Season < ActiveRecord::Base
   accepts_nested_attributes_for :translations	
 
   after_save :create_missing_translations
+
+  has_and_belongs_to_many :activities
+  has_and_belongs_to_many :events
   
 	protected
  

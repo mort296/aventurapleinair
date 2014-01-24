@@ -14,7 +14,12 @@
 			<% if @activity.season %>
 			<tr>
 				<td><%= t(:season) %>:</td>
-				<td><%= @activity.season.name %></td>
+				<td>
+					<% @activity.season.each_with_index do |season, index| %>
+						<%= ' / ' if index == 1 %> 
+						<%= season.name %>
+					<% end %>
+				</td>
 			</tr>
 			<% end %>
 			<% if @activity.federation %>
