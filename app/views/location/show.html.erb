@@ -54,7 +54,11 @@
 			<%= t(:"toll_free") %>: <%= @location.charge_free_phone %><br />
 		<% end %>
 		<% if @location.website %>
-			<br /><%= link_to @location.website, @location.website, :target => '_blank' %><br />
+		 <% if @location.link_text %>
+				<br /><%= link_to @location.link_text, @location.website, :target => '_blank' %><br />
+			<% else %>
+				<br /><%= link_to @location.website, @location.website, :target => '_blank' %><br />
+			<% end %>
 		<% end %>
 	</address>
 </div>

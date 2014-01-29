@@ -19,6 +19,7 @@
         <%= f.input :name, :label => 'Nom' %>
         <%= f.input :description, as: :html_editor, :label => 'Description' %>
         <%= f.input :address, :label => 'Adresse du lieu' %>
+        <%= f.input :link_text, :label => 'Texte du lien du site' %>
        <% end %>
     </div>
     <% index = 0 %>
@@ -28,6 +29,7 @@
           <%= lf.input :name, :label => 'Nom' %>
           <%= lf.input :description, as: :html_editor, :label => 'Description' %>
           <%= lf.input :address, :label => 'Adresse du lieu' %>
+          <%= lf.input :link_text, :label => 'Texte du lien du site' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
