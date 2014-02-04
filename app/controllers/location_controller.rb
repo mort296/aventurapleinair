@@ -1,4 +1,8 @@
 class LocationController < ApplicationController
+	def index
+		@locations = Location.all.where('online = true')
+	end
+	
 	def show
 		require 'json'
 

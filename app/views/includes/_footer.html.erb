@@ -52,7 +52,7 @@
 				</li>
 			</ul>
 			<ul>
-				<li><%= t(:locations) %>
+				<li><%= link_to t(:locations) , location_index_url %>
 					<% if @menu_location %>
 						<ul>
 							<% @menu_location.limit(10).each do |location| %>

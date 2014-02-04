@@ -36,7 +36,7 @@
 						</ul>
 					<% end %>
 				</li>
-				<li><span><%= t(:locations) %></span>
+				<li><%= link_to t(:locations) , location_index_url %>
 					<% if @menu_location %>
 						<ul class="sub-menu">
 							<% @menu_location.each do |location| %>
