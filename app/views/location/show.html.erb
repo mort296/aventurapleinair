@@ -101,11 +101,26 @@
     	  
     	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
+    	  var contentString = 
+    	  		'<div id="content-infowindow">'+
+			      '<strong><%= @location.name %></strong>'+
+			      '<p><%= @location.address %>, <%= @location.city %>, QC, <%= @location.postal_code.gsub(" ", "&nbsp;").html_safe %></p>'+
+			      '<a class="itinary" href="https://www.google.ca/maps/preview/place/<%= @location.address.gsub(" ", "+") %>,+<%= @location.city.gsub(" ", "+") %>,+Qc+<%= @location.postal_code.gsub(" ", "+") %>/@<%= @location.gps_latitude %>,<%= @location.gps_longitude %>,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb8962b99bbbe13:0x82f0e7a06f2f5399" target="_blank"><%= t(:"location.itinary") %></a>'+
+			      '</div>';
+
+			  var infowindow = new google.maps.InfoWindow({
+			      content: contentString
+			  });
+
     	  var marker = new google.maps.Marker({
     	      position: myLatlng,
     	      map: map,
     	      title: '<%= @location.name %>'
     	  });
+
+    	  google.maps.event.addListener(marker, 'click', function() {
+			    infowindow.open(map,marker);
+			  })
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>

@@ -1,10 +1,14 @@
 class ActivityController < ApplicationController
-  def index
-  	@categories = ActivityCategory.all()
-  end
-
   def show
   	@activity = Activity.find(params[:id])
+    
+    @video = Conred::Video.new(
+      video_url: @activity.video_link, 
+      width: 950, 
+      height: 534,
+      error_message: 'false'
+    )
+
   end
 
   def new_comment

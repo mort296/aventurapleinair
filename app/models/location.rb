@@ -1,6 +1,6 @@
 class Location < ActiveRecord::Base
 	validates_presence_of :name
-	validates_presence_of :address, :phone, :administrative_region, :gps_longitude, :gps_latitude, :image, :useful_infos, :if => :online?
+	validates_presence_of :address, :phone, :administrative_region, :gps_longitude, :gps_latitude, :image, :useful_infos, :city, :postal_code, :if => :online?
 
 	translates :name, :address, :description, :website, :link_text, :fallbacks_for_empty_translations => true
 	accepts_nested_attributes_for :translations

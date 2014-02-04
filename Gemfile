@@ -63,3 +63,8 @@ gem 'active_admin_editor'
 
 # Comments
 gem 'acts_as_commentable'
+
+# Video links
+gem 'conred', '~> 0.3.0'
+gem "haml", "~> 4.0.5"
+gem 'formtastic', github: 'justinfrench/formtastic', branch: 'rails4beta'

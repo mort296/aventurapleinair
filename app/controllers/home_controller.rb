@@ -1,8 +1,12 @@
 class HomeController < ApplicationController
   def index
   	@home = Home.first()
-  
-  	@video_id = @home.who_video_link.sub(/^https?\:\/\//, '').sub(/^www./,'').gsub('vimeo.com/', '') if @home.who_video_link
-	
+ 
+  	@video = Conred::Video.new(
+		  video_url: @home.who_video_link, 
+		  width: 425, 
+		  height: 250,
+		  error_message: "false"
+		)
   end
 end

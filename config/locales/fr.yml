@@ -151,6 +151,7 @@ fr:
         comment_placeholder: "Laissez un commentaire sur votre expérience avec cette activitée."
         send: "Envoyer"
   location:
+    itinary: 'Avoir un itinéraire'
     no_location: "Aucun lieux spécifié"
     no_activity: "Aucun activités spécifié"
     location_activities: "Activités sur ce lieu"

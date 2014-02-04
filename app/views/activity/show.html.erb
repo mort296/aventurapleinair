@@ -48,6 +48,10 @@
 	</div>
 </div>
 
+<% if @video.code != 'false' %>
+	<%= @video.code %>
+<% end %>
+
 <div class="bottom">
 	<section class="section location">
 		<h1><%= t(:locations) %></h1>

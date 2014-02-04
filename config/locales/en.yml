@@ -62,6 +62,7 @@ en:
         comment_placeholder: "Leave a comment about your activity experience."
         send: "Send"
   location:
+    itinary: 'Get an itinary'
     no_location: "No specified locations"
     no_activity: "No specified activities"
     location_activities: "Activities in this location"
