@@ -36,7 +36,6 @@
 		<li><h2><%= @home.who_one_title if @home.who_one_title %></h2></li>
 		<li><%= @home.who_one_text.html_safe if @home.who_one_text %></li>
 	</ul>
-
 	<div class="vimeo">
 		<% if @video.code != 'false' %>
 			<%= @video.code %>

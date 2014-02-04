@@ -2,6 +2,10 @@ class ActivityController < ApplicationController
   def show
   	@activity = Activity.find(params[:id])
     
+    
+    @activity.video_link = @activity.video_link.gsub('https://', '')
+    @activity.video_link = @activity.video_link.gsub('http://', '')
+    
     @video = Conred::Video.new(
       video_url: @activity.video_link, 
       width: 950, 
