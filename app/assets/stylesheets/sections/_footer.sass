@@ -5,17 +5,16 @@
   padding: 50px 0 70px
   width: 100%
 
-  &.footer-bottom
-    border-top: 1px solid $darkred
-    border-bottom: 1px solid $darkred
-    margin: 10px auto 0
-    padding: 25px 0 15px
-
-  div.footer-bottom, div.footer-top
-    @extend .clearfix
-
+  div.footer-wrapper
     margin: 0 auto
     width: 960px
+    
+
+  div.footer-left
+    @extend .clearfix
+
+    float: left
+    width: 580px
 
     input[type="email"]
       font-family: $pompiere
@@ -52,39 +51,10 @@
           font-size: 18px
           margin: 0 auto 10px
 
-    .description-max
-      float: right
-      margin-left: 20px
-      text-align: left
-      width: 360px
-
-      img
-        border-radius: 40px
-        border: 1px solid $lightgrey
-        float: left
-        margin-left: 35px
-
-      h1
-        float: left
-        margin: 35px 0 25px 15px
-
-        span
-          display: block
-          margin-left: 10px
-          color: #fff
-          text-transform: initial
-
-        &:before
-          display: none
-
-      p
-        border-left: 1px solid $darkred
-        clear: both
-        padding-left: 15px
-
     .footer-nav
       float: left
-      width: 610px
+      width: 580px
+      margin: 0 25px
 
       & > ul
         float: left
@@ -117,58 +87,34 @@
       h1
         @extend .visuallyhidden
 
-    .photograph
-      background: $lightgrey
-      float: right
-      text-align: left
-      width: 350px
+  .description-max
+    @extend .clearfix
 
-      h1 
-        color: #000
-        float: left
-        margin: 30px 25px 0
+    float: right
+    margin-left: 20px
+    text-align: left
+    width: 360px
 
-        span
-          display: block
-          margin-left: 10px
-          color: #fff
-          text-transform: initial
-          font-size: 18px
+    img
+      border-radius: 40px
+      border: 1px solid $lightgrey
+      float: left
+      margin-left: 35px
 
-        &:before
-          display: none
+    h1
+      float: left
+      margin: 35px 0 25px 15px
 
-      img
-        border-radius: 40px
-        border: 1px solid $darkred
-        float: right
-        margin: 5px 2px 0 0
+      span
+        display: block
+        margin-left: 10px
+        color: #fff
+        text-transform: initial
 
-      h2
-        +font-size(20)
-        
-        color: $darkred
-        float: left
-        margin: 10px 0 10px 60px
+      &:before
+        display: none
 
-      p
-        color: #000
-        clear: both
-        margin: 15px 20px
-
-        &.red
-          color: $darkred
-          text-align: right
-          margin-right: 75px
-
-
-
-
-
-
-
-
-
-
-
-
+    p
+      border-left: 1px solid $darkred
+      clear: both
+      padding-left: 15px

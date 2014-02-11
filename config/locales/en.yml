@@ -22,6 +22,10 @@
 en:
   no_results: "No results"
   to: "to"
+  home: 
+    who_are: "About aventura"
+    featured: "Featured"
+    pub: "Pub"
   about: "About"
   season: "Season"
   federation: "Federation"

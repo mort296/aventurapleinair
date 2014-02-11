@@ -1,86 +1,78 @@
 </div>
 <footer class="footer">
-	<div class="footer-top">
-		<div class="social-medias">
-			<ul>
-				<li><h2><%= t(:"include.community") %></h2></li>
-				<li><%= link_to image_tag('facebook-icon.png', :alt => 'Facebook page') + ' Facebook', 'http://facebook.com', :target => '_blank' %></li>
-				<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page') + ' Google+', 'http://plus.google.com', :target => '_blank' %></li>
-				<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page') + ' Twitter', 'http://twitter.com', :target => '_blank' %></li>
-			</ul>
+	<div class="footer-wrapper">
+		<div class="footer-left">
+			<div class="social-medias">
+				<ul>
+					<li><h2><%= t(:"include.community") %></h2></li>
+					<li><%= link_to image_tag('facebook-icon.png', :alt => 'Facebook page') + ' Facebook', 'http://facebook.com', :target => '_blank' %></li>
+					<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page') + ' Google+', 'http://plus.google.com', :target => '_blank' %></li>
+					<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page') + ' Twitter', 'http://twitter.com', :target => '_blank' %></li>
+				</ul>
+			</div>
+			<div class="newsletter">
+				<form action="http://aventurapleinair.us7.list-manage.com/subscribe/post?u=76f07b350800281685ec9af96&amp;id=dada7784fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate clearfix ok-form" target="_blank" novalidate>
+					<h2><%= t(:"include.newsletter") %></h2>
+					<p><%= t(:"include.newsletter_description") %></p>
+					<input type="email" value="" name="EMAIL" class="email" id="newsletter-email" placeholder="<%= t(:"include.newsletter_placeholder") %>" required>
+					<button type="submit" class="submit">Ok</button>
+				</form>
+			</div>
+			<nav class="footer-nav">
+				<h1><%= t(:"include.footer_nav") %></h1>
+				<ul>
+					<li><%= t(:"include.activities") %>
+						<% if @menu_activity_category %>
+							<ul>
+								<% @menu_activity_category.each do |activity_category| %>
+										<% if activity_category.activity %>
+												<% activity_category.activity.where('online = true').limit(5).each do |activity| %>
+													<li>
+														<%= link_to activity.name , activity_url(activity.id) %>
+													</li>
+												<% end %>
+										<% end %>
+								<% end %>
+							</ul>
+						<% end %>
+					</li>
+					<li><%= 'Top 10' %>
+						<ul>
+							<li><%= link_to t(:"locations"), top_location_index_url %>
+							<li><%= link_to t(:"include.activities"), top_activity_index_url %>
+							<li><%= link_to t(:"include.events"), top_event_index_url %>
+						</ul>
+					</li>
+				</ul>
+				<ul>
+					<li><%= link_to t(:locations) , location_index_url %>
+						<% if @menu_location %>
+							<ul>
+								<% @menu_location.limit(10).each do |location| %>
+									<li><%= link_to location.name , location_url(location.id) %></li>
+								<% end %>
+							</ul>
+						<% end %>
+					</li>
+				</ul>
+				<ul>
+					<li><%= link_to t(:events) , event_index_url %>
+						<% if @menu_event %>
+						<ul>
+							<% @menu_event.limit(10).each do |event| %>
+							<li><%= link_to event.name, event_url(event.id) %></li>
+							<% end %>
+						</ul>
+						<% end %>
+					</li>
+					<li><%= link_to t(:about), about_page_index_url %></li>
+				</ul>
+			</nav>
 		</div>
-		<div class="newsletter">
-			<form action="http://aventurapleinair.us7.list-manage.com/subscribe/post?u=76f07b350800281685ec9af96&amp;id=dada7784fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate clearfix ok-form" target="_blank" novalidate>
-				<h2><%= t(:"include.newsletter") %></h2>
-				<p><%= t(:"include.newsletter_description") %></p>
-				<input type="email" value="" name="EMAIL" class="email" id="newsletter-email" placeholder="<%= t(:"include.newsletter_placeholder") %>" required>
-				<button type="submit" class="submit">Ok</button>
-			</form>
-		</div>
-		
 		<section class="section description-max">
 			<%= image_tag @footer_content.max_image.url(:thumb_admin) if @footer_content.max_image? %>
 			<h1><%= @footer_content.max_title if @footer_content.max_title %> <span><%= @footer_content.max_subtitle if @footer_content.max_subtitle %></span></h1>
 			<p><%= @footer_content.max_text.html_safe if @footer_content.max_text %></p>
-		</section>
-	</div>
-	<div class="footer-bottom">
-		<nav class="footer-nav">
-			<h1><%= t(:"include.footer_nav") %></h1>
-			<ul>
-				<li><%= t(:"include.activities") %>
-					<% if @menu_activity_category %>
-						<ul>
-							<% @menu_activity_category.each do |activity_category| %>
-									<% if activity_category.activity %>
-											<% activity_category.activity.where('online = true').limit(5).each do |activity| %>
-												<li>
-													<%= link_to activity.name , activity_url(activity.id) %>
-												</li>
-											<% end %>
-									<% end %>
-							<% end %>
-						</ul>
-					<% end %>
-				</li>
-				<li><%= 'Top 10' %>
-					<ul>
-						<li><%= link_to t(:"locations"), top_location_index_url %>
-						<li><%= link_to t(:"include.activities"), top_activity_index_url %>
-						<li><%= link_to t(:"include.events"), top_event_index_url %>
-					</ul>
-				</li>
-			</ul>
-			<ul>
-				<li><%= link_to t(:locations) , location_index_url %>
-					<% if @menu_location %>
-						<ul>
-							<% @menu_location.limit(10).each do |location| %>
-								<li><%= link_to location.name , location_url(location.id) %></li>
-							<% end %>
-						</ul>
-					<% end %>
-				</li>
-			</ul>
-			<ul>
-				<li><%= link_to t(:events) , event_index_url %>
-					<% if @menu_event %>
-					<ul>
-						<% @menu_event.limit(10).each do |event| %>
-						<li><%= link_to event.name, event_url(event.id) %></li>
-						<% end %>
-					</ul>
-					<% end %>
-				</li>
-				<li><%= link_to t(:about), about_page_index_url %></li>
-			</ul>
-		</nav>
-		<section class="section photograph">
-			<h1>Mathieu Dupuis <span><%= @footer_content.photograph_title if @footer_content.photograph_title %></span></h1>
-			<%= image_tag @footer_content.photograph_image.url(:thumb_admin) if @footer_content.photograph_image? %>
-			<h2> <%= @footer_content.photograph_subtitle if @footer_content.photograph_subtitle %></h2>
-			<p><%= @footer_content.photograph_text.html_safe if @footer_content.photograph_text %></p>
-			<p class="red"><%= t(:"include.aventura_team") %>.</p>
 		</section>
 	</div>
 </footer>

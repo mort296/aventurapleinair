@@ -22,6 +22,10 @@
 fr:
   no_results: "Aucun résultats"
   to: "au"
+  home: 
+    who_are: "Qui sommes nous?"
+    featured: "En vedette"
+    pub: "Promotion"
   activerecord:
     errors:
       models:
