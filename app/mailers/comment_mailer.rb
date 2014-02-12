@@ -6,9 +6,8 @@ class CommentMailer < ActionMailer::Base
   #
   #   en.comment_mailer.new_comment_notification.subject
   #
-  def new_comment_notification(activity, url)
+  def new_comment_notification(url)
     @url = url
-    @activity = activity
     mail to: "cloutier_16@hotmail.com", subject: 'Nouveau commentaire'
   end
 end

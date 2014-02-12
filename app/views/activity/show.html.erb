@@ -121,10 +121,10 @@
 		<%= render 'comments/comment', :comments => @activity.comments.where("approved = true").limit(5) %>
 	</div> 
 	<% if @activity.comments.where("approved = true").length > 5 %>
-	<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
+		<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
 	<% end %>
 
-	<%= form_for(@activity, :url => :new_comment, :html => { :method => :get }, remote: true) do |f| %>
+	<%= form_for(@activity, :url => :new_activity_comment, :html => { :method => :get }, remote: true) do |f| %>
 		<p class="error">Veuillez remplir tout les champs correctement</p>
 		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
 		<%= f.label :user_name, "#{t(:"activity.comments.fields.name")}:" %>

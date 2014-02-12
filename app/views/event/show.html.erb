@@ -61,3 +61,25 @@
 	<h2><%= t(:"event.interesting_stats") %></h2>
 	<p><%= @event.interesting_stats.html_safe if @event.interesting_stats %></p>
 </section>
+
+<section class="section comments">
+	<h2><%= t(:"activity.comments.first_part") %><%= @event.name %><%= t(:"activity.comments.second_part") %></h2>
+	<div class="comments-list">
+		<%= render 'comments/comment', :comments => @event.comments.where("approved = true").limit(5) %>
+	</div> 
+	<% if @event.comments.where("approved = true").length > 5 %>
+		<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
+	<% end %>
+
+	<%= form_for(@event, :url => :new_event_comment, :html => { :method => :get }, remote: true) do |f| %>
+		<p class="error">Veuillez remplir tout les champs correctement</p>
+		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
+		<%= f.label :user_name, "#{t(:"activity.comments.fields.name")}:" %>
+	  <input type="text" id="user_name" name="user_name" />
+	  <%= f.label :user_email, "#{t(:"activity.comments.fields.email")}:" %>
+	  <input type="email" id="user_email" name="user_email" />
+	  <%= f.label :comment, "#{t(:"activity.comments.fields.comment")}:" %>
+	  <textarea id="comment" class="not-shown" name="comment" placeholder="<%= t(:"activity.comments.fields.comment_placeholder") %>"></textarea>
+	  <%= submit_tag("#{t(:"activity.comments.fields.send")}") %>
+	<% end %>
+</section>

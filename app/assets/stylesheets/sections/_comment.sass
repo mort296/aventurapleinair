@@ -1,0 +1,97 @@
+.comments
+	margin: 0 20px
+	clear: both
+
+	div
+		+font-size(20)
+
+		color: #fff
+		margin-left: 45px
+
+		p
+			margin: 0
+
+		strong
+			color: $lightgrey
+			text-transform: uppercase
+
+	a.show-more
+		+font-size(20)
+
+		color: $lightgrey
+		display: block
+		margin: 5px 0 0 45px
+		text-decoration: none
+
+		&:hover
+			text-decoration: underline
+
+	form
+		color: #fff
+		margin-top: 10px
+
+		p.error
+			+font-size(18)
+			
+			color: #f00
+			display: none
+
+		p.sent
+			+font-size(18)
+
+			color: #0f0
+			display: none
+
+		input
+			+font-size(18)
+			+font($pompiere)
+			&.error
+				border: 2px solid #f00
+
+		label
+
+			&[for="activity_user_email"], &[for="location_user_email"], &[for="event_user_email"]
+				margin-left: 161px	
+
+			&[for="activity_user_name"], &[for="activity_user_email"], &[for="location_user_name"], &[for="location_user_email"], &[for="event_user_name"], &[for="event_user_email"]
+				display: inline-block
+				width: 10%
+
+				& + input
+					width: 30%
+
+			&[for="activity_comment"], &[for="location_comment"], &[for="event_comment"]
+				display: block
+				margin: 5px 0 0
+
+		textarea
+			+font-size(18)
+			+font($pompiere)
+
+			margin-top: 0px
+			resize: none
+			padding: 5px
+			width: 900px
+			transition: margin 1s
+			-webkit-transition: margin 1s
+
+			&.error
+				border: 2px solid #f00
+
+			& + input
+				background: #a61922
+				border: 1px solid #94171F
+				border-radius: 5px
+				color: #fff
+				margin: 10px 0 5px
+				transition: all 02s
+				-webkit-transition: all 0.5s
+
+			&.not-shown
+				margin-top: -53px
+
+				& + input
+					width: 0
+					height: 0
+					margin: 0
+					opacity: 0

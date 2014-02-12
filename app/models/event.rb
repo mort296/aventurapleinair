@@ -1,4 +1,5 @@
 class Event < ActiveRecord::Base
+  acts_as_commentable
   validates_presence_of :name
   validates_presence_of :interesting_stats, :description, :date_start, :season, :location, :image, :if => :online?
 

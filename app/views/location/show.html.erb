@@ -84,6 +84,29 @@
 		<%= link_to t(:events), event_index_url %>
 	</section>
 </div>
+
+<section class="section comments">
+	<h2><%= t(:"activity.comments.first_part") %><%= @location.name %><%= t(:"activity.comments.second_part") %></h2>
+	<div class="comments-list">
+		<%= render 'comments/comment', :comments => @location.comments.where("approved = true").limit(5) %>
+	</div> 
+	<% if @location.comments.where("approved = true").length > 5 %>
+		<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
+	<% end %>
+
+	<%= form_for(@location, :url => :new_location_comment, :html => { :method => :get }, remote: true) do |f| %>
+		<p class="error">Veuillez remplir tout les champs correctement</p>
+		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
+		<%= f.label :user_name, "#{t(:"activity.comments.fields.name")}:" %>
+	  <input type="text" id="user_name" name="user_name" />
+	  <%= f.label :user_email, "#{t(:"activity.comments.fields.email")}:" %>
+	  <input type="email" id="user_email" name="user_email" />
+	  <%= f.label :comment, "#{t(:"activity.comments.fields.comment")}:" %>
+	  <textarea id="comment" class="not-shown" name="comment" placeholder="<%= t(:"activity.comments.fields.comment_placeholder") %>"></textarea>
+	  <%= submit_tag("#{t(:"activity.comments.fields.send")}") %>
+	<% end %>
+</section>
+
 <aside class="aside bottom-pub">
 	<%= image_tag @location.pub.image.url(:bottom_pub) if @location.pub %>
 </aside>

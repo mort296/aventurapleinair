@@ -9,6 +9,10 @@ ActiveAdmin.register Comment do
 		column "Commentaire" do |object|
 			object.comment
 		end
+
+		column "Commentaire" do |object|
+			object.commentable_type
+		end
 		column "Nom de l'utilisateur" do |object|
 			object.user_name
 		end
