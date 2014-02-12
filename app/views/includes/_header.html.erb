@@ -14,7 +14,7 @@
 	<div class="right-side">
 		<%= form_tag({controller: "search", action: "index", method: "get"}, {:class => 'ok-form'}) do %>
 			<input type="text" name="search" placeholder="<%= t(:"include.search") %>..." />
-			<button type="submit">Ok</button>
+			<input type="submit" class="submit" value="Ok" />
 		<% end %>
 		<nav class="main-nav">
 			<h1><%= t(:"include.main_nav") %></h1>

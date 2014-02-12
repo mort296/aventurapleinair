@@ -105,17 +105,22 @@ $darkred: #a61922
   margin-bottom: 38px
 
   input
-    float: left
+    +font-size(18)
+    +font($pompiere)
 
-  button
-    +font-size(12)
+    float: left
+    border: 1px solid #fff
+    padding: 4px 2px
+
+  .submit
+    +font-size(18)
+
     background: #fff
     border: 1px solid #ccc
     border-left-color: #a51722
     color: #a51722
     float: left
-    height: 24px
-    margin-left: -2px
+    padding: 4px 2px
     width: 40px
 
 html
@@ -124,6 +129,7 @@ html
 body
   +font-size(16)
   +font($pompiere)
+
   border-top: 40px solid #333333
 
   p
