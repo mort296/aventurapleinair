@@ -23,15 +23,14 @@
 					<% if @menu_activity_category %>
 						<ul class="sub-menu activity">
 							<% @menu_activity_category.each do |activity_category| %>
-								<li><span><%= activity_category.name %></span>
-									<% if activity_category.activity %>
+								<% if activity_category.activity.where('online = true').any? %>
+									<li><span><%= activity_category.name %></span>
 										<ul>
 											<% activity_category.activity.where('online = true').each do |activity| %>
 												<li><%= link_to activity.name , activity_url(activity.id) %>
 											<% end %>
 										</ul>
-									<% end %>
-								
+								<% end %>
 							<% end %>
 						</ul>
 					<% end %>
@@ -40,15 +39,16 @@
 					<% if @menu_administrative_region %>
 						<ul class="sub-menu activity">
 							<% @menu_administrative_region.each do |administrative_region| %>
-								<li><span><%= administrative_region.name %></span>
-									<% if administrative_region.location %>
+								<% if administrative_region.location.where('online = true').any? %>
+									<li><span><%= administrative_region.name %></span>
+										
 										<ul>
 											<% administrative_region.location.where('online = true').each do |location| %>
 												<li><%= link_to location.name , location_url(location.id) %>
 											<% end %>
 										</ul>
-									<% end %>
-								
+										
+								<% end %>
 							<% end %>
 						</ul>
 					<% end %>
