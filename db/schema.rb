@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140122012048) do
+ActiveRecord::Schema.define(version: 20140212213124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,7 +59,6 @@ ActiveRecord::Schema.define(version: 20140122012048) do
     t.text     "equipment"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "season_id"
     t.integer  "activity_category_id"
     t.string   "video_link"
     t.boolean  "online"
@@ -80,6 +79,11 @@ ActiveRecord::Schema.define(version: 20140122012048) do
   create_table "activities_locations", force: true do |t|
     t.integer "activity_id"
     t.integer "location_id"
+  end
+
+  create_table "activities_seasons", force: true do |t|
+    t.integer "season_id"
+    t.integer "activity_id"
   end
 
   create_table "activity_categories", force: true do |t|
@@ -216,7 +220,6 @@ ActiveRecord::Schema.define(version: 20140122012048) do
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "season_id"
     t.string   "name"
     t.boolean  "online"
     t.integer  "location_id"
@@ -224,6 +227,12 @@ ActiveRecord::Schema.define(version: 20140122012048) do
     t.string   "image"
     t.string   "link"
     t.string   "image_file_name"
+    t.string   "image_caption"
+  end
+
+  create_table "events_seasons", force: true do |t|
+    t.integer "season_id"
+    t.integer "event_id"
   end
 
   create_table "footer_text_translations", force: true do |t|
@@ -311,6 +320,7 @@ ActiveRecord::Schema.define(version: 20140122012048) do
     t.string   "address"
     t.string   "website"
     t.text     "description"
+    t.string   "link_text"
   end
 
   add_index "location_translations", ["locale"], name: "index_location_translations_on_locale", using: :btree
@@ -335,6 +345,8 @@ ActiveRecord::Schema.define(version: 20140122012048) do
     t.string   "city"
     t.string   "postal_code"
     t.text     "description"
+    t.string   "link_text"
+    t.string   "image_caption"
   end
 
   create_table "locations_useful_infos", force: true do |t|
