@@ -60,8 +60,13 @@
       position: relative
       margin-top: 8px
 
-      li:hover>.sub-menu
-        display: block
+      li:hover
+        
+        a, span
+          background: $darkred
+
+        &>.sub-menu
+          display: block
 
       ul.sub-menu
         @extend .clearfix
