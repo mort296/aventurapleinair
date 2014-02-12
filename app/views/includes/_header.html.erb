@@ -37,10 +37,18 @@
 					<% end %>
 				</li>
 				<li><%= link_to t(:locations) , location_index_url %>
-					<% if @menu_location %>
-						<ul class="sub-menu">
-							<% @menu_location.each do |location| %>
-								<li><%= link_to location.name, location_url(location.id) %>
+					<% if @menu_administrative_region %>
+						<ul class="sub-menu activity">
+							<% @menu_administrative_region.each do |administrative_region| %>
+								<li><span><%= administrative_region.name %></span>
+									<% if administrative_region.location %>
+										<ul>
+											<% administrative_region.location.where('online = true').each do |location| %>
+												<li><%= link_to location.name , location_url(location.id) %>
+											<% end %>
+										</ul>
+									<% end %>
+								
 							<% end %>
 						</ul>
 					<% end %>

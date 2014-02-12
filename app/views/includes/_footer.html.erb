@@ -26,7 +26,7 @@
 							<ul>
 								<% @menu_activity_category.each do |activity_category| %>
 										<% if activity_category.activity %>
-												<% activity_category.activity.where('online = true').limit(5).each do |activity| %>
+												<% activity_category.activity.where('online = true').limit(10).each do |activity| %>
 													<li>
 														<%= link_to activity.name , activity_url(activity.id) %>
 													</li>
@@ -46,13 +46,20 @@
 				</ul>
 				<ul>
 					<li><%= link_to t(:locations) , location_index_url %>
-						<% if @menu_location %>
-							<ul>
-								<% @menu_location.limit(10).each do |location| %>
-									<li><%= link_to location.name , location_url(location.id) %></li>
-								<% end %>
-							</ul>
-						<% end %>
+						<% if @menu_administrative_region %>
+						<ul>
+							<% @menu_administrative_region.each do |administrative_region| %>
+									<% if administrative_region.location %>
+										<ul>
+											<% administrative_region.location.where('online = true').limit(10).each do |location| %>
+												<li><%= link_to location.name , location_url(location.id) %>
+											<% end %>
+										</ul>
+									<% end %>
+								
+							<% end %>
+						</ul>
+					<% end %>
 					</li>
 				</ul>
 				<ul>

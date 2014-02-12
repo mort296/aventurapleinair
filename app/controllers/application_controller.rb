@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def get_footer_header
     @menu_activity_category = ActivityCategory.all()
-    @menu_location = Location.all().where("name IS NOT NULL AND online = true")
+    @menu_administrative_region = AdministrativeRegion.all()
     @menu_event = Event.all.where('online = true')
     @footer_content = FooterText.first()
   end
