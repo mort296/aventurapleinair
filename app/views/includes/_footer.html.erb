@@ -50,13 +50,10 @@
 						<ul>
 							<% @menu_administrative_region.each do |administrative_region| %>
 									<% if administrative_region.location.where('online = true').any? %>
-										<ul>
-											<% administrative_region.location.where('online = true').limit(10).each do |location| %>
-												<li><%= link_to location.name , location_url(location.id) %>
-											<% end %>
-										</ul>
+										<% administrative_region.location.where('online = true').limit(10).each do |location| %>
+											<li><%= link_to location.name , location_url(location.id) %>
+										<% end %>
 									<% end %>
-								
 							<% end %>
 						</ul>
 					<% end %>
