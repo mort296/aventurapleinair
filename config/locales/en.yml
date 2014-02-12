@@ -38,6 +38,7 @@ en:
   toll_free: "Toll free number"
   include:
     winter: "Winter"
+    summer: "Summer"
     search: "Search"
     main_nav: "Main navigation"
     activities: "Activities"

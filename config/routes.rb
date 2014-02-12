@@ -1,6 +1,8 @@
 Aventurapleinair::Application.routes.draw do
   get "set_language/french"
   get "set_language/english"
+  get "set_season/winter"
+  get "set_season/summer"
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 

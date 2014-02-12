@@ -38,6 +38,7 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
+    <%= f.input :image_caption, :label => 'Copyright pour l\'image' %>
     <%= f.input :website, :label => 'Site Web du lieu' %>
     <%= f.input :image, :as => :file, :label => 'Image du lieu' %>
     <%= f.input :city, :label => 'Ville' %>

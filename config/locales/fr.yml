@@ -127,6 +127,7 @@ fr:
   toll_free: "Sans Frais"
   include:
     winter: "Hiver"
+    summer: "Été"
     search: "Recherche"
     main_nav: "Navigation principale"
     activities: "Activités"
