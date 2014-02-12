@@ -1,7 +1,7 @@
 <header class="header">
 	<nav class="options-nav">
 		<ul>
-			<li class="season" ><%= link_to	t(:"include.winter"), 'winter_url' %></li>
+			<% #  <li class="season" ><%= link_to	t(:"include.winter"), 'winter_url' %/></li> %>
 			<li class="language" ><%= link_to "English", set_language_english_path unless I18n.locale == :en %><%= link_to "Français", set_language_french_path unless I18n.locale == :fr %></li>
 		</ul>
 	</nav>
