@@ -37,7 +37,7 @@
 				</li>
 				<li><%= link_to t(:locations) , location_index_url %>
 					<% if @menu_administrative_region %>
-						<ul class="sub-menu activity">
+						<ul class="sub-menu location">
 							<% @menu_administrative_region.each do |administrative_region| %>
 								<% if administrative_region.location.where('online = true').any? %>
 									<li><span><%= administrative_region.name %></span>
