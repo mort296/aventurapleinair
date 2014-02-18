@@ -27,7 +27,9 @@
 									<li><span><%= activity_category.name %></span>
 										<ul>
 											<% activity_category.activity.where('online = true').each do |activity| %>
-												<li><%= link_to activity.name , activity_url(activity.id) %>
+												<% if match_season(activity.season, session[:season]) %>
+													<li><%= link_to activity.name , activity_url(activity.id) %>
+												<% end %>
 											<% end %>
 										</ul>
 								<% end %>
@@ -57,7 +59,9 @@
 					<% if @menu_event %>
 					<ul class="sub-menu">
 						<% @menu_event.each do |event| %>
-							<li><%= link_to event.name, event_url(event.id) %>
+							<% if match_season(event.season, session[:season]) %>
+								<li><%= link_to event.name, event_url(event.id) %>
+							<% end %>
 						<% end %>
 					</ul>
 					<% end %>

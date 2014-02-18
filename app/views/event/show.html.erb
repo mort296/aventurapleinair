@@ -14,6 +14,27 @@
 	<h2><span><%= l @event.date_start, format: :long %></span> <%= t(:to) %> <span><%= l @event.date_end, format: :long %></span></h2>
 </section>
 
+<section class="section activities">
+	<h2><%= t(:"event.event_activities") %></h2>
+	<ul>
+		<% if @event.activities %>
+			<%	a = 0 %>
+			<% @event.activities.each do |activity| %>
+				<% if activity.online == true %>
+					<li><%= link_to activity.name, activity_url(activity.id) %></li>
+					<% a = a + 1 %>
+				<% end %>
+			<% end %>
+			<% if a == 0 %>
+				<li><%= t(:"location.no_activity") %></li>
+			<% end %>
+		<% else %>
+			<li><%= t(:"location.no_activity") %></li>
+		<% 	end %>
+		
+	</ul>
+</section>
+
 <section class="section event-info">
 	<p><%= @event.description.html_safe if @event.description %></p>
 	<table>
@@ -43,13 +64,13 @@
 		<% if @event.federation_website? %>
 		<tr>
 			<td class="title"><%= t(:federation_website) %></td>
-			<td><%= @event.federation_website %></td>
+			<td><%= link_to @event.federation_website, @event.federation_website, :target => '_blank' %></td>
 		</tr>
 		<% end %>
 		<% if @event.website? %>
 		<tr>
 			<td class="title"><%= t(:website) %></td>
-			<td><%= @event.website %></td>
+			<td><%= link_to @event.website, @event.website, :target => '_blank' %></td>
 		</tr>
 		<% end %>
 	</table>

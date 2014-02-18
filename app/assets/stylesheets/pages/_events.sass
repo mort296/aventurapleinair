@@ -13,6 +13,15 @@
 		.section
 			color: #fff
 
+			
+			&.activities h2
+				@extend .red-dot-title
+
+				margin: 40px 0 0 20px
+
+				& + ul
+					margin: 20px 0 0 20px
+
 			&.event-header
 				overflow: hidden
 				position: relative
@@ -116,6 +125,11 @@
 
 					ul.slides li
 						cursor: pointer
+
+			&.comments
+
+				h2
+					margin-bottom: 20px
 
 			&.event-list
 

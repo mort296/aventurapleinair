@@ -22,7 +22,7 @@ class Activity < ActiveRecord::Base
   has_one :activity_rating
 
   after_save :create_missing_translations
-  
+
   def online?
     online == true
   end
