@@ -8,7 +8,7 @@
 <section class="section event-slider">
 	<div id="slider" class="flexslider">
 	  <ul class="slides">
-			<% @events.each do |event| %>
+			<% @events.limit(10).each do |event| %>
 				<% if event.image %>
 					<li>
 						<%= link_to image_tag(event.image.url()), event_url(event.id) %>
@@ -24,7 +24,7 @@
 	</div>
 	<div id="carousel" class="flexslider">
 	  <ul class="slides">
-	    <% @events.each do |event| %>
+	    <% @events.limit(10).each do |event| %>
 		    <% if event.image %>
 					<li>
 						<%= image_tag event.image.url(:top_ten_small) %>

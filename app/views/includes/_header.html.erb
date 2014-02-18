@@ -22,14 +22,19 @@
 				<li><span><%= t(:"include.activities") %></span>
 					<% if @menu_activity_category %>
 						<ul class="sub-menu activity">
+							<%	a = 0 %>
 							<% @menu_activity_category.each do |activity_category| %>
 								<% if activity_category.activity.where('online = true').any? %>
 									<li><span><%= activity_category.name %></span>
 										<ul>
 											<% activity_category.activity.where('online = true').each do |activity| %>
-												<% if match_season(activity.season, session[:season]) %>
+												<% if match_season(activity.season) %>
 													<li><%= link_to activity.name , activity_url(activity.id) %>
+													<% a = a + 1 %>
 												<% end %>
+											<% end %>
+											<% if a == 0 %>
+												<li><span class="white"><%= t(:"include.no_activity") %></span></li>
 											<% end %>
 										</ul>
 								<% end %>
@@ -58,10 +63,15 @@
 				<li><%= link_to t(:events) , event_index_url %>
 					<% if @menu_event %>
 					<ul class="sub-menu">
+						<%	a = 0 %>
 						<% @menu_event.each do |event| %>
-							<% if match_season(event.season, session[:season]) %>
+							<% if match_season(event.season) %>
 								<li><%= link_to event.name, event_url(event.id) %>
+								<% a = a + 1 %>
 							<% end %>
+						<% end %>
+						<% if a == 0 %>
+							<li><span><%= t(:"include.no_event") %></span></li>
 						<% end %>
 					</ul>
 					<% end %>

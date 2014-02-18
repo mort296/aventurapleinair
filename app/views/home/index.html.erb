@@ -1,28 +1,36 @@
 <section class="section event-slider" style="clear:both;">
-	<div id="slider" class="flexslider">
+	<div id="slider" class="flexslider hidden">
 	  <ul class="slides">
-			<% @menu_event.limit(5).each do |event| %>
-				<% if event.image %>
-					<li>
-						<%= link_to image_tag(event.image.url()), event_url(event.id) %>
-						<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= l event.date_start, format: :long %> <%= t(:to) %> <%= l event.date_end, format: :long %></span>
-							<% if event.location %>
-								<span class="location"><%= event.location.name %></span>
-							<% end %>
-						</p>
-					</li>	
+	  	<% a = 0 %>
+			<% @menu_event.each do |event| %>
+				<% if match_season(event.season) and a < 10 %>
+					<% if event.image %>
+						<li>
+							<%= link_to image_tag(event.image.url()), event_url(event.id) %>
+							<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= l event.date_start, format: :long %> <%= t(:to) %> <%= l event.date_end, format: :long %></span>
+								<% if event.location %>
+									<span class="location"><%= event.location.name %></span>
+								<% end %>
+							</p>
+						</li>
+						<% a = a + 1 %>	
+					<% end %>
 				<% end %>
 			<% end %>
 		</ul>
 	</div>
-	<div id="carousel" class="flexslider">
+	<div id="carousel" class="flexslider hidden">
 	  <ul class="slides">
-	    <% @menu_event.limit(5).each do |event| %>
-	    	<% if event.image %>
-					<li>
-						<%= image_tag event.image.url(:top_ten_small) %>
-					</li>
-				<% end %>	
+	   	<% a = 0 %>
+			<% @menu_event.each do |event| %>
+				<% if match_season(event.season) and a < 10 %>
+					<% if event.image %>
+						<li>
+							<%= image_tag event.image.url(:top_ten_small) %>
+						</li>
+						<% a = a + 1 %>	
+					<% end %>
+				<% end %>
 			<% end %>
 	  </ul>
 	</div>

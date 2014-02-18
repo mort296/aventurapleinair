@@ -129,6 +129,8 @@ fr:
     winter: "Hiver"
     summer: "Été"
     search: "Recherche"
+    no_event: "Aucun Événements"
+    no_activity: "Aucun Activités"
     main_nav: "Navigation principale"
     activities: "Activités"
     community: "Réseaux sociaux"

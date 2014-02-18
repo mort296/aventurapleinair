@@ -40,6 +40,8 @@ en:
     winter: "Winter"
     summer: "Summer"
     search: "Search"
+    no_event: "No events"
+    no_activity: "No activities"
     main_nav: "Main navigation"
     activities: "Activities"
     community: "Social network"
