@@ -8,6 +8,9 @@
 
 <section class="section event-header">
 	<%= image_tag @event.image.url() %>
+	<div class="caption">
+		<p><%= @event.image_caption if @event.image_caption %></p>
+	</div>
 	<h2><span><%= l @event.date_start, format: :long %></span> <%= t(:to) %> <span><%= l @event.date_end, format: :long %></span></h2>
 </section>
 

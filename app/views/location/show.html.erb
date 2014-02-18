@@ -5,8 +5,12 @@
 	  <%= render '/location_rating/rating', :@item => @location %>
 	</div>
 </div>
-
-<%= image_tag @location.image.url(:full_width) if @location.image  %>
+<div class="slider">
+	<%= image_tag @location.image.url(:full_width) if @location.image  %>
+	<div class="caption">
+		<p><%= @location.image_caption if @location.image_caption %></p>
+	</div>
+</div>
 <div class="description">
 	<p><%= @location.description.html_safe if @location.description %></p>
 </div>	
