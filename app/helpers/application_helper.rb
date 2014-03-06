@@ -16,6 +16,9 @@ module ApplicationHelper
       if session[:season] == season.name
         match = true
       end
+      else
+        match = session[:season] + '   ' + season.name
+      end
     end
     return match
   end
