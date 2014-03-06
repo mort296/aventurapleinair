@@ -17,6 +17,7 @@ module ApplicationHelper
         match = season.name
       end
     end
+    match = season.name
     return match
   end
   
