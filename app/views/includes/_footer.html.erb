@@ -51,9 +51,9 @@
 						<% if @menu_event %>
 						<ul>
 							<% @menu_event.limit(10).each do |event| %>
-							<% if match_season(event.season) %>
+							
 								<li><%= link_to event.name, event_url(event.id) %></li>
-							<% end %>
+							
 							<% end %>
 						</ul>
 						<% end %>
