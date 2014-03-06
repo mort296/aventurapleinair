@@ -15,8 +15,6 @@
 														<li>
 															<%= link_to activity.name , activity_url(activity.id) %>
 														</li>
-													<% else %>
-													<li><%= match_season(activity.season) %>  <%= session[:season] %></li>
 													<% end %>
 												<% end %>
 										<% end %>
