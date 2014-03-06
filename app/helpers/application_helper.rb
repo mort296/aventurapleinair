@@ -15,6 +15,8 @@ module ApplicationHelper
       season.name = :winter if season.name == 'Hiver'
       if session[:season] == season.name
         match = true
+      else
+        match = season.name
       end
     end
     return match
