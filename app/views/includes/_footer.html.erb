@@ -11,12 +11,13 @@
 								<% @menu_activity_category.each do |activity_category| %>
 										<% if activity_category.activity.where('online = true').any? %>
 												<% activity_category.activity.where('online = true').limit(10).each do |activity| %>
-													
-														<li><%=  match_season(activity.season) %></li>
+													<% if match_season(activity.season) %>
 														<li>
 															<%= link_to activity.name , activity_url(activity.id) %>
 														</li>
-													
+													<% else %>
+													<li><%= match_season(activity.season) %>  <%= session[:season] %></li>
+													<% end %>
 												<% end %>
 										<% end %>
 								<% end %>
@@ -51,9 +52,9 @@
 						<% if @menu_event %>
 						<ul>
 							<% @menu_event.limit(10).each do |event| %>
-							
+							<% if match_season(event.season) %>
 								<li><%= link_to event.name, event_url(event.id) %></li>
-							
+							<% end %>
 							<% end %>
 						</ul>
 						<% end %>
