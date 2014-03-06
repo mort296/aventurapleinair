@@ -12,6 +12,7 @@
 										<% if activity_category.activity.where('online = true').any? %>
 												<% activity_category.activity.where('online = true').limit(10).each do |activity| %>
 													
+														<li>match_season(activity.season)</li>
 														<li>
 															<%= link_to activity.name , activity_url(activity.id) %>
 														</li>
