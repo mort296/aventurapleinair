@@ -14,10 +14,10 @@ module ApplicationHelper
       season.name = :summer if season.name == 'Été'
       season.name = :winter if season.name == 'Hiver'
       if session[:season] == season.name
-        match = true
+        match = season.name
       end
     end
-    return season.name
+    return match
   end
   
   
