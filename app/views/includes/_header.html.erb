@@ -50,7 +50,7 @@
 									<li><span><%= administrative_region.name %></span>
 										
 										<ul>
-											<% administrative_region.location.where('online = true').each do |location| %>
+											<% administrative_region.location.where('online = true').order(:name).each do |location| %>
 												<li><%= link_to location.name , location_url(location.id) %>
 											<% end %>
 										</ul>

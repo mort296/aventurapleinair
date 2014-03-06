@@ -1,6 +1,6 @@
 class LocationController < ApplicationController
 	def index
-		@locations = Location.all.where('online = true')
+		@locations = Location.all.where('online = true').order(:name)
 	end
 	
 	def show

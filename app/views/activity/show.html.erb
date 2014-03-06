@@ -28,10 +28,10 @@
 				<td><%= @activity.federation %></td>
 			</tr>
 			<% end %>
-			<% if @activity.website %>
+			<% if @activity.website? %>
 			<tr>
 				<td><%= t(:website) %></td>
-				<td><%= @activity.website %></td>
+				<td><%= link_to @activity.website, @activity.website, :target => '_blank' %></td>
 			</tr>
 			<% end %>
 		</table>
