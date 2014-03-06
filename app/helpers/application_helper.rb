@@ -13,10 +13,9 @@ module ApplicationHelper
     seasons.each do |season|
       season.name = :summer if season.name == 'Été'
       season.name = :winter if season.name == 'Hiver'
-      if session[:season] == season.name
-        match = season.name
+      if session[:season].downcase == season.name.downcase
+        match = true
       end
-      match = season.name
     end
     return match
   end
