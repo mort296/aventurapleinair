@@ -14,50 +14,21 @@
     @extend .clearfix
 
     float: left
-    width: 580px
+    width: 520px
 
     input[type="email"]
       font-family: $pompiere
       width: 200px
 
-    div
-      float: left
-      margin: 0 20px
-
-      &.social-medias
-        text-align: left
-        
-        li
-          list-style: none
-
-        a
-          +font-size(18)
-
-          color: $lightgrey
-          text-decoration: none
-
-          &:hover
-            color: $darkred
-
-      &.newsletter
-        margin: 0 50px 0 70px
-
-        h2
-          text-align: center
-
-        p
-          width: 145px
-          font-size: 18px
-          margin: 0 auto 10px        
-
+    
     .footer-nav
       float: left
-      width: 580px
-      margin: 0 25px
+      width: 520px
 
       & > ul
         float: left
         list-style: none
+        padding-left: 20px
         width: 25%
 
         ul
@@ -85,35 +56,41 @@
 
       h1
         @extend .visuallyhidden
+  div
 
-  .description-max
-    @extend .clearfix
-
-    float: right
-    margin-left: 20px
-    text-align: left
-    width: 360px
-
-    img
-      border-radius: 40px
-      border: 1px solid $lightgrey
+    &.social-medias
       float: left
-      margin-left: 35px
+      text-align: left
 
-    h1
+      ul
+        padding: 0 40px 0 0
+
+      h2
+        margin-top: 0
+        text-transform: uppercase
+      
+      li
+        list-style: none
+
+      a
+        +font-size(18)
+
+        color: $lightgrey
+        text-decoration: none
+
+        &:hover
+          color: $darkred
+
+    &.newsletter
       float: left
-      margin: 35px 0 25px 15px
+      margin: 1em 0 0
 
-      span
-        display: block
-        margin-left: 10px
-        color: #fff
-        text-transform: initial
+      h2
+        margin-top: 0
+        text-transform: uppercase
+        text-align: center
 
-      &:before
-        display: none
-
-    p
-      border-left: 1px solid $darkred
-      clear: both
-      padding-left: 15px
+      p
+        width: 145px
+        font-size: 18px
+        margin: 0 auto 10px        

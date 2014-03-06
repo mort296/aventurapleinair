@@ -47,6 +47,7 @@
 			@extend .clearfix
 
 		.location, .event, .learn, .equipments
+			background: url(/assets/bg_activity.png) no-repeat
 			color: #fff
 			float: left
 			height: 190px
@@ -66,10 +67,10 @@
 				top: 50%
 				width: 300px
 
-				&:hover + ul, &:hover + p, & + ul:hover, & + p:hover
+				&:hover + ul, &:hover + div, & + ul:hover, & + div:hover
 					display: block
 
-			ul, p
+			ul, div
 				+font-size(22)
 
 				display: none
@@ -81,6 +82,7 @@
 				padding: 0
 				position: absolute
 				width: 300px
+				z-index: 999
 
 			ul
 				text-align: center
@@ -92,23 +94,9 @@
 					a
 						color: #fff
 
-			p
+			div
 				padding: 20px 30px
 				width: 240px
-
-		.location
-			background: url(/assets/bg_location_activity.png) no-repeat
-			margin-right: 5px
-
-		.event
-			background: url(/assets/bg_event_activity.png) no-repeat
-
-		.learn
-			background: url(/assets/bg_learn_activity.png) no-repeat
-			margin-right: 5px
-
-		.equipments
-			background: url(/assets/bg_equipment_activity.png) no-repeat
 
 		.useful-links
 			float: left
@@ -119,7 +107,6 @@
 				+font-size(20)
 
 				color: #fff
-				line-height: 10px
 				margin-left: 45px
 
 			a

@@ -93,11 +93,11 @@
 	</section>
 	<section class="section learn">
 		<h1><%= t(:"activity.learn") %></h1>
-		<p><%= if @activity.learn? then @activity.learn.html_safe else t(:"activity.learning") end %></p>
+		<div><%= if @activity.learn? then @activity.learn.html_safe else t(:"activity.learning") end %></div>
 	</section>
 	<section class="section equipments">
 		<h1><%= t(:"activity.equipments") %></h1>
-		<p><%= if @activity.equipment? then @activity.equipment.html_safe else t(:"activity.equipment") end %></p>
+		<div><%= if @activity.equipment? then @activity.equipment.html_safe else t(:"activity.equipment") end %></div>
 	</section>
 </div>
 
