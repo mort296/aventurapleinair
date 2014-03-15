@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140212213124) do
+ActiveRecord::Schema.define(version: 20140315210850) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -256,14 +256,11 @@ ActiveRecord::Schema.define(version: 20140212213124) do
     t.string   "max_subtitle"
     t.text     "max_text"
     t.string   "max_image"
-    t.string   "photograph_title"
-    t.string   "photograph_subtitle"
-    t.text     "photograph_text"
-    t.string   "photograph_image"
+    t.string   "background_summer_image"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "max_image_file_name"
-    t.string   "photograph_image_file_name"
+    t.string   "background_summer_image_file_name"
     t.string   "background_image"
     t.string   "background_image_file_name"
   end

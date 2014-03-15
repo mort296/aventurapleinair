@@ -28,6 +28,7 @@ en:
     pub: "Pub"
   about: "About"
   season: "Season"
+  meteo: "See local weather"
   federation: "Federation"
   federation_website: "Federation Website"
   website: "Website"

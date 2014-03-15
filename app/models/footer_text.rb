@@ -4,13 +4,11 @@ class FooterText < ActiveRecord::Base
     :thumb_admin => "100x100>"
   }
 
-  has_attached_file :max_image, :styles => { 
-    :thumb_menu => "150x150>", 
-    :thumb_admin => "100x100>",
-    :thumb => "200x200>"
+  has_attached_file :background_summer_image, :styles => {  
+    :thumb_admin => "100x100>"
   }
 
-  has_attached_file :photograph_image, :styles => { 
+  has_attached_file :max_image, :styles => { 
     :thumb_menu => "150x150>", 
     :thumb_admin => "100x100>",
     :thumb => "200x200>"

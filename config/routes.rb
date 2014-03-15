@@ -18,6 +18,7 @@ Aventurapleinair::Application.routes.draw do
   resources :about_page
 
   match 'politique' => 'about_page#show', :via => :get, :as => :politique
+  match 'xavier' => 'about_page#xavier', :via => :get, :as => :xavier
   match 'activity/:id/:activity_rating/update' => 'activity_rating#rate', :via => :get, :as => :update_activity_rating
   match 'event/:id/:event_rating/update' => 'event_rating#rate', :via => :get, :as => :update_event_rating
   match 'location/:id/:location_rating/update' => 'location_rating#rate', :via => :get, :as => :update_location_rating

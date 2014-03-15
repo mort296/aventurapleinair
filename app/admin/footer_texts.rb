@@ -5,7 +5,7 @@ ActiveAdmin.register FooterText do
 	actions  :index, :edit, :update
 
 	index do
-		column "Background image" do |image|
+		column "Background image hiver" do |image|
 			image_tag image.background_image.url(:thumb_admin)
 		end
 		column :max_title
@@ -14,11 +14,8 @@ ActiveAdmin.register FooterText do
 		column "Image Max" do |image|
 			image_tag image.max_image.url(:thumb_admin)
 		end
-		column :photograph_title
-		column :photograph_subtitle
-		column :photograph_text
-		column "Image Photographe" do |image|
-			image_tag image.photograph_image.url(:thumb_admin)
+		column "Background image été" do |image|
+			image_tag image.background_summer_image.url(:thumb_admin)
 		end
 		default_actions
 	end

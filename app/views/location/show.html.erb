@@ -67,18 +67,10 @@
 	</address>
 </div>
 <div class="right-half">
-	<% if @weather %>
-		<section class="section weather">
-			<% @weather['weather'].each do |weather| %>
-				<%= image_tag "weather/#{weather['icon']}.png" %>
-				<p>
-					<strong class="tmp"><%= @weather['main']['temp'].round %>°</strong>
-					<br/>
-					<strong class="desc"><%= t "location.meteo.#{weather['id']}" %></strong>
-				</p>
-			<% end %>
-		</section>
-	<% end %>
+	
+	<section class="section weather">
+		<a target="_blank" href="http://fr.weather.com/10jours/<%= @location.gps_latitude %>,<%= @location.gps_longitude %>"><%= t(:meteo) %></a>
+	</section>
 
 	<section class="section map">
 		<div id="map-canvas" style="width: 285px; height: 285px"></div>

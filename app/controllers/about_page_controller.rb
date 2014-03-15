@@ -5,4 +5,7 @@ class AboutPageController < ApplicationController
   def show
   	
   end
+  
+  def xavier
+  end
 end
