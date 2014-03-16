@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140315210850) do
+ActiveRecord::Schema.define(version: 20140316180305) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -170,6 +170,27 @@ ActiveRecord::Schema.define(version: 20140315210850) do
 
   add_index "comments", ["commentable_id"], name: "index_comments_on_commentable_id", using: :btree
   add_index "comments", ["commentable_type"], name: "index_comments_on_commentable_type", using: :btree
+
+  create_table "equipment", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.string   "image"
+    t.string   "image_file_name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "equipment_translations", force: true do |t|
+    t.integer  "equipment_id", null: false
+    t.string   "locale",       null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+  end
+
+  add_index "equipment_translations", ["equipment_id"], name: "index_equipment_translations_on_equipment_id", using: :btree
+  add_index "equipment_translations", ["locale"], name: "index_equipment_translations_on_locale", using: :btree
 
   create_table "event_index_translations", force: true do |t|
     t.integer  "event_index_id", null: false

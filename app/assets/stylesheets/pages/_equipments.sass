@@ -1,0 +1,49 @@
+.section-equipment
+	.content
+
+		a
+			text-decoration: none
+
+			&:link, &:visited
+				color: $darkred
+
+			&:hover, &:active
+				color: #fff
+
+		.section
+			color: #fff
+
+			&.equipment-info
+				margin: 0 20px
+
+				img
+					float: left
+					margin: 0 20px 20px 0
+
+			&.event-list
+
+				ul
+					list-style: none
+
+					li
+						@extend .clearfix
+
+						width: 100%
+						margin: 20px 0 10px
+
+				h2
+					text-transform: uppercase
+					margin-top: 0
+
+				.left 
+					width: 55%
+					float: left
+
+				.right
+					width: 35%
+					float: right
+					text-align: right
+					margin-right: 40px
+
+					img
+						margin-top: 20px

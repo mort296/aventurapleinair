@@ -1,0 +1,9 @@
+<% title @equipment.name + " - " %>
+<div class="title-rating">
+	<h1 class="stand-alone"><%= @equipment.name %></h1>
+</div>
+
+<section class="section equipment-info">
+	<%= image_tag @equipment.image.url() %>
+	<p><%= @equipment.description.html_safe if @equipment.description %></p>
+</section>

@@ -11,6 +11,7 @@ Aventurapleinair::Application.routes.draw do
   resources :activity_category
   resources :location
   resources :event
+  resources :equipment
   resources :top_location
   resources :top_event
   resources :top_activity

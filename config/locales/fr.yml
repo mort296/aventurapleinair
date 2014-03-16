@@ -126,6 +126,8 @@ fr:
   address: "Adresse"
   phone: "Téléphone"
   toll_free: "Sans Frais"
+  equipment:
+    title: "Équipements"
   include:
     winter: "Hiver"
     summer: "Été"

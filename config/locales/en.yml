@@ -22,6 +22,8 @@
 en:
   no_results: "No results"
   to: "to"
+  equipment:
+    title: "Equipments"
   home: 
     who_are: "About aventura"
     featured: "Featured"
