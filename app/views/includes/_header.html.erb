@@ -62,7 +62,7 @@
 				</li>
 				<li><%= link_to t(:events) , event_index_url %>
 					<% if @menu_event %>
-					<ul class="sub-menu">
+					<ul class="sub-menu events">
 						<%	a = 0 %>
 						<% @menu_event.each do |event| %>
 							<% if match_season(event.season) %>
