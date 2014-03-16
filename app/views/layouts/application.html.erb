@@ -13,14 +13,14 @@
 	<% if @footer_content.background_image and session[:season] == :winter %>
 		<style>
 			body {
-				background: url("<%= @footer_content.background_image %>") no-repeat top center;
+				background: url("<%= @footer_content.background_image %>") #333 no-repeat top center;
 				background-attachment: fixed
 			}
 		</style>
 	<% else %>
 		<style>
 			body {
-				background: url("<%= @footer_content.background_summer_image %>") no-repeat top center;
+				background: url("<%= @footer_content.background_summer_image %>") #333 no-repeat top center;
 				background-attachment: fixed
 			}
 		</style>
