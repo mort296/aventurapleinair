@@ -6,9 +6,6 @@ class ApplicationController < ActionController::Base
   before_filter :get_footer_header, :set_locale, :set_season
 
   def get_footer_header
-    @menu_activity_category = ActivityCategory.all()
-    @menu_administrative_region = AdministrativeRegion.all()
-    @menu_event = Event.all.where('online = true')
     @footer_content = FooterText.first()
   end
 

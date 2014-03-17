@@ -230,6 +230,7 @@ fr:
       '961': 'Violent Storm'
       '962': 'Hurricane'
   event:
+    list: "Liste des événements"
     no_event: "Aucun événements spécifié"
     title: "Les événements"
     location: "Lieu"

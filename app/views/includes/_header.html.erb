@@ -19,63 +19,9 @@
 		<nav class="main-nav">
 			<h1><%= t(:"include.main_nav") %></h1>
 			<ul>
-				<li><span><%= t(:"include.activities") %></span>
-					<% if @menu_activity_category %>
-						<ul class="sub-menu activity">
-							<%	a = 0 %>
-							<% @menu_activity_category.each do |activity_category| %>
-								<% if activity_category.activity.where('online = true').any? %>
-									<li><span><%= activity_category.name %></span>
-										<ul>
-											<% activity_category.activity.where('online = true').each do |activity| %>
-												<% if match_season(activity.season) %>
-													<li><%= link_to activity.name , activity_url(activity.id) %>
-													<% a = a + 1 %>
-												<% end %>
-											<% end %>
-											<% if a == 0 %>
-												<li><span class="white"><%= t(:"include.no_activity") %></span></li>
-											<% end %>
-										</ul>
-								<% end %>
-							<% end %>
-						</ul>
-					<% end %>
-				</li>
-				<li><%= link_to t(:locations) , location_index_url %>
-					<% if @menu_administrative_region %>
-						<ul class="sub-menu location">
-							<% @menu_administrative_region.each do |administrative_region| %>
-								<% if administrative_region.location.where('online = true').any? %>
-									<li><span><%= administrative_region.name %></span>
-										
-										<ul>
-											<% administrative_region.location.where('online = true').order(:name).each do |location| %>
-												<li><%= link_to location.name , location_url(location.id) %>
-											<% end %>
-										</ul>
-										
-								<% end %>
-							<% end %>
-						</ul>
-					<% end %>
-				</li>
-				<li><%= link_to t(:events) , event_index_url %>
-					<% if @menu_event %>
-					<ul class="sub-menu events">
-						<%	a = 0 %>
-						<% @menu_event.each do |event| %>
-							<% if match_season(event.season) %>
-								<li><%= link_to event.name, event_url(event.id) %>
-								<% a = a + 1 %>
-							<% end %>
-						<% end %>
-						<% if a == 0 %>
-							<li><span><%= t(:"include.no_event") %></span></li>
-						<% end %>
-					</ul>
-					<% end %>
-				</li>
+				<li><%= link_to t(:"include.activities"), activity_index_url %></li>
+				<li><%= link_to t(:locations), location_index_url %></li>
+				<li><%= link_to t(:events), event_index_url %></li>
 				<li><span><%= 'Top 10' %></span>
 					<ul class="sub-menu top-ten">
 						<li><%= link_to t(:"locations"), top_location_index_url %>

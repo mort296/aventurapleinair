@@ -1,4 +1,8 @@
 class ActivityController < ApplicationController
+  def index
+    @menu_activity_category = ActivityCategory.all()
+  end
+  
   def show
   	@activity = Activity.find(params[:id])
     

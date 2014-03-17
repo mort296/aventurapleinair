@@ -13,6 +13,29 @@
 		.section
 			color: #fff
 
+			&.all.list
+				margin: 0 20px
+
+				h2
+					@extend .red-dot-title
+					
+					margin-bottom: 15px
+
+				li 
+					display: inline-block
+					margin: 5px 2%
+					width: 21%
+
+					a
+						+font-size(25)
+
+						color: #fff
+						text-decoration: none
+
+						&:hover
+							text-decoration: underline
+							color: $darkred
+
 			
 			&.activities h2
 				@extend .red-dot-title

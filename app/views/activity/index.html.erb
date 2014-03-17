@@ -1,0 +1,20 @@
+<% title t(:"include.activities") + " - " %>
+<section class="all list section">
+	<% a = 0 %>
+	<% @menu_activity_category.each do |activity_category| %>
+		<% if activity_category.activity.where('online = true').any? %>
+			<h2><%= activity_category.name %></h2>
+				<ul>
+					<% activity_category.activity.where('online = true').each do |activity| %>
+						<% if match_season(activity.season) %>
+							<li><%= link_to activity.name , activity_url(activity.id) %>
+							<% a = a + 1 %>
+						<% end %>
+					<% end %>
+					<% if a == 0 %>
+						<li><span class="white"><%= t(:"include.no_activity") %></span></li>
+					<% end %>
+				</ul>
+		<% end %>
+	<% end %>
+</section>

@@ -1,6 +1,7 @@
 class LocationController < ApplicationController
 	def index
 		@locations = Location.all.where('online = true').order(:name)
+		@menu_administrative_region = AdministrativeRegion.all()
 	end
 	
 	def show

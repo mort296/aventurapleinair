@@ -142,6 +142,7 @@ en:
       '962': 'Hurricane'
   event:
     no_event: "No specified events"
+    list: "Events list"
     title: "The events"
     location: "Location"
     other_infos: "Other informations"

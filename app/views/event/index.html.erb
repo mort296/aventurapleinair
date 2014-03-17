@@ -4,7 +4,21 @@
 <section class="section event-info">
 	<p><%= @eventText.text_top.html_safe %></p>
 </section>
-
+<section class="list all section">
+	<h2><%= t(:"event.list") %></h2>
+		<ul class="sub-menu events">
+			<%	a = 0 %>
+			<% @events.each do |event| %>
+				<% if match_season(event.season) %>
+					<li><%= link_to event.name, event_url(event.id) %>
+					<% a = a + 1 %>
+				<% end %>
+			<% end %>
+			<% if a == 0 %>
+				<li><span><%= t(:"include.no_event") %></span></li>
+			<% end %>
+		</ul>
+</section>
 <section class="section event-slider">
 	<div id="slider" class="flexslider">
 	  <ul class="slides">
