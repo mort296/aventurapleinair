@@ -5,23 +5,11 @@
 			<nav class="footer-nav">
 				<h1><%= t(:"include.footer_nav") %></h1>
 				<ul>
-					<li><%= t(:"include.activities") %>
-						<% if @menu_activity_category %>
-							<ul>
-								<% @menu_activity_category.each do |activity_category| %>
-										<% if activity_category.activity.where('online = true').any? %>
-												<% activity_category.activity.where('online = true').limit(10).each do |activity| %>
-													<% if match_season(activity.season) %>
-														<li>
-															<%= link_to activity.name , activity_url(activity.id) %>
-														</li>
-													<% end %>
-												<% end %>
-										<% end %>
-								<% end %>
-							</ul>
-						<% end %>
-					</li>
+					<li><%= link_to t(:"include.activities"), activity_index_url %></li>
+					<li><%= link_to t(:locations) , location_index_url %></li>
+					<li><%= link_to t(:events) , event_index_url %></li>
+				</ul>
+				<ul>
 					<li><%= 'Top 10' %>
 						<ul>
 							<li><%= link_to t(:"locations"), top_location_index_url %>
@@ -31,32 +19,6 @@
 					</li>
 				</ul>
 				<ul>
-					<li><%= link_to t(:locations) , location_index_url %>
-						<% if @menu_administrative_region %>
-						<ul>
-							<% @menu_administrative_region.each do |administrative_region| %>
-									<% if administrative_region.location.where('online = true').any? %>
-										<% administrative_region.location.where('online = true').order(:name).limit(10).each do |location| %>
-											<li><%= link_to location.name , location_url(location.id) %>
-										<% end %>
-									<% end %>
-							<% end %>
-						</ul>
-					<% end %>
-					</li>
-				</ul>
-				<ul>
-					<li><%= link_to t(:events) , event_index_url %>
-						<% if @menu_event %>
-						<ul>
-							<% @menu_event.limit(10).each do |event| %>
-							<% if match_season(event.season) %>
-								<li><%= link_to event.name, event_url(event.id) %></li>
-							<% end %>
-							<% end %>
-						</ul>
-						<% end %>
-					</li>
 					<li><%= link_to t(:about), about_page_index_url %></li>
 					<li><%= link_to t(:"equipment.title"), equipment_index_url %></li>
 				</ul>
