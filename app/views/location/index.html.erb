@@ -1,65 +1,65 @@
 <% title t(:locations) + " - " %>
+<h1 class="stand-alone"><%= t(:locations) %></h1>
+<section class="section all map">
+	<div id="map-canvas-all" style="width: 950px; height: 485px"></div>
+</section>
 
-	<section class="section all map">
-		<div id="map-canvas-all" style="width: 950px; height: 485px"></div>
-	</section>
-
-	<section class="list all section">
-		<% @menu_administrative_region.each do |administrative_region| %>
-			<% if administrative_region.location.where('online = true').any? %>
-				<h2><%= administrative_region.name %></h2>
-					
-					<ul>
-						<% administrative_region.location.where('online = true').order(:name).each do |location| %>
-							<li><%= link_to location.name , location_url(location.id) %>
-						<% end %>
-					</ul>
-					
-			<% end %>
+<section class="list all section">
+	<% @menu_administrative_region.each do |administrative_region| %>
+		<% if administrative_region.location.where('online = true').any? %>
+			<h2><%= administrative_region.name %></h2>
+				
+				<ul>
+					<% administrative_region.location.where('online = true').order(:name).each do |location| %>
+						<li><%= link_to location.name , location_url(location.id) %>
+					<% end %>
+				</ul>
+				
 		<% end %>
-	</section>
+	<% end %>
+</section>
 
 <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=true">
-    </script>
-    <script type="text/javascript">
-      
-      	
-    	  var locations = [
-    	  	<% @locations.each do |location| %>
-		     		['<%= location.name %>', <%= location.gps_latitude %>, <%= location.gps_longitude %>, <%= location.id %>, '<%= location.address.gsub(" ", "+") %>,+<%= location.city.gsub(" ", "+") %>,+Qc+<%= location.postal_code.gsub(" ", "+") %>', '<%= location.address %>, <%= location.city %>, QC, <%= location.postal_code.gsub(" ", "&nbsp;").html_safe %>'],
-		    	<% end %>
-		    ];
+    src="https://maps.googleapis.com/maps/api/js?sensor=true">
+  </script>
+  <script type="text/javascript">
+    
+    	
+  	  var locations = [
+  	  	<% @locations.each do |location| %>
+	     		['<%= location.name %>', <%= location.gps_latitude %>, <%= location.gps_longitude %>, <%= location.id %>, '<%= location.address.gsub(" ", "+") %>,+<%= location.city.gsub(" ", "+") %>,+Qc+<%= location.postal_code.gsub(" ", "+") %>', '<%= location.address %>, <%= location.city %>, QC, <%= location.postal_code.gsub(" ", "&nbsp;").html_safe %>'],
+	    	<% end %>
+	    ];
 
-		    console.log(locations)
+	    console.log(locations)
 
-		    var map = new google.maps.Map(document.getElementById('map-canvas-all'), {
-		      zoom: 8,
-		      center: new google.maps.LatLng(47.0023774,-71.1942119),
-		      mapTypeId: google.maps.MapTypeId.ROADMAP
-		    });
+	    var map = new google.maps.Map(document.getElementById('map-canvas-all'), {
+	      zoom: 8,
+	      center: new google.maps.LatLng(47.0023774,-71.1942119),
+	      mapTypeId: google.maps.MapTypeId.ROADMAP
+	    });
 
-		    var infowindow = new google.maps.InfoWindow();
+	    var infowindow = new google.maps.InfoWindow();
 
-		    var marker, i;
+	    var marker, i;
 
-		    for (i = 0; i < locations.length; i++) {  
-		      marker = new google.maps.Marker({
-		        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-		        map: map
-		      });
+	    for (i = 0; i < locations.length; i++) {  
+	      marker = new google.maps.Marker({
+	        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+	        map: map
+	      });
 
-		      google.maps.event.addListener(marker, 'click', (function(marker, i) {
-		        return function() {
-		          infowindow.setContent('<div id="content-infowindow">'+
-			      '<strong><a href="location/'+locations[i][3]+'" >'+locations[i][0]+'</a></strong>'+
-			      '<p>'+locations[i][5]+'</p>'+
-			      '<a class="itinary" href="https://www.google.ca/maps/preview/place/'+locations[i][4]+'/@'+locations[i][1]+','+locations[i][2]+',17z/data=!3m1!4b1!4m2!3m1!1s0x4cb8962b99bbbe13:0x82f0e7a06f2f5399" target="_blank"><%= t(:"location.itinary") %></a>'+
-			      '</div>');
-		          infowindow.open(map, marker);
-		        }
-		      })(marker, i));
-		    }
+	      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+	        return function() {
+	          infowindow.setContent('<div id="content-infowindow">'+
+		      '<strong><a href="location/'+locations[i][3]+'" >'+locations[i][0]+'</a></strong>'+
+		      '<p>'+locations[i][5]+'</p>'+
+		      '<a class="itinary" href="https://www.google.ca/maps/preview/place/'+locations[i][4]+'/@'+locations[i][1]+','+locations[i][2]+',17z/data=!3m1!4b1!4m2!3m1!1s0x4cb8962b99bbbe13:0x82f0e7a06f2f5399" target="_blank"><%= t(:"location.itinary") %></a>'+
+		      '</div>');
+	          infowindow.open(map, marker);
+	        }
+	      })(marker, i));
+	    }
 
-    	  
-    </script>
+  	  
+  </script>
