@@ -27,6 +27,12 @@
 	<% end %>
 	
 	<%= csrf_meta_tags %>
+	<script>
+	    var _gaq=[['_setAccount','UA-44635891-1'],['_trackPageview']];
+	    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	    g.src='//www.google-analytics.com/ga.js';
+	    s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
 </head>
 <body class="section<%= '-' + params[:controller] %>">
 	<%= render :partial => 'includes/header' %>
