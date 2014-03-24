@@ -19,7 +19,8 @@
 				padding: 0
 
 			li 
-				float: left
+				display: inline-block
+				vertical-align: top
 				list-style: none
 				margin: 20px 2%
 				width: 21%
@@ -104,7 +105,7 @@
 				top: 50%
 				width: 300px
 
-				&:hover + ul, &:hover + div, & + ul:hover, & + div:hover
+				&:hover + ul, &:hover + div, & + ul:hover, & + div:hover, &:focus + ul, &:focus + div, & + ul:focus, & + div:focus
 					display: block
 
 			ul, div
