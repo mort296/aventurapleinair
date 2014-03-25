@@ -236,7 +236,7 @@ fr:
     location: "Lieu"
     other_infos: "Autre informations"
     history: "Histoire de l'événement"
-    interesting_stats: "Statistiques intéressent"
+    interesting_stats: "Statistiques intéressantes"
     event_activities: "Activités en lien avec cet événement"
   top:
     activity_title: "Top 10 des activités"
