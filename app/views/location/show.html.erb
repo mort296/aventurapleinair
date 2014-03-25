@@ -1,4 +1,5 @@
 <% title @location.name + " - " %>
+<% meta_desc strip_tags(@location.description) %>
 <div class="title-rating">
 	<h1><%= @location.name %></h1>
 	<div class="left star" data-location-id="<%= @location.id %>" >

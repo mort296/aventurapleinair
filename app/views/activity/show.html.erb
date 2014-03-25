@@ -1,4 +1,5 @@
 <% title @activity.name + " - " %>
+<% meta_desc strip_tags(@activity.description) %>
 <div class="title-rating">
 	<h1><%= @activity.name %></h1>
 	<div class="left star" data-activity-id="<%= @activity.id %>" >
