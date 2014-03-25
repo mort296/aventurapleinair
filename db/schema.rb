@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140316180305) do
+ActiveRecord::Schema.define(version: 20140325000730) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -370,6 +370,25 @@ ActiveRecord::Schema.define(version: 20140316180305) do
   create_table "locations_useful_infos", force: true do |t|
     t.integer "location_id"
     t.integer "useful_info_id"
+  end
+
+  create_table "political_review_translations", force: true do |t|
+    t.integer  "political_review_id", null: false
+    t.string   "locale",              null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "text"
+  end
+
+  add_index "political_review_translations", ["locale"], name: "index_political_review_translations_on_locale", using: :btree
+  add_index "political_review_translations", ["political_review_id"], name: "index_political_review_translations_on_political_review_id", using: :btree
+
+  create_table "political_reviews", force: true do |t|
+    t.string   "title"
+    t.text     "text"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "pub_types", force: true do |t|
