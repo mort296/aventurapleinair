@@ -4,13 +4,12 @@ class Equipment < ActiveRecord::Base
 	translates :name, :description, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
-
   has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
     :thumb_admin => "100x100>",
     :thumb => "300x>"
   }
-
+  
   after_save :create_missing_translations
 
 	protected

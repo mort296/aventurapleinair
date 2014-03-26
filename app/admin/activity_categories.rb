@@ -2,6 +2,8 @@ ActiveAdmin.register ActivityCategory do
 	menu :label => "Catégories d'activités", :priority => 2
 	form :partial => "form"
 
+	actions :all, :except => [:show]
+
 	controller do
 		def new
 			@activity_category = ActivityCategory.new
@@ -10,4 +12,11 @@ ActiveAdmin.register ActivityCategory do
 			end
 		end
 	end	
+
+	index do
+		column :id
+		column :name
+		
+		default_actions
+	end
 end

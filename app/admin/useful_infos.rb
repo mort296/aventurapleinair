@@ -1,6 +1,8 @@
 ActiveAdmin.register UsefulInfo do
 	menu :label => "Informations utiles"
 	form :partial => "form"
+
+	actions :all, :except => [:show]
 	
 	controller do
 		def new
@@ -12,6 +14,7 @@ ActiveAdmin.register UsefulInfo do
 	end	
 
 	index do
+		column :id
 		column :name
 		column "Icon" do |image|
 			image_tag image.icon.url(:icon)

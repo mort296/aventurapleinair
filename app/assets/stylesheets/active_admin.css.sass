@@ -27,55 +27,222 @@
 // .active_admin       applies to any Active Admin namespace
 // .admin_namespace    applies to the admin namespace (eg: /admin)
 // .other_namespace    applies to a custom namespace named other (eg: /other)
-.language-tabs.ui-tabs .language-selection 
-  margin-left: 5px
+body.active_admin
 
-  li
-    background: #ccc
-    border-radius: 10px 10px 0 0
-    display: inline-block
-    padding: 5px 15px
+  header.header
+    background: #333
+    border-bottom: 5px solid #a61922
+    box-shadow: none
+    padding: 30px 0
+    position: relative
 
-    a
-      color: #000
-      text-decoration: none
+    h1.site_title
+      display: none
 
-    &.ui-state-active
-      background: #000
+    li#current_user
+      background: url("/assets/back-end/logo-aventura.png") 0 0 no-repeat
+      height: 122px
+      width: 150px
+      display: block
+      position: absolute
+      top: -25px
+      left: 210px
 
       a
+        display: none
+
+  .footer
+    background: #333
+    box-shadow: none
+
+  .nav_menu
+    background: #333
+    -moz-box-shadow: inset -4px 0 10px #000000
+    -webkit-box-shadow: inset -4px 0 10px #000000
+    box-shadow: inset -4px 0 10px #000000
+    float: left
+
+    ul
+      padding: 0
+      margin: 0
+
+      li
+        margin-bottom: 1px
+
+        &.current a, a:hover
+          background: #262626
+          border-top: 1px solid #262626
+          color: #a61922
+
+    a
+      border-top: 1px solid #616161
+      border-bottom: 2px solid #000
+      color: #EBEBEB
+      display: block
+      font-size: 15px
+      padding: 10px 15px
+      text-align: center
+      text-decoration: none
+      width: 150px
+
+  .right-side
+    background: #fff
+    float: left
+    padding: 20px
+    width: 60%
+
+    .edit_link, .delete_link
+      border-radius: 5px
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5)
+      color: #fff
+      font-size: 13px
+      float: left
+      margin: 0 10px
+      padding: 5px 30px
+      text-decoration: none
+
+    td
+      &.name
+        width: 45%
+
+    th.selectable, td.selectable
+      display: none
+
+    .edit_link
+      background: #26AC26
+
+      &:hover
+        background: #25C525
+
+    .delete_link
+      background: #B41616
+
+      &:hover
+        background: #C91717
+
+    .title_bar
+      background: none
+      border: none
+      box-shadow: none
+      padding: 0
+      margin: 0
+
+      h2 
+        background: #333
+        border-radius: 15px
+        color: #a61922
+        font-size: 20px
+        font-weight: normal
+        margin-left: -9px
+        text-shadow: none
+        padding: 10px 30px
+        width: 95%
+
+    .table_tools, .breadcrumb, .view_link
+      display: none
+
+    .action_items
+      margin: 20px 0
+      padding: 10px 0
+      text-align: center
+
+      a
+        background: #a61922
+        border-radius: 5px
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5)
         color: #fff
+        font-size: 20px
+        padding: 10px 40px
+        text-decoration: none
 
-.language-tabs.ui-tabs .ui-tabs-panel
-  padding-top: 0px
+        &:hover
+          background: #C91717
 
-li.hidden
-  display: none
- 
-.ui-widget-content
-  border: none
+  form 
 
-.ui-widget-header
-  border: 0
-  border-bottom: 1px solid #ccc
-  background: none
+    fieldset legend span
+      background: #333
+      color: #fff
+      text-shadow: none
+      border: none
 
-.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active
-  border: 1px solid #ccc
+    input[type="submit"]
+      background: #26ac26
+      border: none
+      border-radius: 5px
+      box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5)
+      color: #fff
+      font-size: 15px
+      float: left
+      margin: 0 10px
+      padding: 10px 30px
+      text-decoration: none
+      text-shadow: none
 
-.ui-tabs
-  padding: 0
+      &:not(.disabled):hover
+        background: #25C525
+        border: none
+        border-radius: 5px
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5)
+        color: #fff
+        font-size: 15px
+        float: left
+        margin: 0 10px
+        padding: 10px 30px
+        text-decoration: none
+        text-shadow: none
 
-.ui-tabs .ui-tabs-panel
-  padding: 0
-  padding-top: 20px
+  .language-tabs.ui-tabs
+    margin-top: 15px
 
-.ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl
-  -moz-border-radius-bottomleft: 0
-  -webkit-border-bottom-left-radius: 0
-  border-bottom-left-radius: 0
+    fieldset
+      margin-bottom: 0
 
-.ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br
-  -moz-border-radius-bottomright: 0
-  -webkit-border-bottom-right-radius: 0
-  border-bottom-right-radius: 0
+  .language-tabs.ui-tabs .language-selection 
+    margin-left: 5px
+
+    li
+      background: #ccc
+      border-radius: 10px 10px 0 0
+      display: inline-block
+      padding: 5px 15px
+
+      a
+        color: #000
+        text-decoration: none
+
+      &.ui-state-active
+        background: #000
+
+        a
+          color: #fff
+
+  .language-tabs.ui-tabs .ui-tabs-panel
+    padding-top: 0px
+
+  li.hidden
+    display: none
+   
+  .ui-widget-content
+    border: none
+
+  .ui-widget-header
+    border: 0
+    background: none
+
+  .ui-tabs
+    padding: 0
+
+  .ui-tabs .ui-tabs-panel
+    padding: 0
+    padding-top: 20px
+
+  .ui-corner-all, .ui-corner-bottom, .ui-corner-left, .ui-corner-bl
+    -moz-border-radius-bottomleft: 0
+    -webkit-border-bottom-left-radius: 0
+    border-bottom-left-radius: 0
+
+  .ui-corner-all, .ui-corner-bottom, .ui-corner-right, .ui-corner-br
+    -moz-border-radius-bottomright: 0
+    -webkit-border-bottom-right-radius: 0
+    border-bottom-right-radius: 0

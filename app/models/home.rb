@@ -16,7 +16,7 @@ class Home < ActiveRecord::Base
 
   after_save :create_missing_translations
   
-	protected
+  protected
  
   def create_missing_translations
     ADDITIONAL_LOCALES.each do |lang|

@@ -2,6 +2,8 @@ ActiveAdmin.register Event do
 	menu :label => "Événements", :priority => 4
 	form :partial => "form"
 
+	actions :all, :except => [:show]
+	
   before_filter :only => :destroy do
   	eventRating = EventRating.where(:event_id => params[:id])
   	eventRating.delete(eventRating)
@@ -14,5 +16,12 @@ ActiveAdmin.register Event do
 				@event.translations.find_or_initialize_by_locale(lang[0]) unless lang[0] == :fr
 			end
 		end
+	end
+
+	index do
+		column :id
+		column :name
+		
+		default_actions
 	end
 end

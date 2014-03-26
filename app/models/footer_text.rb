@@ -16,7 +16,7 @@ class FooterText < ActiveRecord::Base
 
 	translates :max_title, :max_subtitle, :max_text, :photograph_title, :photograph_subtitle, :photograph_text, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations	
-
+  
   after_save :create_missing_translations
   
 	protected

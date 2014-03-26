@@ -1,6 +1,6 @@
 class EventRating < ActiveRecord::Base
 	belongs_to :event
-
+  
   def currentRate rating
     case rating
     when 1

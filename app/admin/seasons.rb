@@ -2,6 +2,8 @@ ActiveAdmin.register Season do
 	menu :label => "Saisons", :priority => 6
 	form :partial => "form"
 
+	actions :all, :except => [:show]
+	
 	controller do
 		def new
 			@season = Season.new
@@ -10,4 +12,11 @@ ActiveAdmin.register Season do
 			end
 		end
 	end	
+
+	index do
+		column :id
+		column :name
+		
+		default_actions
+	end
 end

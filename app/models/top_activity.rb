@@ -3,7 +3,7 @@ class TopActivity < ActiveRecord::Base
   accepts_nested_attributes_for :translations	
 
   after_save :create_missing_translations
-
+  
   belongs_to :pub
   
 	protected

@@ -1,5 +1,5 @@
 ActiveAdmin.register FooterText do
-	menu :label => "Textes du pied de page"
+	menu :label => "Images de fond", :priority => 18
 	form :partial => "form"
 	
 	actions  :index, :edit, :update
@@ -7,12 +7,6 @@ ActiveAdmin.register FooterText do
 	index do
 		column "Background image hiver" do |image|
 			image_tag image.background_image.url(:thumb_admin)
-		end
-		column :max_title
-		column :max_subtitle
-		column :max_text
-		column "Image Max" do |image|
-			image_tag image.max_image.url(:thumb_admin)
 		end
 		column "Background image été" do |image|
 			image_tag image.background_summer_image.url(:thumb_admin)

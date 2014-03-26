@@ -1,5 +1,8 @@
 ActiveAdmin.register AdminUser do
-  menu :label => "Utilisateurs de l'admin", :priority => 11
+  menu :label => "Utilisateurs de l'admin", :priority => 19
+
+  actions :all, :except => [:show]
+  
   index do
     column :email
     column :current_sign_in_at
