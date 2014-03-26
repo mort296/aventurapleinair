@@ -29,6 +29,30 @@
 // .other_namespace    applies to a custom namespace named other (eg: /other)
 body.active_admin
 
+  &.logged_out
+    background: #333
+    color: #fff
+    text-shadow: none
+
+    .active_admin_content
+      background: #fff
+      padding-bottom: 0
+
+      h2
+        color: #333
+        background: none
+        box-shadow: none
+        text-shadow: none
+        font-size: 20px
+
+      label
+        color: #333
+
+    .flash_alert
+      color: #fff
+      text-shadow: none
+
+
   &.new .right-side .title_bar
     margin-top: 80px
 
