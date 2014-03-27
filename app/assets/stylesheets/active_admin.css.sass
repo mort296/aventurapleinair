@@ -119,7 +119,7 @@ body.active_admin
     padding: 20px
     width: 60%
 
-    .edit_link, .delete_link
+    .edit_link, .delete_link, td.en_ligne span
       border-radius: 5px
       box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5)
       color: #fff
@@ -131,7 +131,15 @@ body.active_admin
 
     td
       &.name
-        width: 45%
+        width: 40%
+
+      &.en_ligne span
+        background: #918E8E
+        width: 60px
+        text-align: center
+
+        &.online
+          background: #333
 
     th.selectable, td.selectable
       display: none

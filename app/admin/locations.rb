@@ -21,6 +21,9 @@ ActiveAdmin.register Location do
 	index do
 		column :id
 		column :name
+		column "En ligne" do |object|
+	    object.online? ? '<span class="online">En ligne</span>'.html_safe : '<span class="not">Hors ligne</span>'.html_safe
+		end
 		
 		default_actions
 	end
