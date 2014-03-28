@@ -27,9 +27,6 @@ class Location < ActiveRecord::Base
 	
 	after_save :create_missing_translations
 
-  def should_generate_new_friendly_id?
-    new_record?
-  end
   
   def online?
     online == true
