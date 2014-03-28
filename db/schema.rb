@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140325000730) do
+ActiveRecord::Schema.define(version: 20140328010400) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,7 +69,10 @@ ActiveRecord::Schema.define(version: 20140325000730) do
     t.string   "image_caption_activity"
     t.string   "image_caption_location"
     t.string   "image_caption_text"
+    t.string   "slug"
   end
+
+  add_index "activities", ["slug"], name: "index_activities_on_slug", unique: true, using: :btree
 
   create_table "activities_events", force: true do |t|
     t.integer "activity_id"
@@ -249,7 +252,10 @@ ActiveRecord::Schema.define(version: 20140325000730) do
     t.string   "link"
     t.string   "image_file_name"
     t.string   "image_caption"
+    t.string   "slug"
   end
+
+  add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
 
   create_table "events_seasons", force: true do |t|
     t.integer "season_id"
@@ -285,6 +291,19 @@ ActiveRecord::Schema.define(version: 20140325000730) do
     t.string   "background_image"
     t.string   "background_image_file_name"
   end
+
+  create_table "friendly_id_slugs", force: true do |t|
+    t.string   "slug",                      null: false
+    t.integer  "sluggable_id",              null: false
+    t.string   "sluggable_type", limit: 50
+    t.string   "scope"
+    t.datetime "created_at"
+  end
+
+  add_index "friendly_id_slugs", ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true, using: :btree
+  add_index "friendly_id_slugs", ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_id", using: :btree
+  add_index "friendly_id_slugs", ["sluggable_type"], name: "index_friendly_id_slugs_on_sluggable_type", using: :btree
 
   create_table "home_translations", force: true do |t|
     t.integer  "home_id",                   null: false
@@ -365,7 +384,10 @@ ActiveRecord::Schema.define(version: 20140325000730) do
     t.text     "description"
     t.string   "link_text"
     t.string   "image_caption"
+    t.string   "slug"
   end
+
+  add_index "locations", ["slug"], name: "index_locations_on_slug", unique: true, using: :btree
 
   create_table "locations_useful_infos", force: true do |t|
     t.integer "location_id"

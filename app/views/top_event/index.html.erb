@@ -8,7 +8,7 @@
 <section class="section top-thumbs">
 	<% if @topEvents %>
 		<% @topEvents.each_with_index do |top,index| %>
-			<a href="<%= event_url(top.event.id) %>" class="thumb <%= "first" if index == 0 %>">
+			<a href="<%= event_url(top.event.slug) %>" class="thumb <%= "first" if index == 0 %>">
 				<%= image_tag (if index == 0 then top.event.image.url(:top_ten_big) else top.event.image.url(:top_ten_small) end) if top.event.image  %>
 				<div class="caption">
 					<%= top.event.name %>

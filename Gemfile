@@ -68,3 +68,6 @@ gem 'acts_as_commentable'
 gem 'conred', '~> 0.3.0'
 gem "haml", "~> 4.0.5"
 gem 'formtastic', github: 'justinfrench/formtastic', branch: 'rails4beta'
+
+# Id to slug
+gem 'friendly_id', '~> 5.0.0'

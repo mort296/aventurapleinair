@@ -1,4 +1,7 @@
 class Activity < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   acts_as_commentable
   validates_presence_of :name
   validates_presence_of :description, :particularity, :learn, :equipment, :season, :activity_category, :locations, :image, :if => :online?
@@ -22,6 +25,10 @@ class Activity < ActiveRecord::Base
   has_one :activity_rating
 
   after_save :create_missing_translations
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 
   def online?
     online == true

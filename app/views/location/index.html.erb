@@ -11,7 +11,7 @@
 				
 				<ul>
 					<% administrative_region.location.where('online = true').order(:name).each do |location| %>
-						<li><%= link_to location.name , location_url(location.id) %>
+						<li><%= link_to location.name , location_url(location.slug) %>
 					<% end %>
 				</ul>
 				
@@ -27,11 +27,9 @@
     	
   	  var locations = [
   	  	<% @locations.each do |location| %>
-	     		['<%= location.name %>', <%= location.gps_latitude %>, <%= location.gps_longitude %>, <%= location.id %>, '<%= location.address.gsub(" ", "+") %>,+<%= location.city.gsub(" ", "+") %>,+Qc+<%= location.postal_code.gsub(" ", "+") %>', '<%= location.address %>, <%= location.city %>, QC, <%= location.postal_code.gsub(" ", "&nbsp;").html_safe %>'],
+	     		['<%= location.name %>', <%= location.gps_latitude %>, <%= location.gps_longitude %>, '<%= location.slug %>', '<%= location.address.gsub(" ", "+") %>,+<%= location.city.gsub(" ", "+") %>,+Qc+<%= location.postal_code.gsub(" ", "+") %>', '<%= location.address %>, <%= location.city %>, QC, <%= location.postal_code.gsub(" ", "&nbsp;").html_safe %>'],
 	    	<% end %>
 	    ];
-
-	    console.log(locations)
 
 	    var map = new google.maps.Map(document.getElementById('map-canvas-all'), {
 	      zoom: 8,

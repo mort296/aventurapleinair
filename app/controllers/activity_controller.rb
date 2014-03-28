@@ -4,7 +4,10 @@ class ActivityController < ApplicationController
   end
   
   def show
-  	@activity = Activity.find(params[:id])
+  	@activity = Activity.friendly.find(params[:id])
+    if request.path != activity_path(@activity)
+      redirect_to @activity, status: :moved_permanently
+    end
     
     if @activity.video_link?
       @activity.video_link = @activity.video_link.gsub('https://', '')

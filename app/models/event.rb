@@ -1,4 +1,7 @@
 class Event < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   acts_as_commentable
   validates_presence_of :name
   validates_presence_of :interesting_stats, :description, :date_start, :season, :location, :image, :if => :online?
@@ -23,6 +26,10 @@ class Event < ActiveRecord::Base
   has_one :event_rating
 
   after_save :create_missing_translations
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
 
   def online?
     online == true

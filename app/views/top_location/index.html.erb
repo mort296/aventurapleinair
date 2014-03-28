@@ -8,7 +8,7 @@
 <section class="section top-thumbs">
 	<% if @topLocations %>
 		<% @topLocations.each_with_index do |top,index| %>
-		<a href="<%= location_url(top.location.id) %>" class="thumb <%= "first" if index == 0 %>">
+		<a href="<%= location_url(top.location.slug) %>" class="thumb <%= "first" if index == 0 %>">
 			<%= image_tag (if index == 0 then top.location.image.url(:top_ten_big) else top.location.image.url(:top_ten_small) end) if top.location.image  %>
 			<div class="caption">
 				<%= top.location.name %>

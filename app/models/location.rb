@@ -1,4 +1,7 @@
 class Location < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   acts_as_commentable
 	validates_presence_of :name
 	validates_presence_of :address, :phone, :administrative_region, :gps_longitude, :gps_latitude, :image, :useful_infos, :city, :postal_code, :if => :online?
@@ -23,6 +26,10 @@ class Location < ActiveRecord::Base
   has_one :location_rating
 	
 	after_save :create_missing_translations
+
+  def should_generate_new_friendly_id?
+    new_record?
+  end
   
   def online?
     online == true

@@ -7,7 +7,10 @@ class LocationController < ApplicationController
 	def show
 		require 'json'
 
-		@location = Location.find(params[:id])
+		@location = Location.friendly.find(params[:id])
+		if request.path != location_path(@location)
+	    redirect_to @location, status: :moved_permanently
+	  end
 		
 	end
 
