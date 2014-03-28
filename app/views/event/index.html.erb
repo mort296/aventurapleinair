@@ -10,7 +10,7 @@
 			<%	a = 0 %>
 			<% @events.each do |event| %>
 				<% if match_season(event.season) %>
-					<li><%= link_to event.name, event_url(event.slug) %>
+					<li><%= link_to event.name, event_url(if event.slug then event.slug else event.id end) %>
 					<% a = a + 1 %>
 				<% end %>
 			<% end %>
@@ -25,7 +25,7 @@
 			<% @events.limit(10).each do |event| %>
 				<% if event.image %>
 					<li>
-						<%= link_to image_tag(event.image.url()), event_url(event.slug) %>
+						<%= link_to image_tag(event.image.url()), event_url(if event.slug then event.slug else event.id end) %>
 						<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= l event.date_start, format: :long %> <%= t(:to) %> <%= l event.date_end, format: :long %></span>
 							<% if event.location %>
 								<span class="location"><%= event.location.name %></span>
@@ -58,7 +58,7 @@
 					<p><%= raw event.description %></p>
 				</div>
 				<div class="right">
-					<%= link_to image_tag(event.image.url()), event_url(event.slug) %>
+					<%= link_to image_tag(event.image.url()), event_url(if event.slug then event.slug else event.id end) %>
 				</div>
 			</li>
 		<% end %>	

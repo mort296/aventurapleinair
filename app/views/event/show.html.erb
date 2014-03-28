@@ -22,7 +22,7 @@
 			<%	a = 0 %>
 			<% @event.activities.each do |activity| %>
 				<% if activity.online == true %>
-					<li><%= link_to activity.name, activity_url(activity.slug) %></li>
+					<li><%= link_to activity.name, activity_url(if activity.slug then activity.slug else activity.id end) %></li>
 					<% a = a + 1 %>
 				<% end %>
 			<% end %>
@@ -53,7 +53,7 @@
 		<% if @event.location and @event.location.online == true %>
 		<tr>
 			<td class="title"><%= t(:"event.location") %></td>
-			<td><%= link_to @event.location.name, location_url(@event.location.slug) %></td></td>
+			<td><%= link_to @event.location.name, location_url(if @event.location.slug then @event.location.slug else @event.location.id end) %></td></td>
 		</tr>
 		<% end %>
 		<% if @event.federation? %>

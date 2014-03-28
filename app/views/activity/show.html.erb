@@ -61,7 +61,7 @@
 			<%	l = 0 %>
 				<% @activity.locations.each do |location| %>
 					<% if location.online == true %>
-						<li><%= link_to location.name, location_url(location.slug) %></li>
+						<li><%= link_to location.name, location_url(if location.slug then location.slug else location.id end) %></li>
 						<% l = l + 1 %>
 					<% end %>
 				<% end %>
@@ -80,7 +80,7 @@
 			<%	e = 0 %>
 				<% @activity.events.each do |event| %>
 					<% if event.online == true %>
-						<li><%= link_to event.name, event_url(event.slug) %></li>
+						<li><%= link_to event.name, event_url(if event.slug then event.slug else event.id end) %></li>
 						<% e = e + 1 %>
 					<% end %>
 				<% 	end %>

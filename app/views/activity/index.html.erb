@@ -8,7 +8,7 @@
 				<ul>
 					<% activity_category.activity.where('online = true').each do |activity| %>
 						<% if match_season(activity.season) %>
-							<li><%= link_to activity.name , activity_url(activity.slug) %>
+							<li><%= link_to activity.name , activity_url(if activity.slug then activity.slug else activity.id end) %>
 							<% a = a + 1 %>
 						<% end %>
 					<% end %>

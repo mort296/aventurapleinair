@@ -6,7 +6,7 @@
 				<% if match_season(event.season) and a < 10 %>
 					<% if event.image %>
 						<li>
-							<%= link_to image_tag(event.image.url()), event_url(event.slug) %>
+							<%= link_to image_tag(event.image.url()), event_url(if event.slug then event.slug else event.id end) %>
 							<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= l event.date_start, format: :long %> <%= t(:to) %> <%= l event.date_end, format: :long %></span>
 								<% if event.location %>
 									<span class="location"><%= event.location.name %></span>

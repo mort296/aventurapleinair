@@ -23,7 +23,7 @@
 				<%	a = 0 %>
 				<% @location.activities.each do |activity| %>
 					<% if activity.online == true %>
-						<li><%= link_to activity.name, activity_url(activity.slug) %></li>
+						<li><%= link_to activity.name, activity_url(if activity.slug then activity.slug else activity.id end) %></li>
 						<% a = a + 1 %>
 					<% end %>
 				<% end %>
