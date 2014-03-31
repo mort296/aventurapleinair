@@ -21,6 +21,9 @@ ActiveAdmin.register Activity do
 				@activity.translations.find_or_initialize_by_locale(lang[0]) unless lang[0] == :fr
 			end
 		end
+		def find_resource
+			scoped_collection.friendly.find(params[:id])
+		end
 	end
 
 	index do
