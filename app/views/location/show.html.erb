@@ -70,7 +70,7 @@
 <div class="right-half">
 	
 	<section class="section weather">
-		<a target="_blank" href="http://fr.weather.com/10jours/<%= @location.gps_latitude %>,<%= @location.gps_longitude %>"><%= t(:meteo) %></a>
+		<%= image_tag "logo-meteo.png" %><a target="_blank" href="http://fr.weather.com/10jours/<%= @location.gps_latitude %>,<%= @location.gps_longitude %>"><%= t(:meteo) %></a>
 	</section>
 
 	<section class="section map">
