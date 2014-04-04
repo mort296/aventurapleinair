@@ -116,6 +116,8 @@ fr:
             name:
               blank: "Ce champ ne peut être vide."
   about: "À propos"
+  contact: "Nous joindre"
+  email: "Courriel"
   season: "Saison"
   meteo: "Voir la météo locale"
   federation: "Fédération"
