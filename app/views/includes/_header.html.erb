@@ -1,16 +1,16 @@
 <header class="header">
-	<nav class="options-nav">
-		<ul>
-			<li class="season" ><%= link_to t(:"include.winter"), set_season_winter_path if session[:season] == :summer or not session[:season] %><%= link_to t(:"include.summer"), set_season_summer_path if session[:season] == :winter %></li>
-			<li class="language" ><%= link_to "English", set_language_english_path unless I18n.locale == :en %><%= link_to "Français", set_language_french_path unless I18n.locale == :fr %></li>
-		</ul>
-	</nav>
 	<ul class="social-nav">
 		<li><%= link_to image_tag('facebook-icon.png', :alt => 'Facebook page'), 'https://www.facebook.com/aventurapleinair', :target => '_blank' %></li>
 		<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page'), 'https://plus.google.com/107605985634128095937', :target => '_blank', :rel => 'publisher' %></li>
 		<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page'), 'https://twitter.com/AventuraQuebec', :target => '_blank' %></li>
 		<li><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Faventurapleinair&amp;width=100&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=440127559415251" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px; margin-bottom: 10px" allowTransparency="true"></iframe></li>
 	</ul>
+	<nav class="options-nav">
+		<ul>
+			<li class="season" ><%= link_to t(:"include.winter"), set_season_winter_path if session[:season] == :summer or not session[:season] %><%= link_to t(:"include.summer"), set_season_summer_path if session[:season] == :winter %></li>
+			<li class="language" ><%= link_to "English", set_language_english_path unless I18n.locale == :en %><%= link_to "Français", set_language_french_path unless I18n.locale == :fr %></li>
+		</ul>
+	</nav>
 	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air', :class => 'logo', :width => 260, :height => 211), root_url %>
 	<div class="right-side">
 		<%= form_tag({controller: "search", action: "index", method: "get"}, {:class => 'ok-form'}) do %>
