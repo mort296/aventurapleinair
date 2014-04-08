@@ -28,6 +28,10 @@ en:
     who_are: "About aventura"
     featured: "Featured"
     pub: "Pub"
+  not_found:
+    title: "404 Page not found"
+    text: "We're sorry, the page you're looking for cannot be found."
+    link: "Go back to the home page"
   about: "About"
   contact: "Contact us"
   email: "Email"

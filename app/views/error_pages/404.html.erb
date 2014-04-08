@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	
+	<% if yield(:meta_desc) != '' %>
+		<meta name="description" content="<%= yield(:meta_desc) %>">
+	<% else %>
+		<meta name="description" content="Vous trouverez sur ce site web toutes les activités, tous les lieux et tous les événements qui animent la passion du plein air au Québec!">
+	<% end %>
+	<meta name="viewport" content="width=device-width">	
+
+	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+	
+	<script src="/assets/html5.js"></script>
+
+	<title>404 - Aventura Plein Air Québec</title>
+	<% if @footer_content.background_image and session[:season] == :winter %>
+		<style>
+			body {
+				background: url("<%= @footer_content.background_image %>") #333 no-repeat top center;
+				background-attachment: fixed
+			}
+		</style>
+	<% else %>
+		<style>
+			body {
+				background: url("<%= @footer_content.background_summer_image %>") #333 no-repeat top center;
+				background-attachment: fixed
+			}
+		</style>
+	<% end %>
+	
+	<%= csrf_meta_tags %>
+	<script>
+	    var _gaq=[['_setAccount','UA-44635891-1'],['_trackPageview']];
+	    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+	    g.src='//www.google-analytics.com/ga.js';
+	    s.parentNode.insertBefore(g,s)}(document,'script'));
+	</script>
+</head>
+<body class="section-errors">
+	<header class="header">
+		<ul class="social-nav">
+			<li><%= link_to image_tag('facebook-icon.png', :alt => 'Facebook page'), 'https://www.facebook.com/aventurapleinair', :target => '_blank' %></li>
+			<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page'), 'https://plus.google.com/107605985634128095937', :target => '_blank', :rel => 'publisher' %></li>
+			<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page'), 'https://twitter.com/AventuraQuebec', :target => '_blank' %></li>
+			<li><iframe src="//www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Faventurapleinair&amp;width=100&amp;layout=button_count&amp;action=like&amp;show_faces=false&amp;share=false&amp;height=21&amp;appId=440127559415251" scrolling="no" frameborder="0" style="border:none; overflow:hidden; width:100px; height:21px; margin-bottom: 10px" allowTransparency="true"></iframe></li>
+		</ul>
+		<nav class="options-nav">
+			<ul>
+				<li class="season" ><%= link_to t(:"include.winter"), set_season_winter_path if session[:season] == :summer or not session[:season] %><%= link_to t(:"include.summer"), set_season_summer_path if session[:season] == :winter %></li>
+				<li class="language" ><%= link_to "English", set_language_english_path unless I18n.locale == :en %><%= link_to "Français", set_language_french_path unless I18n.locale == :fr %></li>
+			</ul>
+		</nav>
+		<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air', :class => 'logo', :width => 260, :height => 211), root_url %>
+		<div class="right-side">
+			<%= form_tag({controller: "search", action: "index", method: "get"}, {:class => 'ok-form'}) do %>
+				<input type="text" name="search" placeholder="<%= t(:"include.search") %>..." />
+				<input type="submit" class="submit" value="Ok" />
+			<% end %>
+			<nav class="main-nav">
+				<h1><%= t(:"include.main_nav") %></h1>
+				<ul>
+					<li><%= link_to t(:"include.activities"), activity_index_url %></li>
+					<li><%= link_to t(:locations), location_index_url %></li>
+					<li><%= link_to t(:events), event_index_url %></li>
+					<li><span><%= 'Top 10' %></span>
+						<ul class="sub-menu top-ten">
+							<li><%= link_to t(:"locations"), top_location_index_url %>
+							<li><%= link_to t(:"include.activities"), top_activity_index_url %>
+							<li><%= link_to t(:events), top_event_index_url %>
+						</ul>
+					</li>
+					<li><%= link_to 'Xavier Dachez', xavier_url %></li>
+					<li><%= link_to t(:about), about_page_index_url %></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+	<div class="main content">
+		<h1 class="stand-alone"><%= t(:"not_found.title") %></h1>
+		<p><%= t(:"not_found.text") %></p>
+		<%= link_to t(:"not_found.link"), root_path %>
+	</div>
+	<footer class="footer">
+		<div class="footer-wrapper">
+			<div class="footer-left">
+				<nav class="footer-nav">
+					<h1><%= t(:"include.footer_nav") %></h1>
+					<ul>
+						<li><%= link_to t(:"include.activities"), activity_index_url %></li>
+						<li><%= link_to t(:locations) , location_index_url %></li>
+						<li><%= link_to t(:events) , event_index_url %></li>
+					</ul>
+					<ul>
+						<li><%= 'Top 10' %>
+							<ul>
+								<li><%= link_to t(:"locations"), top_location_index_url %>
+								<li><%= link_to t(:"include.activities"), top_activity_index_url %>
+								<li><%= link_to t(:"include.events"), top_event_index_url %>
+							</ul>
+						</li>
+					</ul>
+					<ul>
+						<li><%= link_to t(:about), about_page_index_url %></li>
+						<li><%= link_to t(:"equipment.title"), equipment_index_url %></li>
+					</ul>
+				</nav>
+			</div>
+			<div class="social-medias">
+					<ul>
+						<li><h2><%= t(:"include.community") %></h2></li>
+						<li><%= link_to image_tag('facebook-icon.png', :alt => 'Facebook page') + ' Facebook', 'https://www.facebook.com/aventurapleinair', :target => '_blank' %></li>
+						<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page') + ' Google+', 'https://plus.google.com/107605985634128095937/posts', :target => '_blank' %></li>
+						<li><%= link_to image_tag('twitter-icon.png', :alt => 'Twitter page') + ' Twitter', 'https://twitter.com/AventuraQuebec', :target => '_blank' %></li>
+					</ul>
+				</div>
+				<div class="newsletter">
+					<form action="http://aventurapleinair.us7.list-manage.com/subscribe/post?u=76f07b350800281685ec9af96&amp;id=dada7784fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate clearfix ok-form" target="_blank" novalidate>
+						<h2><%= t(:"include.newsletter") %></h2>
+						<p><%= t(:"include.newsletter_description") %></p>
+						<input type="email" value="" name="EMAIL" class="email" id="newsletter-email" placeholder="<%= t(:"include.newsletter_placeholder") %>" required>
+						<input type="submit" class="submit" value="Ok" />
+					</form>
+				</div>
+				<div class="links"><%= link_to 'Avis politique', politique_path, :class => 'politic' %> - <%= link_to t(:contact), contact_path, :class => 'politic' %></div>
+		</div>
+	</footer>
+</body>
+</html>

@@ -18,7 +18,8 @@ Aventurapleinair::Application.routes.draw do
   resources :search
   resources :about_page
   resources :political_review
-
+  
+  match "*rest" => "errors#not_found", :via => [:get, :post]
   match 'politique' => 'political_review#index', :via => :get, :as => :politique
   match 'xavier' => 'about_page#xavier', :via => :get, :as => :xavier
   match 'contact' => 'about_page#contact', :via => :get, :as => :contact

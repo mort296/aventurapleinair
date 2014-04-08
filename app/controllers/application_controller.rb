@@ -9,7 +9,14 @@ class ApplicationController < ActionController::Base
     @footer_content = FooterText.first()
   end
 
+  rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
+
   private
+
+  def record_not_found
+    render :template => 'error_pages/404', :layout => false, :status => :not_found
+  end
+  
   def set_locale
     I18n.locale = session[:locale] || I18n.default_locale
     session[:locale] = I18n.locale
