@@ -19,7 +19,6 @@ Aventurapleinair::Application.routes.draw do
   resources :about_page
   resources :political_review
   
-  match "*rest" => "errors#not_found", :via => [:get, :post]
   match 'politique' => 'political_review#index', :via => :get, :as => :politique
   match 'xavier' => 'about_page#xavier', :via => :get, :as => :xavier
   match 'contact' => 'about_page#contact', :via => :get, :as => :contact
@@ -29,7 +28,7 @@ Aventurapleinair::Application.routes.draw do
   match 'activity/:id/new_comment' => 'activity#new_comment', :via => :get, :as => :new_activity_comment
   match 'event/:id/new_comment' => 'event#new_comment', :via => :get, :as => :new_event_comment
   match 'location/:id/new_comment' => 'location#new_comment', :via => :get, :as => :new_location_comment
-
+  match "*rest" => "errors#not_found", :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
