@@ -1,5 +1,6 @@
 ActiveAdmin.register Pub do
 	menu :label => "Publicités", :priority => 7
+	menu :if => proc{  }  
 	form :partial => "form"
 
 	actions :all, :except => [:show]

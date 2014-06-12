@@ -1,9 +1,8 @@
 .footer
-  background: #333333
   color: $lightgrey
   display: inline-block
-  padding: 50px 0 70px
-  width: 100%
+  padding: 50px 2% 20px
+  width: 96%
 
   div.links
     clear: both
@@ -14,46 +13,37 @@
       color: #fff
 
   div.footer-wrapper
-    margin: 0 auto
-    width: 960px
-    
-
-  div.footer-left
     @extend .clearfix
 
-    float: left
-    width: 520px
+    margin: 0 auto
 
     input[type="email"]
       font-family: $pompiere
       width: 200px
 
+    a.logo
+      float: left
+      width: 180px
+    
+  div.footer-right
     
     .footer-nav
-      float: left
-      width: 520px
+      @extend .clearfix
 
-      & > ul
-        float: left
-        list-style: none
-        padding-left: 20px
-        width: 25%
+      margin: 0 auto
+      padding-left: 180px
+      width: 600px
 
-        ul
-          padding-left: 0
+      ul
+        margin-top: 50px
+        padding-left: 19px
         
         li
-          +font-size(20)
+          +font-size(25)
 
-          text-transform: uppercase
-
-          ul 
-            margin-top: 0
-
-            li
-              +font-size(18)
-
-              text-transform: none
+          float: left
+          margin-top: 20px
+          width: 180px
 
         a
           color: $lightgrey
@@ -102,3 +92,27 @@
         width: 145px
         font-size: 18px
         margin: 0 auto 10px        
+
+  @media screen and (max-width: 815px)
+    div.footer-wrapper
+
+      a.logo
+        float: none
+      
+    div.footer-right
+      
+      .footer-nav
+        @extend .clearfix
+
+        padding-left: 0
+        max-width: 600px
+        width: auto
+
+        ul
+          padding: 0
+          margin-top: 0
+
+      .links
+        margin-top: 15px
+
+        

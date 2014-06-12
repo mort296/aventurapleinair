@@ -4,18 +4,50 @@ class Event < ActiveRecord::Base
 
   acts_as_commentable
   validates_presence_of :name
-  validates_presence_of :interesting_stats, :description, :date_start, :season, :location, :image, :if => :online?
+  validates_presence_of :description, :date_start, :season, :location, :image, :if => :online?
 
   validate :validate_end_date_before_start_date
   
-	translates :federation, :interesting_stats, :description, :name, :other_infos, :fallbacks_for_empty_translations => true
+	translates :federation, :description, :name, :other_infos, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
 
 
   has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
-    :thumb_admin => "100x100>",
+    :thumb_admin => "100x100#",
     :thumb => "200x200>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+  
+  has_attached_file :second_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :third_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :fourth_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :fifth_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
     :top_ten_small => "300x>",
     :top_ten_big => "950x>"
   }

@@ -1,4 +1,25 @@
 class EventController < ApplicationController
+  before_filter :get_slider_images
+
+  def get_slider_images
+    if (action_name == 'index')
+      sliderEventImages = Event.all.where('online = true').shuffle[0..4]
+
+      sliderEventImages.each do |event|
+        (@slider ||= []).push({:image => event.image.url, :alt => event.image_file_name})
+      end
+
+    else
+      event = Event.friendly.find(params[:id])
+      (@slider ||= []).push({:image => event.image.url, :alt => event.image_file_name})
+      @slider.push({:image => event.second_image.url, :alt => event.second_image_file_name}) if event.second_image?
+      @slider.push({:image => event.third_image.url, :alt => event.third_image_file_name}) if event.third_image?
+      @slider.push({:image => event.fourth_image.url, :alt => event.fourth_image_file_name}) if event.fourth_image?
+      @slider.push({:image => event.fifth_image.url, :alt => event.fifth_image_file_name}) if event.fifth_image?
+    end
+    
+  end
+
   def index
   	@eventText = EventIndex.first()
   	@events = Event.all().where("online = true")

@@ -19,7 +19,6 @@
         <%= f.input :name, :label => 'Nom' %>
         <%= f.input :description, as: :html_editor, :label => 'Description' %>
         <%= f.input :address, :label => 'Adresse du lieu' %>
-        <%= f.input :link_text, :label => 'Texte du lien du site' %>
        <% end %>
     </div>
     <% index = 0 %>
@@ -29,7 +28,6 @@
           <%= lf.input :name, :label => 'Nom' %>
           <%= lf.input :description, as: :html_editor, :label => 'Description' %>
           <%= lf.input :address, :label => 'Adresse du lieu' %>
-          <%= lf.input :link_text, :label => 'Texte du lien du site' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
@@ -38,19 +36,21 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
-    <%= f.input :image_caption, :label => 'Copyright pour l\'image' %>
     <%= f.input :website, :label => 'Site Web du lieu' %>
-    <%= f.input :image, :as => :file, :label => 'Image du lieu' %>
+    <%= f.input :icon_list, :as => :file, :label => 'Image apparaissant dans dans la liste des lieux' %>
+    <%= f.input :image, :as => :file, :label => 'Image du lieu 1' %>
+    <%= f.input :second_image, :as => :file, :label => 'Image du lieu 2' %>
+    <%= f.input :third_image, :as => :file, :label => 'Image du lieu 3' %>
+    <%= f.input :fourth_image, :as => :file, :label => 'Image du lieu 4' %>
+    <%= f.input :fifth_image, :as => :file, :label => 'Image du lieu 5' %>
     <%= f.input :city, :label => 'Ville' %>
     <%= f.input :postal_code, :label => 'Code postal' %>
-    <%= f.input :link, :label => 'Lien vers l\'horaire du lieu' %>
     <%= f.input :phone, :label => 'Numéro de téléphone' %>
     <%= f.input :charge_free_phone, :label => 'Numéro de téléphone sans frais' %>
     <%= f.input :gps_latitude, :label => 'Latitude GPS' %>
     <%= f.input :gps_longitude, :label => 'Longitude GPS' %>
     <%= f.input :administrative_region, :label => 'Région administrative' %>
     <%= f.input :useful_infos, :label => 'Informations utiles', :as => :check_boxes %>
-    <%= f.input :pub, :label => 'Publicité du bas de page' %>
     <%= f.input :online, :label => 'En ligne' %>
   <% end %>
   <%= f.actions %>

@@ -1,66 +1,35 @@
 <% title t(:"event.title") + " - " %>
-<h1 class="stand-alone" ><%= t(:"event.title") %></h1>
-
-<section class="section event-info">
+<section class="section single">
 	<p><%= @eventText.text_top.html_safe %></p>
 </section>
-<section class="list all section">
-	<h2><%= t(:"event.list") %></h2>
-		<ul class="sub-menu events">
-			<%	a = 0 %>
-			<% @events.each do |event| %>
-				<% if match_season(event.season) %>
-					<li><%= link_to event.name, event_url(if event.slug then event.slug else event.id end) %>
-					<% a = a + 1 %>
-				<% end %>
-			<% end %>
-			<% if a == 0 %>
-				<li><span><%= t(:"include.no_event") %></span></li>
-			<% end %>
-		</ul>
-</section>
-<section class="section event-slider">
-	<div id="slider" class="flexslider">
-	  <ul class="slides">
-			<% @events.limit(10).each do |event| %>
-				<% if event.image %>
-					<li>
-						<%= link_to image_tag(event.image.url()), event_url(if event.slug then event.slug else event.id end) %>
-						<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= l event.date_start, format: :long %> <%= t(:to) %> <%= l event.date_end, format: :long %></span>
-							<% if event.location %>
-								<span class="location"><%= event.location.name %></span>
-							<% end %>
-						</p>
-					</li>	
-				<% end %>
-			<% end %>
-		</ul>
-	</div>
-	<div id="carousel" class="flexslider">
-	  <ul class="slides">
-	    <% @events.limit(10).each do |event| %>
-		    <% if event.image %>
-					<li>
-						<%= image_tag event.image.url(:top_ten_small) %>
-					</li>
-				<% end %>	
-			<% end %>
-	  </ul>
-	</div>
-</section>
-
-<section class="section event-list">
-	<ul>
-		<% @events.each do |event| %>
-			<li>
-				<div class="left">
-					<h2><%= event.name %></h2>
-					<p><%= raw event.description %></p>
-				</div>
-				<div class="right">
-					<%= link_to image_tag(event.image.url()), event_url(if event.slug then event.slug else event.id end) %>
-				</div>
-			</li>
-		<% end %>	
-	</ul>
-</section>
+<table class="activity-events">
+  <tr>
+    <th>Dates</th>
+    <th><%= t(:events) %></th>
+  </tr>
+  <% if @events %>
+    <% e = 0 %>
+    <% @events.each do |event| %>
+      <% if event.online == true && event.date_start.future? %>
+        <tr>
+          <td><%= l event.date_start, format: :long %>
+            <% if event.date_end %>
+              <%= t(:to) %> <%= l event.date_end, format: :long %>
+            <% end %>
+          </td>
+          <td><%= link_to event.name, event_url(if event.slug then event.slug else event.id end) %></td>
+        </tr>
+        <% e = e + 1 %>
+      <% end %>
+    <% end %>
+    <% if e == 0 %>
+      <tr>
+        <td colspan="2"><%= t(:"event.no_event") %></td>
+      </tr>
+    <% end %>
+  <% else %>
+    <tr>
+      <td colspan="2"><%= t(:"event.no_event") %></td>
+    </tr>
+  <% end %>
+</table>

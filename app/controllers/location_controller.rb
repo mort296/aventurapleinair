@@ -1,4 +1,25 @@
 class LocationController < ApplicationController
+	before_filter :get_slider_images
+
+  def get_slider_images
+    if (action_name == 'index')
+      sliderLocationImages = Location.all.where('online = true').shuffle[0..4]
+
+      sliderLocationImages.each do |location|
+        (@slider ||= []).push({:image => location.image.url, :alt => location.image_file_name})
+      end
+
+    else
+      location = Location.friendly.find(params[:id])
+      (@slider ||= []).push({:image => location.image.url, :alt => location.image_file_name})
+      @slider.push({:image => location.second_image.url, :alt => location.second_image_file_name}) if location.second_image?
+      @slider.push({:image => location.third_image.url, :alt => location.third_image_file_name}) if location.third_image?
+      @slider.push({:image => location.fourth_image.url, :alt => location.fourth_image_file_name}) if location.fourth_image?
+      @slider.push({:image => location.fifth_image.url, :alt => location.fifth_image_file_name}) if location.fifth_image?
+    end
+    
+  end
+
 	def index
 		@locations = Location.all.where('online = true').order(:name)
 		@menu_administrative_region = AdministrativeRegion.all()

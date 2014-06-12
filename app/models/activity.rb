@@ -6,12 +6,48 @@ class Activity < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :description, :season, :activity_category, :locations, :image, :if => :online?
   
-	translates :name, :federation, :particularity, :description, :other_infos, :learn, :equipment, :useful_links, :image_caption_activity, :image_caption_location, :image_caption_text, :video_link, :fallbacks_for_empty_translations => true
+	translates :name, :federation, :description, :useful_links, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
+
+  has_attached_file :icon_list, :styles => { 
+    :thumb => "100x100#"
+  }
 
   has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
-    :thumb_admin => "100x100>",
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :second_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :third_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :fourth_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :fifth_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
     :thumb_slider => "585x>",
     :top_ten_small => "300x>",
     :top_ten_big => "950x>"

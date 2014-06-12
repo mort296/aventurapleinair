@@ -1,7 +1,13 @@
 <% title @category.name %>
 <h1><%= @category.name %></h1>
-<ul>
+<ul class="activity-category">
 	<% @category.activity.each do |activity| %>
-		<li><%= link_to activity.name, activity_url(activity.id) %></li>
+		<% if activity.online? %>
+			<% if activity.icon_list? %>
+				<li><%= link_to image_tag(activity.icon_list.url(:thumb)) + '<span>'.html_safe + activity.name + '</span>'.html_safe, activity_url(if activity.slug? then activity.slug else activity.id end) %></li>
+			<% else %>
+				<li><%= link_to '<span>'.html_safe + activity.name + '</span>'.html_safe, activity_url(if activity.slug? then activity.slug else activity.id end) %></li>
+			<% end %>
+		<% end %>
 	<% end %>
 </ul>

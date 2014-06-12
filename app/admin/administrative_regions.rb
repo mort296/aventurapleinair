@@ -1,5 +1,5 @@
 ActiveAdmin.register AdministrativeRegion do
-	menu :label => "Régions administrative"
+	menu :label => "Régions administrative", :priority => 3
 	form :partial => "form"
 
 	actions :all, :except => [:show]

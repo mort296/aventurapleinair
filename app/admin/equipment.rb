@@ -1,5 +1,6 @@
 ActiveAdmin.register Equipment do
 	menu :label => "Équipements"
+	menu :if => proc{  }  
 	form :partial => "form"
 
 	actions :all, :except => [:show]

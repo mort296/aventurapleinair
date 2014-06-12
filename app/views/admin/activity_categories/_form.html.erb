@@ -30,9 +30,11 @@
       <% index += 1 %>
     <% end %>
   </div>
-  <%= f.inputs do %> 
-    
+  <div class="not-translated">
+  <%= f.inputs 'Champs non traduits' do %>
+    <%= f.input :image, :as => :file, :label => 'Image' %>
   <% end %>
+  </div>
   <%= f.actions %>
 <% end %>
 

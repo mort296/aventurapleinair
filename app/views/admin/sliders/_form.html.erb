@@ -1,0 +1,17 @@
+<!-- app/views/admin/sliders/_form.html.haml
+-->
+<%= semantic_form_for [:admin, @slider], :html => { multipart: true } do |f| %>
+  
+  <div class="not-translated">
+  <%= f.inputs 'Champs non traduits' do %> 
+    <%= f.input :slider1, :as => :file, :label => "Image" %>
+  <% end %>
+  <%= f.actions %>
+  </div>
+<% end %>
+
+<script>
+  
+  $('.language-tabs').tabs();
+
+</script>

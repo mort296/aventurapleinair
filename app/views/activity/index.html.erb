@@ -1,21 +1,18 @@
 <% title t(:"include.activities") + " - " %>
-<h1 class="stand-alone"><%= t(:"include.activities") %></h1>
 <section class="all list section">
-	<% a = 0 %>
+	<div class="desc">
+		<p><%= @text_top.text_top.html_safe if @text_top.text_top %></p>
+	</div>
 	<% @menu_activity_category.each do |activity_category| %>
-		<% if activity_category.activity.where('online = true').any? %>
-			<h2><%= activity_category.name %></h2>
-				<ul>
-					<% activity_category.activity.where('online = true').each do |activity| %>
-						<% if match_season(activity.season) %>
-							<li><%= link_to activity.name , activity_url(if activity.slug then activity.slug else activity.id end) %>
-							<% a = a + 1 %>
-						<% end %>
+		<ul>
+			<% if activity_category.activity.where('online = true').any? %>
+				<li>
+					<% if activity_category.image? %>
+					<%= link_to image_tag(activity_category.image.url(:thumb_admin)) + '<span>'.html_safe + activity_category.name + '</span>'.html_safe, activity_category_url(if activity_category.slug? then activity_category.slug else activity_category.id end) %></li>
+					<% else %>
+					<%= link_to '<span>'.html_safe + activity_category.name + '</span>'.html_safe, activity_category_url(if activity_category.slug? then activity_category.slug else activity_category.id end) %></li>
 					<% end %>
-					<% if a == 0 %>
-						<li><span class="white"><%= t(:"include.no_activity") %></span></li>
-					<% end %>
-				</ul>
-		<% end %>
+			<% end %>
+		</ul>
 	<% end %>
 </section>

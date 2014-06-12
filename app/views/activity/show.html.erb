@@ -6,102 +6,44 @@
 	  <%= render '/activity_rating/rating', :@item => @activity %>
 	</div>
 </div>
-<div class="description">
-	<p><%= @activity.description.html_safe if @activity.description %></p>
-</div>	
 <div class="top">
 	<div class="infos">
 		<table>
 			<% if @activity.season %>
-			<tr>
-				<td><%= t(:season) %>:</td>
-				<td>
-					<% @activity.season.each_with_index do |season, index| %>
-						<%= ' / ' if index == 1 %> 
-						<%= season.name %>
-					<% end %>
-				</td>
-			</tr>
+				<tr>
+					<td><%= t(:season) %>:</td>
+					<td>
+						<% @activity.season.each_with_index do |season, index| %>
+							<%= ' / ' if index == 1 %> 
+							<%= season.name %>
+						<% end %>
+					</td>
+				</tr>
 			<% end %>
 			<% if @activity.federation %>
-			<tr>
-				<td><%= t(:federation) %>:</td>
-				<td><%= @activity.federation %></td>
-			</tr>
+				<tr>
+					<td><%= t(:federation) %>:</td>
+					<td><%= @activity.federation %></td>
+				</tr>
 			<% end %>
 			<% if @activity.website? %>
-			<tr>
-				<td><%= t(:website) %></td>
-				<td><%= link_to @activity.website, @activity.website, :target => '_blank' %></td>
-			</tr>
+				<tr>
+					<td><%= t(:website) %></td>
+					<td><%= link_to @activity.website, @activity.website, :target => '_blank' %></td>
+				</tr>
 			<% end %>
 		</table>
-
-		<h2><%= t(:"activity.particularity_title") %></h2>
-		<p><%= @activity.particularity.html_safe if @activity.particularity %></p>
 	</div>
-	<div class="slider">
-		<%= image_tag @activity.image.url(:thumb_slider) if @activity.image  %>
-		<div class="caption">
-			<p><%= @activity.image_caption_activity if @activity.image_caption_activity %></p>
-			<strong><%= @activity.image_caption_location if @activity.image_caption_location %></strong>
-		</div>
+	<div class="buttons">
+		<%= link_to image_tag('where.png', :alt => "Où aller"), activity_locations_url(if @activity.slug then @activity.slug else @activity.id end), :class => 'where' %>
+
+		<%= link_to image_tag('events.png', :alt => "Événements"), activity_events_url(if @activity.slug then @activity.slug else @activity.id end), :class => 'events' %>
 	</div>
 </div>
-
-<% if @video.code != 'false' %>
-	<%= @video.code %>
-<% end %>
-
-<div class="bottom">
-	<section class="section location">
-		<h1><%= t(:locations) %></h1>
-		<ul>
-			<% if @activity.locations %>
-			<%	l = 0 %>
-				<% @activity.locations.each do |location| %>
-					<% if location.online == true %>
-						<li><%= link_to location.name, location_url(if location.slug then location.slug else location.id end) %></li>
-						<% l = l + 1 %>
-					<% end %>
-				<% end %>
-				<% if l == 0 %>
-					<li><%= t(:"location.no_location") %></li>
-				<% 	end %>
-			<% else %>
-				<li><%= t(:"location.no_location") %></li>
-			<% 	end %>
-		</ul>
-	</section>
-	<section class="section event">
-		<h1><%= t(:events) %></h1>
-		<ul>
-			<% if @activity.events %> 
-			<%	e = 0 %>
-				<% @activity.events.each do |event| %>
-					<% if event.online == true %>
-						<li><%= link_to event.name, event_url(if event.slug then event.slug else event.id end) %></li>
-						<% e = e + 1 %>
-					<% end %>
-				<% 	end %>
-				<% if e == 0 %>
-					<li><%= t(:"event.no_event") %></li>
-				<% 	end %>
-			<% else %>
-				<li><%= t(:"event.no_event") %></li>
-			<% end %>
-		</ul>
-	</section>
-	<section class="section learn">
-		<h1><%= t(:"activity.learn") %></h1>
-		<div><%= if @activity.learn? then @activity.learn.html_safe else t(:"activity.learning") end %></div>
-	</section>
-	<section class="section equipments">
-		<h1><%= t(:"activity.equipments") %></h1>
-		<div><%= if @activity.equipment? then @activity.equipment.html_safe else t(:"activity.equipment") end %></div>
-	</section>
-</div>
-
+<div class="description">
+	<h2>Description</h2>
+	<p><%= @activity.description.html_safe if @activity.description %></p>
+</div>	
 <% if @activity.useful_links %>
 	<section class="section useful-links">
 		<h2><%= t(:"activity.useful_links") %></h2>
@@ -109,35 +51,7 @@
 	</section>
 <% end %>
 
-<% if @activity.other_infos %>
-	<section class="section other-infos">
-		<h2><%= t(:"activity.other_infos") %></h2>
-		<p><%= @activity.other_infos.html_safe %></p>
-	</section>
-<% end %>
-
-<section class="section comments">
-	<h2><%= t(:"activity.comments.first_part") %><%= @activity.name %><%= t(:"activity.comments.second_part") %></h2>
-	<div class="comments-list">
-		<%= render 'comments/comment', :comments => @activity.comments.where("approved = true").limit(5) %>
-	</div> 
-	<% if @activity.comments.where("approved = true").length > 5 %>
-		<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
-	<% end %>
-
-	<%= form_for(@activity, :url => :new_activity_comment, :html => { :method => :get }, remote: true) do |f| %>
-		<p class="error">Veuillez remplir tout les champs correctement</p>
-		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
-		<%= f.label :user_name, "#{t(:"activity.comments.fields.name")}:" %>
-	  <input type="text" id="user_name" name="user_name" />
-	  <%= f.label :user_email, "#{t(:"activity.comments.fields.email")}:" %>
-	  <input type="email" id="user_email" name="user_email" />
-	  <%= f.label :comment, "#{t(:"activity.comments.fields.comment")}:" %>
-	  <textarea id="comment" class="not-shown" name="comment" placeholder="<%= t(:"activity.comments.fields.comment_placeholder") %>"></textarea>
-	  <%= submit_tag("#{t(:"activity.comments.fields.send")}") %>
-	<% end %>
-</section>
-<section class="section adds">
+<aside class="section adds">
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<!-- Leaderboard 728 X 90 -->
 	<ins class="adsbygoogle"
@@ -147,7 +61,4 @@
 	<script>
 	(adsbygoogle = window.adsbygoogle || []).push({});
 	</script>
-</section>
-<aside class="aside pub">
-	<%= image_tag @activity.pub.image.url(:bottom_pub) if @activity.pub %>
 </aside>

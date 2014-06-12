@@ -6,18 +6,12 @@
 	  <%= render '/location_rating/rating', :@item => @location %>
 	</div>
 </div>
-<div class="slider">
-	<%= image_tag @location.image.url(:full_width) if @location.image  %>
-	<div class="caption">
-		<p><%= @location.image_caption if @location.image_caption %></p>
-	</div>
-</div>
 <div class="description">
 	<p><%= @location.description.html_safe if @location.description %></p>
 </div>	
-<div class="left-half">
+<div class="center">
 	<section class="section activities">
-		<h2><%= t(:"location.location_activities") %></h2>
+		<h2><%= t(:"include.activities") %></h2>
 		<ul>
 			<% if @location.activities %>
 				<%	a = 0 %>
@@ -37,21 +31,7 @@
 		</ul>
 	</section>
 
-	<section class="section useful-informations">
-		<h2><%= t(:"location.useful_infos") %></h2>
-		<ul>
-		<% if @location.useful_infos %>
-			<% @location.useful_infos.each do |useful_info| %>
-				<li><div><%= image_tag useful_info.icon.url(:icon) %></div><%= useful_info.name %></li>
-			<% 	end %>
-		<% 	end %>
-		</ul>
-		<% if @location.link? %>
-			<%= link_to t(:"location.schedule"), @location.link, :target => '_blank' %>
-		<% end %>
-	</section>
-
-	<address>
+	<section class="address">
 		<%= t(:address) %>: <%= @location.address %><br />
 		<%= @location.city + ', Qc,' + @location.postal_code if @location.city? %><br /><br />
 		<%= t(:phone) %>: <%= @location.phone %><br />
@@ -62,85 +42,65 @@
 		 <% if @location.link_text %>
 				<br /><%= link_to @location.link_text, @location.website, :target => '_blank' %><br />
 			<% else %>
-				<br /><%= link_to @location.website, @location.website, :target => '_blank' %><br />
+				<br /><%= link_to t(:website), @location.website, :target => '_blank' %><br />
 			<% end %>
 		<% end %>
-	</address>
-</div>
-<div class="right-half">
-	
-	<section class="section weather">
-		<%= image_tag "logo-meteo.png" %><a target="_blank" href="http://fr.weather.com/10jours/<%= @location.gps_latitude %>,<%= @location.gps_longitude %>"><%= t(:meteo) %></a>
 	</section>
 
 	<section class="section map">
-		<div id="map-canvas" style="width: 285px; height: 285px"></div>
+		<div id="map-canvas" style="width: 305px; height: 285px"></div>
 	</section>
 
-	<section class="section events">
-		<%= link_to t(:events), event_index_url %>
+	<section class="section useful-informations">
+		<h2><%= t(:"location.useful_infos") %></h2>
+		<ul>
+		<% if @location.useful_infos %>
+			<% @location.useful_infos.each do |useful_info| %>
+				<li><div><%= image_tag useful_info.icon.url(:icon) %></div><%= useful_info.name %></li>
+			<% 	end %>
+		<% 	end %>
+		</ul>
+	</section>
+
+	<section class="section weather">
+		<%= image_tag "logo-meteo.png" %><a target="_blank" href="http://fr.weather.com/10jours/<%= @location.gps_latitude %>,<%= @location.gps_longitude %>"><%= t(:meteo) %></a>
 	</section>
 </div>
 
-<section class="section comments">
-	<h2><%= t(:"activity.comments.first_part") %><%= @location.name %><%= t(:"activity.comments.second_part") %></h2>
-	<div class="comments-list">
-		<%= render 'comments/comment', :comments => @location.comments.where("approved = true").limit(5) %>
-	</div> 
-	<% if @location.comments.where("approved = true").length > 5 %>
-		<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
-	<% end %>
-
-	<%= form_for(@location, :url => :new_location_comment, :html => { :method => :get }, remote: true) do |f| %>
-		<p class="error">Veuillez remplir tout les champs correctement</p>
-		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
-		<%= f.label :user_name, "#{t(:"activity.comments.fields.name")}:" %>
-	  <input type="text" id="user_name" name="user_name" />
-	  <%= f.label :user_email, "#{t(:"activity.comments.fields.email")}:" %>
-	  <input type="email" id="user_email" name="user_email" />
-	  <%= f.label :comment, "#{t(:"activity.comments.fields.comment")}:" %>
-	  <textarea id="comment" class="not-shown" name="comment" placeholder="<%= t(:"activity.comments.fields.comment_placeholder") %>"></textarea>
-	  <%= submit_tag("#{t(:"activity.comments.fields.send")}") %>
-	<% end %>
-</section>
-
-<aside class="aside bottom-pub">
-	<%= image_tag @location.pub.image.url(:bottom_pub) if @location.pub %>
-</aside>
 <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?sensor=true">
-    </script>
-    <script type="text/javascript">
-      function initialize() {
-      	var myLatlng = new google.maps.LatLng(<%= @location.gps_latitude %>, <%= @location.gps_longitude %>);
-    	  
-    	  var mapOptions = {
-    	    zoom: 10,
-    	    center: myLatlng
-    	  }
-    	  
-    	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  src="https://maps.googleapis.com/maps/api/js?sensor=true">
+</script>
+<script type="text/javascript">
+  function initialize() {
+  	var myLatlng = new google.maps.LatLng(<%= @location.gps_latitude %>, <%= @location.gps_longitude %>);
+	  
+	  var mapOptions = {
+	    zoom: 10,
+	    center: myLatlng
+	  }
+	  
+	  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 
-    	  var contentString = 
-    	  		'<div id="content-infowindow">'+
-			      '<strong><%= @location.name %></strong>'+
-			      '<p><%= @location.address %>, <%= @location.city %>, QC, <%= @location.postal_code.gsub(" ", "&nbsp;").html_safe %></p>'+
-			      '<a class="itinary" href="https://www.google.ca/maps/preview/place/<%= @location.address.gsub(" ", "+") %>,+<%= @location.city.gsub(" ", "+") %>,+Qc+<%= @location.postal_code.gsub(" ", "+") %>/@<%= @location.gps_latitude %>,<%= @location.gps_longitude %>,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb8962b99bbbe13:0x82f0e7a06f2f5399" target="_blank"><%= t(:"location.itinary") %></a>'+
-			      '</div>';
+	  var contentString = 
+	  		'<div id="content-infowindow">'+
+	      '<strong><%= @location.name %></strong>'+
+	      '<p><%= @location.address %>, <%= @location.city %>, QC, <%= @location.postal_code.gsub(" ", "&nbsp;").html_safe %></p>'+
+	      '<a class="itinary" href="https://www.google.ca/maps/preview/place/<%= @location.address.gsub(" ", "+") %>,+<%= @location.city.gsub(" ", "+") %>,+Qc+<%= @location.postal_code.gsub(" ", "+") %>/@<%= @location.gps_latitude %>,<%= @location.gps_longitude %>,17z/data=!3m1!4b1!4m2!3m1!1s0x4cb8962b99bbbe13:0x82f0e7a06f2f5399" target="_blank"><%= t(:"location.itinary") %></a>'+
+	      '</div>';
 
-			  var infowindow = new google.maps.InfoWindow({
-			      content: contentString
-			  });
+	  var infowindow = new google.maps.InfoWindow({
+	      content: contentString
+	  });
 
-    	  var marker = new google.maps.Marker({
-    	      position: myLatlng,
-    	      map: map,
-    	      title: '<%= @location.name %>'
-    	  });
+	  var marker = new google.maps.Marker({
+	      position: myLatlng,
+	      map: map,
+	      title: '<%= @location.name %>'
+	  });
 
-    	  google.maps.event.addListener(marker, 'click', function() {
-			    infowindow.open(map,marker);
-			  })
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
-    </script>
+	  google.maps.event.addListener(marker, 'click', function() {
+	    infowindow.open(map,marker);
+	  })
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+</script>

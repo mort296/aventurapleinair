@@ -1,4 +1,5 @@
 ActiveAdmin.register Comment do
+	menu :if => proc{  }  
 	actions  :index, :edit, :update, :destroy
 
 	index do 

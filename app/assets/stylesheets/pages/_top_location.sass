@@ -1,4 +1,4 @@
-.content
+.section-top_five .content
 	@extend .clearfix
 
 	.top-desc, .top-info
@@ -35,3 +35,81 @@
 				left: 0
 				right: 0
 				background: rgba(0,0,0,0.8)
+
+	section.list
+		float: left
+		width: 50%
+		min-width: 390px
+
+		&.activities ul
+			border-right: 1px solid $lightgrey
+
+		h2
+			+font-size(30)
+
+			color: #fff
+			margin: 40px 0 20px 10%
+
+	ul.top-locations
+		@extend .clearfix
+		
+		float: left
+		padding: 0 0 0 4%
+		width: 96%
+
+		li 
+			display: block
+			list-style: none
+			margin: 20px 0
+			width: 100%
+			min-height: 100px
+			line-height: 100px
+			vertical-align: middle
+
+			img
+				background: $lightgrey
+				border-radius: 10px
+				border: 2px solid $lightgrey
+				display: inline-block
+				margin: 0 25px 10px 0
+				vertical-align: middle
+
+			span
+				display: inline-block
+
+			a
+				+font-size(25)
+
+				color: #fff
+				text-decoration: none
+				text-transform: uppercase
+
+				&:hover
+					text-decoration: underline
+					color: $darkred
+	
+	@media screen and (max-width: 794px)
+
+		section.list
+			min-width: inherit
+			width: 100%
+
+			&.activities ul
+				border-right: none
+
+			h2
+				margin: 40px 0 20px
+				text-align: center
+
+	@media screen and (max-width: 500px)
+
+		ul.activity-locations
+			width: 100%
+
+			li 
+				margin: 20px 5%
+				width: 90%
+
+				img
+					display: block
+					margin-bottom: 10px

@@ -11,23 +11,18 @@ Aventurapleinair::Application.routes.draw do
   resources :activity_category
   resources :location
   resources :event
-  resources :equipment
-  resources :top_location
-  resources :top_event
-  resources :top_activity
+  resources :top_five
   resources :search
   resources :about_page
   resources :political_review
   
   match 'politique' => 'political_review#index', :via => :get, :as => :politique
-  match 'xavier' => 'about_page#xavier', :via => :get, :as => :xavier
   match 'contact' => 'about_page#contact', :via => :get, :as => :contact
+  match 'activity/:id/locations' => 'activity#locations', :via => :get, :as => :activity_locations
+  match 'activity/:id/events' => 'activity#events', :via => :get, :as => :activity_events
   match 'activity/:id/:activity_rating/update' => 'activity_rating#rate', :via => :get, :as => :update_activity_rating
   match 'event/:id/:event_rating/update' => 'event_rating#rate', :via => :get, :as => :update_event_rating
   match 'location/:id/:location_rating/update' => 'location_rating#rate', :via => :get, :as => :update_location_rating
-  match 'activity/:id/new_comment' => 'activity#new_comment', :via => :get, :as => :new_activity_comment
-  match 'event/:id/new_comment' => 'event#new_comment', :via => :get, :as => :new_event_comment
-  match 'location/:id/new_comment' => 'location#new_comment', :via => :get, :as => :new_location_comment
   match "*rest" => "errors#not_found", :via => [:get, :post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,5 +1,5 @@
 ActiveAdmin.register ActivityCategory do
-	menu :label => "Catégories d'activités", :priority => 2
+	menu :label => "Catégories d'activités", :priority => 3
 	form :partial => "form"
 
 	actions :all, :except => [:show]
@@ -11,11 +11,18 @@ ActiveAdmin.register ActivityCategory do
 				@activity_category.translations.find_or_initialize_by_locale(lang[0]) unless lang[0] == :fr
 			end
 		end
+		
+		def find_resource
+			scoped_collection.friendly.find(params[:id])
+		end
 	end	
 
 	index do
 		column :id
 		column :name
+		column "Image" do |image|
+			image_tag image.image.url(:thumb_admin) if image.image?
+		end
 		
 		default_actions
 	end

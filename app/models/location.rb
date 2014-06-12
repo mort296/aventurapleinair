@@ -6,15 +6,51 @@ class Location < ActiveRecord::Base
 	validates_presence_of :name
 	validates_presence_of :address, :phone, :administrative_region, :gps_longitude, :gps_latitude, :image, :useful_infos, :city, :postal_code, :if => :online?
 
-	translates :name, :address, :description, :website, :link_text, :fallbacks_for_empty_translations => true
+	translates :name, :address, :description, :website, :fallbacks_for_empty_translations => true
 	accepts_nested_attributes_for :translations
 
 	require 'net/http'
+  
+  has_attached_file :icon_list, :styles => { 
+    :thumb => "100x100#"
+  }
 
 	has_attached_file :image, :styles => { 
     :thumb_menu => "150x150>", 
-    :thumb_admin => "100x100>",
+    :thumb_admin => "100x100#",
     :full_width => "950x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+  
+  has_attached_file :second_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :third_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :fourth_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
+    :top_ten_small => "300x>",
+    :top_ten_big => "950x>"
+  }
+
+  has_attached_file :fifth_image, :styles => { 
+    :thumb_menu => "150x150>", 
+    :thumb_admin => "100x100#",
+    :thumb_slider => "585x>",
     :top_ten_small => "300x>",
     :top_ten_big => "950x>"
   }

@@ -15,5 +15,6 @@
 //= require jquery_ujs
 //= require rating
 //= require global
-//= require jquery.flexslider-min.js
-//= require sliders
+//= require libs/jquery.animate-enhanced.min.js
+//= require libs/jquery.easing.1.3.js
+//= require libs/jquery.superslides.min.js

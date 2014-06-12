@@ -1,5 +1,5 @@
 ActiveAdmin.register PoliticalReview do
-	menu :label => "Avis politique"
+	menu :label => "Avis politique", :priority => 2
 	form :partial => "form"
 
 	actions  :index, :edit, :update

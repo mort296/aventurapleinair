@@ -5,106 +5,77 @@
 	<div class="left star" data-event-id="<%= @event.id %>" >
 	  <%= render '/event_rating/rating', :@item => @event %>
 	</div>
+	<p><strong><%= l @event.date_start, format: :long %></strong> <%= t(:to) %> <strong><%= l @event.date_end, format: :long %></strong></p>
+</div>
+<div class="top">
+	<section class="section activities">
+		<h2><%= t(:"include.activities") %></h2>
+		<ul>
+			<% if @event.activities %>
+				<%	a = 0 %>
+				<% @event.activities.each do |activity| %>
+					<% if activity.online == true %>
+						<li><%= link_to activity.name, activity_url(if activity.slug then activity.slug else activity.id end) %></li>
+						<% a = a + 1 %>
+					<% end %>
+				<% end %>
+				<% if a == 0 %>
+					<li><%= t(:"location.no_activity") %></li>
+				<% end %>
+			<% else %>
+				<li><%= t(:"location.no_activity") %></li>
+			<% 	end %>
+			
+		</ul>
+	</section>
+
+	<section class="section event-info">
+		<table>
+			<% if @event.season %>
+			<tr class="first-row">
+				<td class="title"><%= t(:season) %></td>
+				<td>
+					<% @event.season.each_with_index do |season, index| %>
+						<%= ' / ' if index == 1 %> 
+						<%= season.name %>
+					<% end %>
+				</td>
+			</tr>
+			<% end %>
+			<% if @event.location and @event.location.online == true %>
+			<tr>
+				<td class="title"><%= t(:"event.location") %></td>
+				<td><%= link_to @event.location.name, location_url(if @event.location.slug then @event.location.slug else @event.location.id end) %></td></td>
+			</tr>
+			<% end %>
+			<% if @event.federation? %>
+			<tr>
+				<td class="title"><%= t(:federation) %></td>
+				<td><%= @event.federation %></td>
+			</tr>
+			<% end %>
+			<% if @event.federation_website? %>
+			<tr>
+				<td class="title"><%= t(:federation_website) %></td>
+				<td><%= link_to @event.federation_website, @event.federation_website, :target => '_blank' %></td>
+			</tr>
+			<% end %>
+			<% if @event.website? %>
+			<tr>
+				<td class="title"><%= t(:website) %></td>
+				<td><%= link_to @event.website, @event.website, :target => '_blank' %></td>
+			</tr>
+			<% end %>
+		</table>
+	</section>
 </div>
 
-<section class="section event-header">
-	<%= image_tag @event.image.url() %>
-	<div class="caption">
-		<p><%= @event.image_caption if @event.image_caption %></p>
-	</div>
-	<h2><span><%= l @event.date_start, format: :long %></span> <%= t(:to) %> <span><%= l @event.date_end, format: :long %></span></h2>
-</section>
-
-<section class="section activities">
-	<h2><%= t(:"event.event_activities") %></h2>
-	<ul>
-		<% if @event.activities %>
-			<%	a = 0 %>
-			<% @event.activities.each do |activity| %>
-				<% if activity.online == true %>
-					<li><%= link_to activity.name, activity_url(if activity.slug then activity.slug else activity.id end) %></li>
-					<% a = a + 1 %>
-				<% end %>
-			<% end %>
-			<% if a == 0 %>
-				<li><%= t(:"location.no_activity") %></li>
-			<% end %>
-		<% else %>
-			<li><%= t(:"location.no_activity") %></li>
-		<% 	end %>
-		
-	</ul>
-</section>
-
-<section class="section event-info">
+<section class="section description">
+	<h2><%= t(:"event.description") %></h2>
 	<p><%= @event.description.html_safe if @event.description %></p>
-	<table>
-		<% if @event.season %>
-		<tr class="first-row">
-			<td class="title"><%= t(:season) %></td>
-			<td>
-				<% @event.season.each_with_index do |season, index| %>
-					<%= ' / ' if index == 1 %> 
-					<%= season.name %>
-				<% end %>
-			</td>
-		</tr>
-		<% end %>
-		<% if @event.location and @event.location.online == true %>
-		<tr>
-			<td class="title"><%= t(:"event.location") %></td>
-			<td><%= link_to @event.location.name, location_url(if @event.location.slug then @event.location.slug else @event.location.id end) %></td></td>
-		</tr>
-		<% end %>
-		<% if @event.federation? %>
-		<tr>
-			<td class="title"><%= t(:federation) %></td>
-			<td><%= @event.federation %></td>
-		</tr>
-		<% end %>
-		<% if @event.federation_website? %>
-		<tr>
-			<td class="title"><%= t(:federation_website) %></td>
-			<td><%= link_to @event.federation_website, @event.federation_website, :target => '_blank' %></td>
-		</tr>
-		<% end %>
-		<% if @event.website? %>
-		<tr>
-			<td class="title"><%= t(:website) %></td>
-			<td><%= link_to @event.website, @event.website, :target => '_blank' %></td>
-		</tr>
-		<% end %>
-	</table>
 </section>
 
 <section class="section event-other-info">
 	<h2><%= t(:"event.other_infos") %></h2>
 	<p><%= @event.other_infos.html_safe if @event.other_infos %></p>
-</section>
-
-<section class="section event-stats">
-	<h2><%= t(:"event.interesting_stats") %></h2>
-	<p><%= @event.interesting_stats.html_safe if @event.interesting_stats %></p>
-</section>
-
-<section class="section comments">
-	<h2><%= t(:"activity.comments.first_part") %><%= @event.name %><%= t(:"activity.comments.second_part") %></h2>
-	<div class="comments-list">
-		<%= render 'comments/comment', :comments => @event.comments.where("approved = true").limit(5) %>
-	</div> 
-	<% if @event.comments.where("approved = true").length > 5 %>
-		<a href="javascript:" class="show-more"><%= t(:"activity.comments.more") %></a>
-	<% end %>
-
-	<%= form_for(@event, :url => :new_event_comment, :html => { :method => :get }, remote: true) do |f| %>
-		<p class="error">Veuillez remplir tout les champs correctement</p>
-		<p class="sent">Votre commentaire a été envoyé et sera approuvé sous peu.</p>
-		<%= f.label :user_name, "#{t(:"activity.comments.fields.name")}:" %>
-	  <input type="text" id="user_name" name="user_name" />
-	  <%= f.label :user_email, "#{t(:"activity.comments.fields.email")}:" %>
-	  <input type="email" id="user_email" name="user_email" />
-	  <%= f.label :comment, "#{t(:"activity.comments.fields.comment")}:" %>
-	  <textarea id="comment" class="not-shown" name="comment" placeholder="<%= t(:"activity.comments.fields.comment_placeholder") %>"></textarea>
-	  <%= submit_tag("#{t(:"activity.comments.fields.send")}") %>
-	<% end %>
 </section>

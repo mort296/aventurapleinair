@@ -1,47 +1,5 @@
-<section class="section event-slider" style="clear:both;">
-	<div id="slider" class="flexslider hidden">
-	  <ul class="slides">
-	  	<% a = 0 %>
-			<% @menu_event.each do |event| %>
-				<% if match_season(event.season) and a < 10 %>
-					<% if event.image %>
-						<li>
-							<%= link_to image_tag(event.image.url()), event_url(if event.slug then event.slug else event.id end) %>
-							<p class="flex-caption"><span class="title"><%= event.name %></span><span class="date"><%= l event.date_start, format: :long %> <%= t(:to) %> <%= l event.date_end, format: :long %></span>
-								<% if event.location %>
-									<span class="location"><%= event.location.name %></span>
-								<% end %>
-							</p>
-						</li>
-						<% a = a + 1 %>	
-					<% end %>
-				<% end %>
-			<% end %>
-		</ul>
-	</div>
-	<div id="carousel" class="flexslider hidden">
-	  <ul class="slides">
-	   	<% a = 0 %>
-			<% @menu_event.each do |event| %>
-				<% if match_season(event.season) and a < 10 %>
-					<% if event.image %>
-						<li>
-							<%= image_tag event.image.url(:top_ten_small) %>
-						</li>
-						<% a = a + 1 %>	
-					<% end %>
-				<% end %>
-			<% end %>
-	  </ul>
-	</div>
-</section>
-
-<h1 class="home-title"><%= @home.title if @home.title %></h1>
-
 <section class="section about-us">
-	<h1><%= t(:"home.who_are") %></h1>
-	<ul>
-		<li><h2><%= @home.who_one_title if @home.who_one_title %></h2></li>
+	<ul class="first">
 		<li><%= @home.who_one_text.html_safe if @home.who_one_text %></li>
 	</ul>
 	<div class="vimeo">
@@ -50,24 +8,11 @@
 		<% end %>
 	</div>
 	<ul>
-		<li><h2><%= @home.who_two_title if @home.who_two_title %></h2></li>
 		<li><%= @home.who_two_text.html_safe if @home.who_two_text %></li>
 	</ul>
 </section>
 
-<section class="section featured">
-	<h1><%= t(:"home.featured") %></h1>
-	<div class="slider">
-		<%= image_tag @home.featured_image.url(:thumb_featured) if @home.featured_image %>
-		<div class="caption">
-			<p><%= @home.featured_caption_place if @home.featured_caption_place %></p>
-			<strong><%= @home.featured_caption_activity if @home.featured_caption_activity %></strong>
-		</div>
-	</div>
-</section>
-<aside class="aside sidebar-pub">
-	<h1><%= t(:"home.pub") %></h1>
-	<p><%= @home.promotion_text if @home.promotion_text %></p>
+<aside class="aside">
 	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 	<!-- Plein air -->
 	<ins class="adsbygoogle"

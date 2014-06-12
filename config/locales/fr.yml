@@ -245,7 +245,7 @@ fr:
     interesting_stats: "Statistiques intéressantes"
     event_activities: "Activités en lien avec cet événement"
   top:
-    activity_title: "Top 10 des activités"
+    five_title: "Top 5"
     location_title: "Top 10 des lieux"
     event_title: "Top 10 des événements"
   search:

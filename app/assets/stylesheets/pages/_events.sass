@@ -10,92 +10,81 @@
 			&:hover, &:active
 				color: #fff
 
+		table.activity-events
+			margin: 75px 5%
+			width: 90%
+
+			th
+				+font-size(30)
+
+				color: #fff
+				text-align: left
+				padding: 0 0 50px
+				width: 50%
+
+			td
+				+font-size(25)
+
+				color: #fff
+				padding-bottom: 20px
+				text-align: left
+
+				a
+					color: #fff
+					text-decoration: underline
+
+		div.top
+			@extend .clearfix
+
+			max-width: 950px
+			margin: 0 auto
+			padding: 0 2% 0
+			width: 96%
+
 		.section
 			color: #fff
+			margin-bottom: 25px
 
-			&.all.list
-				margin: 0 20px 30px
+			h2
+				+font-size(30)
 
-				h2
-					@extend .red-dot-title
-					
-					margin-bottom: 15px
-					clear: both
+				margin-bottom: 20px
+				text-align: center
 
-				ul
-					@extend .clearfix
-					
-					padding: 0
+			&.activities
+				background: #000
+				background: rgba(0,0,0,0.1)
+				float: left
+				min-height: 120px
+				padding: 20px
+				width: 300px
 
-				li 
-					display: inline-block
-					vertical-align: top
-					list-style: none
-					margin: 20px 2%
-					width: 21%
-					min-height: 60px
+				li
+					+font-size(20)
+
+					list-style: initial
+					margin: 0 0 10px 20px
 
 					a
-						+font-size(25)
-
 						color: #fff
-						text-decoration: none
+						text-decoration: underline
 
-						&:hover
-							text-decoration: underline
-							color: $darkred
-
-			
-			&.activities h2
-				@extend .red-dot-title
-
-				margin: 40px 0 0 20px
-
-				& + ul
-					margin: 20px 0 0 20px
-
-			&.event-header
-				overflow: hidden
-				position: relative
-				height: 400px
-
-				img
-					width: 100%
-
-				.caption
-					@extend .common-caption
-
-				h2
-					background: #000
-					background: rgba(0, 0, 0, 0.8)
-					padding: 15px
-					border-radius: 10px
-					top: 85px
-					margin-left: 680px
-					position: absolute	
-					text-align: center				
-					
-					span
-						display: block
-						color: #fff
-
-						&.title
-							+font-size(30)
-
-						&.location
-							+font-size(20)
+			&.event-info
+				float: right
+				width: 500px
 
 			table
-				+font-size(18)
+				+font-size(20)
 
+				background: #000
 				background: rgba(0,0,0,0.1)
-				width: 75%
-				margin: 50px auto 10px auto
+				width: 100%
 
 				tr
 					line-height: 40px
 
 					&:nth-child(odd)
+						background: #000
 						background: rgba(0,0,0,0.1)
 						
 
@@ -103,89 +92,15 @@
 					width: 50%
 					padding: 0 15px
 
-			&.event-info, &.event-other-info, &.event-stats
-				padding: 25px
-
-				h2
-					@extend .red-dot-title
-					
-
-			&.event-slider
-				ul
-					list-style: none
-					padding: 0
-
-					li
-						img
-							width: 100%
-
-				#slider
-					ul.slides
-						width: 100%
-						height: 450px
-						overflow: hidden
-
-						li
-							width: 100%
-
-						.flex-caption
-							background: #000
-							background: rgba(0, 0, 0, 0.8)
-							padding: 15px
-							border-radius: 10px
-							top: 85px
-							margin-left: 680px
-							position: absolute
-
-							span
-								display: block
-								color: #fff
-								text-align: center
-
-								&.title
-									+font-size(30)
-
-								&.location
-									+font-size(20)
-
-				#carousel
-					height: 130px
-					overflow: hidden
-
-					.flex-direction-nav
-						display: none
-
-					ul.slides li
-						cursor: pointer
-
-			&.comments
-
-				h2
-					margin-bottom: 20px
-
-			&.event-list
-
-				ul
-					list-style: none
-
-					li
-						@extend .clearfix
-
-						width: 100%
-						margin: 10px 0
-
-				h2
-					text-transform: uppercase
-					text-align: center
-
-				.left 
-					width: 55%
-					float: left
-
-				.right
-					width: 35%
-					float: right
+			&.event-other-info, &.description, &.single
+				padding: 25px 2%
 
 
-					img
-						width: 100%
+		@media screen and (max-width: 890px)
+			.section
+
+				&.event-info
+					float: none
+					width: 100%
+
+				

@@ -1,83 +1,20 @@
 .section-location
 	.content
 
-		.slider
-			position: relative
-
-		.caption
-			@extend .common-caption
-
-			bottom: 4px
-
-		.all.map
-			clear: both
-			margin-bottom: 40px
-
-		.all.list
-			margin: 0 20px
-
-			h2
-				margin-bottom: 15px
-				clear: both
-				
-			ul
-				@extend .clearfix
-				
-				padding: 0
-
-			li 
-				display: inline-block
-				vertical-align: top
-				list-style: none
-				margin: 20px 2%
-				width: 21%
-				min-height: 60px
-
-				a
-					+font-size(25)
-
-					color: #fff
-					text-decoration: none
-
-					&:hover
-						text-decoration: underline
-						color: $darkred
-
-		div#content-infowindow
-			width: 220px
-			height: 150px
-
-			p, strong
-				+font-size(15)
-				
-				margin: 0
-
-				a
-					+font-size(15)
-
-					color: #333
-					font-weight: bold
-					text-decoration: none
-
-					&:hover
-						text-decoration: underline
-
-			a.itinary
-				+font-size(14)
-
-				color: blue
-				display: block
-				margin-top: 5px
-				text-decoration: none
-
-				&:hover
-					text-decoration: underline
-
 		div.left.star
 			width: auto
 
 		h2
-			@extend .red-dot-title
+			+font-size(30)
+
+			color: #fff
+			margin-bottom: 20px
+			text-align: center
+
+		div.center
+			width: 100%
+			max-width: 980px
+			margin: 0 auto
 
 		.description
 			+font-size(20)
@@ -85,130 +22,116 @@
 			color: #fff
 			margin: 0 20px
 
-		.right-half
-			width: 30%
-			float: right
+		.activities, .map, .weather, .address
+			background: #000
+			background: rgba(0,0,0,0.1)
+			display: inline-block
+			width: 265px
+			margin: 25px 1%
+			padding: 20px
+			vertical-align: top
 
-			.section
-				margin: 10px 0
+		.activities
+			min-height: 120px
 
-			.weather
-				@extend .clearfix
+			li
+				+font-size(20)
 
-				padding: 10px 0
-
-				img
-					float: left
-					width: 80px
+				color: #fff
+				list-style: initial
+				margin: 0 0 10px 20px
 
 				a
-					+font-size(25)
-
 					color: #fff
-					display: block
-					margin-top: 20px
-					text-decoration: none
-			
-			.events
+					text-decoration: underline
+
+		.address
+			+font-size(20)
+
+			color: #fff
+
+			a
+				+font-size(22)
+
+				text-decoration: none
+
+				&:link, &:visited
+					color: $darkred
+				&:hover, &:active
+					color: $darkred
+
+		.map
+			padding: 0
+
+		.weather
+			@extend .clearfix
+
+			img
+				float: left
+				width: 80px
+
+			a
+				+font-size(25)
+
+				color: #fff
+				display: block
+				margin-top: 20px
+				text-decoration: none
+
+		.useful-informations
+			background: #000
+			background: rgba(0,0,0,0.1)
+			display: inline-block
+			margin: 25px 1%
+			padding: 20px
+			vertical-align: top
+			width: 592px
+
+			a 
+				+font-size(24)
+
+				text-decoration: none
+				clear: both
+				display: block
 				width: 100%
-				height: 150px
-				background: url(/assets/bg_events.png) no-repeat
-				position: relative
+				text-align: center
 
-				a
-					+font-size(25)
+				&:link, &:visited
+					color: $darkred
+				&:hover, &:active
+					#fff
 
-					color: #fff
-					background: #000
-					background: rgba(0, 0, 0, 0.8)
-					width: 100%
-					position: absolute
-					bottom: 0
-					text-decoration: none
-					text-align: center
-					padding: 20px 0
-		
-		.left-half
-			width: 65%
-			float: left
-
-			.section, address
+			ul
 				@extend .clearfix
-				
-				margin: 0 0 20px 20px
 
-				&.useful-informations
-					a 
-						+font-size(24)
-
-						text-decoration: none
-						clear: both
-						display: block
-						width: 100%
-						text-align: center
-
-						&:link, &:visited
-							color: $darkred
-						&:hover, &:active
-							#fff
-
-					ul
-						@extend .clearfix
-
-						width: 80%
-						margin: auto
-						list-style: none
-
-						li
-							width: 50%
-							margin: 8px 0
-							line-height: 30px
-
-							div
-								width: 30px
-								height: 30px
-								margin: 0 5px 
-								overflow: hidden
-								float: left
-
-							img
-								border-radius: 5px
-								vertical-align: text-top
-
-			address
-				+font-size(20)
-
-				color: #fff
-
-				a
-					+font-size(22)
-
-					text-decoration: none
-	
-					&:link, &:visited
-						color: $darkred
-					&:hover, &:active
-						color: $darkred
-
-			.infos, ul
-				+font-size(20)
-
-				color: #fff
+				list-style: none
 
 				li
-					width: 33%
-					float: left
+					margin: 8px 0
+					line-height: 30px
 
-					a
-						text-decoration: none
+					div
+						width: 30px
+						height: 30px
+						margin: 0 5px 
+						overflow: hidden
+						float: left
 
-						&:link, &:visited
-							color: #fff
-						&:hover, &:active
-							color: $darkred
-					
-			.infos
-				float: left
-				margin-left: 20px
-				width: 315px
+					img
+						border-radius: 5px
+						vertical-align: text-top
 
+		@media screen and (max-width: 655px)
+			.activities, .weather, .address, .useful-informations
+				display: block
+				margin: 25px auto
+				padding: 20px 2%
+				width: 96%
+
+			.map 
+				padding: 0
+				margin: 25px 0
+				width: 100%
+
+				#map-canvas
+					width: 100% !important

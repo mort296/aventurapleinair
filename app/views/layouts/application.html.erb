@@ -9,34 +9,20 @@
 		<meta name="description" content="Vous trouverez sur ce site web toutes les activités, tous les lieux et tous les événements qui animent la passion du plein air au Québec!">
 	<% end %>
 	<meta name="viewport" content="width=device-width">	
+	<link rel="icon" type="image/png" href="<%= asset_path 'favicon.png' %>">
 
 	<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
 	
 	<script src="/assets/html5.js"></script>
 
 	<title><%= yield(:title) %>Aventura Plein Air Québec</title>
-	<% if @footer_content.background_image and session[:season] == :winter %>
-		<style>
-			body {
-				background: url("<%= @footer_content.background_image %>") #333 no-repeat top center;
-				background-attachment: fixed
-			}
-		</style>
-	<% else %>
-		<style>
-			body {
-				background: url("<%= @footer_content.background_summer_image %>") #333 no-repeat top center;
-				background-attachment: fixed
-			}
-		</style>
-	<% end %>
 	
 	<%= csrf_meta_tags %>
 	<script>
-	    var _gaq=[['_setAccount','UA-44635891-1'],['_trackPageview']];
-	    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
-	    g.src='//www.google-analytics.com/ga.js';
-	    s.parentNode.insertBefore(g,s)}(document,'script'));
+    var _gaq=[['_setAccount','UA-44635891-1'],['_trackPageview']];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
+    g.src='//www.google-analytics.com/ga.js';
+    s.parentNode.insertBefore(g,s)}(document,'script'));
 	</script>
 </head>
 <body class="section<%= '-' + params[:controller] %>">
@@ -44,38 +30,59 @@
 	<%= yield %>
 	<%= render :partial => 'includes/footer' %>
 	<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-	<% if params[:controller] == 'activity' && params[:action] == 'show' %>
-		<%= javascript_tag do %>
-		console.log('test')
-			$(document).ready(function() {
-			  $('.show-more').on('click', function () {
-			    $('.comments-list').html("<%= render "comments/comment", :comments => @activity.comments.where("approved = true") %>");
-			    $('.show-more').hide();
-			  })
-			});
-		<% end %>
-	<% end %>
-	<% if params[:controller] == 'location' && params[:action] == 'show' %>
-		<%= javascript_tag do %>
-		console.log('test')
-			$(document).ready(function() {
-			  $('.show-more').on('click', function () {
-			    $('.comments-list').html("<%= render "comments/comment", :comments => @location.comments.where("approved = true") %>");
-			    $('.show-more').hide();
-			  })
-			});
-		<% end %>
-	<% end %>
-	<% if params[:controller] == 'event' && params[:action] == 'show' %>
-		<%= javascript_tag do %>
-		console.log('test')
-			$(document).ready(function() {
-			  $('.show-more').on('click', function () {
-			    $('.comments-list').html("<%= render "comments/comment", :comments => @event.comments.where("approved = true") %>");
-			    $('.show-more').hide();
-			  })
-			});
-		<% end %>
-	<% end %>
+	
+  <script>
+  	var filterLocations = function () {
+  		$('.activity-locations li').hide()
+  		$('label.filters.checked input').each(function () {
+  			var value = $(this).val(),liList = [];
+				liList = $('.activity-locations li').filter(function() {
+			  	if ($.inArray(value, $(this).data('filter')) >= 0) {
+			  		$(this).show();
+			  	}
+				});
+  		});
+  	}
+
+			
+    $(function() {
+    	
+      $('.slides').superslides({
+        inherit_width_from: '.slides',
+        inherit_height_from: '.slides',
+        play: 5000,
+        <% if @slider.length <= 1 %>
+        play: 0,
+     		<% end %>
+        animation: 'fade'
+      });
+
+      <% if @slider.length > 1 %>
+	      $('.slides').on('mouseenter', function() {
+	        $(this).superslides('stop');
+	      });
+	      $('.slides').on('mouseleave', function() {
+	        $(this).superslides('start');
+	      });
+     	<% end %>
+
+      $('label.filters').on('click', function (event) {
+        event.preventDefault();
+        if ($(this).hasClass('checked')) {
+				  $(this).removeClass('checked');
+				}
+				else {
+					$(this).addClass('checked');
+				}
+				if ($('label.filters.checked').length > 0) {
+					filterLocations();
+				}
+				else {
+					$('.activity-locations li').show();
+				}
+	    });
+    });
+    
+  </script>
 </body>
 </html>

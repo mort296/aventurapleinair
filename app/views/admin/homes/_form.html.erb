@@ -16,30 +16,18 @@
     </ul>
     <div id="lang-fr">
       <%= f.inputs 'Texte Français' do %>   
-        <%= f.input :title, :label => 'Titre de la page' %>
-        <%= f.input :who_one_title, :label => 'Titre de qui somme nous à gauche du vidéo' %>
-        <%= f.input :who_one_text, as: :html_editor, :label => 'Texte de qui somme nous à gauche du vidéo' %>
-        <%= f.input :who_two_title, :label => 'Titre de qui somme nous à droite du vidéo' %>
-        <%= f.input :who_two_text, as: :html_editor, :label => 'Texte de qui somme nous à droite du vidéo' %>
-        <%= f.input :who_video_link, :label => 'Lien du vidéo viméo' %>
-        <%= f.input :featured_caption_place, :label => 'Endroit de l\'image en vedette' %>
-        <%= f.input :featured_caption_activity, :label => 'Activité de l\'image en vedette' %>
-        <%= f.input :promotion_text, :label => 'Texte de promotion' %>     
+        <%= f.input :who_one_text, as: :html_editor, :label => 'Texte à gauche du vidéo' %>
+        <%= f.input :who_two_text, as: :html_editor, :label => 'Texte à droite du vidéo' %>
+        <%= f.input :who_video_link, :label => 'Lien du vidéo viméo' %>     
       <% end %>
     </div>
     <% index = 0 %>
     <%= f.semantic_fields_for :translations do |lf| %>
       <div id="lang-<%= lf.object.locale %>" style="<%= 'display: none;' if lf.object.locale == :fr %>">
         <%= lf.inputs "Texte #{ADDITIONAL_LOCALES[lf.object.locale.to_sym]}" do %>
-          <%= lf.input :title, :label => 'Titre de la page' %>
-          <%= lf.input :who_one_title, :label => 'Titre de qui somme nous à gauche du vidéo' %>
-          <%= lf.input :who_one_text, as: :html_editor, :label => 'Texte de qui somme nous à gauche du vidéo' %>
-          <%= lf.input :who_two_title, :label => 'Titre de qui somme nous à droite du vidéo' %>
-          <%= lf.input :who_two_text, as: :html_editor, :label => 'Texte de qui somme nous à droite du vidéo' %>
+          <%= lf.input :who_one_text, as: :html_editor, :label => 'Texte à gauche du vidéo' %>
+          <%= lf.input :who_two_text, as: :html_editor, :label => 'Texte à droite du vidéo' %>
           <%= lf.input :who_video_link, :label => 'Lien du vidéo viméo' %>
-          <%= lf.input :featured_caption_place, :label => 'Endroit de l\'image en vedette' %>
-          <%= lf.input :featured_caption_activity, :label => 'Activité de l\'image en vedette' %>
-          <%= lf.input :promotion_text, :label => 'Texte de promotion' %>
           <%= lf.input :locale, :as => :hidden %>
         <% end %>
       </div>
@@ -47,11 +35,6 @@
     <% end %>
   </div>
   <div class="not-translated">
-  <%= f.inputs 'Champs non traduits' do %> 
-    <%= f.input :featured_image, :as => :file, :label => 'Image en vedette' %>
-    <%= f.input :pub1, :label => 'Publicité de côté de page' %>
-    <%= f.input :pub2, :label => 'Publicité de bas de page' %>
-  <% end %>
   <%= f.actions %>
   </div>
 <% end %>
