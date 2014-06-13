@@ -37,7 +37,7 @@
   		$('label.filters.checked input').each(function () {
   			var value = $(this).val(),liList = [];
 				liList = $('.activity-locations li').filter(function() {
-			  		console.log($(this))
+			  		console.log($(this).data('filter'))
 			  	if ($.inArray(value, $(this).data('filter')) >= 0) {
 			  		$(this).show();
 			  	}
