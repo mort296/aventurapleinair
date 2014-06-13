@@ -7,9 +7,10 @@ class ApplicationController < ActionController::Base
 
   def get_slider_images
     sliderGlobalImages = Slider.all()
-    sliderGlobalImages.each do |slider|
-      (@slider ||= []).push({:image => slider.slider1.url, :alt => slider.slider1_file_name})
-    end
+    #sliderGlobalImages.each do |slider|
+    #  (@slider ||= []).push({:image => slider.slider1.url, :alt => slider.slider1_file_name})
+    #end
+    (@slider ||= []).push({:image => 'slider.png', :alt => 'slider'})
   end
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found
