@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140328010400) do
+ActiveRecord::Schema.define(version: 20140613014457) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -70,6 +70,16 @@ ActiveRecord::Schema.define(version: 20140328010400) do
     t.string   "image_caption_location"
     t.string   "image_caption_text"
     t.string   "slug"
+    t.string   "second_image"
+    t.string   "second_image_file_name"
+    t.string   "third_image"
+    t.string   "third_image_file_name"
+    t.string   "fourth_image"
+    t.string   "fourth_image_file_name"
+    t.string   "fifth_image"
+    t.string   "fifth_image_file_name"
+    t.string   "icon_list"
+    t.string   "icon_list_file_name"
   end
 
   add_index "activities", ["slug"], name: "index_activities_on_slug", unique: true, using: :btree
@@ -93,6 +103,9 @@ ActiveRecord::Schema.define(version: 20140328010400) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "slug"
+    t.string   "image"
+    t.string   "image_file_name"
   end
 
   create_table "activity_category_translations", force: true do |t|
@@ -253,6 +266,14 @@ ActiveRecord::Schema.define(version: 20140328010400) do
     t.string   "image_file_name"
     t.string   "image_caption"
     t.string   "slug"
+    t.string   "second_image"
+    t.string   "second_image_file_name"
+    t.string   "third_image"
+    t.string   "third_image_file_name"
+    t.string   "fourth_image"
+    t.string   "fourth_image_file_name"
+    t.string   "fifth_image"
+    t.string   "fifth_image_file_name"
   end
 
   add_index "events", ["slug"], name: "index_events_on_slug", unique: true, using: :btree
@@ -260,36 +281,6 @@ ActiveRecord::Schema.define(version: 20140328010400) do
   create_table "events_seasons", force: true do |t|
     t.integer "season_id"
     t.integer "event_id"
-  end
-
-  create_table "footer_text_translations", force: true do |t|
-    t.integer  "footer_text_id",      null: false
-    t.string   "locale",              null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "max_title"
-    t.string   "max_subtitle"
-    t.text     "max_text"
-    t.string   "photograph_title"
-    t.string   "photograph_subtitle"
-    t.text     "photograph_text"
-  end
-
-  add_index "footer_text_translations", ["footer_text_id"], name: "index_footer_text_translations_on_footer_text_id", using: :btree
-  add_index "footer_text_translations", ["locale"], name: "index_footer_text_translations_on_locale", using: :btree
-
-  create_table "footer_texts", force: true do |t|
-    t.string   "max_title"
-    t.string   "max_subtitle"
-    t.text     "max_text"
-    t.string   "max_image"
-    t.string   "background_summer_image"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "max_image_file_name"
-    t.string   "background_summer_image_file_name"
-    t.string   "background_image"
-    t.string   "background_image_file_name"
   end
 
   create_table "friendly_id_slugs", force: true do |t|
@@ -385,6 +376,16 @@ ActiveRecord::Schema.define(version: 20140328010400) do
     t.string   "link_text"
     t.string   "image_caption"
     t.string   "slug"
+    t.string   "second_image"
+    t.string   "second_image_file_name"
+    t.string   "third_image"
+    t.string   "third_image_file_name"
+    t.string   "fourth_image"
+    t.string   "fourth_image_file_name"
+    t.string   "fifth_image"
+    t.string   "fifth_image_file_name"
+    t.string   "icon_list"
+    t.string   "icon_list_file_name"
   end
 
   add_index "locations", ["slug"], name: "index_locations_on_slug", unique: true, using: :btree
@@ -443,6 +444,13 @@ ActiveRecord::Schema.define(version: 20140328010400) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "sliders", force: true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "slider1"
+    t.string   "slider1_file_name"
   end
 
   create_table "top_activities", force: true do |t|
