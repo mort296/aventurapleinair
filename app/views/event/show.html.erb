@@ -51,13 +51,7 @@
 			<% if @event.federation? %>
 			<tr>
 				<td class="title"><%= t(:federation) %></td>
-				<td><%= @event.federation %></td>
-			</tr>
-			<% end %>
-			<% if @event.federation_website? %>
-			<tr>
-				<td class="title"><%= t(:federation_website) %></td>
-				<td><%= link_to @event.federation_website, @event.federation_website, :target => '_blank' %></td>
+				<td><%= link_to @event.federation, @event.federation_website, :target => '_blank' %></td>
 			</tr>
 			<% end %>
 			<% if @event.website? %>

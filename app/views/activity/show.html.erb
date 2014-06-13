@@ -23,13 +23,7 @@
 			<% if @activity.federation %>
 				<tr>
 					<td><%= t(:federation) %>:</td>
-					<td><%= @activity.federation %></td>
-				</tr>
-			<% end %>
-			<% if @activity.website? %>
-				<tr>
-					<td><%= t(:website) %></td>
-					<td><%= link_to @activity.website, @activity.website, :target => '_blank' %></td>
+					<td><%= link_to @activity.federation, @activity.website, :target => '_blank' %></td>
 				</tr>
 			<% end %>
 		</table>
