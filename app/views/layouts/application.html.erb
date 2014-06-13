@@ -39,7 +39,7 @@
 				liList = $('.activity-locations li').filter(function() {
 			  	if ($.inArray(value, $(this).data('filter')) >= 0) {
 			  		$(this).show();
-			  		//console.log($(this))
+			  		console.log($(this))
 			  	}
 				});
   		});
@@ -77,7 +77,6 @@
 				}
 				if ($('label.filters.checked').length > 0) {
 					filterLocations();
-					console.log('higher')
 				}
 				else {
 					$('.activity-locations li').show();
