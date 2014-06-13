@@ -37,8 +37,12 @@
   		$('label.filters.checked input').each(function () {
   			var value = $(this).val(),liList = [];
 				liList = $('.activity-locations li').filter(function() {
-			  		console.log($.inArray(value, $(this).data('filter')))
-			  	if ($.inArray(value, $(this).data('filter')) >= 0) {
+					var filter = $(this).data('filter');
+					
+					//console.log('filter: ' + $(this).data('filter'), 'value: ' + value)
+			  	//console.log(filter.search(value))
+			  	
+			  	if (filter.search(value) != -1) {
 			  		$(this).show();
 			  	}
 				});
