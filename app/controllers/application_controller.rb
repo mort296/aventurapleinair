@@ -6,11 +6,12 @@ class ApplicationController < ActionController::Base
   before_filter :get_slider_images, :set_locale
 
   def get_slider_images
-    sliderGlobalImages = Slider.all()
-    #sliderGlobalImages.each do |slider|
-    #  (@slider ||= []).push({:image => slider.slider1.url, :alt => slider.slider1_file_name})
-    #end
-    (@slider ||= []).push({:image => 'slider.png', :alt => 'slider'})
+    slider = Home.first()
+    (@slider ||= []).push({:image => slider.slider1.url, :alt => slider.slider1_file_name}) if slider.slider1?
+    (@slider ||= []).push({:image => slider.slider2.url, :alt => slider.slider2_file_name}) if slider.slider2?
+    (@slider ||= []).push({:image => slider.slider3.url, :alt => slider.slider3_file_name}) if slider.slider3?
+    (@slider ||= []).push({:image => slider.slider4.url, :alt => slider.slider4_file_name}) if slider.slider4?
+    (@slider ||= []).push({:image => slider.slider5.url, :alt => slider.slider5_file_name}) if slider.slider5?
   end
 
   rescue_from ActiveRecord::RecordNotFound, with: :record_not_found

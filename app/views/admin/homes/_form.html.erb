@@ -35,6 +35,13 @@
     <% end %>
   </div>
   <div class="not-translated">
+    <%= f.inputs 'Champs non traduits' do %>
+      <%= f.input :slider1, :as => :file, :label => "Image du slider 1" %>
+      <%= f.input :slider2, :as => :file, :label => "Image du slider 2" %>
+      <%= f.input :slider3, :as => :file, :label => "Image du slider 3" %>
+      <%= f.input :slider4, :as => :file, :label => "Image du slider 4" %>
+      <%= f.input :slider5, :as => :file, :label => "Image du slider 5" %>
+    <% end %>
   <%= f.actions %>
   </div>
 <% end %>

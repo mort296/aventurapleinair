@@ -15,6 +15,22 @@ class Home < ActiveRecord::Base
   accepts_nested_attributes_for :translations	
 
   after_save :create_missing_translations
+
+  has_attached_file :slider1, :styles => { 
+    :thumb_menu => "150x150>"
+  }
+  has_attached_file :slider2, :styles => { 
+    :thumb_menu => "150x150>"
+  }
+  has_attached_file :slider3, :styles => { 
+    :thumb_menu => "150x150>"
+  }
+  has_attached_file :slider4, :styles => { 
+    :thumb_menu => "150x150>"
+  }
+  has_attached_file :slider5, :styles => { 
+    :thumb_menu => "150x150>"
+  }
   
   protected
  
