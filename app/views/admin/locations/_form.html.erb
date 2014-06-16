@@ -37,12 +37,12 @@
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
     <%= f.input :website, :label => 'Site Web du lieu' %>
-    <%= f.input :icon_list, :as => :file, :label => 'Image apparaissant dans dans la liste des lieux' %>
-    <%= f.input :image, :as => :file, :label => 'Image du lieu 1' %>
-    <%= f.input :second_image, :as => :file, :label => 'Image du lieu 2' %>
-    <%= f.input :third_image, :as => :file, :label => 'Image du lieu 3' %>
-    <%= f.input :fourth_image, :as => :file, :label => 'Image du lieu 4' %>
-    <%= f.input :fifth_image, :as => :file, :label => 'Image du lieu 5' %>
+    <%= f.input :icon_list, :as => :file, :label => 'Image apparaissant dans dans la liste des lieux', :hint => f.template.image_tag(f.object.icon_list.url(:thumb)) %>
+    <%= f.input :image, :as => :file, :label => 'Image de lieu 1', :hint => f.template.image_tag(f.object.image.url(:thumb_menu)) %>
+    <%= f.input :second_image, :as => :file, :label => 'Image de lieu 2', :hint => f.template.image_tag(f.object.second_image.url(:thumb_menu)) %>
+    <%= f.input :third_image, :as => :file, :label => 'Image de lieu 3', :hint => f.template.image_tag(f.object.third_image.url(:thumb_menu)) %>
+    <%= f.input :fourth_image, :as => :file, :label => 'Image de lieu 4', :hint => f.template.image_tag(f.object.fourth_image.url(:thumb_menu)) %>
+    <%= f.input :fifth_image, :as => :file, :label => 'Image de lieu 5', :hint => f.template.image_tag(f.object.fifth_image.url(:thumb_menu)) %>
     <%= f.input :city, :label => 'Ville' %>
     <%= f.input :postal_code, :label => 'Code postal' %>
     <%= f.input :phone, :label => 'Numéro de téléphone' %>

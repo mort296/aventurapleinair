@@ -36,11 +36,11 @@
   </div>
   <div class="not-translated">
     <%= f.inputs 'Champs non traduits' do %>
-      <%= f.input :slider1, :as => :file, :label => "Image du slider 1" %>
-      <%= f.input :slider2, :as => :file, :label => "Image du slider 2" %>
-      <%= f.input :slider3, :as => :file, :label => "Image du slider 3" %>
-      <%= f.input :slider4, :as => :file, :label => "Image du slider 4" %>
-      <%= f.input :slider5, :as => :file, :label => "Image du slider 5" %>
+      <%= f.input :slider1, :as => :file, :label => "Image du slider 1", :hint => f.template.image_tag(f.object.slider1.url(:thumb_menu)) %>
+      <%= f.input :slider2, :as => :file, :label => "Image du slider 2", :hint => f.template.image_tag(f.object.slider2.url(:thumb_menu)) %>
+      <%= f.input :slider3, :as => :file, :label => "Image du slider 3", :hint => f.template.image_tag(f.object.slider3.url(:thumb_menu)) %>
+      <%= f.input :slider4, :as => :file, :label => "Image du slider 4", :hint => f.template.image_tag(f.object.slider4.url(:thumb_menu)) %>
+      <%= f.input :slider5, :as => :file, :label => "Image du slider 5", :hint => f.template.image_tag(f.object.slider5.url(:thumb_menu)) %>
     <% end %>
   <%= f.actions %>
   </div>

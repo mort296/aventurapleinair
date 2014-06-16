@@ -32,7 +32,7 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %>
-    <%= f.input :image, :as => :file, :label => 'Image' %>
+    <%= f.input :image, :as => :file, :label => 'Image', :hint => f.template.image_tag(f.object.image.url(:thumb_menu)) %>
   <% end %>
   </div>
   <%= f.actions %>
