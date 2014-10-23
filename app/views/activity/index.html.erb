@@ -3,8 +3,8 @@
 	<div class="desc">
 		<p><%= @text_top.text_top.html_safe if @text_top.text_top %></p>
 	</div>
+	<ul>
 	<% @menu_activity_category.each do |activity_category| %>
-		<ul>
 			<% if activity_category.activity.where('online = true').any? %>
 				<li>
 					<% if activity_category.image? %>
@@ -13,6 +13,6 @@
 					<%= link_to '<span>'.html_safe + activity_category.name + '</span>'.html_safe, activity_category_url(if activity_category.slug? then activity_category.slug else activity_category.id end) %></li>
 					<% end %>
 			<% end %>
-		</ul>
 	<% end %>
+	</ul>
 </section>

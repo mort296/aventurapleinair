@@ -1,7 +1,8 @@
 <% title t(:locations) + " pour " + @activity.name + " - " %>
+<% if false %>
 <h1 class="activity-name"><%= @activity.name %></h1>
 
-<% if @useful_infos %>
+<%# if @useful_infos %>
   <form class="filters">
     <% @useful_infos.each do |useful_info| %>
       <label class="filters"><input type="checkbox" name="filter" class="filter" value="<%= useful_info.id %>" > <%= useful_info.name %></label>
@@ -9,7 +10,7 @@
   </form>
 <% end %>
 
-<h1 class="activity-locations">Liste des lieux</h1>
+<h1 class="activity-locations"><%= @activity.name %> - Liste des lieux</h1>
 <ul class="activity-locations">
   <% if @activity.locations %>
     <% l = 0 %>

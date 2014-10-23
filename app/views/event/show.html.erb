@@ -2,9 +2,11 @@
 <% meta_desc strip_tags(@event.description.html_safe) %>
 <div class="title-rating">
 	<h1><%= @event.name %></h1>
-	<div class="left star" data-event-id="<%= @event.id %>" >
-	  <%= render '/event_rating/rating', :@item => @event %>
-	</div>
+	<% if false %>
+		<div class="left star" data-event-id="<%= @event.id %>" >
+		  <%= render '/event_rating/rating', :@item => @event %>
+		</div>
+	<% end %>
 	<p><strong><%= l @event.date_start, format: :long %></strong> <%= t(:to) %> <strong><%= l @event.date_end, format: :long %></strong></p>
 </div>
 <div class="top">

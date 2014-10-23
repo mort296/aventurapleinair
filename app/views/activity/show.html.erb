@@ -2,9 +2,11 @@
 <% meta_desc strip_tags(@activity.description) %>
 <div class="title-rating">
 	<h1><%= @activity.name %></h1>
+	<% if false %>
 	<div class="left star" data-activity-id="<%= @activity.id %>" >
 	  <%= render '/activity_rating/rating', :@item => @activity %>
 	</div>
+	<% end %>
 </div>
 <div class="top">
 	<div class="infos">
