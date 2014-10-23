@@ -1,8 +1,10 @@
 <% title t(:"include.activities") + " - " %>
 <section class="all list section">
-	<div class="desc">
-		<p><%= @text_top.text_top.html_safe if @text_top.text_top %></p>
-	</div>
+	<% if false %>
+		<div class="desc">
+			<p><%= @text_top.text_top.html_safe if @text_top.text_top %></p>
+		</div>
+	<% end %>
 	<ul>
 	<% @menu_activity_category.each do |activity_category| %>
 			<% if activity_category.activity.where('online = true').any? %>
