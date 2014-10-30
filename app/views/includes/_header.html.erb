@@ -13,12 +13,17 @@
     <ul class="slides-container">
     		<% @slider.each do | slider | %>
 	    		<li>
-		        <%= image_tag slider[:image], :alt => slider[:alt] %>
+		        <%= link_to image_tag(slider[:image], :alt => slider[:alt]), slider[:image], :class => "fancybox", :"data-fancybox-group" => "gallery" %>
 		      </li>
 	    	<% end %>
     </ul>
   </div>
-
+  <div class="newsletter">
+		<form action="http://aventurapleinair.us7.list-manage.com/subscribe/post?u=76f07b350800281685ec9af96&amp;id=dada7784fd" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate clearfix ok-form" target="_blank" novalidate>
+			<input type="email" value="" name="EMAIL" class="email" id="newsletter-email" placeholder="Infolettre" required>
+			<button type="submit" class="submit">Ok</button>
+		</form>
+	</div>
 	<%= link_to image_tag('logo-aventura.png', :alt => 'Aventura plein air', :class => 'logo', :width => 260, :height => 208), root_url, :class => 'logo' %>
 		
 	<ul class="social-nav">
@@ -27,7 +32,6 @@
 		<li><%= link_to image_tag('googleplus-icon.png', :alt => 'Google + page'), 'https://plus.google.com/107605985634128095937', :target => '_blank', :rel => 'publisher' %></li>
 		<li><%= link_to image_tag('pinterest-icon.png', :alt => 'Pinterest page', :width => 32 ), 'http://fr.pinterest.com/aventuraqc/', :target => '_blank', :rel => 'publisher'%></li>
 	</ul>
-	<%= link_to image_tag('xavier.png', :alt => 'Xavier Dachez', :class => 'xavier'), "http://xavierdachez.photodeck.com/", :target => "_blank" %>
 	<nav class="main-nav">
 		<h1><%= t(:"include.main_nav") %></h1>
 		<ul>

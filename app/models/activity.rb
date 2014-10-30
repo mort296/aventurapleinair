@@ -4,7 +4,7 @@ class Activity < ActiveRecord::Base
 
   acts_as_commentable
   validates_presence_of :name
-  validates_presence_of :description, :season, :activity_category, :locations, :image, :if => :online?
+  validates_presence_of :description, :season, :activity_category, :locations, :if => :online?
   
 	translates :name, :federation, :description, :useful_links, :fallbacks_for_empty_translations => true
   accepts_nested_attributes_for :translations
@@ -62,8 +62,45 @@ class Activity < ActiveRecord::Base
 
   after_save :create_missing_translations
 
-  
 
+  attr_writer :remove_first_image
+  attr_writer :remove_second_image
+  attr_writer :remove_third_image
+  attr_writer :remove_fourth_image
+  attr_writer :remove_fifth_image
+  attr_writer :remove_icon_list
+
+  def remove_first_image
+    @remove_first_image || false
+  end
+
+  def remove_second_image
+    @remove_second_image || false
+  end
+
+  def remove_third_image
+    @remove_third_image || false
+  end
+
+  def remove_fourth_image
+    @remove_fourth_image || false
+  end
+
+  def remove_fifth_image
+    @remove_fifth_image || false
+  end
+
+  def remove_icon_list
+    @remove_icon_list || false
+  end
+
+  before_validation { self.image.clear if self.remove_first_image == '1' }
+  before_validation { self.second_image.clear if self.remove_second_image == '1' }
+  before_validation { self.third_image.clear if self.remove_third_image == '1' }
+  before_validation { self.fourth_image.clear if self.remove_fourth_image == '1' }
+  before_validation { self.fifth_image.clear if self.remove_fifth_image == '1' }
+  before_validation { self.icon_list.clear if self.remove_icon_list == '1' }
+  
   def online?
     online == true
   end

@@ -38,11 +38,16 @@
   </div>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %>
-    <%= f.input :image, :as => :file, :label => 'Image de l\'événement 1', :hint => f.template.image_tag(f.object.image.url(:thumb_menu)) %>
-    <%= f.input :second_image, :as => :file, :label => 'Image de l\'événement 2', :hint => f.template.image_tag(f.object.second_image.url(:thumb_menu)) %>
-    <%= f.input :third_image, :as => :file, :label => 'Image de l\'événement 3', :hint => f.template.image_tag(f.object.third_image.url(:thumb_menu)) %>
-    <%= f.input :fourth_image, :as => :file, :label => 'Image de l\'événement 4', :hint => f.template.image_tag(f.object.fourth_image.url(:thumb_menu)) %>
-    <%= f.input :fifth_image, :as => :file, :label => 'Image de l\'événement 5', :hint => f.template.image_tag(f.object.fifth_image.url(:thumb_menu)) %>
+    <%= f.input :image, :as => :file, :label => 'Image de l\'événement 1', :hint => (f.template.image_tag(f.object.image.url(:thumb_menu)) if f.object.image?) %>
+    <%= f.input :remove_first_image, as: :boolean, required: false, label: "Retirer l'image 1" if f.object.image? %>
+    <%= f.input :second_image, :as => :file, :label => 'Image de l\'événement 2', :hint => (f.template.image_tag(f.object.second_image.url(:thumb_menu)) if f.object.second_image?) %>
+    <%= f.input :remove_second_image, as: :boolean, required: false, label: "Retirer l'image 2" if f.object.second_image? %>
+    <%= f.input :third_image, :as => :file, :label => 'Image de l\'événement 3', :hint => (f.template.image_tag(f.object.third_image.url(:thumb_menu)) if f.object.third_image?) %>
+    <%= f.input :remove_third_image, as: :boolean, required: false, label: "Retirer l'image 3" if f.object.third_image? %>
+    <%= f.input :fourth_image, :as => :file, :label => 'Image de l\'événement 4', :hint => (f.template.image_tag(f.object.fourth_image.url(:thumb_menu)) if f.object.fourth_image?) %>
+    <%= f.input :remove_fourth_image, as: :boolean, required: false, label: "Retirer l'image 4" if f.object.fourth_image? %>
+    <%= f.input :fifth_image, :as => :file, :label => 'Image de l\'événement 5', :hint => (f.template.image_tag(f.object.fifth_image.url(:thumb_menu)) if f.object.fifth_image?) %>
+    <%= f.input :remove_fifth_image, as: :boolean, required: false, label: "Retirer l'image 5" if f.object.fifth_image? %>
     <%= f.input :website, :label => 'Site de l\'événement' %>
     <%= f.input :federation_website, :label => 'Site de la fédération' %>
     <%= f.input :date_start, :label => 'Date de début' %>

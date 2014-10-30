@@ -37,12 +37,18 @@
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %> 
     <%= f.input :website, :label => 'Site Web du lieu' %>
-    <%= f.input :icon_list, :as => :file, :label => 'Image apparaissant dans dans la liste des lieux', :hint => f.template.image_tag(f.object.icon_list.url(:thumb)) %>
-    <%= f.input :image, :as => :file, :label => 'Image de lieu 1', :hint => f.template.image_tag(f.object.image.url(:thumb_menu)) %>
-    <%= f.input :second_image, :as => :file, :label => 'Image de lieu 2', :hint => f.template.image_tag(f.object.second_image.url(:thumb_menu)) %>
-    <%= f.input :third_image, :as => :file, :label => 'Image de lieu 3', :hint => f.template.image_tag(f.object.third_image.url(:thumb_menu)) %>
-    <%= f.input :fourth_image, :as => :file, :label => 'Image de lieu 4', :hint => f.template.image_tag(f.object.fourth_image.url(:thumb_menu)) %>
-    <%= f.input :fifth_image, :as => :file, :label => 'Image de lieu 5', :hint => f.template.image_tag(f.object.fifth_image.url(:thumb_menu)) %>
+    <%= f.input :icon_list, :as => :file, :label => 'Image apparaissant dans dans la liste des lieux', :hint => (f.template.image_tag(f.object.icon_list.url(:thumb)) if f.object.icon_list?) %>
+    <%= f.input :remove_icon_list, as: :boolean, required: false, label: "Retirer l'icon" if f.object.icon_list? %>
+    <%= f.input :image, :as => :file, :label => 'Image du lieu 1', :hint => (f.template.image_tag(f.object.image.url(:thumb_menu)) if f.object.image?) %>
+    <%= f.input :remove_first_image, as: :boolean, required: false, label: "Retirer l'image 1" if f.object.image? %>
+    <%= f.input :second_image, :as => :file, :label => 'Image du lieu 2', :hint => (f.template.image_tag(f.object.second_image.url(:thumb_menu)) if f.object.second_image?) %>
+    <%= f.input :remove_second_image, as: :boolean, required: false, label: "Retirer l'image 2" if f.object.second_image? %>
+    <%= f.input :third_image, :as => :file, :label => 'Image du lieu 3', :hint => (f.template.image_tag(f.object.third_image.url(:thumb_menu)) if f.object.third_image?) %>
+    <%= f.input :remove_third_image, as: :boolean, required: false, label: "Retirer l'image 3" if f.object.third_image? %>
+    <%= f.input :fourth_image, :as => :file, :label => 'Image du lieu 4', :hint => (f.template.image_tag(f.object.fourth_image.url(:thumb_menu)) if f.object.fourth_image?) %>
+    <%= f.input :remove_fourth_image, as: :boolean, required: false, label: "Retirer l'image 4" if f.object.fourth_image? %>
+    <%= f.input :fifth_image, :as => :file, :label => 'Image du lieu 5', :hint => (f.template.image_tag(f.object.fifth_image.url(:thumb_menu)) if f.object.fifth_image?) %>
+    <%= f.input :remove_fifth_image, as: :boolean, required: false, label: "Retirer l'image 5" if f.object.fifth_image? %>
     <%= f.input :city, :label => 'Ville' %>
     <%= f.input :postal_code, :label => 'Code postal' %>
     <%= f.input :phone, :label => 'Numéro de téléphone' %>

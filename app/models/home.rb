@@ -31,6 +31,38 @@ class Home < ActiveRecord::Base
   has_attached_file :slider5, :styles => { 
     :thumb_menu => "150x150>"
   }
+
+  attr_writer :remove_slider1
+  attr_writer :remove_slider2
+  attr_writer :remove_slider3
+  attr_writer :remove_slider4
+  attr_writer :remove_slider5
+
+  def remove_slider1
+    @remove_slider1 || false
+  end
+
+  def remove_slider2
+    @remove_slider2 || false
+  end
+
+  def remove_slider3
+    @remove_slider3 || false
+  end
+
+  def remove_slider4
+    @remove_slider4 || false
+  end
+
+  def remove_slider5
+    @remove_slider5 || false
+  end
+
+  before_validation { self.slider1.clear if self.remove_slider1 == '1' }
+  before_validation { self.slider2.clear if self.remove_slider2 == '1' }
+  before_validation { self.slider3.clear if self.remove_slider3 == '1' }
+  before_validation { self.slider4.clear if self.remove_slider4 == '1' }
+  before_validation { self.slider5.clear if self.remove_slider5 == '1' }
   
   protected
  
