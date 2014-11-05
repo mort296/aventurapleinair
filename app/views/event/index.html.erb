@@ -10,7 +10,7 @@
   <% if @events %>
     <% e = 0 %>
     <% @events.each do |event| %>
-      <% if event.online == true && event.date_start.future? %>
+      <% if event.online == true && (event.date_start.future? || (event.date_end && event.date_end.future?)) %>
         <tr>
           <td><%= l event.date_start, format: :long %>
             <% if event.date_end %>
