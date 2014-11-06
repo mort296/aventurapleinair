@@ -27,6 +27,18 @@
 #socialFeed .panel.current {
 	display: block;
 }
+#instafeed {
+	max-height: 250px;
+	overflow-y: scroll; 
+}
+#instafeed a {
+	line-height: 0;
+}
+#instafeed img {
+	line-height: 0;
+	width: 113px;
+	margin: 2px 5px 0 0;
+}
 
 /*------------------------------*/
 
@@ -50,7 +62,7 @@
 			<li id="TwitterFeed" class="onglet">Twitter</li>
 			<li id="FacebookFeed" class="onglet">Facebook</li>
 			<li id="PinterestFeed" class="onglet current">Pinterest</li>
-			<!--li id="InstagramFeed" class="onglet">Instagram</li-->
+			<li id="InstagramFeed" class="onglet">Instagram</li>
 		</ul>
 		<div class="iframe-container">
 			<div class="panel selected TwitterFeed">
@@ -62,9 +74,9 @@
 			<div class="panel PinterestFeed current">
 				<a data-pin-do="embedUser" href="http://www.pinterest.com/aventuraqc/" data-pin-scale-width="75" data-pin-scale-height="250" data-pin-board-width="240">Visit Aventura Outdoors | Plein Air's profile on Pinterest.</a>
 			</div>
-			<!--div class="panel InstagramFeed">
+			<div class="panel InstagramFeed">
 				<div id="instafeed"></div> 
-			</div-->
+			</div>
 		</div>
 	</div>
 </li>
