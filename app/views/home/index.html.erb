@@ -1,3 +1,36 @@
+<style type="text/css">
+#socialFeed ul {
+	width: 100%;
+	min-height: 0;
+}
+#socialFeed ul li {
+	cursor: pointer;
+	float: left;
+	font-size: 14px;
+	padding: 3px 7px 10px;
+}
+.iframe-container {
+	background: #fff;
+	border: 1px solid #ccc;
+	clear: both;
+	padding: 10px;
+}
+#socialFeed ul li.current {
+	background: #fff;
+	color: #000;
+	border: 1px solid #ccc;
+	border-bottom: 0;
+}
+#socialFeed .panel {
+	display: none;
+}
+#socialFeed .panel.current {
+	display: block;
+}
+
+/*------------------------------*/
+
+</style>
 <section class="section about-us">
 	<ul class="first">
 		<li><%= @home.who_one_text.html_safe if @home.who_one_text %></li>
@@ -8,7 +41,33 @@
 		<% end %>
 	</div>
 	<ul>
-		<li><div class="fb-activity" data-site="http://aventurapleinair.com/" data-action="likes, recommends" data-width="200" data-colorscheme="light" data-header="true"></div></li>
+		<li>
+
+
+	<div id="socialFeed">
+		<h2>Médias sociaux</h2>
+		<ul>
+			<li id="TwitterFeed" class="onglet">Twitter</li>
+			<li id="FacebookFeed" class="onglet">Facebook</li>
+			<li id="PinterestFeed" class="onglet current">Pinterest</li>
+			<!--li id="InstagramFeed" class="onglet">Instagram</li-->
+		</ul>
+		<div class="iframe-container">
+			<div class="panel selected TwitterFeed">
+				<a class="twitter-timeline"  href="https://twitter.com/AventuraQuebec" data-widget-id="530024107463553025">Tweets de @AventuraQuebec</a>
+			</div>
+			<div class="panel FacebookFeed">
+				<div class="fb-like-box" data-href="https://www.facebook.com/aventurapleinair" data-colorscheme="dark" data-show-faces="false" data-header="false" data-stream="true" data-width="250" data-show-border="false"></div>
+			</div>
+			<div class="panel PinterestFeed current">
+				<a data-pin-do="embedUser" href="http://www.pinterest.com/aventuraqc/" data-pin-scale-width="75" data-pin-scale-height="250" data-pin-board-width="240">Visit Aventura Outdoors | Plein Air's profile on Pinterest.</a>
+			</div>
+			<!--div class="panel InstagramFeed">
+				<div id="instafeed"></div> 
+			</div-->
+		</div>
+	</div>
+</li>
 	</ul>
 </section>
 
