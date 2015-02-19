@@ -1,5 +1,5 @@
 ActiveAdmin.register TopActivity do
-	menu :label => "Texte du haut de la liste des Activités"
+	menu :label => "Top 5"
 	form :partial => "form"
 	
 	actions  :index, :edit, :update
