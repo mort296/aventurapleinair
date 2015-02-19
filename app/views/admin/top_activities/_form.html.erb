@@ -4,8 +4,8 @@
 <%= semantic_form_for [:admin, @top_activity], :html => { multipart: true } do |f| %>
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %>
-    <%= f.input :activities, :label => 'Activités du top 5', :as => :check_boxes %>
-    <%= f.input :locations, :label => 'Lieux du top 5', :as => :check_boxes %>
+    <%= f.input :activities, :label => 'Activités', :as => :check_boxes %>
+    <%= f.input :locations, :label => 'Lieux', :as => :check_boxes %>
   <% end %>
   <%= f.actions %>
   </div>
