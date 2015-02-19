@@ -39,6 +39,7 @@
   <div class="not-translated">
   <%= f.inputs 'Champs non traduits' do %>
     <%= f.input :website, :label => 'Site web de l\'activité' %>
+    <%= f.input :pub, :label => 'Pub' %>
     <%= f.input :icon_list, :as => :file, :label => 'Image apparaissant dans dans la liste des activités', :hint => (f.template.image_tag(f.object.icon_list.url(:thumb)) if f.object.icon_list?) %>
     <%= f.input :remove_icon_list, as: :boolean, required: false, label: "Retirer l'icon" if f.object.icon_list? %>
     <%= f.input :image, :as => :file, :label => 'Image de l\'activité 1', :hint => (f.template.image_tag(f.object.image.url(:thumb_menu)) if f.object.image?) %>

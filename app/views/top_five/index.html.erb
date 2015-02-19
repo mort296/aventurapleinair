@@ -5,13 +5,13 @@
 	  <% if @topActivities %>
 	    <% l = 0 %>
 	    <% @topActivities.each do |top| %>
-	      <% if top.activity.online == true %>
+	      <% if top.online == true %>
 
 	        <li>
-	          <% if top.activity.icon_list? %>
-	            <%= link_to image_tag(top.activity.icon_list.url(:thumb)) + '<span>'.html_safe + top.activity.name + '</span>'.html_safe, activity_url(if top.activity.slug then top.activity.slug else top.activity.id end) %></li>
+	          <% if top.icon_list? %>
+	            <%= link_to image_tag(top.icon_list.url(:thumb)) + '<span>'.html_safe + top.name + '</span>'.html_safe, activity_url(if top.slug then top.slug else top.id end) %></li>
 	          <% else %>
-	            <%= link_to '<span>'.html_safe + top.activity.name + '</span>'.html_safe, activity_url(if top.activity.slug then top.activity.slug else top.activity.id end) %></li>
+	            <%= link_to '<span>'.html_safe + top.name + '</span>'.html_safe, activity_url(if top.slug then top.slug else top.id end) %></li>
 	          <% end %>
 	        <% l = l + 1 %>
 	      <% end %>
@@ -30,13 +30,13 @@
 	  <% if @topLocations %>
 	    <% l = 0 %>
 	    <% @topLocations.each do |top| %>
-	      <% if top.location.online == true %>
+	      <% if top.online == true %>
 
-	        <li data-filter="<% if top.location.useful_infos %><% top.location.useful_infos.each do |useful_info| %><%= useful_info.id %> <%  end %><% end %>">
-	          <% if top.location.icon_list? %>
-	            <%= link_to image_tag(top.location.icon_list.url(:thumb)) + '<span>'.html_safe + top.location.name + '</span>'.html_safe, location_url(if top.location.slug then top.location.slug else top.location.id end) %></li>
+	        <li data-filter="<% if top.useful_infos %><% top.useful_infos.each do |useful_info| %><%= useful_info.id %> <%  end %><% end %>">
+	          <% if top.icon_list? %>
+	            <%= link_to image_tag(top.icon_list.url(:thumb)) + '<span>'.html_safe + top.name + '</span>'.html_safe, location_url(if top.slug then top.slug else top.id end) %></li>
 	          <% else %>
-	            <%= link_to '<span>'.html_safe + top.location.name + '</span>'.html_safe, location_url(if top.location.slug then top.location.slug else top.location.id end) %></li>
+	            <%= link_to '<span>'.html_safe + top.name + '</span>'.html_safe, location_url(if top.slug then top.slug else top.id end) %></li>
 	          <% end %>
 	        <% l = l + 1 %>
 	      <% end %>

@@ -58,6 +58,7 @@ class Activity < ActiveRecord::Base
   belongs_to :pub
 	has_and_belongs_to_many :events
 	has_and_belongs_to_many :locations
+  has_and_belongs_to_many :top_activities
   has_one :activity_rating
 
   after_save :create_missing_translations

@@ -5,6 +5,8 @@ class TopActivity < ActiveRecord::Base
   after_save :create_missing_translations
   
   belongs_to :pub
+  has_and_belongs_to_many :activities
+  has_and_belongs_to_many :locations
   
 	protected
  

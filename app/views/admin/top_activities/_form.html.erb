@@ -31,6 +31,10 @@
     <% end %>
   </div>
   <div class="not-translated">
+  <%= f.inputs 'Champs non traduits' do %>
+    <%= f.input :activities, :label => 'Activités du top 5', :as => :check_boxes %>
+    <%= f.input :locations, :label => 'Lieux du top 5', :as => :check_boxes %>
+  <% end %>
   <%= f.actions %>
   </div>
 <% end %>
